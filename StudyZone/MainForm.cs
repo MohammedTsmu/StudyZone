@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
+using Newtonsoft.Json;
 
 namespace StudyZone
 {
@@ -108,14 +108,14 @@ namespace StudyZone
         {
             try
             {
-                string filePath = Path.Combine(Application.LocalUserAppDataPath, "sessions.dat");
+                string filePath = Path.Combine(Application.LocalUserAppDataPath, "sessions.json");
                 Directory.CreateDirectory(Application.LocalUserAppDataPath);
 
-                using (FileStream fs = new FileStream(filePath, FileMode.Create))
-                {
-                    BinaryFormatter bf = new BinaryFormatter();
-                    bf.Serialize(fs, sessions);
-                }
+                // Serialize the sessions list to JSON
+                string json = JsonConvert.SerializeObject(sessions, Formatting.Indented);
+
+                // Write the JSON string to the file
+                File.WriteAllText(filePath, json);
             }
             catch (Exception ex)
             {
@@ -125,18 +125,18 @@ namespace StudyZone
 
         private void LoadSessions()
         {
-            string filePath = Path.Combine(Application.LocalUserAppDataPath, "sessions.dat");
+            string filePath = Path.Combine(Application.LocalUserAppDataPath, "sessions.json");
             sessions = new List<StudySession>();
 
             if (File.Exists(filePath))
             {
                 try
                 {
-                    using (FileStream fs = new FileStream(filePath, FileMode.Open))
-                    {
-                        BinaryFormatter bf = new BinaryFormatter();
-                        sessions = (List<StudySession>)bf.Deserialize(fs);
-                    }
+                    // Read the JSON string from the file
+                    string json = File.ReadAllText(filePath);
+
+                    // Deserialize the JSON string back to the sessions list
+                    sessions = JsonConvert.DeserializeObject<List<StudySession>>(json);
                 }
                 catch (Exception ex)
                 {
