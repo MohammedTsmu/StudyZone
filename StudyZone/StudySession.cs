@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudyZone
 {
-    //internal class StudySession
-    //{
-    //}
+    [Serializable]
     public class StudySession
     {
         public string SessionName { get; set; }

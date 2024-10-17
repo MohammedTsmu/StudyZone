@@ -208,7 +208,7 @@
             // 
             // cmbSessions
             // 
-            this.cmbSessions.Font = new System.Drawing.Font("Arial", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.cmbSessions.FormattingEnabled = true;
             this.cmbSessions.Location = new System.Drawing.Point(13, 12);
             this.cmbSessions.Name = "cmbSessions";
