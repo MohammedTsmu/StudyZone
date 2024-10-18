@@ -82,7 +82,7 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(206, 376);
+            this.btnStart.Location = new System.Drawing.Point(12, 376);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 37);
             this.btnStart.TabIndex = 2;
@@ -93,7 +93,7 @@
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Location = new System.Drawing.Point(287, 376);
+            this.btnStop.Location = new System.Drawing.Point(93, 376);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 37);
             this.btnStop.TabIndex = 3;
@@ -218,7 +218,7 @@
             this.cmbSessions.FormattingEnabled = true;
             this.cmbSessions.Location = new System.Drawing.Point(6, 21);
             this.cmbSessions.Name = "cmbSessions";
-            this.cmbSessions.Size = new System.Drawing.Size(218, 27);
+            this.cmbSessions.Size = new System.Drawing.Size(472, 27);
             this.cmbSessions.TabIndex = 12;
             this.cmbSessions.Text = "Select Session";
             this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
@@ -226,7 +226,7 @@
             // btnSaveSession
             // 
             this.btnSaveSession.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSession.Location = new System.Drawing.Point(230, 16);
+            this.btnSaveSession.Location = new System.Drawing.Point(506, 21);
             this.btnSaveSession.Name = "btnSaveSession";
             this.btnSaveSession.Size = new System.Drawing.Size(120, 37);
             this.btnSaveSession.TabIndex = 13;
@@ -240,9 +240,9 @@
             this.groupBox1.Controls.Add(this.studyMinuteslbl);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.nudStudySeconds);
-            this.groupBox1.Location = new System.Drawing.Point(206, 224);
+            this.groupBox1.Location = new System.Drawing.Point(12, 224);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(484, 70);
+            this.groupBox1.Size = new System.Drawing.Size(758, 70);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Study Duration";
@@ -253,9 +253,9 @@
             this.groupBox2.Controls.Add(this.nudBreakMinutes);
             this.groupBox2.Controls.Add(this.breakMinuteslbl);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(206, 300);
+            this.groupBox2.Location = new System.Drawing.Point(12, 300);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(484, 70);
+            this.groupBox2.Size = new System.Drawing.Size(758, 70);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Break Duration";
@@ -273,7 +273,7 @@
             // btnDeleteSession
             // 
             this.btnDeleteSession.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSession.Location = new System.Drawing.Point(356, 16);
+            this.btnDeleteSession.Location = new System.Drawing.Point(632, 21);
             this.btnDeleteSession.Name = "btnDeleteSession";
             this.btnDeleteSession.Size = new System.Drawing.Size(120, 37);
             this.btnDeleteSession.TabIndex = 17;
@@ -286,9 +286,9 @@
             this.groupBox3.Controls.Add(this.cmbSessions);
             this.groupBox3.Controls.Add(this.btnDeleteSession);
             this.groupBox3.Controls.Add(this.btnSaveSession);
-            this.groupBox3.Location = new System.Drawing.Point(206, 148);
+            this.groupBox3.Location = new System.Drawing.Point(12, 148);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(484, 70);
+            this.groupBox3.Size = new System.Drawing.Size(758, 70);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Study Sessions";
@@ -296,7 +296,7 @@
             // btnViewLogs
             // 
             this.btnViewLogs.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewLogs.Location = new System.Drawing.Point(368, 376);
+            this.btnViewLogs.Location = new System.Drawing.Point(174, 376);
             this.btnViewLogs.Name = "btnViewLogs";
             this.btnViewLogs.Size = new System.Drawing.Size(156, 37);
             this.btnViewLogs.TabIndex = 19;

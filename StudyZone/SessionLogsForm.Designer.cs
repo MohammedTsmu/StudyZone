@@ -137,6 +137,7 @@
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.dataGridViewLogs);
             this.Name = "SessionLogsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SessionLogsForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLogs)).EndInit();
             this.groupBox1.ResumeLayout(false);
