@@ -52,6 +52,7 @@
             this.btnViewLogs = new System.Windows.Forms.Button();
             this.btnTaskManager = new System.Windows.Forms.Button();
             this.lstTasks = new System.Windows.Forms.ListBox();
+            this.txtTaskDetails = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -321,16 +322,28 @@
             // 
             this.lstTasks.FormattingEnabled = true;
             this.lstTasks.ItemHeight = 16;
-            this.lstTasks.Location = new System.Drawing.Point(238, 433);
+            this.lstTasks.Location = new System.Drawing.Point(11, 419);
             this.lstTasks.Name = "lstTasks";
-            this.lstTasks.Size = new System.Drawing.Size(532, 84);
+            this.lstTasks.Size = new System.Drawing.Size(319, 84);
             this.lstTasks.TabIndex = 21;
+            this.lstTasks.SelectedIndexChanged += new System.EventHandler(this.lstTasks_SelectedIndexChanged);
+            // 
+            // txtTaskDetails
+            // 
+            this.txtTaskDetails.Location = new System.Drawing.Point(336, 419);
+            this.txtTaskDetails.Multiline = true;
+            this.txtTaskDetails.Name = "txtTaskDetails";
+            this.txtTaskDetails.ReadOnly = true;
+            this.txtTaskDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtTaskDetails.Size = new System.Drawing.Size(434, 84);
+            this.txtTaskDetails.TabIndex = 22;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.txtTaskDetails);
             this.Controls.Add(this.lstTasks);
             this.Controls.Add(this.btnTaskManager);
             this.Controls.Add(this.btnViewLogs);
@@ -384,6 +397,7 @@
         private System.Windows.Forms.Button btnViewLogs;
         private System.Windows.Forms.Button btnTaskManager;
         private System.Windows.Forms.ListBox lstTasks;
+        private System.Windows.Forms.TextBox txtTaskDetails;
     }
 }
 

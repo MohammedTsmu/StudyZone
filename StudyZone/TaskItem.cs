@@ -10,9 +10,22 @@ namespace StudyZone
         public bool IsCompleted { get; set; }
         public string SessionAssignment { get; set; } // Name of the assigned session, if any
 
+        //public override string ToString()
+        //{
+        //    return Title;
+        //}
         public override string ToString()
         {
-            return Title;
+            // Include the due date in the task display
+            if (DueDate.HasValue)
+            {
+                return $"{Title} (Due: {DueDate.Value.ToShortDateString()})";
+            }
+            else
+            {
+                return Title;
+            }
         }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 using Newtonsoft.Json;
@@ -357,6 +358,8 @@ namespace StudyZone
 
         private void DisplayTasksForSelectedSession()
         {
+            txtTaskDetails.Text = string.Empty; // Clear task details
+
             if (cmbSessions.SelectedItem is StudySession selectedSession)
             {
                 var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
@@ -364,8 +367,38 @@ namespace StudyZone
                 lstTasks.Items.Clear();
                 foreach (var task in tasksForSession)
                 {
-                    lstTasks.Items.Add(task.Title);
+                    lstTasks.Items.Add(task); // Add the TaskItem object directly
                 }
+            }
+        }
+
+
+        //private void lstTasks_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //}
+        private void lstTasks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lstTasks.SelectedItem is TaskItem selectedTask)
+            {
+                // Display task details
+                StringBuilder taskDetails = new StringBuilder();
+                taskDetails.AppendLine($"Title: {selectedTask.Title}");
+                taskDetails.AppendLine($"Description: {selectedTask.Description}");
+                if (selectedTask.DueDate.HasValue)
+                {
+                    taskDetails.AppendLine($"Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
+                }
+                else
+                {
+                    taskDetails.AppendLine("Due Date: N/A");
+                }
+                taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
+                txtTaskDetails.Text = taskDetails.ToString();
+            }
+            else
+            {
+                txtTaskDetails.Text = string.Empty;
             }
         }
 
