@@ -50,6 +50,8 @@
             this.btnDeleteSession = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnViewLogs = new System.Windows.Forms.Button();
+            this.btnTaskManager = new System.Windows.Forms.Button();
+            this.lstTasks = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -304,11 +306,33 @@
             this.btnViewLogs.UseVisualStyleBackColor = true;
             this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
             // 
+            // btnTaskManager
+            // 
+            this.btnTaskManager.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTaskManager.Location = new System.Drawing.Point(336, 376);
+            this.btnTaskManager.Name = "btnTaskManager";
+            this.btnTaskManager.Size = new System.Drawing.Size(156, 37);
+            this.btnTaskManager.TabIndex = 20;
+            this.btnTaskManager.Text = "Task Manager";
+            this.btnTaskManager.UseVisualStyleBackColor = true;
+            this.btnTaskManager.Click += new System.EventHandler(this.btnTaskManager_Click);
+            // 
+            // lstTasks
+            // 
+            this.lstTasks.FormattingEnabled = true;
+            this.lstTasks.ItemHeight = 16;
+            this.lstTasks.Location = new System.Drawing.Point(238, 433);
+            this.lstTasks.Name = "lstTasks";
+            this.lstTasks.Size = new System.Drawing.Size(532, 84);
+            this.lstTasks.TabIndex = 21;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.lstTasks);
+            this.Controls.Add(this.btnTaskManager);
             this.Controls.Add(this.btnViewLogs);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
@@ -358,6 +382,8 @@
         private System.Windows.Forms.Button btnDeleteSession;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnViewLogs;
+        private System.Windows.Forms.Button btnTaskManager;
+        private System.Windows.Forms.ListBox lstTasks;
     }
 }
 

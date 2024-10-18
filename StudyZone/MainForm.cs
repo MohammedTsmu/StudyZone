@@ -14,6 +14,7 @@ namespace StudyZone
         List<StudySession> sessions = new List<StudySession>();
         private SessionLog currentSessionLog;
         private List<SessionLog> sessionLogs = new List<SessionLog>();
+        private List<TaskItem> tasks = new List<TaskItem>();
 
 
         public MainForm()
@@ -21,6 +22,7 @@ namespace StudyZone
             InitializeComponent();
             LoadSessions();
             LoadSessionLogsFromFile();
+            LoadTasksFromFile();
         }
 
         private void timerPomodoro_Tick(object sender, EventArgs e)
@@ -165,8 +167,11 @@ namespace StudyZone
                 nudStudySeconds.Value = selectedSession.StudySeconds;
                 nudBreakMinutes.Value = selectedSession.BreakMinutes;
                 nudBreakSeconds.Value = selectedSession.BreakSeconds;
+
+                DisplayTasksForSelectedSession();
             }
         }
+
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -308,6 +313,60 @@ namespace StudyZone
         {
             SessionLogsForm logsForm = new SessionLogsForm(sessionLogs, SaveSessionLogsToFile);
             logsForm.ShowDialog();
+        }
+
+        private void LoadTasksFromFile()
+        {
+            string filePath = Path.Combine(Application.LocalUserAppDataPath, "tasks.json");
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    string json = File.ReadAllText(filePath);
+                    tasks = JsonConvert.DeserializeObject<List<TaskItem>>(json);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while loading tasks: " + ex.Message);
+                    tasks = new List<TaskItem>();
+                }
+            }
+        }
+
+        private void SaveTasksToFile()
+        {
+            try
+            {
+                string filePath = Path.Combine(Application.LocalUserAppDataPath, "tasks.json");
+                Directory.CreateDirectory(Application.LocalUserAppDataPath);
+
+                string json = JsonConvert.SerializeObject(tasks, Formatting.Indented);
+                File.WriteAllText(filePath, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving tasks: " + ex.Message);
+            }
+        }
+
+        private void btnTaskManager_Click(object sender, EventArgs e)
+        {
+            TaskManagerForm taskManagerForm = new TaskManagerForm(tasks, SaveTasksToFile, sessions);
+            taskManagerForm.ShowDialog();
+        }
+
+        private void DisplayTasksForSelectedSession()
+        {
+            if (cmbSessions.SelectedItem is StudySession selectedSession)
+            {
+                var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
+
+                lstTasks.Items.Clear();
+                foreach (var task in tasksForSession)
+                {
+                    lstTasks.Items.Add(task.Title);
+                }
+            }
         }
 
     }
