@@ -47,6 +47,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnDeleteSession = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -264,11 +265,23 @@
             this.label3.Text = "v1.0.0 / AGPL-3.0 license\r\nAll rights reserved © Dr. Mohammed Qasim.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // btnDeleteSession
+            // 
+            this.btnDeleteSession.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteSession.Location = new System.Drawing.Point(13, 87);
+            this.btnDeleteSession.Name = "btnDeleteSession";
+            this.btnDeleteSession.Size = new System.Drawing.Size(120, 37);
+            this.btnDeleteSession.TabIndex = 17;
+            this.btnDeleteSession.Text = "Delete Session";
+            this.btnDeleteSession.UseVisualStyleBackColor = true;
+            this.btnDeleteSession.Click += new System.EventHandler(this.btnDeleteSession_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.btnDeleteSession);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -314,6 +327,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnDeleteSession;
     }
 }
 

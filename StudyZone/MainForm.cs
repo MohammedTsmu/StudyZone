@@ -123,6 +123,51 @@ namespace StudyZone
             }
         }
 
+        private void btnDeleteSession_Click(object sender, EventArgs e)
+        {
+            if (cmbSessions.SelectedItem is StudySession selectedSession)
+            {
+
+                if (selectedSession.IsDefault)
+                {
+                    MessageBox.Show("Default sessions cannot be deleted.", "Delete Session", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Confirm deletion
+                var result = MessageBox.Show($"Are you sure you want to delete the session '{selectedSession.SessionName}'?",
+                                             "Delete Session",
+                                             MessageBoxButtons.YesNo,
+                                             MessageBoxIcon.Warning);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Remove the session from the list
+                    sessions.Remove(selectedSession);
+
+                    // Remove the session from the ComboBox
+                    cmbSessions.Items.Remove(selectedSession);
+
+                    // Save the updated sessions list
+                    SaveSessions();
+
+                    // Clear the session details from the input controls
+                    nudStudyMinutes.Value = nudStudyMinutes.Minimum;
+                    nudStudySeconds.Value = nudStudySeconds.Minimum;
+                    nudBreakMinutes.Value = nudBreakMinutes.Minimum;
+                    nudBreakSeconds.Value = nudBreakSeconds.Minimum;
+
+
+                    MessageBox.Show("Session deleted successfully.", "Delete Session", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a session to delete.", "Delete Session", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+
         private void LoadSessions()
         {
             string filePath = Path.Combine(Application.LocalUserAppDataPath, "sessions.json");
@@ -164,25 +209,28 @@ namespace StudyZone
                 StudyMinutes = 25,
                 StudySeconds = 0,
                 BreakMinutes = 5,
-                BreakSeconds = 0
+                BreakSeconds = 0,
+                IsDefault = true
             });
 
             sessions.Add(new StudySession
             {
-                SessionName = "60 Study / 10 Break",
+                SessionName = "Sixty 60/10",
                 StudyMinutes = 60,
                 StudySeconds = 20,
                 BreakMinutes = 10,
-                BreakSeconds = 0
+                BreakSeconds = 0,
+                IsDefault = true
             });
 
             sessions.Add(new StudySession
             {
-                SessionName = "90 Study / 20 Break",
+                SessionName = "Ninty 90/20",
                 StudyMinutes = 90,
                 StudySeconds = 0,
                 BreakMinutes = 20,
-                BreakSeconds = 0
+                BreakSeconds = 0,
+                IsDefault = true
             });
         }
     }
