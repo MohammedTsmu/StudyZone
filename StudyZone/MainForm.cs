@@ -215,7 +215,7 @@ namespace StudyZone
 
             sessions.Add(new StudySession
             {
-                SessionName = "Sixty 60/10",
+                SessionName = "Deep Focus 60/10",
                 StudyMinutes = 60,
                 StudySeconds = 20,
                 BreakMinutes = 10,
@@ -225,7 +225,7 @@ namespace StudyZone
 
             sessions.Add(new StudySession
             {
-                SessionName = "Ninty 90/20",
+                SessionName = "Super Focus 90/20",
                 StudyMinutes = 90,
                 StudySeconds = 0,
                 BreakMinutes = 20,
