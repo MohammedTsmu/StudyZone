@@ -48,19 +48,21 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDeleteSession = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakSeconds)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Welcomelbl
             // 
             this.Welcomelbl.AutoSize = true;
             this.Welcomelbl.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Welcomelbl.Location = new System.Drawing.Point(200, 50);
+            this.Welcomelbl.Location = new System.Drawing.Point(200, 30);
             this.Welcomelbl.Name = "Welcomelbl";
             this.Welcomelbl.Size = new System.Drawing.Size(343, 33);
             this.Welcomelbl.TabIndex = 0;
@@ -70,7 +72,7 @@
             // 
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(210, 119);
+            this.lblTimer.Location = new System.Drawing.Point(204, 99);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(122, 46);
             this.lblTimer.TabIndex = 1;
@@ -79,7 +81,7 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(206, 351);
+            this.btnStart.Location = new System.Drawing.Point(206, 376);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 37);
             this.btnStart.TabIndex = 2;
@@ -90,7 +92,7 @@
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Location = new System.Drawing.Point(288, 351);
+            this.btnStop.Location = new System.Drawing.Point(287, 376);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 37);
             this.btnStop.TabIndex = 3;
@@ -211,7 +213,7 @@
             // 
             this.cmbSessions.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.cmbSessions.FormattingEnabled = true;
-            this.cmbSessions.Location = new System.Drawing.Point(13, 12);
+            this.cmbSessions.Location = new System.Drawing.Point(6, 21);
             this.cmbSessions.Name = "cmbSessions";
             this.cmbSessions.Size = new System.Drawing.Size(218, 27);
             this.cmbSessions.TabIndex = 12;
@@ -221,7 +223,7 @@
             // btnSaveSession
             // 
             this.btnSaveSession.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSession.Location = new System.Drawing.Point(13, 44);
+            this.btnSaveSession.Location = new System.Drawing.Point(230, 16);
             this.btnSaveSession.Name = "btnSaveSession";
             this.btnSaveSession.Size = new System.Drawing.Size(120, 37);
             this.btnSaveSession.TabIndex = 13;
@@ -235,9 +237,9 @@
             this.groupBox1.Controls.Add(this.studyMinuteslbl);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.nudStudySeconds);
-            this.groupBox1.Location = new System.Drawing.Point(206, 179);
+            this.groupBox1.Location = new System.Drawing.Point(206, 224);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(484, 69);
+            this.groupBox1.Size = new System.Drawing.Size(484, 70);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Study Duration";
@@ -248,9 +250,9 @@
             this.groupBox2.Controls.Add(this.nudBreakMinutes);
             this.groupBox2.Controls.Add(this.breakMinuteslbl);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Location = new System.Drawing.Point(206, 254);
+            this.groupBox2.Location = new System.Drawing.Point(206, 300);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(484, 69);
+            this.groupBox2.Size = new System.Drawing.Size(484, 70);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Break Duration";
@@ -268,7 +270,7 @@
             // btnDeleteSession
             // 
             this.btnDeleteSession.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSession.Location = new System.Drawing.Point(13, 87);
+            this.btnDeleteSession.Location = new System.Drawing.Point(356, 16);
             this.btnDeleteSession.Name = "btnDeleteSession";
             this.btnDeleteSession.Size = new System.Drawing.Size(120, 37);
             this.btnDeleteSession.TabIndex = 17;
@@ -276,17 +278,27 @@
             this.btnDeleteSession.UseVisualStyleBackColor = true;
             this.btnDeleteSession.Click += new System.EventHandler(this.btnDeleteSession_Click);
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.cmbSessions);
+            this.groupBox3.Controls.Add(this.btnDeleteSession);
+            this.groupBox3.Controls.Add(this.btnSaveSession);
+            this.groupBox3.Location = new System.Drawing.Point(206, 148);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(484, 70);
+            this.groupBox3.TabIndex = 18;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Study Sessions";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
-            this.Controls.Add(this.btnDeleteSession);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnSaveSession);
-            this.Controls.Add(this.cmbSessions);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblTimer);
@@ -302,6 +314,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,6 +341,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDeleteSession;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 
