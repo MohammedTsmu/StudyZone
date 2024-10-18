@@ -12,11 +12,15 @@ namespace StudyZone
         int totalSeconds = 0;
         bool isStudyTime = true;
         List<StudySession> sessions = new List<StudySession>();
+        private SessionLog currentSessionLog;
+        private List<SessionLog> sessionLogs = new List<SessionLog>();
+
 
         public MainForm()
         {
             InitializeComponent();
             LoadSessions();
+            LoadSessionLogsFromFile();
         }
 
         private void timerPomodoro_Tick(object sender, EventArgs e)
@@ -31,11 +35,23 @@ namespace StudyZone
                 timerPomodoro.Stop();
                 if (isStudyTime)
                 {
+                    // Update study duration
+                    int studyTimeInSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
+                    currentSessionLog.StudyDuration += TimeSpan.FromSeconds(studyTimeInSeconds);
+
                     // Start Break
                     int breakDuration = ((int)nudBreakMinutes.Value * 60) + (int)nudBreakSeconds.Value;
+
+                    // Increment the number of breaks
+                    currentSessionLog.NumberOfBreaks++;
+
                     BreakForm breakForm = new BreakForm();
                     breakForm.StartBreak(breakDuration);
                     breakForm.ShowDialog();
+
+                    // Update break duration
+                    currentSessionLog.BreakDuration += TimeSpan.FromSeconds(breakDuration);
+
                     // After the break
                     totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
                     isStudyTime = true;
@@ -45,12 +61,16 @@ namespace StudyZone
             }
         }
 
+
         private void btnStart_Click(object sender, EventArgs e)
         {
             totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
             isStudyTime = true;
             UpdateTimerLabel();
             timerPomodoro.Start();
+
+            // Initialize current session log
+            currentSessionLog = new SessionLog();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -58,7 +78,57 @@ namespace StudyZone
             timerPomodoro.Stop();
             totalSeconds = 0;
             UpdateTimerLabel();
+
+            if (currentSessionLog != null)
+            {
+                SaveSessionLog(currentSessionLog);
+                currentSessionLog = null;
+            }
         }
+
+        private void SaveSessionLog(SessionLog log)
+        {
+            sessionLogs.Add(log);
+            SaveSessionLogsToFile();
+        }
+
+        private void SaveSessionLogsToFile()
+        {
+            try
+            {
+                string filePath = Path.Combine(Application.LocalUserAppDataPath, "sessionLogs.json");
+                Directory.CreateDirectory(Application.LocalUserAppDataPath);
+
+                // Serialize the sessionLogs list to JSON
+                string json = JsonConvert.SerializeObject(sessionLogs, Formatting.Indented);
+
+                // Write the JSON string to the file
+                File.WriteAllText(filePath, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving session logs: " + ex.Message);
+            }
+        }
+
+        private void LoadSessionLogsFromFile()
+        {
+            string filePath = Path.Combine(Application.LocalUserAppDataPath, "sessionLogs.json");
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    string json = File.ReadAllText(filePath);
+                    sessionLogs = JsonConvert.DeserializeObject<List<SessionLog>>(json);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while loading session logs: " + ex.Message);
+                    sessionLogs = new List<SessionLog>();
+                }
+            }
+        }
+
 
         private void UpdateTimerLabel()
         {
@@ -233,5 +303,12 @@ namespace StudyZone
                 IsDefault = true
             });
         }
+
+        private void btnViewLogs_Click(object sender, EventArgs e)
+        {
+            SessionLogsForm logsForm = new SessionLogsForm(sessionLogs, SaveSessionLogsToFile);
+            logsForm.ShowDialog();
+        }
+
     }
 }

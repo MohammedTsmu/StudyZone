@@ -64,6 +64,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionLog.cs" />
+    <Compile Include="SessionLogsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SessionLogsForm.Designer.cs">
+      <DependentUpon>SessionLogsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StudySession.cs" />
     <EmbeddedResource Include="BreakForm.resx">
       <DependentUpon>BreakForm.cs</DependentUpon>
@@ -80,6 +87,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SessionLogsForm.resx">
+      <DependentUpon>SessionLogsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

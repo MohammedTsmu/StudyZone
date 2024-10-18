@@ -49,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnDeleteSession = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnViewLogs = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -211,6 +212,8 @@
             // 
             // cmbSessions
             // 
+            this.cmbSessions.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmbSessions.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.cmbSessions.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.cmbSessions.FormattingEnabled = true;
             this.cmbSessions.Location = new System.Drawing.Point(6, 21);
@@ -290,11 +293,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Study Sessions";
             // 
+            // btnViewLogs
+            // 
+            this.btnViewLogs.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewLogs.Location = new System.Drawing.Point(368, 376);
+            this.btnViewLogs.Name = "btnViewLogs";
+            this.btnViewLogs.Size = new System.Drawing.Size(156, 37);
+            this.btnViewLogs.TabIndex = 19;
+            this.btnViewLogs.Text = "View Logs";
+            this.btnViewLogs.UseVisualStyleBackColor = true;
+            this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.btnViewLogs);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
@@ -342,6 +357,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnDeleteSession;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnViewLogs;
     }
 }
 
