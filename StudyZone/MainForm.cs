@@ -25,6 +25,7 @@ namespace StudyZone
             LoadSessions();
             LoadSessionLogsFromFile();
             LoadTasksFromFile();
+            CheckForDueTasks();
         }
 
         private void timerPomodoro_Tick(object sender, EventArgs e)
@@ -491,6 +492,39 @@ namespace StudyZone
                 txtTaskDetails.Text = string.Empty;
             }
         }
+
+        private void CheckForDueTasks()
+        {
+            DateTime today = DateTime.Today;
+            List<TaskItem> dueTasks = new List<TaskItem>();
+
+            foreach (var task in tasks)
+            {
+                if (task.IsCompleted)
+                    continue;
+
+                if (task.DueDate.HasValue)
+                {
+                    TimeSpan timeRemaining = task.DueDate.Value.Date - today;
+                    if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 1)
+                    {
+                        dueTasks.Add(task);
+                    }
+                }
+            }
+
+            if (dueTasks.Count > 0)
+            {
+                StringBuilder message = new StringBuilder();
+                message.AppendLine("You have tasks that are due soon or overdue:");
+                foreach (var task in dueTasks)
+                {
+                    message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
+                }
+                MessageBox.Show(message.ToString(), "Task Reminders", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
 
     }
 }
