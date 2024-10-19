@@ -4,8 +4,11 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Schema;
 using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace StudyZone
 {
@@ -619,19 +622,78 @@ namespace StudyZone
                 }
             }
 
+            //Notifications with tasks names.
+            //if (dueTasks.Count > 0)
+            //{
+            //    // Build the notification message
+            //    StringBuilder message = new StringBuilder();
+            //    message.AppendLine("Reminder: You have tasks that are due soon or overdue:");
+            //    foreach (var task in dueTasks)
+            //    {
+            //        message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
+            //    }
+
+            //    // Display a notification
+            //    ShowNotification(message.ToString());
+            //}
+
+            //////XmlSchemaSimpleContent notifications without tasks names.
+            //if (dueTasks.Count > 0)
+            //{
+            //    // Build the notification message
+            //    StringBuilder message = new StringBuilder();
+
+            //    if (dueTasks.Count == 1)
+            //    {
+            //        var task = dueTasks[0];
+            //        message.AppendLine($"Reminder: Task '{task.Title}' is due {(task.DueDate.Value.Date < DateTime.Today ? "today" : "soon")} (Due: {task.DueDate.Value.ToShortDateString()}).");
+            //    }
+            //    else
+            //    {
+            //        message.AppendLine($"You have {dueTasks.Count} tasks due soon or overdue.");
+            //    }
+
+            //    // Optionally, add more details if desired
+            //    //You can comment foreach{} part it if you want to keep the notifications simple
+            //    foreach (var task in dueTasks)
+            //    {
+            //        message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
+            //    }
+
+            //    // Display a notification
+            //    ShowNotification(message.ToString());
+            //}
+
+
+            //Limit the Number of Tasks Displayed
+            //If you decide to include task details, you might want to limit the number of tasks displayed to avoid overwhelming the user.
             if (dueTasks.Count > 0)
             {
                 // Build the notification message
                 StringBuilder message = new StringBuilder();
-                message.AppendLine("Reminder: You have tasks that are due soon or overdue:");
+
+                message.AppendLine("Tasks due soon or overdue:");
+
+                int maxTasksToShow = 5;
+                int tasksShown = 0;
+
                 foreach (var task in dueTasks)
                 {
+                    if (tasksShown >= maxTasksToShow)
+                    {
+                        message.AppendLine($"And {dueTasks.Count - maxTasksToShow} more...");
+                        break;
+                    }
+
                     message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
+                    tasksShown++;
                 }
 
                 // Display a notification
                 ShowNotification(message.ToString());
             }
+
+
         }
 
 
