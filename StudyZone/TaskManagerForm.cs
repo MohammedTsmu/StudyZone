@@ -114,27 +114,6 @@ namespace StudyZone
             LoadTasks();
         }
 
-
-        //private void DataGridViewTasks_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        //{
-
-        //}
-
-        // Other methods will go here
-        //private void LoadTasks()
-        //{
-        //    // Apply filters
-        //    List<TaskItem> displayedTasks = new List<TaskItem>();
-        //    foreach (var task in tasks)
-        //    {
-        //        if (!chkShowCompleted.Checked && task.IsCompleted)
-        //            continue;
-        //        displayedTasks.Add(task);
-        //    }
-
-        //    dataGridViewTasks.DataSource = null;
-        //    dataGridViewTasks.DataSource = displayedTasks;
-        //}
         private void LoadTasks()
         {
             // Apply filters
@@ -189,10 +168,6 @@ namespace StudyZone
             return sessionNames;
         }
 
-        //private void cmbSortBy_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
         private void cmbSortBy_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadTasks();
