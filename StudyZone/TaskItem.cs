@@ -26,6 +26,5 @@ namespace StudyZone
                 return Title;
             }
         }
-
     }
 }

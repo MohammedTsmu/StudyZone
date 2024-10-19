@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
@@ -356,6 +357,22 @@ namespace StudyZone
             taskManagerForm.ShowDialog();
         }
 
+        //private void DisplayTasksForSelectedSession()
+        //{
+        //    txtTaskDetails.Text = string.Empty; // Clear task details
+
+        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
+        //    {
+        //        var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
+
+        //        lstTasks.Items.Clear();
+        //        foreach (var task in tasksForSession)
+        //        {
+        //            lstTasks.Items.Add(task); // Add the TaskItem object directly
+        //        }
+        //    }
+        //}
+
         private void DisplayTasksForSelectedSession()
         {
             txtTaskDetails.Text = string.Empty; // Clear task details
@@ -364,10 +381,50 @@ namespace StudyZone
             {
                 var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
 
-                lstTasks.Items.Clear();
+                listViewTasks.Items.Clear();
                 foreach (var task in tasksForSession)
                 {
-                    lstTasks.Items.Add(task); // Add the TaskItem object directly
+                    ListViewItem item = new ListViewItem(task.Title);
+                    item.SubItems.Add(task.DueDate.HasValue ? task.DueDate.Value.ToShortDateString() : "N/A");
+                    item.SubItems.Add(GetTaskStatus(task));
+
+                    // Apply formatting based on due date
+                    ApplyTaskFormatting(item, task);
+
+                    item.Tag = task; // Store the TaskItem in the Tag property
+                    listViewTasks.Items.Add(item);
+                }
+            }
+        }
+
+        private string GetTaskStatus(TaskItem task)
+        {
+            if (task.IsCompleted)
+                return "Completed";
+            else
+                return "Pending";
+        }
+
+        private void ApplyTaskFormatting(ListViewItem item, TaskItem task)
+        {
+            if (task.DueDate.HasValue)
+            {
+                DateTime today = DateTime.Today;
+                TimeSpan timeRemaining = task.DueDate.Value.Date - today;
+
+                if (task.IsCompleted)
+                {
+                    // No special formatting for completed tasks
+                }
+                else if (timeRemaining.TotalDays < 0)
+                {
+                    // Overdue tasks - display in red
+                    item.ForeColor = Color.Red;
+                }
+                else if (timeRemaining.TotalDays <= 3)
+                {
+                    // Tasks due within 3 days - display in orange
+                    item.ForeColor = Color.Orange;
                 }
             }
         }
@@ -395,6 +452,39 @@ namespace StudyZone
                 }
                 taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
                 txtTaskDetails.Text = taskDetails.ToString();
+            }
+            else
+            {
+                txtTaskDetails.Text = string.Empty;
+            }
+        }
+
+        //private void listViewTasks_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //}
+        private void listViewTasks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewTasks.SelectedItems.Count > 0)
+            {
+                ListViewItem selectedItem = listViewTasks.SelectedItems[0];
+                if (selectedItem.Tag is TaskItem selectedTask)
+                {
+                    // Display task details
+                    StringBuilder taskDetails = new StringBuilder();
+                    taskDetails.AppendLine($"Title: {selectedTask.Title}");
+                    taskDetails.AppendLine($"Description: {selectedTask.Description}");
+                    if (selectedTask.DueDate.HasValue)
+                    {
+                        taskDetails.AppendLine($"Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
+                    }
+                    else
+                    {
+                        taskDetails.AppendLine("Due Date: N/A");
+                    }
+                    taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
+                    txtTaskDetails.Text = taskDetails.ToString();
+                }
             }
             else
             {

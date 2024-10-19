@@ -53,6 +53,10 @@
             this.btnTaskManager = new System.Windows.Forms.Button();
             this.lstTasks = new System.Windows.Forms.ListBox();
             this.txtTaskDetails = new System.Windows.Forms.TextBox();
+            this.listViewTasks = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -338,11 +342,43 @@
             this.txtTaskDetails.Size = new System.Drawing.Size(434, 84);
             this.txtTaskDetails.TabIndex = 22;
             // 
+            // listViewTasks
+            // 
+            this.listViewTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3});
+            this.listViewTasks.FullRowSelect = true;
+            this.listViewTasks.HideSelection = false;
+            this.listViewTasks.Location = new System.Drawing.Point(11, 12);
+            this.listViewTasks.Name = "listViewTasks";
+            this.listViewTasks.Size = new System.Drawing.Size(532, 130);
+            this.listViewTasks.TabIndex = 23;
+            this.listViewTasks.UseCompatibleStateImageBehavior = false;
+            this.listViewTasks.View = System.Windows.Forms.View.Details;
+            this.listViewTasks.SelectedIndexChanged += new System.EventHandler(this.listViewTasks_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Title";
+            this.columnHeader1.Width = 200;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Due Date";
+            this.columnHeader2.Width = 100;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Status";
+            this.columnHeader3.Width = 80;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.listViewTasks);
             this.Controls.Add(this.txtTaskDetails);
             this.Controls.Add(this.lstTasks);
             this.Controls.Add(this.btnTaskManager);
@@ -398,6 +434,10 @@
         private System.Windows.Forms.Button btnTaskManager;
         private System.Windows.Forms.ListBox lstTasks;
         private System.Windows.Forms.TextBox txtTaskDetails;
+        private System.Windows.Forms.ListView listViewTasks;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
     }
 }
 
