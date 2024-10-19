@@ -18,6 +18,8 @@ namespace StudyZone
         private List<SessionLog> sessionLogs = new List<SessionLog>();
         private List<TaskItem> tasks = new List<TaskItem>();
         private Timer notificationTimer;
+        private HashSet<TaskItem> notifiedTasks = new HashSet<TaskItem>();
+
 
 
         public MainForm()
@@ -38,6 +40,43 @@ namespace StudyZone
             //ShowNotification("Test notification from MainForm constructor.");
         }
 
+        //private void timerPomodoro_Tick(object sender, EventArgs e)
+        //{
+        //    if (totalSeconds > 0)
+        //    {
+        //        totalSeconds--;
+        //        UpdateTimerLabel();
+        //    }
+        //    else
+        //    {
+        //        timerPomodoro.Stop();
+        //        if (isStudyTime)
+        //        {
+        //            // Update study duration
+        //            int studyTimeInSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
+        //            currentSessionLog.StudyDuration += TimeSpan.FromSeconds(studyTimeInSeconds);
+
+        //            // Start Break
+        //            int breakDuration = ((int)nudBreakMinutes.Value * 60) + (int)nudBreakSeconds.Value;
+
+        //            // Increment the number of breaks
+        //            currentSessionLog.NumberOfBreaks++;
+
+        //            BreakForm breakForm = new BreakForm();
+        //            breakForm.StartBreak(breakDuration);
+        //            breakForm.ShowDialog();
+
+        //            // Update break duration
+        //            currentSessionLog.BreakDuration += TimeSpan.FromSeconds(breakDuration);
+
+        //            // After the break
+        //            totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
+        //            isStudyTime = true;
+        //            UpdateTimerLabel();
+        //            timerPomodoro.Start();
+        //        }
+        //    }
+        //}
         private void timerPomodoro_Tick(object sender, EventArgs e)
         {
             if (totalSeconds > 0)
@@ -60,6 +99,9 @@ namespace StudyZone
                     // Increment the number of breaks
                     currentSessionLog.NumberOfBreaks++;
 
+                    // Stop the notification timer during the break
+                    notificationTimer.Stop();
+
                     BreakForm breakForm = new BreakForm();
                     breakForm.StartBreak(breakDuration);
                     breakForm.ShowDialog();
@@ -72,11 +114,28 @@ namespace StudyZone
                     isStudyTime = true;
                     UpdateTimerLabel();
                     timerPomodoro.Start();
+
+                    // Restart the notification timer
+                    notificationTimer.Start();
                 }
             }
         }
 
 
+
+        //private void btnStart_Click(object sender, EventArgs e)
+        //{
+        //    totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
+        //    isStudyTime = true;
+        //    UpdateTimerLabel();
+        //    timerPomodoro.Start();
+
+        //    // Initialize current session log
+        //    currentSessionLog = new SessionLog();
+
+        //    // Start notification timer
+        //    notificationTimer.Start();
+        //}
         private void btnStart_Click(object sender, EventArgs e)
         {
             totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
@@ -87,9 +146,13 @@ namespace StudyZone
             // Initialize current session log
             currentSessionLog = new SessionLog();
 
+            // Clear the notified tasks list
+            notifiedTasks.Clear();
+
             // Start notification timer
             notificationTimer.Start();
         }
+
 
         private void btnStop_Click(object sender, EventArgs e)
         {
@@ -498,6 +561,40 @@ namespace StudyZone
             CheckForDueTasksDuringSession();
         }
 
+        //private void CheckForDueTasksDuringSession()
+        //{
+        //    DateTime today = DateTime.Today;
+        //    List<TaskItem> dueTasks = new List<TaskItem>();
+
+        //    foreach (var task in tasks)
+        //    {
+        //        if (task.IsCompleted)
+        //            continue;
+
+        //        if (task.DueDate.HasValue)
+        //        {
+        //            TimeSpan timeRemaining = task.DueDate.Value.Date - today;
+        //            if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 1)
+        //            {
+        //                dueTasks.Add(task);
+        //            }
+        //        }
+        //    }
+
+        //    if (dueTasks.Count > 0)
+        //    {
+        //        // Build the notification message
+        //        StringBuilder message = new StringBuilder();
+        //        message.AppendLine("Reminder: You have tasks that are due soon or overdue:");
+        //        foreach (var task in dueTasks)
+        //        {
+        //            message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
+        //        }
+
+        //        // Display a notification
+        //        ShowNotification(message.ToString());
+        //    }
+        //}
         private void CheckForDueTasksDuringSession()
         {
             DateTime today = DateTime.Today;
@@ -508,12 +605,16 @@ namespace StudyZone
                 if (task.IsCompleted)
                     continue;
 
+                if (notifiedTasks.Contains(task))
+                    continue; // Skip tasks that have already been notified
+
                 if (task.DueDate.HasValue)
                 {
                     TimeSpan timeRemaining = task.DueDate.Value.Date - today;
                     if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 1)
                     {
                         dueTasks.Add(task);
+                        notifiedTasks.Add(task); // Mark task as notified
                     }
                 }
             }
@@ -534,6 +635,7 @@ namespace StudyZone
         }
 
 
+
         private void ShowNotification(string message)
         {
             // Display a balloon tip notification
@@ -542,5 +644,22 @@ namespace StudyZone
             notifyIcon.BalloonTipText = message;
             notifyIcon.ShowBalloonTip(10000); // Display for 5 seconds
         }
+
+
+        //Double check if you use it or remove it please
+        //Double check if you use it or remove it please
+        //Double check if you use it or remove it please
+        private void TaskCompleted(TaskItem completedTask)
+        {
+            // Remove the task from notifiedTasks if it exists
+            if (notifiedTasks.Contains(completedTask))
+            {
+                notifiedTasks.Remove(completedTask);
+            }
+
+            // Save tasks to file
+            SaveTasksToFile();
+        }
+
     }
 }
