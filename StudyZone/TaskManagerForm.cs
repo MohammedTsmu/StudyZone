@@ -21,6 +21,13 @@ namespace StudyZone
             dataGridViewTasks.DataBindingComplete += DataGridViewTasks_DataBindingComplete;
             chkShowCompleted.CheckedChanged += chkShowCompleted_CheckedChanged;
 
+            //Sorting
+            //Initialize cmbSortBy in the Constructor:
+            cmbSortBy.Items.AddRange(new string[] { "Title", "Due Date", "Status" });
+            cmbSortBy.SelectedIndex = 0; // Default to 'Title'
+
+            
+
             LoadTasks();
         }
 
@@ -114,6 +121,20 @@ namespace StudyZone
         //}
 
         // Other methods will go here
+        //private void LoadTasks()
+        //{
+        //    // Apply filters
+        //    List<TaskItem> displayedTasks = new List<TaskItem>();
+        //    foreach (var task in tasks)
+        //    {
+        //        if (!chkShowCompleted.Checked && task.IsCompleted)
+        //            continue;
+        //        displayedTasks.Add(task);
+        //    }
+
+        //    dataGridViewTasks.DataSource = null;
+        //    dataGridViewTasks.DataSource = displayedTasks;
+        //}
         private void LoadTasks()
         {
             // Apply filters
@@ -125,9 +146,24 @@ namespace StudyZone
                 displayedTasks.Add(task);
             }
 
+            // Apply sorting
+            switch (cmbSortBy.SelectedItem as string)
+            {
+                case "Title":
+                    displayedTasks.Sort((x, y) => x.Title.CompareTo(y.Title));
+                    break;
+                case "Due Date":
+                    displayedTasks.Sort((x, y) => Nullable.Compare(x.DueDate, y.DueDate));
+                    break;
+                case "Status":
+                    displayedTasks.Sort((x, y) => x.IsCompleted.CompareTo(y.IsCompleted));
+                    break;
+            }
+
             dataGridViewTasks.DataSource = null;
             dataGridViewTasks.DataSource = displayedTasks;
         }
+
 
         private void DataGridViewTasks_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -153,5 +189,13 @@ namespace StudyZone
             return sessionNames;
         }
 
+        //private void cmbSortBy_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+
+        //}
+        private void cmbSortBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadTasks();
+        }
     }
 }

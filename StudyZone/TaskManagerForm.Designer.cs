@@ -34,6 +34,8 @@
             this.btnDeleteTask = new System.Windows.Forms.Button();
             this.btnMarkCompleted = new System.Windows.Forms.Button();
             this.chkShowCompleted = new System.Windows.Forms.CheckBox();
+            this.cmbSortBy = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,11 +106,31 @@
             this.chkShowCompleted.UseVisualStyleBackColor = true;
             this.chkShowCompleted.CheckedChanged += new System.EventHandler(this.chkShowCompleted_CheckedChanged);
             // 
+            // cmbSortBy
+            // 
+            this.cmbSortBy.FormattingEnabled = true;
+            this.cmbSortBy.Location = new System.Drawing.Point(474, 405);
+            this.cmbSortBy.Name = "cmbSortBy";
+            this.cmbSortBy.Size = new System.Drawing.Size(121, 24);
+            this.cmbSortBy.TabIndex = 6;
+            this.cmbSortBy.SelectedIndexChanged += new System.EventHandler(this.cmbSortBy_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(410, 405);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Sort By:";
+            // 
             // TaskManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbSortBy);
             this.Controls.Add(this.chkShowCompleted);
             this.Controls.Add(this.btnMarkCompleted);
             this.Controls.Add(this.btnDeleteTask);
@@ -132,5 +154,7 @@
         private System.Windows.Forms.Button btnDeleteTask;
         private System.Windows.Forms.Button btnMarkCompleted;
         private System.Windows.Forms.CheckBox chkShowCompleted;
+        private System.Windows.Forms.ComboBox cmbSortBy;
+        private System.Windows.Forms.Label label1;
     }
 }
