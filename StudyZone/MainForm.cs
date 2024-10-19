@@ -17,6 +17,7 @@ namespace StudyZone
         private SessionLog currentSessionLog;
         private List<SessionLog> sessionLogs = new List<SessionLog>();
         private List<TaskItem> tasks = new List<TaskItem>();
+        private Timer notificationTimer;
 
 
         public MainForm()
@@ -26,6 +27,15 @@ namespace StudyZone
             LoadSessionLogsFromFile();
             LoadTasksFromFile();
             CheckForDueTasks();
+
+            // Initialize notification timer
+            notificationTimer = new Timer();
+            //notificationTimer.Interval = 600000; // Set interval to 10 minutes (600,000 milliseconds)
+            notificationTimer.Interval = 10000; // Small Testing interval to test the application it is for developer only will be removed once everything checked.
+            notificationTimer.Tick += NotificationTimer_Tick;
+
+            // Test the notification
+            //ShowNotification("Test notification from MainForm constructor.");
         }
 
         private void timerPomodoro_Tick(object sender, EventArgs e)
@@ -76,6 +86,9 @@ namespace StudyZone
 
             // Initialize current session log
             currentSessionLog = new SessionLog();
+
+            // Start notification timer
+            notificationTimer.Start();
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -89,7 +102,11 @@ namespace StudyZone
                 SaveSessionLog(currentSessionLog);
                 currentSessionLog = null;
             }
+
+            // Stop notification timer
+            notificationTimer.Stop();
         }
+
 
         private void SaveSessionLog(SessionLog log)
         {
@@ -358,22 +375,6 @@ namespace StudyZone
             taskManagerForm.ShowDialog();
         }
 
-        //private void DisplayTasksForSelectedSession()
-        //{
-        //    txtTaskDetails.Text = string.Empty; // Clear task details
-
-        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
-        //    {
-        //        var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
-
-        //        lstTasks.Items.Clear();
-        //        foreach (var task in tasksForSession)
-        //        {
-        //            lstTasks.Items.Add(task); // Add the TaskItem object directly
-        //        }
-        //    }
-        //}
-
         private void DisplayTasksForSelectedSession()
         {
             txtTaskDetails.Text = string.Empty; // Clear task details
@@ -431,39 +432,6 @@ namespace StudyZone
         }
 
 
-        //private void lstTasks_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
-        private void lstTasks_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (lstTasks.SelectedItem is TaskItem selectedTask)
-            {
-                // Display task details
-                StringBuilder taskDetails = new StringBuilder();
-                taskDetails.AppendLine($"Title: {selectedTask.Title}");
-                taskDetails.AppendLine($"Description: {selectedTask.Description}");
-                if (selectedTask.DueDate.HasValue)
-                {
-                    taskDetails.AppendLine($"Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
-                }
-                else
-                {
-                    taskDetails.AppendLine("Due Date: N/A");
-                }
-                taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
-                txtTaskDetails.Text = taskDetails.ToString();
-            }
-            else
-            {
-                txtTaskDetails.Text = string.Empty;
-            }
-        }
-
-        //private void listViewTasks_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-
-        //}
         private void listViewTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewTasks.SelectedItems.Count > 0)
@@ -525,6 +493,54 @@ namespace StudyZone
             }
         }
 
+        private void NotificationTimer_Tick(object sender, EventArgs e)
+        {
+            CheckForDueTasksDuringSession();
+        }
 
+        private void CheckForDueTasksDuringSession()
+        {
+            DateTime today = DateTime.Today;
+            List<TaskItem> dueTasks = new List<TaskItem>();
+
+            foreach (var task in tasks)
+            {
+                if (task.IsCompleted)
+                    continue;
+
+                if (task.DueDate.HasValue)
+                {
+                    TimeSpan timeRemaining = task.DueDate.Value.Date - today;
+                    if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 1)
+                    {
+                        dueTasks.Add(task);
+                    }
+                }
+            }
+
+            if (dueTasks.Count > 0)
+            {
+                // Build the notification message
+                StringBuilder message = new StringBuilder();
+                message.AppendLine("Reminder: You have tasks that are due soon or overdue:");
+                foreach (var task in dueTasks)
+                {
+                    message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
+                }
+
+                // Display a notification
+                ShowNotification(message.ToString());
+            }
+        }
+
+
+        private void ShowNotification(string message)
+        {
+            // Display a balloon tip notification
+            notifyIcon.Visible = true; // Ensure the icon is visible
+            notifyIcon.BalloonTipTitle = "StudyZone Reminder";
+            notifyIcon.BalloonTipText = message;
+            notifyIcon.ShowBalloonTip(10000); // Display for 5 seconds
+        }
     }
 }

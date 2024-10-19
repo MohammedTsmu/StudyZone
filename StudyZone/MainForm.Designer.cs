@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
@@ -51,12 +52,12 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnViewLogs = new System.Windows.Forms.Button();
             this.btnTaskManager = new System.Windows.Forms.Button();
-            this.lstTasks = new System.Windows.Forms.ListBox();
             this.txtTaskDetails = new System.Windows.Forms.TextBox();
             this.listViewTasks = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -322,16 +323,6 @@
             this.btnTaskManager.UseVisualStyleBackColor = true;
             this.btnTaskManager.Click += new System.EventHandler(this.btnTaskManager_Click);
             // 
-            // lstTasks
-            // 
-            this.lstTasks.FormattingEnabled = true;
-            this.lstTasks.ItemHeight = 16;
-            this.lstTasks.Location = new System.Drawing.Point(11, 419);
-            this.lstTasks.Name = "lstTasks";
-            this.lstTasks.Size = new System.Drawing.Size(319, 84);
-            this.lstTasks.TabIndex = 21;
-            this.lstTasks.SelectedIndexChanged += new System.EventHandler(this.lstTasks_SelectedIndexChanged);
-            // 
             // txtTaskDetails
             // 
             this.txtTaskDetails.Location = new System.Drawing.Point(336, 419);
@@ -350,9 +341,9 @@
             this.columnHeader3});
             this.listViewTasks.FullRowSelect = true;
             this.listViewTasks.HideSelection = false;
-            this.listViewTasks.Location = new System.Drawing.Point(11, 12);
+            this.listViewTasks.Location = new System.Drawing.Point(12, 419);
             this.listViewTasks.Name = "listViewTasks";
-            this.listViewTasks.Size = new System.Drawing.Size(532, 130);
+            this.listViewTasks.Size = new System.Drawing.Size(364, 130);
             this.listViewTasks.TabIndex = 23;
             this.listViewTasks.UseCompatibleStateImageBehavior = false;
             this.listViewTasks.View = System.Windows.Forms.View.Details;
@@ -373,6 +364,11 @@
             this.columnHeader3.Text = "Status";
             this.columnHeader3.Width = 80;
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Visible = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -380,7 +376,6 @@
             this.ClientSize = new System.Drawing.Size(782, 553);
             this.Controls.Add(this.listViewTasks);
             this.Controls.Add(this.txtTaskDetails);
-            this.Controls.Add(this.lstTasks);
             this.Controls.Add(this.btnTaskManager);
             this.Controls.Add(this.btnViewLogs);
             this.Controls.Add(this.groupBox3);
@@ -432,12 +427,12 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnViewLogs;
         private System.Windows.Forms.Button btnTaskManager;
-        private System.Windows.Forms.ListBox lstTasks;
         private System.Windows.Forms.TextBox txtTaskDetails;
         private System.Windows.Forms.ListView listViewTasks;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 
