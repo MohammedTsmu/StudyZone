@@ -404,6 +404,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Study Zone";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).EndInit();

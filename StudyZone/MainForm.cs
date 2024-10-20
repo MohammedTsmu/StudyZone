@@ -1066,12 +1066,43 @@ namespace StudyZone
             notifyIcon.Visible = false;
         }
 
+        
         private void Exit_Click(object sender, EventArgs e)
         {
+            // Trigger the form closing event
             // Close the application
             this.Close();
         }
 
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Check if a study session is active
+            if (timerPomodoro.Enabled)
+            {
+                // Prompt the user with a warning message
+                var result = MessageBox.Show("A study session is currently running. Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (result == DialogResult.No)
+                {
+                    // Cancel the close action
+                    e.Cancel = true;
+                }
+                else
+                {
+                    // Stop the timers and allow closing
+                    timerPomodoro.Stop();
+                    notificationTimer.Stop();
+                    reminderTimer?.Stop();
+                    notifyIcon.Visible = false;
+                }
+            }
+            else
+            {
+                // Perform any cleanup if necessary
+                notifyIcon.Visible = false;
+            }
+        }
 
     }
 }
