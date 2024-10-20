@@ -9,9 +9,17 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using IWshRuntimeLibrary;
+
+
 
 namespace StudyZone
 {
+    //public class AppSettings
+    //{
+    //    public bool StartWithWindows { get; set; }
+    //}
+
     public partial class MainForm : Form
     {
         int totalSeconds = 0;
@@ -39,6 +47,7 @@ namespace StudyZone
             LoadSessionLogsFromFile();
             LoadTasksFromFile();
             LoadRemindersFromFile();
+            LoadSettings();
             InitializeTrayMenu();
             CheckForDueTasks();
 
@@ -207,7 +216,7 @@ namespace StudyZone
                 string json = JsonConvert.SerializeObject(sessionLogs, Formatting.Indented);
 
                 // Write the JSON string to the file
-                File.WriteAllText(filePath, json);
+                System.IO.File.WriteAllText(filePath, json);
             }
             catch (Exception ex)
             {
@@ -218,11 +227,11 @@ namespace StudyZone
         private void LoadSessionLogsFromFile()
         {
             string filePath = Path.Combine(Application.LocalUserAppDataPath, "sessionLogs.json");
-            if (File.Exists(filePath))
+            if (System.IO.File.Exists(filePath))
             {
                 try
                 {
-                    string json = File.ReadAllText(filePath);
+                    string json = System.IO.File.ReadAllText(filePath);
                     sessionLogs = JsonConvert.DeserializeObject<List<SessionLog>>(json);
                 }
                 catch (Exception ex)
@@ -292,7 +301,7 @@ namespace StudyZone
                 string json = JsonConvert.SerializeObject(sessions, Formatting.Indented);
 
                 // Write the JSON string to the file
-                File.WriteAllText(filePath, json);
+                System.IO.File.WriteAllText(filePath, json);
             }
             catch (Exception ex)
             {
@@ -350,12 +359,12 @@ namespace StudyZone
             string filePath = Path.Combine(Application.LocalUserAppDataPath, "sessions.json");
             sessions = new List<StudySession>();
 
-            if (File.Exists(filePath))
+            if (System.IO.File.Exists(filePath))
             {
                 try
                 {
                     // Read the JSON string from the file
-                    string json = File.ReadAllText(filePath);
+                    string json = System.IO.File.ReadAllText(filePath);
 
                     // Deserialize the JSON string back to the sessions list
                     sessions = JsonConvert.DeserializeObject<List<StudySession>>(json);
@@ -420,11 +429,11 @@ namespace StudyZone
         private void LoadTasksFromFile()
         {
             string filePath = Path.Combine(Application.LocalUserAppDataPath, "tasks.json");
-            if (File.Exists(filePath))
+            if (System.IO.File.Exists(filePath))
             {
                 try
                 {
-                    string json = File.ReadAllText(filePath);
+                    string json = System.IO.File.ReadAllText(filePath);
                     tasks = JsonConvert.DeserializeObject<List<TaskItem>>(json);
                 }
                 catch (Exception ex)
@@ -443,7 +452,7 @@ namespace StudyZone
                 Directory.CreateDirectory(Application.LocalUserAppDataPath);
 
                 string json = JsonConvert.SerializeObject(tasks, Formatting.Indented);
-                File.WriteAllText(filePath, json);
+                System.IO.File.WriteAllText(filePath, json);
             }
             catch (Exception ex)
             {
@@ -751,11 +760,11 @@ namespace StudyZone
         private void LoadRemindersFromFile()
         {
             string filePath = Path.Combine(Application.LocalUserAppDataPath, "reminders.json");
-            if (File.Exists(filePath))
+            if (System.IO.File.Exists(filePath))
             {
                 try
                 {
-                    string json = File.ReadAllText(filePath);
+                    string json = System.IO.File.ReadAllText(filePath);
                     reminders = JsonConvert.DeserializeObject<List<StudyReminder>>(json);
                 }
                 catch (Exception ex)
@@ -774,7 +783,7 @@ namespace StudyZone
                 Directory.CreateDirectory(Application.LocalUserAppDataPath);
 
                 string json = JsonConvert.SerializeObject(reminders, Formatting.Indented);
-                File.WriteAllText(filePath, json);
+                System.IO.File.WriteAllText(filePath, json);
             }
             catch (Exception ex)
             {
@@ -1092,6 +1101,115 @@ namespace StudyZone
                 notifyIcon.Visible = false;
             }
         }
+
+        private void LoadSettings()
+        {
+            // Load the 'Start with Windows' setting
+            string filePath = Path.Combine(Application.LocalUserAppDataPath, "settings.json");
+            if (System.IO.File.Exists(filePath))
+            {
+                try
+                {
+                    string json = System.IO.File.ReadAllText(filePath);
+                    var settings = JsonConvert.DeserializeObject<AppSettings>(json);
+                    chkStartWithWindows.Checked = settings.StartWithWindows;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while loading settings: " + ex.Message);
+                }
+            }
+        }
+
+        //public class AppSettings
+        //{
+        //    public bool StartWithWindows { get; set; }
+        //}
+
+        //private void chkStartWithWindows_CheckedChanged(object sender, EventArgs e)
+        //{
+
+        //}
+        private void chkStartWithWindows_CheckedChanged(object sender, EventArgs e)
+        {
+            bool startWithWindows = chkStartWithWindows.Checked;
+            SaveSettings(startWithWindows);
+
+            if (startWithWindows)
+            {
+                EnableStartup();
+            }
+            else
+            {
+                DisableStartup();
+            }
+        }
+
+        private void SaveSettings(bool startWithWindows)
+        {
+            try
+            {
+                string filePath = Path.Combine(Application.LocalUserAppDataPath, "settings.json");
+                var settings = new AppSettings
+                {
+                    StartWithWindows = startWithWindows
+                };
+                string json = JsonConvert.SerializeObject(settings, Formatting.Indented);
+                System.IO.File.WriteAllText(filePath, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving settings: " + ex.Message);
+            }
+        }
+
+
+        private void EnableStartup()
+        {
+            try
+            {
+                string startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+                string shortcutPath = Path.Combine(startupFolderPath, "StudyZone.lnk");
+
+                // Create a shortcut to the application
+                CreateShortcut(shortcutPath, Application.ExecutablePath, "StudyZone");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while enabling startup: " + ex.Message);
+            }
+        }
+
+
+        private void DisableStartup()
+        {
+            try
+            {
+                string startupFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+                string shortcutPath = Path.Combine(startupFolderPath, "StudyZone.lnk");
+
+                if (System.IO.File.Exists(shortcutPath))
+                {
+                    System.IO.File.Delete(shortcutPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while disabling startup: " + ex.Message);
+            }
+        }
+
+        private void CreateShortcut(string shortcutPath, string targetPath, string shortcutDescription)
+        {
+            WshShell shell = new WshShell();
+            IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutPath);
+            shortcut.TargetPath = targetPath;
+            shortcut.WorkingDirectory = Application.StartupPath;
+            shortcut.Description = shortcutDescription;
+            shortcut.Save();
+        }
+
+
 
 
 

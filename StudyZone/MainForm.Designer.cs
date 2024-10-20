@@ -59,6 +59,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.btnReminders = new System.Windows.Forms.Button();
+            this.chkStartWithWindows = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -383,11 +384,23 @@
             this.btnReminders.UseVisualStyleBackColor = true;
             this.btnReminders.Click += new System.EventHandler(this.btnReminders_Click);
             // 
+            // chkStartWithWindows
+            // 
+            this.chkStartWithWindows.AutoSize = true;
+            this.chkStartWithWindows.Location = new System.Drawing.Point(483, 108);
+            this.chkStartWithWindows.Name = "chkStartWithWindows";
+            this.chkStartWithWindows.Size = new System.Drawing.Size(251, 20);
+            this.chkStartWithWindows.TabIndex = 25;
+            this.chkStartWithWindows.Text = "Start StudyZone when Windows starts";
+            this.chkStartWithWindows.UseVisualStyleBackColor = true;
+            this.chkStartWithWindows.CheckedChanged += new System.EventHandler(this.chkStartWithWindows_CheckedChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.chkStartWithWindows);
             this.Controls.Add(this.btnReminders);
             this.Controls.Add(this.listViewTasks);
             this.Controls.Add(this.txtTaskDetails);
@@ -451,6 +464,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.Button btnReminders;
+        private System.Windows.Forms.CheckBox chkStartWithWindows;
     }
 }
 
