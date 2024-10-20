@@ -60,6 +60,8 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.btnReminders = new System.Windows.Forms.Button();
             this.chkStartWithWindows = new System.Windows.Forms.CheckBox();
+            this.btnMiniTimer = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -103,7 +105,7 @@
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Location = new System.Drawing.Point(93, 376);
+            this.btnStop.Location = new System.Drawing.Point(174, 376);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 37);
             this.btnStop.TabIndex = 3;
@@ -306,7 +308,7 @@
             // btnViewLogs
             // 
             this.btnViewLogs.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewLogs.Location = new System.Drawing.Point(174, 376);
+            this.btnViewLogs.Location = new System.Drawing.Point(255, 376);
             this.btnViewLogs.Name = "btnViewLogs";
             this.btnViewLogs.Size = new System.Drawing.Size(156, 37);
             this.btnViewLogs.TabIndex = 19;
@@ -317,7 +319,7 @@
             // btnTaskManager
             // 
             this.btnTaskManager.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaskManager.Location = new System.Drawing.Point(336, 376);
+            this.btnTaskManager.Location = new System.Drawing.Point(417, 376);
             this.btnTaskManager.Name = "btnTaskManager";
             this.btnTaskManager.Size = new System.Drawing.Size(156, 37);
             this.btnTaskManager.TabIndex = 20;
@@ -395,11 +397,34 @@
             this.chkStartWithWindows.UseVisualStyleBackColor = true;
             this.chkStartWithWindows.CheckedChanged += new System.EventHandler(this.chkStartWithWindows_CheckedChanged);
             // 
+            // btnMiniTimer
+            // 
+            this.btnMiniTimer.Location = new System.Drawing.Point(570, 30);
+            this.btnMiniTimer.Name = "btnMiniTimer";
+            this.btnMiniTimer.Size = new System.Drawing.Size(125, 23);
+            this.btnMiniTimer.TabIndex = 26;
+            this.btnMiniTimer.Text = "Mini Timer";
+            this.btnMiniTimer.UseVisualStyleBackColor = true;
+            this.btnMiniTimer.Click += new System.EventHandler(this.btnMiniTimer_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPause.Location = new System.Drawing.Point(93, 376);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(75, 37);
+            this.btnPause.TabIndex = 27;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.btnPause);
+            this.Controls.Add(this.btnMiniTimer);
             this.Controls.Add(this.chkStartWithWindows);
             this.Controls.Add(this.btnReminders);
             this.Controls.Add(this.listViewTasks);
@@ -465,6 +490,8 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.Button btnReminders;
         private System.Windows.Forms.CheckBox chkStartWithWindows;
+        private System.Windows.Forms.Button btnMiniTimer;
+        private System.Windows.Forms.Button btnPause;
     }
 }
 

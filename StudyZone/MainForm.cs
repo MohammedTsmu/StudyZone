@@ -15,15 +15,8 @@ using IWshRuntimeLibrary;
 
 namespace StudyZone
 {
-    //public class AppSettings
-    //{
-    //    public bool StartWithWindows { get; set; }
-    //}
-
     public partial class MainForm : Form
     {
-        int totalSeconds = 0;
-        bool isStudyTime = true;
         List<StudySession> sessions = new List<StudySession>();
         private SessionLog currentSessionLog;
         private List<SessionLog> sessionLogs = new List<SessionLog>();
@@ -34,6 +27,13 @@ namespace StudyZone
         private Timer reminderTimer;
         private HashSet<string> triggeredReminders = new HashSet<string>();
         private ContextMenuStrip trayMenu;
+        public event Action<TimeSpan> TimerTick;
+        private bool isPaused = false;
+
+        //int totalSeconds = 0;
+        //bool isStudyTime = true;
+        private int totalSeconds = 0;
+        private bool isStudyTime = true;
 
 
 
@@ -60,57 +60,18 @@ namespace StudyZone
 
             // Start the reminder timer
             StartReminderTimer();
-
-
-            //reminderTimer.Tick += ReminderTimer_Tick;
-
-            // Test the notification
-            //ShowNotification("Test notification from MainForm constructor.");
         }
 
-        //private void timerPomodoro_Tick(object sender, EventArgs e)
-        //{
-        //    if (totalSeconds > 0)
-        //    {
-        //        totalSeconds--;
-        //        UpdateTimerLabel();
-        //    }
-        //    else
-        //    {
-        //        timerPomodoro.Stop();
-        //        if (isStudyTime)
-        //        {
-        //            // Update study duration
-        //            int studyTimeInSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
-        //            currentSessionLog.StudyDuration += TimeSpan.FromSeconds(studyTimeInSeconds);
-
-        //            // Start Break
-        //            int breakDuration = ((int)nudBreakMinutes.Value * 60) + (int)nudBreakSeconds.Value;
-
-        //            // Increment the number of breaks
-        //            currentSessionLog.NumberOfBreaks++;
-
-        //            BreakForm breakForm = new BreakForm();
-        //            breakForm.StartBreak(breakDuration);
-        //            breakForm.ShowDialog();
-
-        //            // Update break duration
-        //            currentSessionLog.BreakDuration += TimeSpan.FromSeconds(breakDuration);
-
-        //            // After the break
-        //            totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
-        //            isStudyTime = true;
-        //            UpdateTimerLabel();
-        //            timerPomodoro.Start();
-        //        }
-        //    }
-        //}
+        
         private void timerPomodoro_Tick(object sender, EventArgs e)
         {
             if (totalSeconds > 0)
             {
                 totalSeconds--;
                 UpdateTimerLabel();
+
+                // Raise the TimerTick event
+                TimerTick?.Invoke(TimeSpan.FromSeconds(totalSeconds));
             }
             else
             {
@@ -149,53 +110,97 @@ namespace StudyZone
             }
         }
 
-
-
-        //private void btnStart_Click(object sender, EventArgs e)
-        //{
-        //    totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
-        //    isStudyTime = true;
-        //    UpdateTimerLabel();
-        //    timerPomodoro.Start();
-
-        //    // Initialize current session log
-        //    currentSessionLog = new SessionLog();
-
-        //    // Start notification timer
-        //    notificationTimer.Start();
-        //}
-        private void btnStart_Click(object sender, EventArgs e)
+        public TimeSpan GetRemainingTime()
         {
-            totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
-            isStudyTime = true;
-            UpdateTimerLabel();
-            timerPomodoro.Start();
-
-            // Initialize current session log
-            currentSessionLog = new SessionLog();
-
-            // Clear the notified tasks list
-            notifiedTasks.Clear();
-
-            // Start notification timer
-            notificationTimer.Start();
+            return TimeSpan.FromSeconds(totalSeconds);
         }
 
 
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            StartSession();
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            PauseSession();
+        }
+
         private void btnStop_Click(object sender, EventArgs e)
         {
-            timerPomodoro.Stop();
-            totalSeconds = 0;
-            UpdateTimerLabel();
+            StopSession();
+        }
 
-            if (currentSessionLog != null)
+
+        public void StartSession()
+        {
+            if (isPaused)
             {
-                SaveSessionLog(currentSessionLog);
-                currentSessionLog = null;
+                // Resume the paused session
+                timerPomodoro.Start();
+                isPaused = false;
+            }
+            else if (!timerPomodoro.Enabled)
+            {
+                // Start a new session only if the timer is not running and not paused
+                totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
+                isStudyTime = true;
+                UpdateTimerLabel();
+                timerPomodoro.Start();
+
+                // Initialize current session log
+                currentSessionLog = new SessionLog();
+
+                // Clear the notified tasks list
+                notifiedTasks.Clear();
+
+                // Start notification timer
+                notificationTimer.Start();
             }
 
-            // Stop notification timer
-            notificationTimer.Stop();
+            UpdateButtonStates();
+        }
+
+
+        public void PauseSession()
+        {
+            if (timerPomodoro.Enabled)
+            {
+                // Pause the session
+                timerPomodoro.Stop();
+                isPaused = true;
+            }
+            else if (isPaused)
+            {
+                // Resume the session
+                timerPomodoro.Start();
+                isPaused = false;
+            }
+
+            UpdateButtonStates();
+        }
+
+
+        public void StopSession()
+        {
+            if (timerPomodoro.Enabled || isPaused)
+            {
+                timerPomodoro.Stop();
+                totalSeconds = 0;
+                isPaused = false;
+                UpdateTimerLabel();
+
+                if (currentSessionLog != null)
+                {
+                    SaveSessionLog(currentSessionLog);
+                    currentSessionLog = null;
+                }
+
+                // Stop notification timer
+                notificationTimer.Stop();
+            }
+
+            UpdateButtonStates();
         }
 
 
@@ -242,13 +247,48 @@ namespace StudyZone
             }
         }
 
-
         private void UpdateTimerLabel()
         {
             int minutes = totalSeconds / 60;
             int seconds = totalSeconds % 60;
             lblTimer.Text = $"{minutes:D2}:{seconds:D2}";
+
+            if (isPaused)
+            {
+                lblTimer.ForeColor = Color.Gray; // Or any color you prefer
+            }
+            else
+            {
+                lblTimer.ForeColor = Color.Black;
+            }
         }
+
+
+        public void UpdateButtonStates()
+        {
+            if (IsSessionRunning())
+            {
+                btnStart.Enabled = false;
+                btnPause.Enabled = true;
+                btnPause.Text = "Pause";
+                btnStop.Enabled = true;
+            }
+            else if (IsSessionPaused())
+            {
+                btnStart.Enabled = false;
+                btnPause.Enabled = true;
+                btnPause.Text = "Resume";
+                btnStop.Enabled = true;
+            }
+            else
+            {
+                btnStart.Enabled = true;
+                btnPause.Enabled = false;
+                btnPause.Text = "Pause";
+                btnStop.Enabled = false;
+            }
+        }
+
 
         private void btnSaveSession_Click(object sender, EventArgs e)
         {
@@ -589,40 +629,7 @@ namespace StudyZone
             CheckForDueTasksDuringSession();
         }
 
-        //private void CheckForDueTasksDuringSession()
-        //{
-        //    DateTime today = DateTime.Today;
-        //    List<TaskItem> dueTasks = new List<TaskItem>();
-
-        //    foreach (var task in tasks)
-        //    {
-        //        if (task.IsCompleted)
-        //            continue;
-
-        //        if (task.DueDate.HasValue)
-        //        {
-        //            TimeSpan timeRemaining = task.DueDate.Value.Date - today;
-        //            if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 1)
-        //            {
-        //                dueTasks.Add(task);
-        //            }
-        //        }
-        //    }
-
-        //    if (dueTasks.Count > 0)
-        //    {
-        //        // Build the notification message
-        //        StringBuilder message = new StringBuilder();
-        //        message.AppendLine("Reminder: You have tasks that are due soon or overdue:");
-        //        foreach (var task in dueTasks)
-        //        {
-        //            message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
-        //        }
-
-        //        // Display a notification
-        //        ShowNotification(message.ToString());
-        //    }
-        //}
+        
         private void CheckForDueTasksDuringSession()
         {
             DateTime today = DateTime.Today;
@@ -647,51 +654,6 @@ namespace StudyZone
                 }
             }
 
-            //Notifications with tasks names.
-            //if (dueTasks.Count > 0)
-            //{
-            //    // Build the notification message
-            //    StringBuilder message = new StringBuilder();
-            //    message.AppendLine("Reminder: You have tasks that are due soon or overdue:");
-            //    foreach (var task in dueTasks)
-            //    {
-            //        message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
-            //    }
-
-            //    // Display a notification
-            //    ShowNotification(message.ToString());
-            //}
-
-            //////XmlSchemaSimpleContent notifications without tasks names.
-            //if (dueTasks.Count > 0)
-            //{
-            //    // Build the notification message
-            //    StringBuilder message = new StringBuilder();
-
-            //    if (dueTasks.Count == 1)
-            //    {
-            //        var task = dueTasks[0];
-            //        message.AppendLine($"Reminder: Task '{task.Title}' is due {(task.DueDate.Value.Date < DateTime.Today ? "today" : "soon")} (Due: {task.DueDate.Value.ToShortDateString()}).");
-            //    }
-            //    else
-            //    {
-            //        message.AppendLine($"You have {dueTasks.Count} tasks due soon or overdue.");
-            //    }
-
-            //    // Optionally, add more details if desired
-            //    //You can comment foreach{} part it if you want to keep the notifications simple
-            //    foreach (var task in dueTasks)
-            //    {
-            //        message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
-            //    }
-
-            //    // Display a notification
-            //    ShowNotification(message.ToString());
-            //}
-
-
-            //Limit the Number of Tasks Displayed
-            //If you decide to include task details, you might want to limit the number of tasks displayed to avoid overwhelming the user.
             if (dueTasks.Count > 0)
             {
                 // Build the notification message
@@ -721,8 +683,6 @@ namespace StudyZone
 
         }
 
-
-
         private void ShowNotification(string message)
         {
             // Display a balloon tip notification
@@ -731,15 +691,6 @@ namespace StudyZone
             notifyIcon.BalloonTipText = message;
             notifyIcon.ShowBalloonTip(10000); // Display for 5 seconds
         }
-
-        //private void ShowNotification(string message)
-        //{
-        //    notifyIcon.Visible = true; // Ensure the icon is visible
-        //    notifyIcon.BalloonTipTitle = "StudyZone Reminder";
-        //    notifyIcon.BalloonTipText = message;
-        //    notifyIcon.ShowBalloonTip(5000); // Display for 5 seconds
-        //}
-
 
 
         //Double check if you use it or remove it please
@@ -814,172 +765,10 @@ namespace StudyZone
             reminderTimer.Start();
         }
 
-
-
-        //private void ReminderTimer_Tick(object sender, EventArgs e)
-        //{
-        //    CheckForReminders();
-        //}
         private void ReminderTimer_Tick(object sender, EventArgs e)
         {
-            // Debugging message
-            //Console.WriteLine("ReminderTimer_Tick called at " + DateTime.Now);
-            //MessageBox.Show("ReminderTimer_Tick called at \"" + DateTime.Now);
             CheckForReminders();
         }
-
-
-        //private void CheckForReminders()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    foreach (var reminder in reminders)
-        //    {
-        //        if (!reminder.IsEnabled)
-        //            continue;
-
-        //        DateTime reminderTime = DateTime.Today.Add(reminder.ReminderTime.TimeOfDay);
-
-        //        // If the reminder is recurring and the time has passed today, skip to the next day
-        //        if (reminder.IsRecurring && reminderTime < now)
-        //            reminderTime = reminderTime.AddDays(1);
-
-        //        // Check if it's time to show the reminder (allowing for some leeway in case of delays)
-        //        if ((now >= reminderTime) && (now - reminderTime).TotalMinutes < 1)
-        //        {
-        //            // Show the reminder notification
-        //            ShowNotification($"Reminder: {reminder.ReminderName}");
-        //        }
-        //    }
-        //}
-
-
-
-        //private void CheckForReminders()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    foreach (var reminder in reminders)
-        //    {
-        //        if (!reminder.IsEnabled)
-        //            continue;
-
-        //        DateTime reminderTime = DateTime.Today.Add(reminder.ReminderTime.TimeOfDay);
-
-        //        // Check if the reminder time is today and has not yet occurred
-        //        if (reminderTime.Date == now.Date && reminderTime.TimeOfDay <= now.TimeOfDay && (now - reminderTime).TotalMinutes < 1)
-        //        {
-        //            // Show the reminder notification
-        //            ShowNotification($"Reminder: {reminder.ReminderName}");
-        //        }
-        //        else if (reminder.IsRecurring && reminderTime.Date < now.Date)
-        //        {
-        //            // For recurring reminders, schedule for the next day
-        //            reminderTime = reminderTime.AddDays(1);
-        //        }
-        //    }
-        //}
-
-
-
-
-        //private void CheckForReminders()
-        //{
-        //    DateTime now = DateTime.Now;
-        //    foreach (var reminder in reminders)
-        //    {
-        //        if (!reminder.IsEnabled)
-        //            continue;
-
-        //        DateTime reminderTime = DateTime.Today.Add(reminder.ReminderTime.TimeOfDay);
-
-        //        // For recurring reminders, adjust the reminder time to today or the next day
-        //        if (reminder.IsRecurring)
-        //        {
-        //            if (reminderTime < now)
-        //            {
-        //                reminderTime = reminderTime.AddDays(1);
-        //            }
-        //        }
-
-        //        // Check if it's time to show the reminder (within a 1-minute window)
-        //        if (Math.Abs((now - reminderTime).TotalMinutes) < 1)
-        //        {
-        //            // Show the reminder notification
-        //            ShowNotification($"Reminder: {reminder.ReminderName}");
-        //        }
-        //    }
-        //}
-
-
-        //private void CheckForReminders()
-        //{
-        //    DateTime now = DateTime.Now;
-
-        //    foreach (var reminder in reminders)
-        //    {
-        //        if (!reminder.IsEnabled)
-        //            continue;
-
-        //        // Get the time of day for the reminder
-        //        TimeSpan reminderTimeOfDay = reminder.ReminderTime.TimeOfDay;
-
-        //        // Check if it's time to show the reminder (within a 1-minute window)
-        //        if (Math.Abs((now.TimeOfDay - reminderTimeOfDay).TotalMinutes) < 1)
-        //        {
-        //            // For recurring reminders, ensure we haven't already triggered it today
-        //            if (reminder.IsRecurring)
-        //            {
-        //                if (reminder.LastTriggeredDate != now.Date)
-        //                {
-        //                    // Show the reminder notification
-        //                    ShowNotification($"Reminder: {reminder.ReminderName}");
-        //                    reminder.LastTriggeredDate = now.Date;
-        //                }
-        //            }
-        //            else
-        //            {
-        //                // For non-recurring reminders, check the date matches and hasn't been triggered yet
-        //                if (reminder.ReminderTime.Date == now.Date && reminder.LastTriggeredDate != now)
-        //                {
-        //                    // Show the reminder notification
-        //                    ShowNotification($"Reminder: {reminder.ReminderName}");
-        //                    reminder.LastTriggeredDate = now;
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
-
-
-
-        //private void CheckForReminders()
-        //{
-        //    DateTime now = DateTime.Now;
-
-        //    foreach (var reminder in reminders)
-        //    {
-        //        if (!reminder.IsEnabled)
-        //            continue;
-
-        //        // Get the time of day for the reminder
-        //        TimeSpan reminderTimeOfDay = reminder.ReminderTime.TimeOfDay;
-
-        //        // Generate a unique key for the reminder and date
-        //        string reminderKey = $"{reminder.ReminderName}_{now.Date}";
-
-        //        // Check if it's time to show the reminder (within a 1-minute window)
-        //        if (Math.Abs((now.TimeOfDay - reminderTimeOfDay).TotalMinutes) < 1)
-        //        {
-        //            if (!triggeredReminders.Contains(reminderKey))
-        //            {
-        //                // Show the reminder notification
-        //                ShowNotification($"Reminder: {reminder.ReminderName}");
-
-        //                // Add to triggered reminders
-        //                triggeredReminders.Add(reminderKey);
-        //            }
-        //        }
-        //    }
-        //}
 
         private void CheckForReminders()
         {
@@ -1040,10 +829,6 @@ namespace StudyZone
             }
         }
 
-        //private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
-        //{
-
-        //}
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
@@ -1121,15 +906,6 @@ namespace StudyZone
             }
         }
 
-        //public class AppSettings
-        //{
-        //    public bool StartWithWindows { get; set; }
-        //}
-
-        //private void chkStartWithWindows_CheckedChanged(object sender, EventArgs e)
-        //{
-
-        //}
         private void chkStartWithWindows_CheckedChanged(object sender, EventArgs e)
         {
             bool startWithWindows = chkStartWithWindows.Checked;
@@ -1209,18 +985,44 @@ namespace StudyZone
             shortcut.Save();
         }
 
-        //private void CreateShortcut(string shortcutPath, string targetPath, string shortcutDescription)
-        //{
-        //    WshShell shell = new WshShell();
-        //    IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutPath);
-        //    shortcut.TargetPath = targetPath;
-        //    shortcut.WorkingDirectory = Application.StartupPath;
-        //    shortcut.Description = shortcutDescription;
-        //    shortcut.Arguments = "/minimized"; // Add this line
-        //    shortcut.Save();
-        //}
+        private void btnMiniTimer_Click(object sender, EventArgs e)
+        {
+            // Hide the main form
+            this.Hide();
+
+            // Disable the button
+            btnMiniTimer.Enabled = false;
+
+            // Show the mini timer form
+            MiniTimerForm miniTimerForm = new MiniTimerForm(this);
+            miniTimerForm.Show();
+
+            // Handle the mini form's FormClosed event to show the main form again
+            miniTimerForm.FormClosed += MiniTimerForm_FormClosed;
+        }
 
 
+        private void MiniTimerForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Show the main form
+            this.Show();
+
+            // Re-enable the button
+            btnMiniTimer.Enabled = true;
+        }
+
+        public bool IsSessionRunning()
+        {
+            return timerPomodoro.Enabled && !isPaused;
+        }
+
+        public bool IsSessionPaused()
+        {
+            return isPaused;
+        }
+
+
+        
 
 
     }
