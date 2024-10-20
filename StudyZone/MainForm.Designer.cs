@@ -367,8 +367,11 @@
             // 
             // notifyIcon
             // 
+            this.notifyIcon.BalloonTipText = "StudyZone";
+            this.notifyIcon.BalloonTipTitle = "StudyZone";
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
             // btnReminders
             // 
@@ -401,6 +404,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Study Zone";
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).EndInit();

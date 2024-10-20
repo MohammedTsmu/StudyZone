@@ -25,6 +25,7 @@ namespace StudyZone
         private List<StudyReminder> reminders = new List<StudyReminder>();
         private Timer reminderTimer;
         private HashSet<string> triggeredReminders = new HashSet<string>();
+        private ContextMenuStrip trayMenu;
 
 
 
@@ -38,6 +39,7 @@ namespace StudyZone
             LoadSessionLogsFromFile();
             LoadTasksFromFile();
             LoadRemindersFromFile();
+            InitializeTrayMenu();
             CheckForDueTasks();
 
             // Initialize notification timer
@@ -1012,10 +1014,63 @@ namespace StudyZone
             }
         }
 
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                // Hide the form
+                this.Hide();
+
+                // Show the notify icon (system tray icon)
+                notifyIcon.Visible = true;
+
+                // Optionally, show a balloon tip when minimized
+                notifyIcon.BalloonTipTitle = "StudyZone";
+                notifyIcon.BalloonTipText = "StudyZone is minimized to the system tray.";
+                notifyIcon.ShowBalloonTip(3000); // Display for 3 seconds
+            }
+        }
+
+        //private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        //{
+
+        //}
+
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            // Show the form
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
+
+            // Hide the notify icon
+            notifyIcon.Visible = false;
+        }
+
+        private void InitializeTrayMenu()
+        {
+            trayMenu = new ContextMenuStrip();
+            trayMenu.Items.Add("Restore", null, Restore_Click);
+            trayMenu.Items.Add("Exit", null, Exit_Click);
+
+            notifyIcon.ContextMenuStrip = trayMenu;
+        }
 
 
+        private void Restore_Click(object sender, EventArgs e)
+        {
+            // Show the form
+            this.Show();
+            this.WindowState = FormWindowState.Normal;
 
+            // Hide the notify icon
+            notifyIcon.Visible = false;
+        }
 
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            // Close the application
+            this.Close();
+        }
 
 
     }
