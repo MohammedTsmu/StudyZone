@@ -1209,6 +1209,16 @@ namespace StudyZone
             shortcut.Save();
         }
 
+        //private void CreateShortcut(string shortcutPath, string targetPath, string shortcutDescription)
+        //{
+        //    WshShell shell = new WshShell();
+        //    IWshShortcut shortcut = (IWshShortcut)shell.CreateShortcut(shortcutPath);
+        //    shortcut.TargetPath = targetPath;
+        //    shortcut.WorkingDirectory = Application.StartupPath;
+        //    shortcut.Description = shortcutDescription;
+        //    shortcut.Arguments = "/minimized"; // Add this line
+        //    shortcut.Save();
+        //}
 
 
 

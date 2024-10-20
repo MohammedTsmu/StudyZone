@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudyZone;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,5 +19,22 @@ namespace StudyZone
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
         }
+
+        //In Program.cs
+        //static void Main(string[] args)
+        //{
+        //    Application.EnableVisualStyles();
+        //    Application.SetCompatibleTextRenderingDefault(false);
+        //    MainForm mainForm = new MainForm();
+
+        //    if (args.Contains("/minimized"))
+        //    {
+        //        mainForm.WindowState = FormWindowState.Minimized;
+        //    }
+
+        //    Application.Run(mainForm);
+        //}
+
     }
 }
+
