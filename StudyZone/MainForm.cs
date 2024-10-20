@@ -1080,22 +1080,11 @@ namespace StudyZone
             // Check if a study session is active
             if (timerPomodoro.Enabled)
             {
-                // Prompt the user with a warning message
-                var result = MessageBox.Show("A study session is currently running. Are you sure you want to exit?", "Confirm Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                // Inform the user that the application cannot be closed during an active session
+                MessageBox.Show("You cannot exit the application while a study session is running. Please stop the session before exiting.", "Cannot Exit", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (result == DialogResult.No)
-                {
-                    // Cancel the close action
-                    e.Cancel = true;
-                }
-                else
-                {
-                    // Stop the timers and allow closing
-                    timerPomodoro.Stop();
-                    notificationTimer.Stop();
-                    reminderTimer?.Stop();
-                    notifyIcon.Visible = false;
-                }
+                // Cancel the close action
+                e.Cancel = true;
             }
             else
             {
@@ -1103,6 +1092,8 @@ namespace StudyZone
                 notifyIcon.Visible = false;
             }
         }
+
+
 
     }
 }
