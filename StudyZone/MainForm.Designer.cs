@@ -58,6 +58,7 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.btnReminders = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -369,11 +370,22 @@
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Visible = true;
             // 
+            // btnReminders
+            // 
+            this.btnReminders.Location = new System.Drawing.Point(414, 67);
+            this.btnReminders.Name = "btnReminders";
+            this.btnReminders.Size = new System.Drawing.Size(75, 23);
+            this.btnReminders.TabIndex = 24;
+            this.btnReminders.Text = "Reminders";
+            this.btnReminders.UseVisualStyleBackColor = true;
+            this.btnReminders.Click += new System.EventHandler(this.btnReminders_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 553);
+            this.Controls.Add(this.btnReminders);
             this.Controls.Add(this.listViewTasks);
             this.Controls.Add(this.txtTaskDetails);
             this.Controls.Add(this.btnTaskManager);
@@ -433,6 +445,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.Button btnReminders;
     }
 }
 

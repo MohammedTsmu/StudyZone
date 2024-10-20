@@ -22,15 +22,22 @@ namespace StudyZone
         private List<TaskItem> tasks = new List<TaskItem>();
         private Timer notificationTimer;
         private HashSet<TaskItem> notifiedTasks = new HashSet<TaskItem>();
+        private List<StudyReminder> reminders = new List<StudyReminder>();
+        private Timer reminderTimer;
+        private HashSet<string> triggeredReminders = new HashSet<string>();
+
+
 
 
 
         public MainForm()
         {
+
             InitializeComponent();
             LoadSessions();
             LoadSessionLogsFromFile();
             LoadTasksFromFile();
+            LoadRemindersFromFile();
             CheckForDueTasks();
 
             // Initialize notification timer
@@ -38,6 +45,13 @@ namespace StudyZone
             //notificationTimer.Interval = 600000; // Set interval to 10 minutes (600,000 milliseconds)
             notificationTimer.Interval = 10000; // Small Testing interval to test the application it is for developer only will be removed once everything checked.
             notificationTimer.Tick += NotificationTimer_Tick;
+
+
+            // Start the reminder timer
+            StartReminderTimer();
+
+
+            //reminderTimer.Tick += ReminderTimer_Tick;
 
             // Test the notification
             //ShowNotification("Test notification from MainForm constructor.");
@@ -707,6 +721,15 @@ namespace StudyZone
             notifyIcon.ShowBalloonTip(10000); // Display for 5 seconds
         }
 
+        //private void ShowNotification(string message)
+        //{
+        //    notifyIcon.Visible = true; // Ensure the icon is visible
+        //    notifyIcon.BalloonTipTitle = "StudyZone Reminder";
+        //    notifyIcon.BalloonTipText = message;
+        //    notifyIcon.ShowBalloonTip(5000); // Display for 5 seconds
+        //}
+
+
 
         //Double check if you use it or remove it please
         //Double check if you use it or remove it please
@@ -722,6 +745,278 @@ namespace StudyZone
             // Save tasks to file
             SaveTasksToFile();
         }
+
+        private void LoadRemindersFromFile()
+        {
+            string filePath = Path.Combine(Application.LocalUserAppDataPath, "reminders.json");
+            if (File.Exists(filePath))
+            {
+                try
+                {
+                    string json = File.ReadAllText(filePath);
+                    reminders = JsonConvert.DeserializeObject<List<StudyReminder>>(json);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("An error occurred while loading reminders: " + ex.Message);
+                    reminders = new List<StudyReminder>();
+                }
+            }
+        }
+
+        private void SaveRemindersToFile()
+        {
+            try
+            {
+                string filePath = Path.Combine(Application.LocalUserAppDataPath, "reminders.json");
+                Directory.CreateDirectory(Application.LocalUserAppDataPath);
+
+                string json = JsonConvert.SerializeObject(reminders, Formatting.Indented);
+                File.WriteAllText(filePath, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while saving reminders: " + ex.Message);
+            }
+        }
+
+        private void btnReminders_Click(object sender, EventArgs e)
+        {
+            ReminderManagerForm reminderManagerForm = new ReminderManagerForm(reminders, SaveRemindersToFile);
+            reminderManagerForm.ShowDialog();
+
+            // Restart the reminder timer in case reminders were modified
+            StartReminderTimer();
+        }
+
+        private void StartReminderTimer()
+        {
+            if (reminderTimer != null)
+            {
+                reminderTimer.Stop();
+                reminderTimer.Dispose();
+            }
+
+            reminderTimer = new Timer();
+            reminderTimer.Interval = 60000; // Check every minute
+            reminderTimer.Tick += ReminderTimer_Tick;
+            reminderTimer.Start();
+        }
+
+
+
+        //private void ReminderTimer_Tick(object sender, EventArgs e)
+        //{
+        //    CheckForReminders();
+        //}
+        private void ReminderTimer_Tick(object sender, EventArgs e)
+        {
+            // Debugging message
+            //Console.WriteLine("ReminderTimer_Tick called at " + DateTime.Now);
+            //MessageBox.Show("ReminderTimer_Tick called at \"" + DateTime.Now);
+            CheckForReminders();
+        }
+
+
+        //private void CheckForReminders()
+        //{
+        //    DateTime now = DateTime.Now;
+        //    foreach (var reminder in reminders)
+        //    {
+        //        if (!reminder.IsEnabled)
+        //            continue;
+
+        //        DateTime reminderTime = DateTime.Today.Add(reminder.ReminderTime.TimeOfDay);
+
+        //        // If the reminder is recurring and the time has passed today, skip to the next day
+        //        if (reminder.IsRecurring && reminderTime < now)
+        //            reminderTime = reminderTime.AddDays(1);
+
+        //        // Check if it's time to show the reminder (allowing for some leeway in case of delays)
+        //        if ((now >= reminderTime) && (now - reminderTime).TotalMinutes < 1)
+        //        {
+        //            // Show the reminder notification
+        //            ShowNotification($"Reminder: {reminder.ReminderName}");
+        //        }
+        //    }
+        //}
+
+
+
+        //private void CheckForReminders()
+        //{
+        //    DateTime now = DateTime.Now;
+        //    foreach (var reminder in reminders)
+        //    {
+        //        if (!reminder.IsEnabled)
+        //            continue;
+
+        //        DateTime reminderTime = DateTime.Today.Add(reminder.ReminderTime.TimeOfDay);
+
+        //        // Check if the reminder time is today and has not yet occurred
+        //        if (reminderTime.Date == now.Date && reminderTime.TimeOfDay <= now.TimeOfDay && (now - reminderTime).TotalMinutes < 1)
+        //        {
+        //            // Show the reminder notification
+        //            ShowNotification($"Reminder: {reminder.ReminderName}");
+        //        }
+        //        else if (reminder.IsRecurring && reminderTime.Date < now.Date)
+        //        {
+        //            // For recurring reminders, schedule for the next day
+        //            reminderTime = reminderTime.AddDays(1);
+        //        }
+        //    }
+        //}
+
+
+
+
+        //private void CheckForReminders()
+        //{
+        //    DateTime now = DateTime.Now;
+        //    foreach (var reminder in reminders)
+        //    {
+        //        if (!reminder.IsEnabled)
+        //            continue;
+
+        //        DateTime reminderTime = DateTime.Today.Add(reminder.ReminderTime.TimeOfDay);
+
+        //        // For recurring reminders, adjust the reminder time to today or the next day
+        //        if (reminder.IsRecurring)
+        //        {
+        //            if (reminderTime < now)
+        //            {
+        //                reminderTime = reminderTime.AddDays(1);
+        //            }
+        //        }
+
+        //        // Check if it's time to show the reminder (within a 1-minute window)
+        //        if (Math.Abs((now - reminderTime).TotalMinutes) < 1)
+        //        {
+        //            // Show the reminder notification
+        //            ShowNotification($"Reminder: {reminder.ReminderName}");
+        //        }
+        //    }
+        //}
+
+
+        //private void CheckForReminders()
+        //{
+        //    DateTime now = DateTime.Now;
+
+        //    foreach (var reminder in reminders)
+        //    {
+        //        if (!reminder.IsEnabled)
+        //            continue;
+
+        //        // Get the time of day for the reminder
+        //        TimeSpan reminderTimeOfDay = reminder.ReminderTime.TimeOfDay;
+
+        //        // Check if it's time to show the reminder (within a 1-minute window)
+        //        if (Math.Abs((now.TimeOfDay - reminderTimeOfDay).TotalMinutes) < 1)
+        //        {
+        //            // For recurring reminders, ensure we haven't already triggered it today
+        //            if (reminder.IsRecurring)
+        //            {
+        //                if (reminder.LastTriggeredDate != now.Date)
+        //                {
+        //                    // Show the reminder notification
+        //                    ShowNotification($"Reminder: {reminder.ReminderName}");
+        //                    reminder.LastTriggeredDate = now.Date;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                // For non-recurring reminders, check the date matches and hasn't been triggered yet
+        //                if (reminder.ReminderTime.Date == now.Date && reminder.LastTriggeredDate != now)
+        //                {
+        //                    // Show the reminder notification
+        //                    ShowNotification($"Reminder: {reminder.ReminderName}");
+        //                    reminder.LastTriggeredDate = now;
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+
+
+        //private void CheckForReminders()
+        //{
+        //    DateTime now = DateTime.Now;
+
+        //    foreach (var reminder in reminders)
+        //    {
+        //        if (!reminder.IsEnabled)
+        //            continue;
+
+        //        // Get the time of day for the reminder
+        //        TimeSpan reminderTimeOfDay = reminder.ReminderTime.TimeOfDay;
+
+        //        // Generate a unique key for the reminder and date
+        //        string reminderKey = $"{reminder.ReminderName}_{now.Date}";
+
+        //        // Check if it's time to show the reminder (within a 1-minute window)
+        //        if (Math.Abs((now.TimeOfDay - reminderTimeOfDay).TotalMinutes) < 1)
+        //        {
+        //            if (!triggeredReminders.Contains(reminderKey))
+        //            {
+        //                // Show the reminder notification
+        //                ShowNotification($"Reminder: {reminder.ReminderName}");
+
+        //                // Add to triggered reminders
+        //                triggeredReminders.Add(reminderKey);
+        //            }
+        //        }
+        //    }
+        //}
+
+        private void CheckForReminders()
+        {
+            DateTime now = DateTime.Now;
+
+            foreach (var reminder in reminders)
+            {
+                if (!reminder.IsEnabled)
+                    continue;
+
+                // Get the time of day for the reminder
+                TimeSpan reminderTimeOfDay = reminder.ReminderTime.TimeOfDay;
+
+                // Check if it's time to show the reminder (within a 1-minute window)
+                if (Math.Abs((now.TimeOfDay - reminderTimeOfDay).TotalMinutes) < 1)
+                {
+                    if (reminder.IsRecurring)
+                    {
+                        // For recurring reminders, check if we have already triggered it today
+                        if (reminder.LastTriggeredDate != now.Date)
+                        {
+                            // Show the reminder notification
+                            ShowNotification($"Reminder: {reminder.ReminderName}");
+                            reminder.LastTriggeredDate = now.Date;
+                            // Save reminders if you want to persist LastTriggeredDate
+                            SaveRemindersToFile();
+                        }
+                    }
+                    else
+                    {
+                        // For non-recurring reminders, check if the date matches and hasn't been triggered yet
+                        if (reminder.ReminderTime.Date == now.Date && reminder.LastTriggeredDate != now)
+                        {
+                            // Show the reminder notification
+                            ShowNotification($"Reminder: {reminder.ReminderName}");
+                            reminder.LastTriggeredDate = now;
+                            SaveRemindersToFile();
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
 
     }
 }
