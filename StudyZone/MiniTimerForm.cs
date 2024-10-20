@@ -15,7 +15,6 @@ namespace StudyZone
             InitializeComponent();
             mainForm = parentForm;
 
-
             // Store the original font
             originalFont = lblMiniTimer.Font;
 
@@ -25,6 +24,8 @@ namespace StudyZone
 
             // Subscribe to the TimerTick event from the main form
             mainForm.TimerTick += MainForm_TimerTick;
+            // Update initial layout
+            ArrangeButtons();
         }
 
         // Method to update the timer label
@@ -107,11 +108,15 @@ namespace StudyZone
             lblMiniTimer.Dock = DockStyle.None;
             lblMiniTimer.TextAlign = ContentAlignment.MiddleCenter;
 
-            // Optionally, reset the label size and position
+            // Reset label size and position
             lblMiniTimer.AutoSize = false;
-            lblMiniTimer.Size = new Size(200, 100); // Adjust as needed
-            lblMiniTimer.Location = new Point((this.ClientSize.Width - lblMiniTimer.Width) / 2, 20); // Center horizontally
+            lblMiniTimer.Size = new Size(this.ClientSize.Width, 40); // Adjust height as needed
+            lblMiniTimer.Location = new Point(0, 10); // Position at the top with some margin
+
+            // Arrange buttons
+            ArrangeButtons();
         }
+
 
         private void MiniTimerForm_Deactivate(object sender, EventArgs e)
         {
@@ -121,12 +126,13 @@ namespace StudyZone
             btnStop.Visible = false;
 
             // Increase the font size of lblMiniTimer
-            lblMiniTimer.Font = new Font(lblMiniTimer.Font.FontFamily, lblMiniTimer.Font.Size * 2, lblMiniTimer.Font.Style);
+            float newFontSize = originalFont.Size * 1.5f; // Increase font size by 50%
+            lblMiniTimer.Font = new Font(lblMiniTimer.Font.FontFamily, newFontSize, lblMiniTimer.Font.Style);
 
             // Adjust label properties
             lblMiniTimer.Dock = DockStyle.Fill;
             lblMiniTimer.TextAlign = ContentAlignment.MiddleCenter;
-            lblMiniTimer.AutoSize = false; // Ensure it fills the form
+            lblMiniTimer.AutoSize = false;
         }
 
         private void MiniTimerForm_Resize(object sender, EventArgs e)
@@ -136,14 +142,39 @@ namespace StudyZone
                 // Adjust font size based on form size
                 AdjustFontSize();
             }
+            else
+            {
+                // Re-arrange controls when resized while active
+                ArrangeButtons();
+            }
         }
+
 
         private void AdjustFontSize()
         {
             // Calculate a suitable font size based on the form size
-            float fontSize = Math.Min(this.ClientSize.Width, this.ClientSize.Height) / 2;
+            float fontSize = Math.Min(this.ClientSize.Width, this.ClientSize.Height) / 3.5f; // Adjust divisor as needed
+            fontSize = Math.Max(fontSize, 10); // Ensure the font size is at least 10
+
             lblMiniTimer.Font = new Font(lblMiniTimer.Font.FontFamily, fontSize, lblMiniTimer.Font.Style);
         }
 
+        private void ArrangeButtons()
+        {
+            int buttonWidth = 50;
+            int buttonHeight = 25;
+            int spacing = 5; // Space between buttons
+            int totalButtonsWidth = (buttonWidth * 3) + (spacing * 2);
+            int startX = (this.ClientSize.Width - totalButtonsWidth) / 2;
+            int y = this.ClientSize.Height - buttonHeight - 10; // 10 pixels margin from bottom
+
+            btnStart.Size = new Size(buttonWidth, buttonHeight);
+            btnPause.Size = new Size(buttonWidth, buttonHeight);
+            btnStop.Size = new Size(buttonWidth, buttonHeight);
+
+            btnStart.Location = new Point(startX, y);
+            btnPause.Location = new Point(startX + buttonWidth + spacing, y);
+            btnStop.Location = new Point(startX + (buttonWidth + spacing) * 2, y);
+        }
     }
 }
