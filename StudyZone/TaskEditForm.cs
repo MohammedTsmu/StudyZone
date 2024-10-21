@@ -79,6 +79,5 @@ namespace StudyZone
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
     }
 }

@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.lblBreakTimer = new System.Windows.Forms.Label();
             this.timerBreak = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblBreakTimer
@@ -51,12 +52,24 @@
             this.timerBreak.Interval = 1000;
             this.timerBreak.Tick += new System.EventHandler(this.timerBreak_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "System Locked 🔒";
+            // 
             // BreakForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblBreakTimer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "BreakForm";
@@ -73,5 +86,6 @@
 
         private System.Windows.Forms.Label lblBreakTimer;
         private System.Windows.Forms.Timer timerBreak;
+        private System.Windows.Forms.Label label1;
     }
 }

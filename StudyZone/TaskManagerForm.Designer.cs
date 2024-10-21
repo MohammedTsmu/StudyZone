@@ -79,14 +79,14 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewTasks.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTasks.RowTemplate.Height = 24;
-            this.dataGridViewTasks.Size = new System.Drawing.Size(1176, 292);
+            this.dataGridViewTasks.Size = new System.Drawing.Size(1176, 462);
             this.dataGridViewTasks.TabIndex = 0;
             this.dataGridViewTasks.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridViewTasks_DataBindingComplete);
             // 
             // btnAddTask
             // 
             this.btnAddTask.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTask.Location = new System.Drawing.Point(12, 416);
+            this.btnAddTask.Location = new System.Drawing.Point(12, 586);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(153, 48);
             this.btnAddTask.TabIndex = 1;
@@ -97,7 +97,7 @@
             // btnEditTask
             // 
             this.btnEditTask.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditTask.Location = new System.Drawing.Point(171, 416);
+            this.btnEditTask.Location = new System.Drawing.Point(171, 586);
             this.btnEditTask.Name = "btnEditTask";
             this.btnEditTask.Size = new System.Drawing.Size(153, 48);
             this.btnEditTask.TabIndex = 2;
@@ -108,7 +108,7 @@
             // btnDeleteTask
             // 
             this.btnDeleteTask.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteTask.Location = new System.Drawing.Point(330, 416);
+            this.btnDeleteTask.Location = new System.Drawing.Point(330, 586);
             this.btnDeleteTask.Name = "btnDeleteTask";
             this.btnDeleteTask.Size = new System.Drawing.Size(153, 48);
             this.btnDeleteTask.TabIndex = 3;
@@ -119,7 +119,7 @@
             // btnMarkCompleted
             // 
             this.btnMarkCompleted.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMarkCompleted.Location = new System.Drawing.Point(1035, 416);
+            this.btnMarkCompleted.Location = new System.Drawing.Point(1035, 586);
             this.btnMarkCompleted.Name = "btnMarkCompleted";
             this.btnMarkCompleted.Size = new System.Drawing.Size(153, 48);
             this.btnMarkCompleted.TabIndex = 4;
@@ -232,7 +232,7 @@
             this.AccessibleName = "Task Manager";
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 476);
+            this.ClientSize = new System.Drawing.Size(1200, 646);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
