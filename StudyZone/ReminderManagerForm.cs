@@ -1,25 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.ComponentModel;
-//using System.Data;
-//using System.Drawing;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using System.Windows.Forms;
-
-//namespace StudyZone
-//{
-//    public partial class ReminderManagerForm : Form
-//    {
-//        public ReminderManagerForm()
-//        {
-//            InitializeComponent();
-//        }
-//    }
-//}
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -52,10 +31,7 @@ namespace StudyZone
             }
         }
 
-        //private void btnAddReminder_Click(object sender, EventArgs e)
-        //{
-
-        //}
+        
         private void btnAddReminder_Click(object sender, EventArgs e)
         {
             StudyReminder newReminder = new StudyReminder();
@@ -68,11 +44,6 @@ namespace StudyZone
             }
         }
 
-
-        //private void btnEditReminder_Click(object sender, EventArgs e)
-        //{
-
-        //}
         private void btnEditReminder_Click(object sender, EventArgs e)
         {
             if (lstReminders.SelectedItem is StudyReminder selectedReminder)
@@ -89,12 +60,6 @@ namespace StudyZone
                 MessageBox.Show("Please select a reminder to edit.", "Edit Reminder", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-
-        //private void btnDeleteReminder_Click(object sender, EventArgs e)
-        //{
-
-        //}
 
         private void btnDeleteReminder_Click(object sender, EventArgs e)
         {
@@ -113,26 +78,6 @@ namespace StudyZone
                 MessageBox.Show("Please select a reminder to delete.", "Delete Reminder", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-
-        //private void btnToggleReminder_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void btnToggleReminder_Click(object sender, EventArgs e)
-        //{
-        //    if (lstReminders.SelectedItem is StudyReminder selectedReminder)
-        //    {
-        //        selectedReminder.IsEnabled = !selectedReminder.IsEnabled;
-        //        saveRemindersToFile();
-        //        LoadReminders();
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Please select a reminder to enable or disable.", "Toggle Reminder", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
 
         private void btnToggleReminder_Click(object sender, EventArgs e)
         {

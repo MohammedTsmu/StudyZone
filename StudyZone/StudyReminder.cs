@@ -10,12 +10,6 @@ namespace StudyZone
         public bool IsEnabled { get; set; } // Indicates if the reminder is active
         public DateTime? LastTriggeredDate { get; set; } // Add this property
 
-        //public override string ToString()
-        //{
-        //    return $"{ReminderName} at {ReminderTime.ToShortTimeString()}" +
-        //           (IsRecurring ? " (Daily)" : "");
-        //}
-
         public override string ToString()
         {
             string status = IsEnabled ? "Enabled" : "Disabled";

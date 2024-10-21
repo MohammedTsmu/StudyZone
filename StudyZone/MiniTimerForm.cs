@@ -75,21 +75,24 @@ namespace StudyZone
             {
                 btnStart.Enabled = false;
                 btnPause.Enabled = true;
-                btnPause.Text = "Pause";
+                //btnPause.Text = "Pause";
+                btnPause.Image = StudyZone.Properties.Resources.pause;
                 btnStop.Enabled = true;
             }
             else if (mainForm.IsSessionPaused())
             {
                 btnStart.Enabled = false;
                 btnPause.Enabled = true;
-                btnPause.Text = "Resume";
+                //btnPause.Text = "Resume";
+                btnPause.Image = StudyZone.Properties.Resources.resume;
                 btnStop.Enabled = true;
             }
             else
             {
                 btnStart.Enabled = true;
                 btnPause.Enabled = false;
-                btnPause.Text = "Pause";
+                //btnPause.Text = "Pause";
+                btnPause.Image = StudyZone.Properties.Resources.pause;
                 btnStop.Enabled = false;
             }
         }
@@ -161,20 +164,21 @@ namespace StudyZone
 
         private void ArrangeButtons()
         {
-            int buttonWidth = 50;
-            int buttonHeight = 25;
+            int buttonSize = 40; // Square buttons
             int spacing = 5; // Space between buttons
-            int totalButtonsWidth = (buttonWidth * 3) + (spacing * 2);
+            int totalButtonsWidth = (buttonSize * 3) + (spacing * 2);
             int startX = (this.ClientSize.Width - totalButtonsWidth) / 2;
-            int y = this.ClientSize.Height - buttonHeight - 10; // 10 pixels margin from bottom
+            int y = this.ClientSize.Height - buttonSize;
+            //int y = this.ClientSize.Height - buttonSize - 10; // 10 pixels margin from bottom
 
-            btnStart.Size = new Size(buttonWidth, buttonHeight);
-            btnPause.Size = new Size(buttonWidth, buttonHeight);
-            btnStop.Size = new Size(buttonWidth, buttonHeight);
+            btnStart.Size = new Size(buttonSize, buttonSize);
+            btnPause.Size = new Size(buttonSize, buttonSize);
+            btnStop.Size = new Size(buttonSize, buttonSize);
 
             btnStart.Location = new Point(startX, y);
-            btnPause.Location = new Point(startX + buttonWidth + spacing, y);
-            btnStop.Location = new Point(startX + (buttonWidth + spacing) * 2, y);
+            btnPause.Location = new Point(startX + buttonSize + spacing, y);
+            btnStop.Location = new Point(startX + (buttonSize + spacing) * 2, y);
         }
+
     }
 }

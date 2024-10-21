@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SessionLogsForm));
             this.dataGridViewLogs = new System.Windows.Forms.DataGridView();
             this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.btnApplyFilter = new System.Windows.Forms.Button();
@@ -43,24 +45,33 @@
             // dataGridViewLogs
             // 
             this.dataGridViewLogs.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewLogs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLogs.Location = new System.Drawing.Point(12, 60);
             this.dataGridViewLogs.Name = "dataGridViewLogs";
             this.dataGridViewLogs.RowHeadersWidth = 51;
             this.dataGridViewLogs.RowTemplate.Height = 24;
-            this.dataGridViewLogs.Size = new System.Drawing.Size(776, 281);
+            this.dataGridViewLogs.Size = new System.Drawing.Size(630, 388);
             this.dataGridViewLogs.TabIndex = 0;
             this.dataGridViewLogs.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewLogs_DataBindingComplete);
             // 
             // cmbFilter
             // 
+            this.cmbFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbFilter.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFilter.FormattingEnabled = true;
             this.cmbFilter.Location = new System.Drawing.Point(12, 12);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(121, 24);
             this.cmbFilter.TabIndex = 1;
-            this.cmbFilter.Text = "Filter";
             // 
             // btnApplyFilter
             // 
@@ -79,9 +90,9 @@
             this.lblTotalStudyTime.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalStudyTime.Location = new System.Drawing.Point(6, 18);
             this.lblTotalStudyTime.Name = "lblTotalStudyTime";
-            this.lblTotalStudyTime.Size = new System.Drawing.Size(127, 19);
+            this.lblTotalStudyTime.Size = new System.Drawing.Size(132, 19);
             this.lblTotalStudyTime.TabIndex = 3;
-            this.lblTotalStudyTime.Text = "Total Study Time";
+            this.lblTotalStudyTime.Text = "Total Study Time:";
             // 
             // lblTotalBreakTime
             // 
@@ -89,9 +100,9 @@
             this.lblTotalBreakTime.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalBreakTime.Location = new System.Drawing.Point(6, 37);
             this.lblTotalBreakTime.Name = "lblTotalBreakTime";
-            this.lblTotalBreakTime.Size = new System.Drawing.Size(128, 19);
+            this.lblTotalBreakTime.Size = new System.Drawing.Size(133, 19);
             this.lblTotalBreakTime.TabIndex = 4;
-            this.lblTotalBreakTime.Text = "Total Break Time";
+            this.lblTotalBreakTime.Text = "Total Break Time:";
             // 
             // lblTotalSessions
             // 
@@ -99,14 +110,14 @@
             this.lblTotalSessions.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalSessions.Location = new System.Drawing.Point(6, 56);
             this.lblTotalSessions.Name = "lblTotalSessions";
-            this.lblTotalSessions.Size = new System.Drawing.Size(112, 19);
+            this.lblTotalSessions.Size = new System.Drawing.Size(117, 19);
             this.lblTotalSessions.TabIndex = 5;
-            this.lblTotalSessions.Text = "Total Sessions";
+            this.lblTotalSessions.Text = "Total Sessions:";
             // 
             // btnDeleteLog
             // 
             this.btnDeleteLog.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteLog.Location = new System.Drawing.Point(270, 12);
+            this.btnDeleteLog.Location = new System.Drawing.Point(445, 12);
             this.btnDeleteLog.Name = "btnDeleteLog";
             this.btnDeleteLog.Size = new System.Drawing.Size(197, 42);
             this.btnDeleteLog.TabIndex = 6;
@@ -119,9 +130,9 @@
             this.groupBox1.Controls.Add(this.lblTotalStudyTime);
             this.groupBox1.Controls.Add(this.lblTotalBreakTime);
             this.groupBox1.Controls.Add(this.lblTotalSessions);
-            this.groupBox1.Location = new System.Drawing.Point(12, 347);
+            this.groupBox1.Location = new System.Drawing.Point(12, 454);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 91);
+            this.groupBox1.Size = new System.Drawing.Size(630, 80);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Statisitcs";
@@ -130,15 +141,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(654, 546);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnDeleteLog);
             this.Controls.Add(this.btnApplyFilter);
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.dataGridViewLogs);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SessionLogsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SessionLogsForm";
+            this.Text = "Session Logs and Statistics";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLogs)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

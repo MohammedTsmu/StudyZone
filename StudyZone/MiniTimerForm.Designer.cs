@@ -38,38 +38,49 @@
             // lblMiniTimer
             // 
             resources.ApplyResources(this.lblMiniTimer, "lblMiniTimer");
+            this.lblMiniTimer.ForeColor = System.Drawing.Color.Transparent;
             this.lblMiniTimer.Name = "lblMiniTimer";
             // 
             // btnStart
             // 
             resources.ApplyResources(this.btnStart, "btnStart");
+            this.btnStart.BackColor = System.Drawing.Color.Transparent;
+            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStart.Image = global::StudyZone.Properties.Resources.start;
             this.btnStart.Name = "btnStart";
-            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnPause
             // 
             resources.ApplyResources(this.btnPause, "btnPause");
+            this.btnPause.BackColor = System.Drawing.Color.Transparent;
+            this.btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPause.Image = global::StudyZone.Properties.Resources.pause;
             this.btnPause.Name = "btnPause";
-            this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.UseVisualStyleBackColor = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnStop
             // 
             resources.ApplyResources(this.btnStop, "btnStop");
+            this.btnStop.BackColor = System.Drawing.Color.Transparent;
+            this.btnStop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStop.Image = global::StudyZone.Properties.Resources.stop;
             this.btnStop.Name = "btnStop";
-            this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.UseVisualStyleBackColor = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // MiniTimerForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DimGray;
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblMiniTimer);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.MaximizeBox = false;
             this.Name = "MiniTimerForm";
             this.TopMost = true;

@@ -28,27 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReminderManagerForm));
             this.lstReminders = new System.Windows.Forms.ListBox();
             this.btnAddReminder = new System.Windows.Forms.Button();
             this.btnEditReminder = new System.Windows.Forms.Button();
             this.btnDeleteReminder = new System.Windows.Forms.Button();
             this.btnToggleReminder = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstReminders
             // 
+            this.lstReminders.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstReminders.FormattingEnabled = true;
-            this.lstReminders.ItemHeight = 16;
-            this.lstReminders.Location = new System.Drawing.Point(46, 33);
+            this.lstReminders.ItemHeight = 24;
+            this.lstReminders.Location = new System.Drawing.Point(12, 12);
             this.lstReminders.Name = "lstReminders";
-            this.lstReminders.Size = new System.Drawing.Size(303, 340);
+            this.lstReminders.Size = new System.Drawing.Size(570, 412);
             this.lstReminders.TabIndex = 0;
             // 
             // btnAddReminder
             // 
-            this.btnAddReminder.Location = new System.Drawing.Point(388, 33);
+            this.btnAddReminder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddReminder.Location = new System.Drawing.Point(6, 21);
             this.btnAddReminder.Name = "btnAddReminder";
-            this.btnAddReminder.Size = new System.Drawing.Size(144, 23);
+            this.btnAddReminder.Size = new System.Drawing.Size(188, 40);
             this.btnAddReminder.TabIndex = 1;
             this.btnAddReminder.Text = "Add Reminder";
             this.btnAddReminder.UseVisualStyleBackColor = true;
@@ -56,9 +61,10 @@
             // 
             // btnEditReminder
             // 
-            this.btnEditReminder.Location = new System.Drawing.Point(388, 62);
+            this.btnEditReminder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditReminder.Location = new System.Drawing.Point(6, 67);
             this.btnEditReminder.Name = "btnEditReminder";
-            this.btnEditReminder.Size = new System.Drawing.Size(144, 23);
+            this.btnEditReminder.Size = new System.Drawing.Size(188, 40);
             this.btnEditReminder.TabIndex = 2;
             this.btnEditReminder.Text = "Edit Reminder";
             this.btnEditReminder.UseVisualStyleBackColor = true;
@@ -66,9 +72,10 @@
             // 
             // btnDeleteReminder
             // 
-            this.btnDeleteReminder.Location = new System.Drawing.Point(388, 91);
+            this.btnDeleteReminder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteReminder.Location = new System.Drawing.Point(6, 113);
             this.btnDeleteReminder.Name = "btnDeleteReminder";
-            this.btnDeleteReminder.Size = new System.Drawing.Size(144, 23);
+            this.btnDeleteReminder.Size = new System.Drawing.Size(188, 40);
             this.btnDeleteReminder.TabIndex = 3;
             this.btnDeleteReminder.Text = "Delete Reminder";
             this.btnDeleteReminder.UseVisualStyleBackColor = true;
@@ -76,27 +83,41 @@
             // 
             // btnToggleReminder
             // 
-            this.btnToggleReminder.Location = new System.Drawing.Point(388, 120);
+            this.btnToggleReminder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnToggleReminder.Location = new System.Drawing.Point(6, 159);
             this.btnToggleReminder.Name = "btnToggleReminder";
-            this.btnToggleReminder.Size = new System.Drawing.Size(144, 23);
+            this.btnToggleReminder.Size = new System.Drawing.Size(188, 40);
             this.btnToggleReminder.TabIndex = 4;
             this.btnToggleReminder.Text = "Toggle Reminder";
             this.btnToggleReminder.UseVisualStyleBackColor = true;
             this.btnToggleReminder.Click += new System.EventHandler(this.btnToggleReminder_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnToggleReminder);
+            this.groupBox1.Controls.Add(this.btnAddReminder);
+            this.groupBox1.Controls.Add(this.btnDeleteReminder);
+            this.groupBox1.Controls.Add(this.btnEditReminder);
+            this.groupBox1.Location = new System.Drawing.Point(588, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 400);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Action";
+            // 
             // ReminderManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnToggleReminder);
-            this.Controls.Add(this.btnDeleteReminder);
-            this.Controls.Add(this.btnEditReminder);
-            this.Controls.Add(this.btnAddReminder);
+            this.ClientSize = new System.Drawing.Size(800, 439);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lstReminders);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ReminderManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ReminderManagerForm";
+            this.Text = "Reminder Manager";
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -108,5 +129,6 @@
         private System.Windows.Forms.Button btnEditReminder;
         private System.Windows.Forms.Button btnDeleteReminder;
         private System.Windows.Forms.Button btnToggleReminder;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

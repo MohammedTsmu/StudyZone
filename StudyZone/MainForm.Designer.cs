@@ -62,6 +62,10 @@
             this.chkStartWithWindows = new System.Windows.Forms.CheckBox();
             this.btnMiniTimer = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -69,13 +73,17 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // Welcomelbl
             // 
             this.Welcomelbl.AutoSize = true;
             this.Welcomelbl.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Welcomelbl.Location = new System.Drawing.Point(200, 30);
+            this.Welcomelbl.Location = new System.Drawing.Point(206, 30);
             this.Welcomelbl.Name = "Welcomelbl";
             this.Welcomelbl.Size = new System.Drawing.Size(343, 33);
             this.Welcomelbl.TabIndex = 0;
@@ -85,7 +93,7 @@
             // 
             this.lblTimer.AutoSize = true;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(204, 99);
+            this.lblTimer.Location = new System.Drawing.Point(204, 85);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(122, 46);
             this.lblTimer.TabIndex = 1;
@@ -94,7 +102,7 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(12, 376);
+            this.btnStart.Location = new System.Drawing.Point(6, 21);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(75, 37);
             this.btnStart.TabIndex = 2;
@@ -105,7 +113,7 @@
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Location = new System.Drawing.Point(174, 376);
+            this.btnStop.Location = new System.Drawing.Point(168, 21);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(75, 37);
             this.btnStop.TabIndex = 3;
@@ -225,12 +233,12 @@
             // cmbSessions
             // 
             this.cmbSessions.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cmbSessions.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cmbSessions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbSessions.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.cmbSessions.FormattingEnabled = true;
             this.cmbSessions.Location = new System.Drawing.Point(6, 21);
             this.cmbSessions.Name = "cmbSessions";
-            this.cmbSessions.Size = new System.Drawing.Size(472, 27);
+            this.cmbSessions.Size = new System.Drawing.Size(426, 27);
             this.cmbSessions.TabIndex = 12;
             this.cmbSessions.Text = "Select Session";
             this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
@@ -238,7 +246,7 @@
             // btnSaveSession
             // 
             this.btnSaveSession.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSession.Location = new System.Drawing.Point(506, 21);
+            this.btnSaveSession.Location = new System.Drawing.Point(438, 16);
             this.btnSaveSession.Name = "btnSaveSession";
             this.btnSaveSession.Size = new System.Drawing.Size(120, 37);
             this.btnSaveSession.TabIndex = 13;
@@ -254,7 +262,7 @@
             this.groupBox1.Controls.Add(this.nudStudySeconds);
             this.groupBox1.Location = new System.Drawing.Point(12, 224);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(758, 70);
+            this.groupBox1.Size = new System.Drawing.Size(690, 70);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Study Duration";
@@ -267,7 +275,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Location = new System.Drawing.Point(12, 300);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(758, 70);
+            this.groupBox2.Size = new System.Drawing.Size(690, 70);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Break Duration";
@@ -275,17 +283,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 512);
+            this.label3.Location = new System.Drawing.Point(9, 693);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(265, 32);
             this.label3.TabIndex = 16;
-            this.label3.Text = "v1.0.0 / AGPL-3.0 license\r\nAll rights reserved © Dr. Mohammed Qasim.";
+            this.label3.Text = "v1.0.0\r\nAll rights reserved © Dr. Mohammed Qasim.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnDeleteSession
             // 
             this.btnDeleteSession.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSession.Location = new System.Drawing.Point(632, 21);
+            this.btnDeleteSession.Location = new System.Drawing.Point(564, 16);
             this.btnDeleteSession.Name = "btnDeleteSession";
             this.btnDeleteSession.Size = new System.Drawing.Size(120, 37);
             this.btnDeleteSession.TabIndex = 17;
@@ -300,7 +308,7 @@
             this.groupBox3.Controls.Add(this.btnSaveSession);
             this.groupBox3.Location = new System.Drawing.Point(12, 148);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(758, 70);
+            this.groupBox3.Size = new System.Drawing.Size(690, 70);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Study Sessions";
@@ -308,7 +316,7 @@
             // btnViewLogs
             // 
             this.btnViewLogs.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewLogs.Location = new System.Drawing.Point(255, 376);
+            this.btnViewLogs.Location = new System.Drawing.Point(330, 21);
             this.btnViewLogs.Name = "btnViewLogs";
             this.btnViewLogs.Size = new System.Drawing.Size(156, 37);
             this.btnViewLogs.TabIndex = 19;
@@ -318,8 +326,10 @@
             // 
             // btnTaskManager
             // 
+            this.btnTaskManager.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnTaskManager.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaskManager.Location = new System.Drawing.Point(417, 376);
+            this.btnTaskManager.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.btnTaskManager.Location = new System.Drawing.Point(6, 21);
             this.btnTaskManager.Name = "btnTaskManager";
             this.btnTaskManager.Size = new System.Drawing.Size(156, 37);
             this.btnTaskManager.TabIndex = 20;
@@ -329,12 +339,13 @@
             // 
             // txtTaskDetails
             // 
-            this.txtTaskDetails.Location = new System.Drawing.Point(336, 419);
+            this.txtTaskDetails.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTaskDetails.Location = new System.Drawing.Point(6, 479);
             this.txtTaskDetails.Multiline = true;
             this.txtTaskDetails.Name = "txtTaskDetails";
             this.txtTaskDetails.ReadOnly = true;
             this.txtTaskDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTaskDetails.Size = new System.Drawing.Size(434, 84);
+            this.txtTaskDetails.Size = new System.Drawing.Size(563, 141);
             this.txtTaskDetails.TabIndex = 22;
             // 
             // listViewTasks
@@ -343,11 +354,12 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listViewTasks.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTasks.FullRowSelect = true;
             this.listViewTasks.HideSelection = false;
-            this.listViewTasks.Location = new System.Drawing.Point(12, 419);
+            this.listViewTasks.Location = new System.Drawing.Point(6, 21);
             this.listViewTasks.Name = "listViewTasks";
-            this.listViewTasks.Size = new System.Drawing.Size(364, 130);
+            this.listViewTasks.Size = new System.Drawing.Size(563, 452);
             this.listViewTasks.TabIndex = 23;
             this.listViewTasks.UseCompatibleStateImageBehavior = false;
             this.listViewTasks.View = System.Windows.Forms.View.Details;
@@ -378,9 +390,10 @@
             // 
             // btnReminders
             // 
-            this.btnReminders.Location = new System.Drawing.Point(414, 67);
+            this.btnReminders.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReminders.Location = new System.Drawing.Point(168, 21);
             this.btnReminders.Name = "btnReminders";
-            this.btnReminders.Size = new System.Drawing.Size(75, 23);
+            this.btnReminders.Size = new System.Drawing.Size(156, 37);
             this.btnReminders.TabIndex = 24;
             this.btnReminders.Text = "Reminders";
             this.btnReminders.UseVisualStyleBackColor = true;
@@ -389,28 +402,31 @@
             // chkStartWithWindows
             // 
             this.chkStartWithWindows.AutoSize = true;
-            this.chkStartWithWindows.Location = new System.Drawing.Point(483, 108);
+            this.chkStartWithWindows.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkStartWithWindows.Location = new System.Drawing.Point(6, 16);
             this.chkStartWithWindows.Name = "chkStartWithWindows";
-            this.chkStartWithWindows.Size = new System.Drawing.Size(251, 20);
+            this.chkStartWithWindows.Size = new System.Drawing.Size(207, 22);
             this.chkStartWithWindows.TabIndex = 25;
-            this.chkStartWithWindows.Text = "Start StudyZone when Windows starts";
+            this.chkStartWithWindows.Text = "Start when Windows starts";
             this.chkStartWithWindows.UseVisualStyleBackColor = true;
             this.chkStartWithWindows.CheckedChanged += new System.EventHandler(this.chkStartWithWindows_CheckedChanged);
             // 
             // btnMiniTimer
             // 
-            this.btnMiniTimer.Location = new System.Drawing.Point(570, 30);
+            this.btnMiniTimer.BackgroundImage = global::StudyZone.Properties.Resources.arrow;
+            this.btnMiniTimer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMiniTimer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMiniTimer.Location = new System.Drawing.Point(646, 89);
             this.btnMiniTimer.Name = "btnMiniTimer";
-            this.btnMiniTimer.Size = new System.Drawing.Size(125, 23);
+            this.btnMiniTimer.Size = new System.Drawing.Size(56, 56);
             this.btnMiniTimer.TabIndex = 26;
-            this.btnMiniTimer.Text = "Mini Timer";
             this.btnMiniTimer.UseVisualStyleBackColor = true;
             this.btnMiniTimer.Click += new System.EventHandler(this.btnMiniTimer_Click);
             // 
             // btnPause
             // 
             this.btnPause.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPause.Location = new System.Drawing.Point(93, 376);
+            this.btnPause.Location = new System.Drawing.Point(87, 21);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(75, 37);
             this.btnPause.TabIndex = 27;
@@ -418,27 +434,68 @@
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.listViewTasks);
+            this.groupBox4.Controls.Add(this.txtTaskDetails);
+            this.groupBox4.Location = new System.Drawing.Point(740, 30);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(575, 626);
+            this.groupBox4.TabIndex = 28;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Tasks";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.btnPause);
+            this.groupBox5.Controls.Add(this.btnStart);
+            this.groupBox5.Controls.Add(this.btnStop);
+            this.groupBox5.Location = new System.Drawing.Point(12, 420);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(690, 71);
+            this.groupBox5.TabIndex = 29;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Control";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.btnViewLogs);
+            this.groupBox6.Controls.Add(this.btnTaskManager);
+            this.groupBox6.Controls.Add(this.btnReminders);
+            this.groupBox6.Location = new System.Drawing.Point(12, 498);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(690, 75);
+            this.groupBox6.TabIndex = 30;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Goals and Tasks";
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.chkStartWithWindows);
+            this.groupBox7.Location = new System.Drawing.Point(13, 580);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(689, 44);
+            this.groupBox7.TabIndex = 31;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "Automation";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(782, 553);
-            this.Controls.Add(this.btnPause);
+            this.ClientSize = new System.Drawing.Size(1327, 734);
+            this.Controls.Add(this.groupBox7);
+            this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.btnMiniTimer);
-            this.Controls.Add(this.chkStartWithWindows);
-            this.Controls.Add(this.btnReminders);
-            this.Controls.Add(this.listViewTasks);
-            this.Controls.Add(this.txtTaskDetails);
-            this.Controls.Add(this.btnTaskManager);
-            this.Controls.Add(this.btnViewLogs);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnStop);
-            this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.Welcomelbl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Study Zone";
@@ -453,6 +510,12 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -492,6 +555,10 @@
         private System.Windows.Forms.CheckBox chkStartWithWindows;
         private System.Windows.Forms.Button btnMiniTimer;
         private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.GroupBox groupBox7;
     }
 }
 

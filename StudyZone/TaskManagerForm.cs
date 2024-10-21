@@ -10,63 +10,6 @@ namespace StudyZone
         private Action saveTasksToFile;
         private List<StudySession> sessions;
 
-        //public TaskManagerForm(List<TaskItem> tasksList, Action saveTasksAction, List<StudySession> sessionsList)
-        //{
-        //    InitializeComponent();
-        //    tasks = tasksList;
-        //    saveTasksToFile = saveTasksAction;
-        //    sessions = sessionsList;
-
-
-        //    // Attach event handlers
-        //    dataGridViewTasks.DataBindingComplete += DataGridViewTasks_DataBindingComplete;
-        //    chkShowCompleted.CheckedChanged += chkShowCompleted_CheckedChanged;
-
-        //    //Sorting
-        //    //Initialize cmbSortBy in the Constructor:
-        //    cmbSortBy.Items.AddRange(new string[] { "Title", "Due Date", "Status" });
-        //    cmbSortBy.SelectedIndex = 0; // Default to 'Title'
-
-
-
-        //    LoadTasks();
-        //}
-
-
-
-        //public TaskManagerForm(List<TaskItem> tasksList, Action saveTasksAction, List<StudySession> sessionsList)
-        //{
-        //    InitializeComponent();
-        //    tasks = tasksList;
-        //    saveTasksToFile = saveTasksAction;
-        //    sessions = sessionsList;
-
-        //    // Initialize session filter
-        //    cmbSessionFilter.Items.Add("All Sessions");
-        //    foreach (var session in sessions)
-        //    {
-        //        cmbSessionFilter.Items.Add(session.SessionName);
-        //    }
-        //    cmbSessionFilter.SelectedIndex = 0; // Default to 'All Sessions'
-
-        //    // Initialize due date filter
-        //    cmbDueDateFilter.Items.AddRange(new string[] { "Any Time", "Today", "This Week", "This Month", "Overdue" });
-        //    cmbDueDateFilter.SelectedIndex = 0; // Default to 'Any Time'
-
-        //    // Initialize other controls
-        //    cmbSortBy.Items.AddRange(new string[] { "Title", "Due Date", "Status" });
-        //    cmbSortBy.SelectedIndex = 0; // Default to 'Title'
-
-        //    // Attach event handlers
-        //    dataGridViewTasks.DataBindingComplete += DataGridViewTasks_DataBindingComplete;
-        //    chkShowCompleted.CheckedChanged += chkShowCompleted_CheckedChanged;
-        //    cmbSortBy.SelectedIndexChanged += cmbSortBy_SelectedIndexChanged;
-        //    cmbSessionFilter.SelectedIndexChanged += cmbSessionFilter_SelectedIndexChanged;
-        //    cmbDueDateFilter.SelectedIndexChanged += cmbDueDateFilter_SelectedIndexChanged;
-
-        //    LoadTasks();
-        //}
-
         public TaskManagerForm(List<TaskItem> tasksList, Action saveTasksAction, List<StudySession> sessionsList)
         {
             InitializeComponent();
@@ -97,7 +40,6 @@ namespace StudyZone
             cmbDueDateFilter.SelectedIndexChanged += cmbDueDateFilter_SelectedIndexChanged;
 
             dataGridViewTasks.DataBindingComplete += DataGridViewTasks_DataBindingComplete;
-
             LoadTasks();
         }
 
@@ -186,78 +128,7 @@ namespace StudyZone
             LoadTasks();
         }
 
-        //private void LoadTasks()
-        //{
-        //    // Apply filters
-        //    List<TaskItem> displayedTasks = new List<TaskItem>();
-        //    foreach (var task in tasks)
-        //    {
-        //        if (!chkShowCompleted.Checked && task.IsCompleted)
-        //            continue;
-        //        displayedTasks.Add(task);
-        //    }
-
-        //    // Apply sorting
-        //    switch (cmbSortBy.SelectedItem as string)
-        //    {
-        //        case "Title":
-        //            displayedTasks.Sort((x, y) => x.Title.CompareTo(y.Title));
-        //            break;
-        //        case "Due Date":
-        //            displayedTasks.Sort((x, y) => Nullable.Compare(x.DueDate, y.DueDate));
-        //            break;
-        //        case "Status":
-        //            displayedTasks.Sort((x, y) => x.IsCompleted.CompareTo(y.IsCompleted));
-        //            break;
-        //    }
-
-        //    dataGridViewTasks.DataSource = null;
-        //    dataGridViewTasks.DataSource = displayedTasks;
-        //}
-
-
-        //private void LoadTasks()
-        //{
-        //    // Apply filters
-        //    List<TaskItem> displayedTasks = new List<TaskItem>();
-
-        //    foreach (var task in tasks)
-        //    {
-        //        // Filter by completion status
-        //        if (!chkShowCompleted.Checked && task.IsCompleted)
-        //            continue;
-
-        //        // Filter by session assignment
-        //        if (cmbSessionFilter.SelectedItem.ToString() != "All Sessions")
-        //        {
-        //            if (task.SessionAssignment != cmbSessionFilter.SelectedItem.ToString())
-        //                continue;
-        //        }
-
-        //        // Filter by due date
-        //        if (!IsTaskWithinDueDateFilter(task))
-        //            continue;
-
-        //        displayedTasks.Add(task);
-        //    }
-
-        //    // Apply sorting
-        //    switch (cmbSortBy.SelectedItem as string)
-        //    {
-        //        case "Title":
-        //            displayedTasks.Sort((x, y) => x.Title.CompareTo(y.Title));
-        //            break;
-        //        case "Due Date":
-        //            displayedTasks.Sort((x, y) => Nullable.Compare(x.DueDate, y.DueDate));
-        //            break;
-        //        case "Status":
-        //            displayedTasks.Sort((x, y) => x.IsCompleted.CompareTo(y.IsCompleted));
-        //            break;
-        //    }
-
-        //    dataGridViewTasks.DataSource = null;
-        //    dataGridViewTasks.DataSource = displayedTasks;
-        //}
+        
 
         private void LoadTasks()
         {
@@ -315,11 +186,14 @@ namespace StudyZone
         {
             // Adjust column headers and formatting
             dataGridViewTasks.Columns["Title"].HeaderText = "Task Title";
+            dataGridViewTasks.Columns["Title"].Width = 250;
             dataGridViewTasks.Columns["DueDate"].HeaderText = "Due Date";
             dataGridViewTasks.Columns["IsCompleted"].HeaderText = "Completed";
             dataGridViewTasks.Columns["SessionAssignment"].HeaderText = "Assigned Session";
-
-            dataGridViewTasks.Columns["Description"].Visible = false; // Hide description column in grid
+            dataGridViewTasks.Columns["SessionAssignment"].Width = 190;
+            //dataGridViewTasks.Columns["Description"].Visible = false; // Hide description column in grid
+            dataGridViewTasks.Columns["Description"].HeaderText = "Description";
+            dataGridViewTasks.Columns["Description"].Width = 188;
 
             // Format the DueDate column
             dataGridViewTasks.Columns["DueDate"].DefaultCellStyle.Format = "d"; // Short date pattern
@@ -382,10 +256,7 @@ namespace StudyZone
             LoadTasks();
         }
 
-        //private void cmbSessionFilter_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    LoadTasks();
-        //}
+       
         private void cmbSessionFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbSessionFilter.SelectedItem != null)

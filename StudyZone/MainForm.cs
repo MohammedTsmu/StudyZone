@@ -53,8 +53,8 @@ namespace StudyZone
 
             // Initialize notification timer
             notificationTimer = new Timer();
-            //notificationTimer.Interval = 600000; // Set interval to 10 minutes (600,000 milliseconds)
-            notificationTimer.Interval = 10000; // Small Testing interval to test the application it is for developer only will be removed once everything checked.
+            notificationTimer.Interval = 600000; // Set interval to 10 minutes (600,000 milliseconds)
+            //notificationTimer.Interval = 10000; // Small Testing interval to test the application it is for developer only will be removed once everything checked.
             notificationTimer.Tick += NotificationTimer_Tick;
 
 
@@ -429,6 +429,37 @@ namespace StudyZone
 
         private void AddDefaultSessions()
         {
+            //sessions.Add(new StudySession
+            //{
+            //    SessionName = "Pomodoro 25/5",
+            //    StudyMinutes = 25,
+            //    StudySeconds = 0,
+            //    BreakMinutes = 5,
+            //    BreakSeconds = 0,
+            //    IsDefault = true
+            //});
+
+            //sessions.Add(new StudySession
+            //{
+            //    SessionName = "Deep Focus 60/10",
+            //    StudyMinutes = 60,
+            //    StudySeconds = 20,
+            //    BreakMinutes = 10,
+            //    BreakSeconds = 0,
+            //    IsDefault = true
+            //});
+
+            //sessions.Add(new StudySession
+            //{
+            //    SessionName = "Super Focus 90/20",
+            //    StudyMinutes = 90,
+            //    StudySeconds = 0,
+            //    BreakMinutes = 20,
+            //    BreakSeconds = 0,
+            //    IsDefault = true
+            //});
+
+            // Pomodoro 25/5 Session
             sessions.Add(new StudySession
             {
                 SessionName = "Pomodoro 25/5",
@@ -439,22 +470,79 @@ namespace StudyZone
                 IsDefault = true
             });
 
+            //// Deep Focus 60/10 Session
+            //sessions.Add(new StudySession
+            //{
+            //    SessionName = "Deep Focus 60/10",
+            //    StudyMinutes = 60,
+            //    StudySeconds = 20,
+            //    BreakMinutes = 10,
+            //    BreakSeconds = 0,
+            //    IsDefault = true
+            //});
+
+            //// Super Focus 90/20 Session
+            //sessions.Add(new StudySession
+            //{
+            //    SessionName = "Super Focus 90/20",
+            //    StudyMinutes = 90,
+            //    StudySeconds = 0,
+            //    BreakMinutes = 20,
+            //    BreakSeconds = 0,
+            //    IsDefault = true
+            //});
+
+            // Gamma Focus 30/5 Session
             sessions.Add(new StudySession
             {
-                SessionName = "Deep Focus 60/10",
-                StudyMinutes = 60,
-                StudySeconds = 20,
+                SessionName = "Gamma Focus 30/5",
+                StudyMinutes = 30,
+                StudySeconds = 0,
+                BreakMinutes = 5,
+                BreakSeconds = 0,
+                IsDefault = true
+            });
+
+            // Neuro Boost 45/10 Session
+            sessions.Add(new StudySession
+            {
+                SessionName = "Neuro Boost 45/10",
+                StudyMinutes = 45,
+                StudySeconds = 0,
                 BreakMinutes = 10,
                 BreakSeconds = 0,
                 IsDefault = true
             });
 
+            // Flow Cycle 75/15 Session
             sessions.Add(new StudySession
             {
-                SessionName = "Super Focus 90/20",
+                SessionName = "Flow Cycle 75/15",
+                StudyMinutes = 75,
+                StudySeconds = 0,
+                BreakMinutes = 15,
+                BreakSeconds = 0,
+                IsDefault = true
+            });
+
+            // Ultra Focus 52/17 (Science-backed by a study in 2014 that suggests 52 minutes is the optimal time)
+            sessions.Add(new StudySession
+            {
+                SessionName = "Ultra Focus 52/17",
+                StudyMinutes = 52,
+                StudySeconds = 0,
+                BreakMinutes = 17,
+                BreakSeconds = 0,
+                IsDefault = true
+            });
+
+            // Dynamic Focus 90/30 (Recommended for intense learning sessions, backed by cognitive studies)
+            sessions.Add(new StudySession
+            {
+                SessionName = "Dynamic Focus 90/30",
                 StudyMinutes = 90,
                 StudySeconds = 0,
-                BreakMinutes = 20,
+                BreakMinutes = 30,
                 BreakSeconds = 0,
                 IsDefault = true
             });
@@ -1020,10 +1108,5 @@ namespace StudyZone
         {
             return isPaused;
         }
-
-
-        
-
-
     }
 }
