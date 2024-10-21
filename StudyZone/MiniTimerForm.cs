@@ -10,7 +10,6 @@ namespace StudyZone
         private MainForm mainForm;
         private Font originalFont;
 
-
         public MiniTimerForm(MainForm parentForm)
         {
             InitializeComponent();
@@ -43,7 +42,6 @@ namespace StudyZone
             }
         }
 
-
         // Event handler for the main form's TimerTick event
         private void MainForm_TimerTick(TimeSpan remainingTime)
         {
@@ -64,13 +62,11 @@ namespace StudyZone
             UpdateButtonStates();
         }
 
-
         private void btnPause_Click(object sender, EventArgs e)
         {
             mainForm.PauseSession();
             UpdateButtonStates();
         }
-
 
         // Stop button click event handler
         private void btnStop_Click(object sender, EventArgs e)
@@ -110,13 +106,12 @@ namespace StudyZone
             ArrangeButtons();
         }
 
-
         private void MiniTimerForm_Activated(object sender, EventArgs e)
         {
             this.Opacity = 1;
-            btnStart.Visible = true;
-            btnPause.Visible = true;
-            btnStop.Visible = true;
+
+            // Update button states based on the current session state
+            UpdateButtonStates();
 
             // Reset the font size of lblMiniTimer
             lblMiniTimer.Font = originalFont;
@@ -155,32 +150,6 @@ namespace StudyZone
 
             // Adjust label color if needed
             lblMiniTimer.ForeColor = Color.White;
-        }
-
-
-
-        private void MiniTimerForm_Resize(object sender, EventArgs e)
-        {
-            //if (!this.ContainsFocus)
-            //{
-            //    // Adjust font size based on form size
-            //    AdjustFontSize();
-            //}
-            //else
-            //{
-            //    // Re-arrange controls when resized while active
-            //    ArrangeButtons();
-            //}
-        }
-
-
-        private void AdjustFontSize()
-        {
-            // Calculate a suitable font size based on the form size
-            float fontSize = Math.Min(this.ClientSize.Width, this.ClientSize.Height) / 3.5f; // Adjust divisor as needed
-            fontSize = Math.Max(fontSize, 10); // Ensure the font size is at least 10
-
-            lblMiniTimer.Font = new Font(lblMiniTimer.Font.FontFamily, fontSize, lblMiniTimer.Font.Style);
         }
 
         private void ArrangeButtons()

@@ -101,7 +101,6 @@
             this.Activated += new System.EventHandler(this.MiniTimerForm_Activated);
             this.Deactivate += new System.EventHandler(this.MiniTimerForm_Deactivate);
             this.Load += new System.EventHandler(this.MiniTimerForm_Load);
-            this.Resize += new System.EventHandler(this.MiniTimerForm_Resize);
             this.ResumeLayout(false);
 
         }
