@@ -273,13 +273,5 @@ namespace StudyZone
         {
             UpdateButtonStates();
         }
-
-        private void btnStart_MouseHover(object sender, EventArgs e)
-        {
-            // In the constructor or initialization code
-            toolTip1.SetToolTip(btnStart, "Start Session");
-            toolTip1.SetToolTip(btnPause, "Pause/Resume Session");
-            toolTip1.SetToolTip(btnStop, "Stop Session");
-        }
     }
 }

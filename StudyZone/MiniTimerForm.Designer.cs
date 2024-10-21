@@ -34,7 +34,7 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTipButtons = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMiniTimer
@@ -50,9 +50,9 @@
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.Name = "btnStart";
+            this.toolTipButtons.SetToolTip(this.btnStart, resources.GetString("btnStart.ToolTip"));
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            this.btnStart.MouseHover += new System.EventHandler(this.btnStart_MouseHover);
             // 
             // btnPause
             // 
@@ -61,6 +61,7 @@
             this.btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPause.FlatAppearance.BorderSize = 0;
             this.btnPause.Name = "btnPause";
+            this.toolTipButtons.SetToolTip(this.btnPause, resources.GetString("btnPause.ToolTip"));
             this.btnPause.UseVisualStyleBackColor = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
@@ -71,12 +72,17 @@
             this.btnStop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStop.FlatAppearance.BorderSize = 0;
             this.btnStop.Name = "btnStop";
+            this.toolTipButtons.SetToolTip(this.btnStop, resources.GetString("btnStop.ToolTip"));
             this.btnStop.UseVisualStyleBackColor = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
-            // toolTip1
+            // toolTipButtons
             // 
-            this.toolTip1.ToolTipTitle = "What is this:";
+            this.toolTipButtons.AutoPopDelay = 5000;
+            this.toolTipButtons.InitialDelay = 1000;
+            this.toolTipButtons.ReshowDelay = 500;
+            this.toolTipButtons.ShowAlways = true;
+            this.toolTipButtons.ToolTipTitle = "Click to:";
             // 
             // MiniTimerForm
             // 
@@ -106,6 +112,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnStop;
-        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTipButtons;
     }
 }
