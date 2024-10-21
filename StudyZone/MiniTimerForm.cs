@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -69,33 +70,58 @@ namespace StudyZone
             UpdateButtonStates();
         }
 
+        //public void UpdateButtonStates()
+        //{
+        //    if (mainForm.IsSessionRunning())
+        //    {
+        //        btnStart.Enabled = false;
+        //        btnPause.Enabled = true;
+        //        //btnPause.Text = "Pause";
+        //        btnPause.Image = StudyZone.Properties.Resources.pause;
+        //        btnStop.Enabled = true;
+        //    }
+        //    else if (mainForm.IsSessionPaused())
+        //    {
+        //        btnStart.Enabled = false;
+        //        btnPause.Enabled = true;
+        //        //btnPause.Text = "Resume";
+        //        btnPause.Image = StudyZone.Properties.Resources.resume;
+        //        btnStop.Enabled = true;
+        //    }
+        //    else
+        //    {
+        //        btnStart.Enabled = true;
+        //        btnPause.Enabled = false;
+        //        //btnPause.Text = "Pause";
+        //        btnPause.Image = StudyZone.Properties.Resources.pause;
+        //        btnStop.Enabled = false;
+        //    }
+        //}
         public void UpdateButtonStates()
         {
             if (mainForm.IsSessionRunning())
             {
-                btnStart.Enabled = false;
-                btnPause.Enabled = true;
-                //btnPause.Text = "Pause";
-                btnPause.Image = StudyZone.Properties.Resources.pause;
-                btnStop.Enabled = true;
+                btnStart.Visible = false;
+                btnPause.Visible = true;
+                btnStop.Visible = true;
             }
             else if (mainForm.IsSessionPaused())
             {
-                btnStart.Enabled = false;
-                btnPause.Enabled = true;
-                //btnPause.Text = "Resume";
-                btnPause.Image = StudyZone.Properties.Resources.resume;
-                btnStop.Enabled = true;
+                btnStart.Visible = false;
+                btnPause.Visible = true;
+                btnStop.Visible = true;
             }
             else
             {
-                btnStart.Enabled = true;
-                btnPause.Enabled = false;
-                //btnPause.Text = "Pause";
-                btnPause.Image = StudyZone.Properties.Resources.pause;
-                btnStop.Enabled = false;
+                btnStart.Visible = true;
+                btnPause.Visible = false;
+                btnStop.Visible = false;
             }
+
+            // Rearrange buttons based on visibility
+            ArrangeButtons();
         }
+
 
         private void MiniTimerForm_Activated(object sender, EventArgs e)
         {
@@ -116,11 +142,30 @@ namespace StudyZone
             lblMiniTimer.Size = new Size(this.ClientSize.Width, 40); // Adjust height as needed
             lblMiniTimer.Location = new Point(0, 10); // Position at the top with some margin
 
+            // Reset label color
+            lblMiniTimer.ForeColor = Color.White;
+
             // Arrange buttons
             ArrangeButtons();
         }
 
 
+        //private void MiniTimerForm_Deactivate(object sender, EventArgs e)
+        //{
+        //    this.Opacity = 0.4;
+        //    btnStart.Visible = false;
+        //    btnPause.Visible = false;
+        //    btnStop.Visible = false;
+
+        //    // Increase the font size of lblMiniTimer
+        //    float newFontSize = originalFont.Size * 1.5f; // Increase font size by 50%
+        //    lblMiniTimer.Font = new Font(lblMiniTimer.Font.FontFamily, newFontSize, lblMiniTimer.Font.Style);
+
+        //    // Adjust label properties
+        //    lblMiniTimer.Dock = DockStyle.Fill;
+        //    lblMiniTimer.TextAlign = ContentAlignment.MiddleCenter;
+        //    lblMiniTimer.AutoSize = false;
+        //}
         private void MiniTimerForm_Deactivate(object sender, EventArgs e)
         {
             this.Opacity = 0.4;
@@ -129,27 +174,32 @@ namespace StudyZone
             btnStop.Visible = false;
 
             // Increase the font size of lblMiniTimer
-            float newFontSize = originalFont.Size * 1.5f; // Increase font size by 50%
+            float newFontSize = Math.Min(originalFont.Size * 1.5f, this.ClientSize.Height / 2); // Adjust as needed
             lblMiniTimer.Font = new Font(lblMiniTimer.Font.FontFamily, newFontSize, lblMiniTimer.Font.Style);
 
             // Adjust label properties
             lblMiniTimer.Dock = DockStyle.Fill;
             lblMiniTimer.TextAlign = ContentAlignment.MiddleCenter;
             lblMiniTimer.AutoSize = false;
+
+            // Adjust label color if needed
+            lblMiniTimer.ForeColor = Color.White;
         }
+
+
 
         private void MiniTimerForm_Resize(object sender, EventArgs e)
         {
-            if (!this.ContainsFocus)
-            {
-                // Adjust font size based on form size
-                AdjustFontSize();
-            }
-            else
-            {
-                // Re-arrange controls when resized while active
-                ArrangeButtons();
-            }
+            //if (!this.ContainsFocus)
+            //{
+            //    // Adjust font size based on form size
+            //    AdjustFontSize();
+            //}
+            //else
+            //{
+            //    // Re-arrange controls when resized while active
+            //    ArrangeButtons();
+            //}
         }
 
 
@@ -162,23 +212,60 @@ namespace StudyZone
             lblMiniTimer.Font = new Font(lblMiniTimer.Font.FontFamily, fontSize, lblMiniTimer.Font.Style);
         }
 
+        //private void ArrangeButtons()
+        //{
+        //    int buttonSize = 40; // Square buttons
+        //    int spacing = 5; // Space between buttons
+        //    int totalButtonsWidth = (buttonSize * 3) + (spacing * 2);
+        //    int startX = (this.ClientSize.Width - totalButtonsWidth) / 2;
+        //    int y = this.ClientSize.Height - buttonSize;
+        //    //int y = this.ClientSize.Height - buttonSize - 10; // 10 pixels margin from bottom
+
+        //    btnStart.Size = new Size(buttonSize, buttonSize);
+        //    btnPause.Size = new Size(buttonSize, buttonSize);
+        //    btnStop.Size = new Size(buttonSize, buttonSize);
+
+        //    btnStart.Location = new Point(startX, y);
+        //    btnPause.Location = new Point(startX + buttonSize + spacing, y);
+        //    btnStop.Location = new Point(startX + (buttonSize + spacing) * 2, y);
+        //}
         private void ArrangeButtons()
         {
-            int buttonSize = 40; // Square buttons
-            int spacing = 5; // Space between buttons
-            int totalButtonsWidth = (buttonSize * 3) + (spacing * 2);
+            int buttonSize = 40;
+            int spacing = 5;
+            List<Button> visibleButtons = new List<Button>();
+
+            if (btnStart.Visible)
+                visibleButtons.Add(btnStart);
+            if (btnPause.Visible)
+                visibleButtons.Add(btnPause);
+            if (btnStop.Visible)
+                visibleButtons.Add(btnStop);
+
+            int totalButtonsWidth = (buttonSize * visibleButtons.Count) + (spacing * (visibleButtons.Count - 1));
             int startX = (this.ClientSize.Width - totalButtonsWidth) / 2;
             int y = this.ClientSize.Height - buttonSize;
-            //int y = this.ClientSize.Height - buttonSize - 10; // 10 pixels margin from bottom
+            //int y = this.ClientSize.Height - buttonSize - 10;
 
-            btnStart.Size = new Size(buttonSize, buttonSize);
-            btnPause.Size = new Size(buttonSize, buttonSize);
-            btnStop.Size = new Size(buttonSize, buttonSize);
-
-            btnStart.Location = new Point(startX, y);
-            btnPause.Location = new Point(startX + buttonSize + spacing, y);
-            btnStop.Location = new Point(startX + (buttonSize + spacing) * 2, y);
+            for (int i = 0; i < visibleButtons.Count; i++)
+            {
+                Button btn = visibleButtons[i];
+                btn.Size = new Size(buttonSize, buttonSize);
+                btn.Location = new Point(startX + i * (buttonSize + spacing), y);
+            }
         }
 
+        private void MiniTimerForm_Load(object sender, EventArgs e)
+        {
+            UpdateButtonStates();
+        }
+
+        private void btnStart_MouseHover(object sender, EventArgs e)
+        {
+            // In the constructor or initialization code
+            toolTip1.SetToolTip(btnStart, "Start Session");
+            toolTip1.SetToolTip(btnPause, "Pause/Resume Session");
+            toolTip1.SetToolTip(btnStop, "Stop Session");
+        }
     }
 }

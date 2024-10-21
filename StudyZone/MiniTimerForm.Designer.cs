@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MiniTimerForm));
             this.lblMiniTimer = new System.Windows.Forms.Label();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // lblMiniTimer
@@ -46,17 +48,18 @@
             resources.ApplyResources(this.btnStart, "btnStart");
             this.btnStart.BackColor = System.Drawing.Color.Transparent;
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStart.Image = global::StudyZone.Properties.Resources.start;
+            this.btnStart.FlatAppearance.BorderSize = 0;
             this.btnStart.Name = "btnStart";
             this.btnStart.UseVisualStyleBackColor = false;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnStart.MouseHover += new System.EventHandler(this.btnStart_MouseHover);
             // 
             // btnPause
             // 
             resources.ApplyResources(this.btnPause, "btnPause");
             this.btnPause.BackColor = System.Drawing.Color.Transparent;
             this.btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPause.Image = global::StudyZone.Properties.Resources.pause;
+            this.btnPause.FlatAppearance.BorderSize = 0;
             this.btnPause.Name = "btnPause";
             this.btnPause.UseVisualStyleBackColor = false;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
@@ -66,10 +69,14 @@
             resources.ApplyResources(this.btnStop, "btnStop");
             this.btnStop.BackColor = System.Drawing.Color.Transparent;
             this.btnStop.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStop.Image = global::StudyZone.Properties.Resources.stop;
+            this.btnStop.FlatAppearance.BorderSize = 0;
             this.btnStop.Name = "btnStop";
             this.btnStop.UseVisualStyleBackColor = false;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "What is this:";
             // 
             // MiniTimerForm
             // 
@@ -80,12 +87,14 @@
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.lblMiniTimer);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MiniTimerForm";
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.MiniTimerForm_Activated);
             this.Deactivate += new System.EventHandler(this.MiniTimerForm_Deactivate);
+            this.Load += new System.EventHandler(this.MiniTimerForm_Load);
             this.Resize += new System.EventHandler(this.MiniTimerForm_Resize);
             this.ResumeLayout(false);
 
@@ -97,5 +106,6 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnStop;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
