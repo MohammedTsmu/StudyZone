@@ -30,10 +30,24 @@ namespace StudyZone
         }
 
         // Method to update the timer label
+        //public void UpdateTimerLabel(TimeSpan remainingTime)
+        //{
+        //    lblMiniTimer.Text = string.Format("{0:D2}:{1:D2}", remainingTime.Minutes, remainingTime.Seconds);
+        //}
         public void UpdateTimerLabel(TimeSpan remainingTime)
         {
-            lblMiniTimer.Text = string.Format("{0:D2}:{1:D2}", remainingTime.Minutes, remainingTime.Seconds);
+            if (remainingTime.TotalHours >= 1)
+            {
+                // If total hours is greater than or equal to 1, include hours in the format
+                lblMiniTimer.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", (int)remainingTime.TotalHours, remainingTime.Minutes, remainingTime.Seconds);
+            }
+            else
+            {
+                // Otherwise, display minutes and seconds only
+                lblMiniTimer.Text = string.Format("{0:D2}:{1:D2}", remainingTime.Minutes, remainingTime.Seconds);
+            }
         }
+
 
         // Event handler for the main form's TimerTick event
         private void MainForm_TimerTick(TimeSpan remainingTime)
