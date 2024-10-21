@@ -247,21 +247,7 @@ namespace StudyZone
             }
         }
 
-        //private void UpdateTimerLabel()
-        //{
-        //    int minutes = totalSeconds / 60;
-        //    int seconds = totalSeconds % 60;
-        //    lblTimer.Text = $"{minutes:D2}:{seconds:D2}";
-
-        //    if (isPaused)
-        //    {
-        //        lblTimer.ForeColor = Color.Gray; // Or any color you prefer
-        //    }
-        //    else
-        //    {
-        //        lblTimer.ForeColor = Color.Black;
-        //    }
-        //}
+        
         private void UpdateTimerLabel()
         {
             int hours = totalSeconds / 3600;
@@ -347,7 +333,6 @@ namespace StudyZone
                 DisplayTasksForSelectedSession();
             }
         }
-
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -454,36 +439,6 @@ namespace StudyZone
 
         private void AddDefaultSessions()
         {
-            //sessions.Add(new StudySession
-            //{
-            //    SessionName = "Pomodoro 25/5",
-            //    StudyMinutes = 25,
-            //    StudySeconds = 0,
-            //    BreakMinutes = 5,
-            //    BreakSeconds = 0,
-            //    IsDefault = true
-            //});
-
-            //sessions.Add(new StudySession
-            //{
-            //    SessionName = "Deep Focus 60/10",
-            //    StudyMinutes = 60,
-            //    StudySeconds = 20,
-            //    BreakMinutes = 10,
-            //    BreakSeconds = 0,
-            //    IsDefault = true
-            //});
-
-            //sessions.Add(new StudySession
-            //{
-            //    SessionName = "Super Focus 90/20",
-            //    StudyMinutes = 90,
-            //    StudySeconds = 0,
-            //    BreakMinutes = 20,
-            //    BreakSeconds = 0,
-            //    IsDefault = true
-            //});
-
             // Pomodoro 25/5 Session
             sessions.Add(new StudySession
             {
@@ -494,28 +449,6 @@ namespace StudyZone
                 BreakSeconds = 0,
                 IsDefault = true
             });
-
-            //// Deep Focus 60/10 Session
-            //sessions.Add(new StudySession
-            //{
-            //    SessionName = "Deep Focus 60/10",
-            //    StudyMinutes = 60,
-            //    StudySeconds = 20,
-            //    BreakMinutes = 10,
-            //    BreakSeconds = 0,
-            //    IsDefault = true
-            //});
-
-            //// Super Focus 90/20 Session
-            //sessions.Add(new StudySession
-            //{
-            //    SessionName = "Super Focus 90/20",
-            //    StudyMinutes = 90,
-            //    StudySeconds = 0,
-            //    BreakMinutes = 20,
-            //    BreakSeconds = 0,
-            //    IsDefault = true
-            //});
 
             // Gamma Focus 30/5 Session
             sessions.Add(new StudySession
@@ -534,6 +467,17 @@ namespace StudyZone
                 SessionName = "Neuro Boost 45/10",
                 StudyMinutes = 45,
                 StudySeconds = 0,
+                BreakMinutes = 10,
+                BreakSeconds = 0,
+                IsDefault = true
+            });
+
+            // Deep Focus 60/10 Session
+            sessions.Add(new StudySession
+            {
+                SessionName = "Deep Focus 60/10",
+                StudyMinutes = 60,
+                StudySeconds = 20,
                 BreakMinutes = 10,
                 BreakSeconds = 0,
                 IsDefault = true
