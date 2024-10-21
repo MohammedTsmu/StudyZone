@@ -116,6 +116,10 @@ namespace StudyZone
             // Reset the font size of lblMiniTimer
             lblMiniTimer.Font = originalFont;
 
+            // Increase the font size of lblMiniTimer
+            float newFontSize = Math.Min(originalFont.Size * 1.4f, this.ClientSize.Height / 2); // Adjust as needed
+            lblMiniTimer.Font = new Font(lblMiniTimer.Font.FontFamily, newFontSize, lblMiniTimer.Font.Style);
+
             // Reset label properties if modified
             lblMiniTimer.Dock = DockStyle.None;
             lblMiniTimer.TextAlign = ContentAlignment.MiddleCenter;
@@ -138,9 +142,10 @@ namespace StudyZone
             btnStart.Visible = false;
             btnPause.Visible = false;
             btnStop.Visible = false;
+            lblMiniTimer.Font = originalFont;
 
             // Increase the font size of lblMiniTimer
-            float newFontSize = Math.Min(originalFont.Size * 1.5f, this.ClientSize.Height / 2); // Adjust as needed
+            float newFontSize = Math.Min(originalFont.Size * 1.6f, this.ClientSize.Height / 2); // Adjust as needed
             lblMiniTimer.Font = new Font(lblMiniTimer.Font.FontFamily, newFontSize, lblMiniTimer.Font.Style);
 
             // Adjust label properties
