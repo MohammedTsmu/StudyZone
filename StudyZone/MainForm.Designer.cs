@@ -399,6 +399,7 @@
             this.notifyIcon.BalloonTipText = "StudyZone";
             this.notifyIcon.BalloonTipTitle = "StudyZone";
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "Study Zone";
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 

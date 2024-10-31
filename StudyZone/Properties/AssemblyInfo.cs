@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("StudyZone")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("StudyZone - A productivity application that helps you manage your study sessions effectively using the Pomodoro and other Techniques. Includes features like customizable timers, task management, reminders, session logs, and a mini timer for convenience.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Dr. Mohammed Studio")]
 [assembly: AssemblyProduct("StudyZone")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
