@@ -10,6 +10,8 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using IWshRuntimeLibrary;
+using static System.Collections.Specialized.BitVector32;
+using System.Reflection;
 
 
 
@@ -35,8 +37,19 @@ namespace StudyZone
         private int totalSeconds = 0;
         private bool isStudyTime = true;
 
+        //Fields to Track Pause Duration and Reminders
+        private Timer pauseDurationTimer;
+        private int pauseDurationInSeconds = 0;
+        private int pauseReminderThreshold = 300; // Time in seconds after which to start reminders (e.g., 300 seconds = 5 minutes)
+        private int pauseReminderInterval = 120; // Reminder interval in seconds (e.g., 120 seconds = 2 minutes)
+        //pauseDurationTimer: A timer to track how long the session has been paused.
+        //pauseDurationInSeconds: Counter to keep track of the paused duration.
+        //pauseReminderThreshold: The duration after which reminders should start (e.g., 5 minutes).
+        //pauseReminderInterval: How often to remind the user after the threshold is reached(e.g., every 2 minutes).
 
-
+        //Note: To use FlashWindow, you need to import the function from user32.dll:
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        static extern bool FlashWindow(IntPtr hwnd, bool bInvert);
 
 
         public MainForm()
@@ -57,6 +70,10 @@ namespace StudyZone
             //notificationTimer.Interval = 10000; // Small Testing interval to test the application it is for developer only will be removed once everything checked.
             notificationTimer.Tick += NotificationTimer_Tick;
 
+            // Initialize pause duration timer
+            pauseDurationTimer = new Timer();
+            pauseDurationTimer.Interval = 1000; // Tick every second
+            pauseDurationTimer.Tick += PauseDurationTimer_Tick;
 
             // Start the reminder timer
             StartReminderTimer();
@@ -169,16 +186,25 @@ namespace StudyZone
                 // Pause the session
                 timerPomodoro.Stop();
                 isPaused = true;
+
+                // Start tracking pause duration
+                pauseDurationInSeconds = 0;
+                pauseDurationTimer.Start();
             }
             else if (isPaused)
             {
                 // Resume the session
                 timerPomodoro.Start();
                 isPaused = false;
+
+                // Stop tracking pause duration
+                pauseDurationTimer.Stop();
+                pauseDurationInSeconds = 0;
             }
 
             UpdateButtonStates();
         }
+
 
 
         public void StopSession()
@@ -187,7 +213,11 @@ namespace StudyZone
             {
                 timerPomodoro.Stop();
                 totalSeconds = 0;
+
+                // Reset pause state and timer
                 isPaused = false;
+                pauseDurationTimer.Stop();
+                pauseDurationInSeconds = 0;
                 UpdateTimerLabel();
 
                 if (currentSessionLog != null)
@@ -202,6 +232,7 @@ namespace StudyZone
 
             UpdateButtonStates();
         }
+
 
 
         private void SaveSessionLog(SessionLog log)
@@ -1076,6 +1107,36 @@ namespace StudyZone
         public bool IsSessionPaused()
         {
             return isPaused;
+        }
+
+        private void PauseDurationTimer_Tick(object sender, EventArgs e)
+        {
+            pauseDurationInSeconds++;
+
+            if (pauseDurationInSeconds == pauseReminderThreshold)
+            {
+                // Time to start reminders
+                ShowPauseReminder();
+            }
+            else if (pauseDurationInSeconds > pauseReminderThreshold &&
+                     (pauseDurationInSeconds - pauseReminderThreshold) % pauseReminderInterval == 0)
+            {
+                // Time for subsequent reminders
+                ShowPauseReminder();
+            }
+        }
+
+        private void ShowPauseReminder()
+        {
+            // Display a balloon tip notification
+            notifyIcon.Visible = true; // Ensure the icon is visible
+            notifyIcon.BalloonTipTitle = "StudyZone - Session Paused";
+            notifyIcon.BalloonTipText = "Your study session has been paused. Don't forget to resume!";
+            notifyIcon.ShowBalloonTip(10000); // Display for 10 seconds
+
+            // Optionally, you can play a sound or bring the application to the front
+            // For example, you can flash the taskbar icon:
+            FlashWindow(this.Handle, true);
         }
     }
 }
