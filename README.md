@@ -202,10 +202,10 @@ Follow these steps to build and run the application from the source code.
 ![Mini Timer](https://github.com/MohammedTsmu/StudyZone/blob/master/screenshots/mini-timer.png)  
 *Figure: Mini Timer in Action*
 
-### Mini Timer in Dimmed and Unfocused
+### Mini Timer in Dimmed and Unfocused (Read Mode)
 
 ![Mini Timer](https://github.com/MohammedTsmu/StudyZone/blob/master/screenshots/mini-timer-dim.png)  
-*Figure: Mini Timer in Action*
+*Figure: Mini Timer in Dimmed and Unfocused (Read Mode)*
 
 ## Contributing
 
