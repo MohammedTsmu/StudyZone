@@ -25,6 +25,7 @@
 ## Features
 
 - **Session Timer**: Customize your study and break durations to suit your preferences.
+- **Pause Session Reminders**: Receive reminders to resume your study session if it remains paused for a certain period.
 - **Task Manager**: Keep track of your study tasks, set due dates, and assign them to specific sessions.
 - **Reminders**: Create one-time or recurring reminders for important events.
 - **Mini Timer**: Use a compact timer window that stays on top for convenience.
@@ -116,7 +117,11 @@ Follow these steps to build and run the application from the source code.
 
     - Use the **Pause** button to pause the timer and **Resume** to continue.
 
-4. **Stop the Session**:
+4. **Pause Reminders**:
+
+    - If you pause the session and forget to resume it, StudyZone will remind you after a certain period to get back to your study session.
+
+5. **Stop the Session**:
 
     - Click the **Stop** button to end the session prematurely.
 
@@ -233,7 +238,7 @@ Contributions are welcome! If you have ideas for improvements or new features, f
 
 ## License
 
-This project is licensed under the [AGPL-3.0-1](https://github.com/MohammedTsmu/StudyZone?tab=AGPL-3.0-1-ov-file).
+This project is licensed under the [AGPL-3.0](https://github.com/MohammedTsmu/StudyZone/blob/master/LICENSE).
 
 ## Contact
 
