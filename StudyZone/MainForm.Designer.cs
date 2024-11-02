@@ -296,7 +296,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(265, 32);
             this.label3.TabIndex = 16;
-            this.label3.Text = "v1.0.0\r\nAll rights reserved © Dr. Mohammed Qasim.";
+            this.label3.Text = "v1.0.1\r\nAll rights reserved © Dr. Mohammed Qasim.";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnDeleteSession
