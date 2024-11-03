@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BreakForm));
             this.lblBreakTimer = new System.Windows.Forms.Label();
             this.timerBreak = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -72,9 +73,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblBreakTimer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BreakForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "BreakForm";
+            this.Text = "Break Screen";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
