@@ -137,11 +137,6 @@
             0,
             0,
             0});
-            this.nudStudyMinutes.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             this.nudStudyMinutes.Name = "nudStudyMinutes";
             this.nudStudyMinutes.Size = new System.Drawing.Size(120, 22);
             this.nudStudyMinutes.TabIndex = 4;
@@ -156,11 +151,6 @@
             this.nudBreakMinutes.Location = new System.Drawing.Point(107, 21);
             this.nudBreakMinutes.Maximum = new decimal(new int[] {
             60,
-            0,
-            0,
-            0});
-            this.nudBreakMinutes.Minimum = new decimal(new int[] {
-            1,
             0,
             0,
             0});

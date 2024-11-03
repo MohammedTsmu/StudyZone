@@ -60,9 +60,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 16);
+            this.label1.Size = new System.Drawing.Size(124, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "System Locked 🔒";
+            this.label1.Text = "Screen Locked🔒";
             // 
             // BreakForm
             // 
