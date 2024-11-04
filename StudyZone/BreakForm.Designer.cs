@@ -20,6 +20,7 @@
             base.Dispose(disposing);
         }
 
+
         #region Windows Form Designer generated code
 
         /// <summary>
@@ -32,7 +33,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BreakForm));
             this.timerBreak = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.lblBreakTimer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timerBreak
@@ -51,21 +51,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Screen Locked🔒";
             // 
-            // lblBreakTimer
-            // 
-            this.lblBreakTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblBreakTimer.AutoSize = true;
-            this.lblBreakTimer.BackColor = System.Drawing.Color.Transparent;
-            this.lblBreakTimer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblBreakTimer.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreakTimer.ForeColor = System.Drawing.Color.White;
-            this.lblBreakTimer.Location = new System.Drawing.Point(130, 180);
-            this.lblBreakTimer.Name = "lblBreakTimer";
-            this.lblBreakTimer.Size = new System.Drawing.Size(542, 72);
-            this.lblBreakTimer.TabIndex = 0;
-            this.lblBreakTimer.Text = "Break Time: 05:00";
-            this.lblBreakTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // BreakForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -73,7 +58,6 @@
             this.BackColor = System.Drawing.Color.DarkBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblBreakTimer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BreakForm";
@@ -89,6 +73,5 @@
         #endregion
         private System.Windows.Forms.Timer timerBreak;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblBreakTimer;
     }
 }
