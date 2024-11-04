@@ -227,36 +227,6 @@ namespace StudyZone
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        //private void InitializeTimerLabel()
-        //{
-        //    lblCountdownTimer = new Label();
-        //    lblCountdownTimer.AutoSize = false;
-        //    lblCountdownTimer.Size = new Size(800, 200);
-        //    lblCountdownTimer.Location = new Point((this.Width - lblCountdownTimer.Width) / 2, 100);
-        //    lblCountdownTimer.Font = new Font("Segoe UI", 72F, FontStyle.Bold);
-        //    lblCountdownTimer.ForeColor = Color.White;
-        //    lblCountdownTimer.TextAlign = ContentAlignment.MiddleCenter;
-        //    lblCountdownTimer.BackColor = Color.Transparent;
-        //    this.Controls.Add(lblCountdownTimer);
-        //}
-
-        //private void InitializeTimerLabel()
-        //{
-        //    lblCountdownTimer = new Label();
-        //    lblCountdownTimer.AutoSize = false;
-        //    lblCountdownTimer.Size = new Size(800, 200);
-        //    lblCountdownTimer.Font = new Font("Segoe UI", 72F, FontStyle.Bold);
-        //    lblCountdownTimer.ForeColor = Color.White;
-        //    lblCountdownTimer.TextAlign = ContentAlignment.MiddleCenter;
-        //    lblCountdownTimer.BackColor = Color.Transparent;
-
-        //    // Set location after form size is known
-        //    lblCountdownTimer.Location = new Point(
-        //        (this.ClientSize.Width - lblCountdownTimer.Width) / 2,100);
-
-        //    this.Controls.Add(lblCountdownTimer);
-        //}
-
         private void InitializeTimerLabel()
         {
             lblCountdownTimer = new Label();
@@ -275,49 +245,6 @@ namespace StudyZone
 
             this.Controls.Add(lblCountdownTimer);
         }
-
-
-        //private void InitializeQuoteLabel()
-        //{
-        //    lblQuote = new Label();
-        //    lblQuote.AutoSize = false;
-        //    lblQuote.Size = new Size(1000, 100);
-        //    lblQuote.Location = new Point((this.Width - lblQuote.Width) / 2, lblCountdownTimer.Bottom + 20);
-        //    lblQuote.Font = new Font("Segoe UI", 24F, FontStyle.Italic);
-        //    lblQuote.ForeColor = Color.White;
-        //    lblQuote.TextAlign = ContentAlignment.MiddleCenter;
-        //    lblQuote.BackColor = Color.Transparent;
-        //    this.Controls.Add(lblQuote);
-
-        //    // Set a random quote
-        //    Random rand = new Random();
-        //    int index = rand.Next(motivationalQuotes.Count);
-        //    lblQuote.Text = motivationalQuotes[index];
-        //}
-
-        //private void InitializeQuoteLabel()
-        //{
-        //    lblQuote = new Label();
-        //    lblQuote.AutoSize = false;
-        //    lblQuote.Size = new Size(1000, 100);
-        //    lblQuote.Font = new Font("Segoe UI", 24F, FontStyle.Italic);
-        //    lblQuote.ForeColor = Color.White;
-        //    lblQuote.TextAlign = ContentAlignment.MiddleCenter;
-        //    lblQuote.BackColor = Color.Transparent;
-
-        //    // Set location after lblCountdownTimer is initialized
-        //    lblQuote.Location = new Point(
-        //        (this.ClientSize.Width - lblQuote.Width) / 2,
-        //        lblCountdownTimer.Bottom + 20
-        //    );
-
-        //    this.Controls.Add(lblQuote);
-
-        //    // Set a random quote
-        //    Random rand = new Random();
-        //    int index = rand.Next(motivationalQuotes.Count);
-        //    lblQuote.Text = motivationalQuotes[index];
-        //}
 
         private void InitializeQuoteLabel()
         {
@@ -342,32 +269,6 @@ namespace StudyZone
             int index = rand.Next(motivationalQuotes.Count);
             lblQuote.Text = motivationalQuotes[index];
         }
-
-
-        //private void InitializeProgressBar()
-        //{
-        //    progressBar = new CircularProgressBar();
-        //    progressBar.Size = new Size(300, 300);
-        //    progressBar.Location = new Point((this.Width - progressBar.Width) / 2, lblQuote.Bottom + 20);
-        //    progressBar.BackColor = Color.Transparent;
-        //    //progressBar.BackColor = Color.Black; // Use a solid color for testing
-        //    this.Controls.Add(progressBar);
-        //}
-
-        //private void InitializeProgressBar()
-        //{
-        //    progressBar = new CircularProgressBar();
-        //    progressBar.Size = new Size(300, 300);
-        //    progressBar.BackColor = Color.Transparent;
-
-        //    // Set location after lblQuote is initialized
-        //    progressBar.Location = new Point(
-        //        (this.ClientSize.Width - progressBar.Width) / 2,
-        //        lblQuote.Bottom + 20
-        //    );
-
-        //    this.Controls.Add(progressBar);
-        //}
 
         private void InitializeProgressBar()
         {
@@ -404,17 +305,6 @@ namespace StudyZone
             progressBar.Invalidate(); // Force the control to repaint
         }
 
-        //protected override void OnPaint(PaintEventArgs e)
-        //{
-        //    base.OnPaint(e);
-
-        //    using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-        //        this.ClientRectangle, Color.FromArgb(50, Color.Black), Color.Transparent, 90F))
-        //    {
-        //        e.Graphics.FillRectangle(brush, this.ClientRectangle);
-        //    }
-        //}
-
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -430,19 +320,6 @@ namespace StudyZone
             }
         }
 
-
-        //private void DrawParticles(Graphics g)
-        //{
-        //    foreach (var particle in particles)
-        //    {
-        //        using (SolidBrush brush = new SolidBrush(particle.Color))
-        //        {
-        //            float x = particle.Position.X - particle.Size / 2;
-        //            float y = particle.Position.Y - particle.Size / 2;
-        //            g.FillEllipse(brush, x, y, particle.Size, particle.Size);
-        //        }
-        //    }
-        //}
         private void DrawParticles(Graphics g)
         {
             foreach (var particle in particles)
@@ -486,19 +363,32 @@ namespace StudyZone
         }
 
 
+        //private void AddParticles()
+        //{
+        //    // Generate particles at a reduced rate
+        //    int particlesToAdd = 1; // Reduce the number of particles added per frame
+
+        //    for (int i = 0; i < particlesToAdd; i++)
+        //    {
+        //        // Generate random position at the bottom of the form
+        //        float x = (float)(rand.NextDouble() * this.Width);
+        //        float y = this.Height + 10; // Start slightly off-screen
+
+        //        particles.Add(new Particle(new PointF(x, y)));
+        //    }
+        //}
         private void AddParticles()
         {
-            // Generate particles at a reduced rate
-            int particlesToAdd = 1; // Reduce the number of particles added per frame
+            int particlesToAdd = 14; // مضاعفة عدد الجسيمات المضافة
 
             for (int i = 0; i < particlesToAdd; i++)
             {
-                // Generate random position at the bottom of the form
                 float x = (float)(rand.NextDouble() * this.Width);
-                float y = this.Height + 10; // Start slightly off-screen
+                float y = this.Height - 10; // وضع الجسيمات أعلى قليلاً من أسفل النافذة
 
                 particles.Add(new Particle(new PointF(x, y)));
             }
         }
+
     }
 }
