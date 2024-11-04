@@ -30,23 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BreakForm));
-            this.lblBreakTimer = new System.Windows.Forms.Label();
             this.timerBreak = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
+            this.lblBreakTimer = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lblBreakTimer
-            // 
-            this.lblBreakTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblBreakTimer.AutoSize = true;
-            this.lblBreakTimer.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBreakTimer.ForeColor = System.Drawing.Color.White;
-            this.lblBreakTimer.Location = new System.Drawing.Point(130, 180);
-            this.lblBreakTimer.Name = "lblBreakTimer";
-            this.lblBreakTimer.Size = new System.Drawing.Size(540, 70);
-            this.lblBreakTimer.TabIndex = 0;
-            this.lblBreakTimer.Text = "Break Time: 05:00";
-            this.lblBreakTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // timerBreak
             // 
@@ -63,6 +50,21 @@
             this.label1.Size = new System.Drawing.Size(124, 16);
             this.label1.TabIndex = 1;
             this.label1.Text = "Screen Locked🔒";
+            // 
+            // lblBreakTimer
+            // 
+            this.lblBreakTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblBreakTimer.AutoSize = true;
+            this.lblBreakTimer.BackColor = System.Drawing.Color.Transparent;
+            this.lblBreakTimer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.lblBreakTimer.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBreakTimer.ForeColor = System.Drawing.Color.White;
+            this.lblBreakTimer.Location = new System.Drawing.Point(130, 180);
+            this.lblBreakTimer.Name = "lblBreakTimer";
+            this.lblBreakTimer.Size = new System.Drawing.Size(542, 72);
+            this.lblBreakTimer.TabIndex = 0;
+            this.lblBreakTimer.Text = "Break Time: 05:00";
+            this.lblBreakTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BreakForm
             // 
@@ -85,9 +87,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblBreakTimer;
         private System.Windows.Forms.Timer timerBreak;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblBreakTimer;
     }
 }
