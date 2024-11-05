@@ -32,7 +32,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BreakForm));
             this.timerBreak = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblScreenLocked = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // timerBreak
@@ -40,16 +40,16 @@
             this.timerBreak.Interval = 1000;
             this.timerBreak.Tick += new System.EventHandler(this.timerBreak_Tick);
             // 
-            // label1
+            // lblScreenLocked
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Screen Locked🔒";
+            this.lblScreenLocked.AutoSize = true;
+            this.lblScreenLocked.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScreenLocked.ForeColor = System.Drawing.SystemColors.Control;
+            this.lblScreenLocked.Location = new System.Drawing.Point(12, 9);
+            this.lblScreenLocked.Name = "lblScreenLocked";
+            this.lblScreenLocked.Size = new System.Drawing.Size(124, 16);
+            this.lblScreenLocked.TabIndex = 1;
+            this.lblScreenLocked.Text = "Screen Locked🔒";
             // 
             // BreakForm
             // 
@@ -57,7 +57,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblScreenLocked);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BreakForm";
@@ -72,6 +72,6 @@
 
         #endregion
         private System.Windows.Forms.Timer timerBreak;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblScreenLocked;
     }
 }

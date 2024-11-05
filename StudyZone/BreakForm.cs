@@ -356,6 +356,13 @@ namespace StudyZone
             this.TopMost = true;
             this.KeyPreview = true;
 
+            // Screen Lock Label Notification Settings
+            lblScreenLocked.Size = new Size(1000, 100);
+            lblScreenLocked.Font = new Font("Segoe UI", 18F, FontStyle.Regular);
+            lblScreenLocked.ForeColor = Color.White;
+            lblScreenLocked.TextAlign = ContentAlignment.MiddleCenter;
+            lblScreenLocked.BackColor = Color.FromArgb(76, Color.Black);
+
             // Initialize controls
             InitializeTimerLabel();
             InitializeQuoteLabel();
@@ -384,7 +391,7 @@ namespace StudyZone
             lblCountdownTimer.TextAlign = ContentAlignment.MiddleCenter;
             //lblCountdownTimer.BackColor = Color.Transparent;
             //lblCountdownTimer.BackColor = Color.FromArgb(128);
-            lblCountdownTimer.BackColor = Color.FromArgb(76, Color.Black); // قيمة 128 تعني شفافية بنسبة 50%
+            lblCountdownTimer.BackColor = Color.FromArgb(51, Color.Black); // قيمة 128 تعني شفافية بنسبة 50%
 
 
             // تعيين الموقع بعد معرفة حجم النموذج
@@ -599,6 +606,7 @@ namespace StudyZone
             // استدعاء الدالة وتحديد قيمة نصف القطر
             ApplyRoundedCorners(lblCountdownTimer, 30); // 30 هو نصف قطر الحواف الدائرية
             ApplyRoundedCorners(lblQuote, 30); // 30 هو نصف قطر الحواف الدائرية
+            ApplyRoundedCorners(lblScreenLocked, 10);
         }
 
         private void BreakForm_Resize(object sender, EventArgs e)

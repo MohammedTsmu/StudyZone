@@ -112,6 +112,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -280,15 +288,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Study Zone"
-        "ProductCode" = "8:{27CE1ED8-33CD-431C-BCD1-5FA57E8F0456}"
-        "PackageCode" = "8:{43BDA957-6556-4039-ADD1-3274B4F2FF8C}"
+        "ProductCode" = "8:{A34D10ED-7F05-4CC8-B0A4-51EAFA3B8F87}"
+        "PackageCode" = "8:{E1683A4E-73AF-4B7D-8C38-E3F720ED4AAE}"
         "UpgradeCode" = "8:{E131384F-0130-4A01-AE66-0AC480C1416D}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Dr. Mohammed Studio"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -830,7 +838,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_20A6C07B3B9642EEB50303805659F576"
             {
-            "SourcePath" = "8:..\\StudyZone\\obj\\Debug\\StudyZone.exe"
+            "SourcePath" = "8:..\\StudyZone\\obj\\Release\\StudyZone.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_2AF5621DB20B4D7AB0F7E43AA21161F5"
