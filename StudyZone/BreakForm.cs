@@ -8,6 +8,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Drawing.Drawing2D;
+using System.Linq;
 
 
 namespace StudyZone
@@ -70,20 +71,54 @@ namespace StudyZone
             SetRandomBackgroundImage();
         }
 
+        //private void LoadBackgroundImages()
+        //{
+        //    string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+
+        //    if (Directory.Exists(imagesFolderPath))
+        //    {
+        //        // أضف جميع ملفات الصور بصيغة .jpg أو .png من المجلد
+        //        foreach (string file in Directory.GetFiles(imagesFolderPath, "*.jpg"))
+        //        {
+        //            backgroundImages.Add(Image.FromFile(file));
+        //        }
+        //        foreach (string file in Directory.GetFiles(imagesFolderPath, "*.png"))
+        //        {
+        //            backgroundImages.Add(Image.FromFile(file));
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("مجلد الصور غير موجود. يرجى التأكد من وجوده.");
+        //    }
+        //}
         private void LoadBackgroundImages()
         {
             string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
 
             if (Directory.Exists(imagesFolderPath))
             {
-                // أضف جميع ملفات الصور بصيغة .jpg أو .png من المجلد
-                foreach (string file in Directory.GetFiles(imagesFolderPath, "*.jpg"))
+                // Get all image file paths in the directory
+                var imageFiles = Directory.GetFiles(imagesFolderPath, "*.jpg")
+                                           .Concat(Directory.GetFiles(imagesFolderPath, "*.png"))
+                                           .OrderBy(_ => Guid.NewGuid()) // Shuffle images
+                                           .Take(2) // Take only 5 random images for this session
+                                           .ToList();
+
+                foreach (string file in imageFiles)
                 {
-                    backgroundImages.Add(Image.FromFile(file));
-                }
-                foreach (string file in Directory.GetFiles(imagesFolderPath, "*.png"))
-                {
-                    backgroundImages.Add(Image.FromFile(file));
+                    try
+                    {
+                        using (var bmpTemp = new Bitmap(file))
+                        {
+                            backgroundImages.Add(new Bitmap(bmpTemp));
+                        }
+                        Debug.WriteLine($"Successfully loaded image: {file}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"Error loading image {file}: {ex.Message}");
+                    }
                 }
             }
             else
@@ -91,15 +126,69 @@ namespace StudyZone
                 MessageBox.Show("مجلد الصور غير موجود. يرجى التأكد من وجوده.");
             }
         }
+
+
+
+        //private void SetRandomBackgroundImage()
+        //{
+        //    if (backgroundImages.Count > 0)
+        //    {
+        //        int index = rand.Next(backgroundImages.Count);
+        //        this.BackgroundImage = backgroundImages[index];
+        //        this.BackgroundImageLayout = ImageLayout.Stretch;
+        //    }
+        //}
         private void SetRandomBackgroundImage()
         {
-            if (backgroundImages.Count > 0)
+            string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+
+            if (Directory.Exists(imagesFolderPath))
             {
-                int index = rand.Next(backgroundImages.Count);
-                this.BackgroundImage = backgroundImages[index];
-                this.BackgroundImageLayout = ImageLayout.Stretch;
+                string[] allFiles = Directory.GetFiles(imagesFolderPath, "*.jpg")
+                    .Concat(Directory.GetFiles(imagesFolderPath, "*.png")).ToArray();
+
+                if (allFiles.Length > 0)
+                {
+                    int numberOfImagesToPick = Math.Min(5, allFiles.Length);
+                    var selectedFiles = allFiles.OrderBy(x => rand.Next()).Take(numberOfImagesToPick).ToArray();
+
+                    string selectedImagePath = selectedFiles[rand.Next(selectedFiles.Length)];
+
+                    try
+                    {
+                        Console.WriteLine($"Attempting to load image: {selectedImagePath}");
+
+                        if (this.BackgroundImage != null)
+                        {
+                            this.BackgroundImage.Dispose(); // تحرير الصورة القديمة
+                        }
+
+                        this.BackgroundImage = Image.FromFile(selectedImagePath);
+                        this.BackgroundImageLayout = ImageLayout.Stretch;
+                    }
+                    catch (ArgumentException ex)
+                    {
+                        Console.WriteLine($"Error loading image {selectedImagePath}: {ex.Message}");
+                        MessageBox.Show($"Error loading image: {selectedImagePath}\n{ex.Message}");
+                    }
+                    catch (OutOfMemoryException)
+                    {
+                        Console.WriteLine($"Out of memory when loading image: {selectedImagePath}");
+                        MessageBox.Show("Out of memory when loading image: " + selectedImagePath);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("مجلد الصور غير موجود. يرجى التأكد من وجوده.");
             }
         }
+
+
+
+
+
+
         private void LoadMusicFiles()
         {
             string musicFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Music");
