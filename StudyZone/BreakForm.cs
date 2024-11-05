@@ -18,11 +18,11 @@ namespace StudyZone
         private bool allowClose = false; // Flag to control form closing
         private int breakSeconds = 0;
         private int totalBreakSeconds = 0;
-        private List<Image> backgroundImages = new List<Image>();
         private Label lblCountdownTimer;
         private Label lblQuote;
         private CircularProgressBar progressBar;
-        private List<UnmanagedMemoryStream> musicStreams = new List<UnmanagedMemoryStream>();
+        private List<string> musicFiles = new List<string>();
+        private List<Image> backgroundImages = new List<Image>();
         private SoundPlayer player;
         private List<string> motivationalQuotes = new List<string>
         {
@@ -52,11 +52,6 @@ namespace StudyZone
             this.TopMost = true;
             this.KeyPreview = true;
 
-
-            // Set the background image
-            this.BackgroundImage = Properties.Resources.BackgroundImage; // Replace 'BackgroundImage' with your resource name
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-
             // Initialize controls
             InitializeTimerLabel();
             InitializeQuoteLabel();
@@ -68,68 +63,75 @@ namespace StudyZone
             // Enable double buffering to reduce flickering and improve rendering performance
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
 
-            LoadMusicStreams();
-            PlayRandomMusic();
 
+            LoadMusicFiles();
             LoadBackgroundImages();
+            PlayRandomMusic();
             SetRandomBackgroundImage();
         }
 
         private void LoadBackgroundImages()
         {
-            // أضف كل صورة من الموارد إلى القائمة
-            backgroundImages.Add(Properties.Resources.BackgroundImage); // استبدل "Background1" باسم المورد
-            backgroundImages.Add(Properties.Resources.pexels_andy_lee_222330306_14867775);
-            backgroundImages.Add(Properties.Resources.pexels_annpeach_11912350);
-            backgroundImages.Add(Properties.Resources.pexels_goumbik_669508);
-            backgroundImages.Add(Properties.Resources.pexels_gru_120834_369433);
-            backgroundImages.Add(Properties.Resources.pexels_jean_marc_bonnel_387362531_14795389);
-            backgroundImages.Add(Properties.Resources.pexels_lichtblick800_16020683);
-            backgroundImages.Add(Properties.Resources.pexels_mahfar_59318);
-            backgroundImages.Add(Properties.Resources.pexels_mammiya_16366289);
-            backgroundImages.Add(Properties.Resources.pexels_megastasyon_15349980);
-            //backgroundImages.Add(Properties.Resources.);
-            //backgroundImages.Add(Properties.Resources.Background3);
-            // استمر بإضافة الصور الأخرى حسب الحاجة
+            string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
+
+            if (Directory.Exists(imagesFolderPath))
+            {
+                // أضف جميع ملفات الصور بصيغة .jpg أو .png من المجلد
+                foreach (string file in Directory.GetFiles(imagesFolderPath, "*.jpg"))
+                {
+                    backgroundImages.Add(Image.FromFile(file));
+                }
+                foreach (string file in Directory.GetFiles(imagesFolderPath, "*.png"))
+                {
+                    backgroundImages.Add(Image.FromFile(file));
+                }
+            }
+            else
+            {
+                MessageBox.Show("مجلد الصور غير موجود. يرجى التأكد من وجوده.");
+            }
         }
         private void SetRandomBackgroundImage()
         {
             if (backgroundImages.Count > 0)
             {
-                // اختيار صورة عشوائيًا
                 int index = rand.Next(backgroundImages.Count);
-                Image selectedImage = backgroundImages[index];
-
-                // تعيين الصورة المختارة كخلفية للنموذج
-                this.BackgroundImage = selectedImage;
-                this.BackgroundImageLayout = ImageLayout.Stretch; // ضبط تخطيط الصورة إذا لزم الأمر
+                this.BackgroundImage = backgroundImages[index];
+                this.BackgroundImageLayout = ImageLayout.Stretch;
             }
         }
-        private void LoadMusicStreams()
+        private void LoadMusicFiles()
         {
-            // أضف جميع ملفات الموسيقى من الموارد إلى القائمة
-            musicStreams.Add(Properties.Resources.Piano);
-            musicStreams.Add(Properties.Resources.BackgroundMusic); // قم بتغيير "Music1" إلى اسم الملف في الموارد
-            //musicStreams.Add(Properties.Resources.Music3);
-            // استمر بإضافة ملفات الموسيقى الأخرى كما أضفتها إلى الموارد
+            string musicFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Music");
+
+            if (Directory.Exists(musicFolderPath))
+            {
+                // أضف جميع ملفات الموسيقى بصيغة .wav من المجلد
+                foreach (string file in Directory.GetFiles(musicFolderPath, "*.wav"))
+                {
+                    musicFiles.Add(file);
+                }
+            }
+            else
+            {
+                MessageBox.Show("مجلد الموسيقى غير موجود. يرجى التأكد من وجوده.");
+            }
         }
 
         private void PlayRandomMusic()
         {
-            if (musicStreams.Count > 0)
+            if (musicFiles.Count > 0)
             {
-                // اختيار موسيقى عشوائية
-                int index = rand.Next(musicStreams.Count);
-                UnmanagedMemoryStream musicStream = musicStreams[index];
+                int index = rand.Next(musicFiles.Count);
+                string musicFile = musicFiles[index];
 
-                // تشغيل الموسيقى
                 if (player != null)
                 {
                     player.Stop();
                     player.Dispose();
                 }
 
-                player = new SoundPlayer(musicStream);
+                player = new SoundPlayer(musicFile);
                 player.PlayLooping(); // تشغيل الموسيقى في حلقة
             }
         }
@@ -173,10 +175,6 @@ namespace StudyZone
             // Install the keyboard hook
             keyboardHook = new KeyboardHook();
             keyboardHook.Install();
-
-            // Play background music
-            //player = new SoundPlayer(Properties.Resources.BackgroundMusic); // Replace 'BackgroundMusic' with your resource name
-            //player.PlayLooping();
 
             // Call the resize event handler to initially center elements
             BreakForm_Resize(this, EventArgs.Empty);
