@@ -9,6 +9,7 @@ using System.Runtime.InteropServices;
 using System.IO;
 using System.Drawing.Drawing2D;
 using System.Linq;
+using Newtonsoft.Json.Linq;
 
 
 namespace StudyZone
@@ -342,7 +343,7 @@ namespace StudyZone
         private static Random rand = new Random();
         private int maxParticles = 100; // Set an appropriate limit
 
-
+        //----------------------------Start Constructor and Initialization----------------------------
         public BreakForm()
         {
             InitializeComponent();
@@ -373,6 +374,92 @@ namespace StudyZone
             SetRandomBackgroundImage();
         }
 
+        private void InitializeTimerLabel()
+        {
+            lblCountdownTimer = new Label();
+            lblCountdownTimer.AutoSize = false;
+            lblCountdownTimer.Size = new Size(800, 200);
+            lblCountdownTimer.Font = new Font("Segoe UI", 72F, FontStyle.Bold);
+            lblCountdownTimer.ForeColor = Color.White;
+            lblCountdownTimer.TextAlign = ContentAlignment.MiddleCenter;
+            //lblCountdownTimer.BackColor = Color.Transparent;
+            //lblCountdownTimer.BackColor = Color.FromArgb(128);
+            lblCountdownTimer.BackColor = Color.FromArgb(76, Color.Black); // قيمة 128 تعني شفافية بنسبة 50%
+
+
+            // تعيين الموقع بعد معرفة حجم النموذج
+            lblCountdownTimer.Location = new Point(
+                (this.ClientSize.Width - lblCountdownTimer.Width) / 2,
+                (this.ClientSize.Height - lblCountdownTimer.Height) / 3
+            );
+
+            this.Controls.Add(lblCountdownTimer);
+        }
+
+        private void InitializeQuoteLabel()
+        {
+            lblQuote = new Label();
+            lblQuote.AutoSize = false;
+            lblQuote.Size = new Size(1000, 100);
+            lblQuote.Font = new Font("Segoe UI", 24F, FontStyle.Italic);
+            lblQuote.ForeColor = Color.White;
+            lblQuote.TextAlign = ContentAlignment.MiddleCenter;
+            //lblQuote.BackColor = Color.Transparent;
+            lblQuote.BackColor = Color.FromArgb(76, Color.Black);
+            //100 % شفاف: 0
+            //90 % شفاف: 25
+            //80 % شفاف: 51
+            //70 % شفاف: 76
+            //60 % شفاف: 102
+            //50 % شفاف: 128(كما استخدمنا سابقًا)
+            //40 % شفاف: 153
+            //30 % شفاف: 179
+            //20 % شفاف: 204
+            //10 % شفاف: 230
+            //0 % شفاف(غير شفاف بالكامل): 255
+            // تعيين الموقع بعد إعداد lblCountdownTimer
+            lblQuote.Location = new Point(
+                (this.ClientSize.Width - lblQuote.Width) / 2,
+                lblCountdownTimer.Bottom + 20
+            );
+
+            this.Controls.Add(lblQuote);
+
+            // اختيار اقتباس عشوائي
+            Random rand = new Random();
+            int index = rand.Next(motivationalQuotes.Count);
+            lblQuote.Text = motivationalQuotes[index];
+        }
+
+        private void InitializeProgressBar()
+        {
+            progressBar = new CircularProgressBar();
+            progressBar.Size = new Size(300, 300);
+            progressBar.BackColor = Color.Transparent;
+
+            // تعيين الموقع بعد إعداد lblQuote
+            progressBar.Location = new Point(
+                (this.ClientSize.Width - progressBar.Width) / 2,
+                lblQuote.Bottom + 20
+            );
+
+            this.Controls.Add(progressBar);
+        }
+
+        private void InitializeParticleSystem()
+        {
+            // If not already initialized in OnLoad
+            stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            particleTimer = new Timer();
+            particleTimer.Interval = 16; // Approximately 60 FPS
+            particleTimer.Tick += ParticleTimer_Tick;
+            particleTimer.Start();
+        }
+        //----------------------------End Constructor and Initialization----------------------------
+
+        //-----------------------------------Start Load Resources-----------------------------------
         private void LoadBackgroundImages()
         {
             string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
@@ -491,7 +578,28 @@ namespace StudyZone
                 player.PlayLooping();
             }
         }
+        //-----------------------------------End Load Resources-----------------------------------
 
+        //----------------------------------Start Event Handlers----------------------------------
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+
+            // Hide the cursor
+            Cursor.Hide();
+            Cursor.Clip = this.Bounds;
+
+            // Install the keyboard hook
+            keyboardHook = new KeyboardHook();
+            keyboardHook.Install();
+
+            // Call the resize event handler to initially center elements
+            BreakForm_Resize(this, EventArgs.Empty);
+
+            // استدعاء الدالة وتحديد قيمة نصف القطر
+            ApplyRoundedCorners(lblCountdownTimer, 30); // 30 هو نصف قطر الحواف الدائرية
+            ApplyRoundedCorners(lblQuote, 30); // 30 هو نصف قطر الحواف الدائرية
+        }
 
         private void BreakForm_Resize(object sender, EventArgs e)
         {
@@ -517,49 +625,6 @@ namespace StudyZone
                     (this.ClientSize.Width - progressBar.Width) / 2,
                     lblQuote.Bottom + 20
                 );
-            }
-        }
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-
-            // Hide the cursor
-            Cursor.Hide();
-            Cursor.Clip = this.Bounds;
-
-            // Install the keyboard hook
-            keyboardHook = new KeyboardHook();
-            keyboardHook.Install();
-
-            // Call the resize event handler to initially center elements
-            BreakForm_Resize(this, EventArgs.Empty);
-
-            // استدعاء الدالة وتحديد قيمة نصف القطر
-            ApplyRoundedCorners(lblCountdownTimer, 30); // 30 هو نصف قطر الحواف الدائرية
-            ApplyRoundedCorners(lblQuote, 30); // 30 هو نصف قطر الحواف الدائرية
-        }
-
-        private void ParticleTimer_Tick(object sender, EventArgs e)
-        {
-            try
-            {
-                float currentTime = (float)stopwatch.Elapsed.TotalSeconds;
-                float deltaTime = currentTime - lastFrameTime;
-                lastFrameTime = currentTime;
-
-                // Update particles
-                UpdateParticles(deltaTime);
-
-                // Invalidate only the area where particles are drawn
-                Rectangle particleArea = new Rectangle(0, 0, this.Width, this.Height);
-                this.Invalidate(particleArea, false);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Exception in ParticleTimer_Tick: {ex.Message}");
-                // Optionally, stop the timer to prevent further issues
-                particleTimer.Stop();
             }
         }
 
@@ -603,6 +668,47 @@ namespace StudyZone
             }
         }
 
+        private void timerBreak_Tick(object sender, EventArgs e)
+        {
+            if (breakSeconds > 0)
+            {
+                breakSeconds--;
+                UpdateTimerLabel();
+                UpdateProgressBar();
+            }
+            else
+            {
+                this.timerBreak.Stop();
+                allowClose = true;
+                this.Close();
+            }
+        }
+
+        private void ParticleTimer_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                float currentTime = (float)stopwatch.Elapsed.TotalSeconds;
+                float deltaTime = currentTime - lastFrameTime;
+                lastFrameTime = currentTime;
+
+                // Update particles
+                UpdateParticles(deltaTime);
+
+                // Invalidate only the area where particles are drawn
+                Rectangle particleArea = new Rectangle(0, 0, this.Width, this.Height);
+                this.Invalidate(particleArea, false);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exception in ParticleTimer_Tick: {ex.Message}");
+                // Optionally, stop the timer to prevent further issues
+                particleTimer.Stop();
+            }
+        }
+        //-----------------------------------End Event Handlers-----------------------------------
+
+        //-------------------------------Start Core Functionalities-------------------------------
         public void StartBreak(int seconds)
         {
             breakSeconds = seconds;
@@ -622,123 +728,26 @@ namespace StudyZone
             lblCountdownTimer.Text = $"{minutes:D2}:{seconds:D2}";
         }
 
-        private void timerBreak_Tick(object sender, EventArgs e)
-        {
-            if (breakSeconds > 0)
-            {
-                breakSeconds--;
-                UpdateTimerLabel();
-                UpdateProgressBar();
-            }
-            else
-            {
-                this.timerBreak.Stop();
-                allowClose = true;
-                this.Close();
-            }
-        }
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == (Keys.Control | Keys.Shift | Keys.Q))
-            {
-                allowClose = true;
-                this.Close();
-                return true;
-            }
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void InitializeTimerLabel()
-        {
-            lblCountdownTimer = new Label();
-            lblCountdownTimer.AutoSize = false;
-            lblCountdownTimer.Size = new Size(800, 200);
-            lblCountdownTimer.Font = new Font("Segoe UI", 72F, FontStyle.Bold);
-            lblCountdownTimer.ForeColor = Color.White;
-            lblCountdownTimer.TextAlign = ContentAlignment.MiddleCenter;
-            //lblCountdownTimer.BackColor = Color.Transparent;
-            //lblCountdownTimer.BackColor = Color.FromArgb(128);
-            lblCountdownTimer.BackColor = Color.FromArgb(76, Color.Black); // قيمة 128 تعني شفافية بنسبة 50%
-
-
-            // تعيين الموقع بعد معرفة حجم النموذج
-            lblCountdownTimer.Location = new Point(
-                (this.ClientSize.Width - lblCountdownTimer.Width) / 2,
-                (this.ClientSize.Height - lblCountdownTimer.Height) / 3
-            );
-
-            this.Controls.Add(lblCountdownTimer);
-        }
-
-        private void InitializeQuoteLabel()
-        {
-            lblQuote = new Label();
-            lblQuote.AutoSize = false;
-            lblQuote.Size = new Size(1000, 100);
-            lblQuote.Font = new Font("Segoe UI", 24F, FontStyle.Italic);
-            lblQuote.ForeColor = Color.White;
-            lblQuote.TextAlign = ContentAlignment.MiddleCenter;
-            //lblQuote.BackColor = Color.Transparent;
-            lblQuote.BackColor = Color.FromArgb(76, Color.Black);
-            //100 % شفاف: 0
-            //90 % شفاف: 25
-            //80 % شفاف: 51
-            //70 % شفاف: 76
-            //60 % شفاف: 102
-            //50 % شفاف: 128(كما استخدمنا سابقًا)
-            //40 % شفاف: 153
-            //30 % شفاف: 179
-            //20 % شفاف: 204
-            //10 % شفاف: 230
-            //0 % شفاف(غير شفاف بالكامل): 255
-            // تعيين الموقع بعد إعداد lblCountdownTimer
-            lblQuote.Location = new Point(
-                (this.ClientSize.Width - lblQuote.Width) / 2,
-                lblCountdownTimer.Bottom + 20
-            );
-
-            this.Controls.Add(lblQuote);
-
-            // اختيار اقتباس عشوائي
-            Random rand = new Random();
-            int index = rand.Next(motivationalQuotes.Count);
-            lblQuote.Text = motivationalQuotes[index];
-        }
-
-        private void InitializeProgressBar()
-        {
-            progressBar = new CircularProgressBar();
-            progressBar.Size = new Size(300, 300);
-            progressBar.BackColor = Color.Transparent;
-
-            // تعيين الموقع بعد إعداد lblQuote
-            progressBar.Location = new Point(
-                (this.ClientSize.Width - progressBar.Width) / 2,
-                lblQuote.Bottom + 20
-            );
-
-            this.Controls.Add(progressBar);
-        }
-
-        private void InitializeParticleSystem()
-        {
-            // If not already initialized in OnLoad
-            stopwatch = new Stopwatch();
-            stopwatch.Start();
-
-            particleTimer = new Timer();
-            particleTimer.Interval = 16; // Approximately 60 FPS
-            particleTimer.Tick += ParticleTimer_Tick;
-            particleTimer.Start();
-        }
-
         private void UpdateProgressBar()
         {
             progressBar.Progress = (int)(((double)(totalBreakSeconds - breakSeconds) / totalBreakSeconds) * 100);
             progressBar.Invalidate(); // Force the control to repaint
         }
 
+        //Emergency Exit For Developers Disabled Now / Enable it on development time.
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Control | Keys.Shift | Keys.Q))
+            {
+                //allowClose = true;
+                //this.Close();
+                //return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        //-------------------------------End Core Functionalities-------------------------------
+
+        //-----------------------------Start Rendering and Graphics-----------------------------
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -808,7 +817,9 @@ namespace StudyZone
                 particles.Add(new Particle(new PointF(x, y)));
             }
         }
+        //-----------------------------End Rendering and Graphics-----------------------------
 
+        //-----------------------------------Start Utility------------------------------------
         private void ApplyRoundedCorners(Label label, int radius)
         {
             // إنشاء مسار بياني دائري لحواف العنصر
@@ -823,5 +834,6 @@ namespace StudyZone
             // تعيين المسار كمنطقة القص للعنصر لعمل الحواف الدائرية
             label.Region = new Region(path);
         }
+        //------------------------------------End Utility-------------------------------------
     }
 }
