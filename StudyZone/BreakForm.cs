@@ -6,6 +6,9 @@ using System.Media;
 using System.Diagnostics;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Runtime.InteropServices;
+using System.IO;
+using System.Drawing.Drawing2D;
+
 
 namespace StudyZone
 {
@@ -18,8 +21,8 @@ namespace StudyZone
         private Label lblCountdownTimer;
         private Label lblQuote;
         private CircularProgressBar progressBar;
+        private List<UnmanagedMemoryStream> musicStreams = new List<UnmanagedMemoryStream>();
         private SoundPlayer player;
-
         private List<string> motivationalQuotes = new List<string>
         {
             "“The future depends on what you do today.” – Mahatma Gandhi",
@@ -36,22 +39,16 @@ namespace StudyZone
         private int maxParticles = 100; // Set an appropriate limit
 
 
-
         public BreakForm()
         {
             InitializeComponent();
 
             // Form settings
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
-            //this.TopMost = true;
-            //this.BackColor = Color.Black;
-            //this.KeyPreview = true;
-
             this.FormBorderStyle = FormBorderStyle.None;
             this.WindowState = FormWindowState.Maximized;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.Black;
+            this.TopMost = true;
             this.KeyPreview = true;
 
 
@@ -69,7 +66,41 @@ namespace StudyZone
             InitializeParticleSystem();
             // Enable double buffering to reduce flickering and improve rendering performance
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
+
+            LoadMusicStreams();
+            PlayRandomMusic();
         }
+
+        private void LoadMusicStreams()
+        {
+            // أضف جميع ملفات الموسيقى من الموارد إلى القائمة
+            musicStreams.Add(Properties.Resources.Piano);
+            musicStreams.Add(Properties.Resources.BackgroundMusic); // قم بتغيير "Music1" إلى اسم الملف في الموارد
+            //musicStreams.Add(Properties.Resources.Music3);
+            // استمر بإضافة ملفات الموسيقى الأخرى كما أضفتها إلى الموارد
+        }
+
+        private void PlayRandomMusic()
+        {
+            if (musicStreams.Count > 0)
+            {
+                // اختيار موسيقى عشوائية
+                int index = rand.Next(musicStreams.Count);
+                UnmanagedMemoryStream musicStream = musicStreams[index];
+
+                // تشغيل الموسيقى
+                if (player != null)
+                {
+                    player.Stop();
+                    player.Dispose();
+                }
+
+                player = new SoundPlayer(musicStream);
+                player.PlayLooping(); // تشغيل الموسيقى في حلقة
+            }
+        }
+
+
         private void BreakForm_Resize(object sender, EventArgs e)
         {
             if (lblCountdownTimer != null)
@@ -110,11 +141,15 @@ namespace StudyZone
             keyboardHook.Install();
 
             // Play background music
-            player = new SoundPlayer(Properties.Resources.BackgroundMusic); // Replace 'BackgroundMusic' with your resource name
-            player.PlayLooping();
+            //player = new SoundPlayer(Properties.Resources.BackgroundMusic); // Replace 'BackgroundMusic' with your resource name
+            //player.PlayLooping();
 
             // Call the resize event handler to initially center elements
             BreakForm_Resize(this, EventArgs.Empty);
+
+            // استدعاء الدالة وتحديد قيمة نصف القطر
+            ApplyRoundedCorners(lblCountdownTimer, 30); // 30 هو نصف قطر الحواف الدائرية
+            ApplyRoundedCorners(lblQuote, 30); // 30 هو نصف قطر الحواف الدائرية
         }
 
         private void ParticleTimer_Tick(object sender, EventArgs e)
@@ -139,7 +174,6 @@ namespace StudyZone
                 particleTimer.Stop();
             }
         }
-
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -235,7 +269,10 @@ namespace StudyZone
             lblCountdownTimer.Font = new Font("Segoe UI", 72F, FontStyle.Bold);
             lblCountdownTimer.ForeColor = Color.White;
             lblCountdownTimer.TextAlign = ContentAlignment.MiddleCenter;
-            lblCountdownTimer.BackColor = Color.Transparent;
+            //lblCountdownTimer.BackColor = Color.Transparent;
+            //lblCountdownTimer.BackColor = Color.FromArgb(128);
+            lblCountdownTimer.BackColor = Color.FromArgb(76, Color.Black); // قيمة 128 تعني شفافية بنسبة 50%
+
 
             // تعيين الموقع بعد معرفة حجم النموذج
             lblCountdownTimer.Location = new Point(
@@ -254,8 +291,19 @@ namespace StudyZone
             lblQuote.Font = new Font("Segoe UI", 24F, FontStyle.Italic);
             lblQuote.ForeColor = Color.White;
             lblQuote.TextAlign = ContentAlignment.MiddleCenter;
-            lblQuote.BackColor = Color.Transparent;
-
+            //lblQuote.BackColor = Color.Transparent;
+            lblQuote.BackColor = Color.FromArgb(76, Color.Black);
+            //100 % شفاف: 0
+            //90 % شفاف: 25
+            //80 % شفاف: 51
+            //70 % شفاف: 76
+            //60 % شفاف: 102
+            //50 % شفاف: 128(كما استخدمنا سابقًا)
+            //40 % شفاف: 153
+            //30 % شفاف: 179
+            //20 % شفاف: 204
+            //10 % شفاف: 230
+            //0 % شفاف(غير شفاف بالكامل): 255
             // تعيين الموقع بعد إعداد lblCountdownTimer
             lblQuote.Location = new Point(
                 (this.ClientSize.Width - lblQuote.Width) / 2,
@@ -284,8 +332,6 @@ namespace StudyZone
 
             this.Controls.Add(progressBar);
         }
-
-
 
         private void InitializeParticleSystem()
         {
@@ -337,8 +383,6 @@ namespace StudyZone
             }
         }
 
-
-
         private void UpdateParticles(float deltaTime)
         {
             // Add new particles if below the maximum limit
@@ -362,33 +406,34 @@ namespace StudyZone
             Debug.WriteLine($"Particle Count: {particles.Count}");
         }
 
-
-        //private void AddParticles()
-        //{
-        //    // Generate particles at a reduced rate
-        //    int particlesToAdd = 1; // Reduce the number of particles added per frame
-
-        //    for (int i = 0; i < particlesToAdd; i++)
-        //    {
-        //        // Generate random position at the bottom of the form
-        //        float x = (float)(rand.NextDouble() * this.Width);
-        //        float y = this.Height + 10; // Start slightly off-screen
-
-        //        particles.Add(new Particle(new PointF(x, y)));
-        //    }
-        //}
         private void AddParticles()
         {
-            int particlesToAdd = 14; // مضاعفة عدد الجسيمات المضافة
+            // Generate particles at a reduced rate
+            int particlesToAdd = 1; // Reduce the number of particles added per frame
 
             for (int i = 0; i < particlesToAdd; i++)
             {
+                // Generate random position at the bottom of the form
                 float x = (float)(rand.NextDouble() * this.Width);
-                float y = this.Height - 10; // وضع الجسيمات أعلى قليلاً من أسفل النافذة
+                float y = this.Height + 10; // Start slightly off-screen
 
                 particles.Add(new Particle(new PointF(x, y)));
             }
         }
 
+        private void ApplyRoundedCorners(Label label, int radius)
+        {
+            // إنشاء مسار بياني دائري لحواف العنصر
+            GraphicsPath path = new GraphicsPath();
+            path.StartFigure();
+            path.AddArc(new Rectangle(0, 0, radius, radius), 180, 90);
+            path.AddArc(new Rectangle(label.Width - radius, 0, radius, radius), 270, 90);
+            path.AddArc(new Rectangle(label.Width - radius, label.Height - radius, radius, radius), 0, 90);
+            path.AddArc(new Rectangle(0, label.Height - radius, radius, radius), 90, 90);
+            path.CloseFigure();
+
+            // تعيين المسار كمنطقة القص للعنصر لعمل الحواف الدائرية
+            label.Region = new Region(path);
+        }
     }
 }

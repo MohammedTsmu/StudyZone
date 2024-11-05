@@ -12,29 +12,30 @@ public class Particle
 
     private static Random rand = new Random();
 
-    public Particle(PointF position)
-    {
-        Position = position;
-        Velocity = new PointF(
-            (float)(rand.NextDouble() - 0.5) * 2f,  // Random X velocity
-            (float)(-rand.NextDouble() * 1f - 1f)   // Upward Y velocity
-        );
-        Size = rand.Next(2, 6);                     // Random size between 2 and 5
-        Life = MaxLife = (float)rand.NextDouble() * 1f + 0.5f; // Life between 0.5 and 1.5 seconds
-        Color = Color.FromArgb(255, 255, 255, 255);  // White color
-    }
-
     //public Particle(PointF position)
     //{
     //    Position = position;
     //    Velocity = new PointF(
-    //        (float)(rand.NextDouble() - 0.5) * 2f,  // X عشوائية
-    //        (float)(-rand.NextDouble() * 1.5f - 1.5f) // Y سرعة صعود أعلى
+    //        (float)(rand.NextDouble() - 0.5) * 2f,  // Random X velocity
+    //        (float)(-rand.NextDouble() * 1f - 1f)   // Upward Y velocity
     //    );
-    //    Size = rand.Next(2, 6);                     // حجم عشوائي بين 2 و 5
-    //    Life = MaxLife = (float)rand.NextDouble() * 1f + 0.5f; // الحياة بين 0.5 و 1.5 ثانية
-    //    Color = Color.FromArgb(255, 255, 255, 255);  // اللون الأبيض
+    //    Size = rand.Next(2, 6);                     // Random size between 2 and 5
+    //    Life = MaxLife = (float)rand.NextDouble() * 1f + 0.5f; // Life between 0.5 and 1.5 seconds
+    //    Color = Color.FromArgb(255, 255, 255, 255);  // White color
     //}
+
+    public Particle(PointF position)
+    {
+        Position = position;
+        Velocity = new PointF(
+            (float)(rand.NextDouble() - 0.5) * 2f,  // X عشوائية
+            (float)(-rand.NextDouble() * 1f - 1f) // Y سرعة صعود أعلى
+        );
+        Size = rand.Next(2, 6);                     // حجم عشوائي بين 2 و 5
+        //Life = MaxLife = (float)rand.NextDouble() * 1f + 0.5f; // الحياة بين 0.5 و 1.5 ثانية
+        Life = MaxLife = (float)rand.NextDouble() * 5f + 0.5f; // الحياة بين 0.5 و 1.5 ثانية
+        Color = Color.FromArgb(255, 255, 255, 255);  // اللون الأبيض
+    }
 
 
     public void Update(float deltaTime)

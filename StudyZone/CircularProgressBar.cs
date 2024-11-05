@@ -43,8 +43,6 @@ public class CircularProgressBar : Control
         using (Pen pen = new Pen(Color.Cyan, 10))
         {
             e.Graphics.DrawArc(pen, rect, -90, (float)(360 * Progress / 100));
-            //e.Graphics.DrawArc(pen, rect, -90, (float)(360 * Progress / 100));
-
         }
     }
 }

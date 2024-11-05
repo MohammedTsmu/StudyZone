@@ -289,5 +289,8 @@
   <ItemGroup>
     <None Include="Resources\BackgroundMusic.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Piano.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
