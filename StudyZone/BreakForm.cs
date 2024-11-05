@@ -71,27 +71,6 @@ namespace StudyZone
             SetRandomBackgroundImage();
         }
 
-        //private void LoadBackgroundImages()
-        //{
-        //    string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
-
-        //    if (Directory.Exists(imagesFolderPath))
-        //    {
-        //        // أضف جميع ملفات الصور بصيغة .jpg أو .png من المجلد
-        //        foreach (string file in Directory.GetFiles(imagesFolderPath, "*.jpg"))
-        //        {
-        //            backgroundImages.Add(Image.FromFile(file));
-        //        }
-        //        foreach (string file in Directory.GetFiles(imagesFolderPath, "*.png"))
-        //        {
-        //            backgroundImages.Add(Image.FromFile(file));
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("مجلد الصور غير موجود. يرجى التأكد من وجوده.");
-        //    }
-        //}
         private void LoadBackgroundImages()
         {
             string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
@@ -127,17 +106,6 @@ namespace StudyZone
             }
         }
 
-
-
-        //private void SetRandomBackgroundImage()
-        //{
-        //    if (backgroundImages.Count > 0)
-        //    {
-        //        int index = rand.Next(backgroundImages.Count);
-        //        this.BackgroundImage = backgroundImages[index];
-        //        this.BackgroundImageLayout = ImageLayout.Stretch;
-        //    }
-        //}
         private void SetRandomBackgroundImage()
         {
             string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
@@ -184,26 +152,23 @@ namespace StudyZone
             }
         }
 
-
-
-
-
-
         private void LoadMusicFiles()
         {
             string musicFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Music");
 
             if (Directory.Exists(musicFolderPath))
             {
-                // أضف جميع ملفات الموسيقى بصيغة .wav من المجلد
-                foreach (string file in Directory.GetFiles(musicFolderPath, "*.wav"))
-                {
-                    musicFiles.Add(file);
-                }
+                // Randomly select up to 5 music files
+                var selectedFiles = Directory.GetFiles(musicFolderPath, "*.wav")
+                                             .OrderBy(_ => Guid.NewGuid())
+                                             .Take(2) // Load only a subset of files
+                                             .ToList();
+
+                musicFiles.AddRange(selectedFiles);
             }
             else
             {
-                MessageBox.Show("مجلد الموسيقى غير موجود. يرجى التأكد من وجوده.");
+                MessageBox.Show("Music folder is missing. Please ensure it exists.");
             }
         }
 
@@ -211,8 +176,8 @@ namespace StudyZone
         {
             if (musicFiles.Count > 0)
             {
-                int index = rand.Next(musicFiles.Count);
-                string musicFile = musicFiles[index];
+                // Pick a random music file from the subset
+                string selectedMusicFile = musicFiles[rand.Next(musicFiles.Count)];
 
                 if (player != null)
                 {
@@ -220,8 +185,8 @@ namespace StudyZone
                     player.Dispose();
                 }
 
-                player = new SoundPlayer(musicFile);
-                player.PlayLooping(); // تشغيل الموسيقى في حلقة
+                player = new SoundPlayer(selectedMusicFile);
+                player.PlayLooping();
             }
         }
 
