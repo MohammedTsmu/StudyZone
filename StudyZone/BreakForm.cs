@@ -25,13 +25,6 @@ namespace StudyZone
         private List<string> musicFiles = new List<string>();
         private List<Image> backgroundImages = new List<Image>();
         private SoundPlayer player;
-        //private List<string> motivationalQuotes = new List<string>
-        //{
-        //    "“The future depends on what you do today.” – Mahatma Gandhi",
-        //    "“Don't watch the clock; do what it does. Keep going.” – Sam Levenson",
-        //    "“Success is not the key to happiness. Happiness is the key to success.” – Albert Schweitzer",
-        //    // Add more quotes as desired
-        //};
         private List<string> motivationalQuotes = new List<string>
         {
         "“The future depends on what you do today.” – Mahatma Gandhi",
