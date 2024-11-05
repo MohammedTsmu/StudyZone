@@ -292,5 +292,32 @@
   <ItemGroup>
     <None Include="Resources\Piano.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-andy-lee-222330306-14867775.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-mammiya-16366289.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-mahfar-59318.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-megastasyon-15349980.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-gru-120834-369433.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-lichtblick800-16020683.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-annpeach-11912350.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-goumbik-669508.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pexels-jean-marc-bonnel-387362531-14795389.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

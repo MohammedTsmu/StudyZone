@@ -18,6 +18,7 @@ namespace StudyZone
         private bool allowClose = false; // Flag to control form closing
         private int breakSeconds = 0;
         private int totalBreakSeconds = 0;
+        private List<Image> backgroundImages = new List<Image>();
         private Label lblCountdownTimer;
         private Label lblQuote;
         private CircularProgressBar progressBar;
@@ -69,8 +70,41 @@ namespace StudyZone
 
             LoadMusicStreams();
             PlayRandomMusic();
+
+            LoadBackgroundImages();
+            SetRandomBackgroundImage();
         }
 
+        private void LoadBackgroundImages()
+        {
+            // أضف كل صورة من الموارد إلى القائمة
+            backgroundImages.Add(Properties.Resources.BackgroundImage); // استبدل "Background1" باسم المورد
+            backgroundImages.Add(Properties.Resources.pexels_andy_lee_222330306_14867775);
+            backgroundImages.Add(Properties.Resources.pexels_annpeach_11912350);
+            backgroundImages.Add(Properties.Resources.pexels_goumbik_669508);
+            backgroundImages.Add(Properties.Resources.pexels_gru_120834_369433);
+            backgroundImages.Add(Properties.Resources.pexels_jean_marc_bonnel_387362531_14795389);
+            backgroundImages.Add(Properties.Resources.pexels_lichtblick800_16020683);
+            backgroundImages.Add(Properties.Resources.pexels_mahfar_59318);
+            backgroundImages.Add(Properties.Resources.pexels_mammiya_16366289);
+            backgroundImages.Add(Properties.Resources.pexels_megastasyon_15349980);
+            //backgroundImages.Add(Properties.Resources.);
+            //backgroundImages.Add(Properties.Resources.Background3);
+            // استمر بإضافة الصور الأخرى حسب الحاجة
+        }
+        private void SetRandomBackgroundImage()
+        {
+            if (backgroundImages.Count > 0)
+            {
+                // اختيار صورة عشوائيًا
+                int index = rand.Next(backgroundImages.Count);
+                Image selectedImage = backgroundImages[index];
+
+                // تعيين الصورة المختارة كخلفية للنموذج
+                this.BackgroundImage = selectedImage;
+                this.BackgroundImageLayout = ImageLayout.Stretch; // ضبط تخطيط الصورة إذا لزم الأمر
+            }
+        }
         private void LoadMusicStreams()
         {
             // أضف جميع ملفات الموسيقى من الموارد إلى القائمة
