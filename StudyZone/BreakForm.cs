@@ -479,7 +479,7 @@ namespace StudyZone
                 var imageFiles = Directory.GetFiles(imagesFolderPath, "*.jpg")
                                            .Concat(Directory.GetFiles(imagesFolderPath, "*.png"))
                                            .OrderBy(_ => Guid.NewGuid()) // Shuffle images
-                                           .Take(5) // Take only 5 random images for this session
+                                           .Take(1) // Take only 5 random images for this session
                                            .ToList();
 
                 foreach (string file in imageFiles)
@@ -515,7 +515,7 @@ namespace StudyZone
 
                 if (allFiles.Length > 0)
                 {
-                    int numberOfImagesToPick = Math.Min(5, allFiles.Length);
+                    int numberOfImagesToPick = Math.Min(1, allFiles.Length);
                     var selectedFiles = allFiles.OrderBy(x => rand.Next()).Take(numberOfImagesToPick).ToArray();
 
                     string selectedImagePath = selectedFiles[rand.Next(selectedFiles.Length)];
@@ -568,7 +568,7 @@ namespace StudyZone
                 // Randomly select up to 5 music files
                 var selectedFiles = Directory.GetFiles(musicFolderPath, "*.wav")
                                              .OrderBy(_ => Guid.NewGuid())
-                                             .Take(5) // Load only a subset of files
+                                             .Take(1) // Load only a subset of files
                                              .ToList();
 
                 musicFiles.AddRange(selectedFiles);
