@@ -617,7 +617,7 @@ namespace StudyZone
             // استدعاء الدالة وتحديد قيمة نصف القطر
             ApplyRoundedCorners(lblCountdownTimer, 30); // 30 هو نصف قطر الحواف الدائرية
             ApplyRoundedCorners(lblQuote, 30); // 30 هو نصف قطر الحواف الدائرية
-            ApplyRoundedCorners(lblScreenLocked, 10);
+            ApplyRoundedCorners(lblScreenLocked, 7);
         }
 
         private void BreakForm_Resize(object sender, EventArgs e)
@@ -670,18 +670,6 @@ namespace StudyZone
                     player.Dispose();
                 }
 
-                // Stop the particle timer
-                if (particleTimer != null)
-                {
-                    particleTimer.Stop();
-                    particleTimer.Dispose();
-                }
-
-                // Stop the stopwatch
-                if (stopwatch != null)
-                {
-                    stopwatch.Stop();
-                }
                 DisposeTimers(); // Call the timer disposal method here
 
                 base.OnFormClosing(e); // Allow the form to close
