@@ -358,7 +358,7 @@ namespace StudyZone
 
             // Screen Lock Label Notification Settings
             lblScreenLocked.Size = new Size(1000, 100);
-            lblScreenLocked.Font = new Font("Segoe UI", 18F, FontStyle.Regular);
+            lblScreenLocked.Font = new Font("Segoe UI", 14F, FontStyle.Regular);
             lblScreenLocked.ForeColor = Color.White;
             lblScreenLocked.TextAlign = ContentAlignment.MiddleCenter;
             lblScreenLocked.BackColor = Color.FromArgb(76, Color.Black);
@@ -469,6 +469,8 @@ namespace StudyZone
         //-----------------------------------Start Load Resources-----------------------------------
         private void LoadBackgroundImages()
         {
+            ClearBackgroundImages(); // Clear old images first
+
             string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
 
             if (Directory.Exists(imagesFolderPath))
@@ -477,7 +479,7 @@ namespace StudyZone
                 var imageFiles = Directory.GetFiles(imagesFolderPath, "*.jpg")
                                            .Concat(Directory.GetFiles(imagesFolderPath, "*.png"))
                                            .OrderBy(_ => Guid.NewGuid()) // Shuffle images
-                                           .Take(2) // Take only 5 random images for this session
+                                           .Take(5) // Take only 5 random images for this session
                                            .ToList();
 
                 foreach (string file in imageFiles)
@@ -517,7 +519,6 @@ namespace StudyZone
                     var selectedFiles = allFiles.OrderBy(x => rand.Next()).Take(numberOfImagesToPick).ToArray();
 
                     string selectedImagePath = selectedFiles[rand.Next(selectedFiles.Length)];
-
                     try
                     {
                         Console.WriteLine($"Attempting to load image: {selectedImagePath}");
@@ -548,6 +549,16 @@ namespace StudyZone
             }
         }
 
+        private void ClearBackgroundImages()
+        {
+            foreach (var image in backgroundImages)
+            {
+                image.Dispose();
+            }
+            backgroundImages.Clear();
+        }
+
+
         private void LoadMusicFiles()
         {
             string musicFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Music");
@@ -557,7 +568,7 @@ namespace StudyZone
                 // Randomly select up to 5 music files
                 var selectedFiles = Directory.GetFiles(musicFolderPath, "*.wav")
                                              .OrderBy(_ => Guid.NewGuid())
-                                             .Take(2) // Load only a subset of files
+                                             .Take(5) // Load only a subset of files
                                              .ToList();
 
                 musicFiles.AddRange(selectedFiles);
@@ -671,6 +682,7 @@ namespace StudyZone
                 {
                     stopwatch.Stop();
                 }
+                DisposeTimers(); // Call the timer disposal method here
 
                 base.OnFormClosing(e); // Allow the form to close
             }
@@ -714,6 +726,20 @@ namespace StudyZone
                 particleTimer.Stop();
             }
         }
+
+        private void DisposeTimers()
+        {
+            if (particleTimer != null)
+            {
+                particleTimer.Stop();
+                particleTimer.Dispose();
+            }
+            if (stopwatch != null)
+            {
+                stopwatch.Stop();
+            }
+        }
+
         //-----------------------------------End Event Handlers-----------------------------------
 
         //-------------------------------Start Core Functionalities-------------------------------
@@ -794,6 +820,11 @@ namespace StudyZone
             if (particles.Count < maxParticles)
             {
                 AddParticles();
+            }
+
+            if (particles.Count > maxParticles)
+            {
+                particles.RemoveAt(0); // Remove the oldest particle when max limit is reached
             }
 
             // Update existing particles
