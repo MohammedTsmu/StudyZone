@@ -75,9 +75,9 @@
             this.pnLeft = new System.Windows.Forms.Panel();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnHeaderBottom = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -642,6 +642,19 @@
             this.pnHeaderBottom.Size = new System.Drawing.Size(752, 68);
             this.pnHeaderBottom.TabIndex = 27;
             // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label4.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Image = global::StudyZone.Properties.Resources.Timer1;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(510, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(242, 68);
+            this.label4.TabIndex = 1;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // pnHeaderTop
             // 
             this.pnHeaderTop.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -663,19 +676,6 @@
             this.pnMainLeft.Name = "pnMainLeft";
             this.pnMainLeft.Size = new System.Drawing.Size(752, 806);
             this.pnMainLeft.TabIndex = 34;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label4.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Image = global::StudyZone.Properties.Resources.Timer1;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(456, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(296, 68);
-            this.label4.TabIndex = 1;
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainForm
             // 

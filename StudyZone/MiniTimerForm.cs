@@ -206,8 +206,8 @@ namespace StudyZone
 
             this.Opacity = 0.4;
             btnStart.Visible = btnPause.Visible = btnStop.Visible = btnExit.Visible = false;
-            //AdjustLabelFont(1.6f);
-            AdjustLabelFont(2f);
+            AdjustLabelFont(1.6f);
+            //AdjustLabelFont(2f);
 
             lblMiniTimer.Dock = DockStyle.Fill;
             lblMiniTimer.TextAlign = ContentAlignment.MiddleCenter;
