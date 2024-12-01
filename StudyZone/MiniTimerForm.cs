@@ -35,6 +35,9 @@ namespace StudyZone
 
             // Subscribe to the TimerTick event from the main form
             mainForm.TimerTick += MainForm_TimerTick;
+
+            lblMiniTimer.MouseDown += MiniTimerForm_MouseDown;
+
             // Update initial layout
             ArrangeButtons();
         }
@@ -200,7 +203,7 @@ namespace StudyZone
             UpdateButtonStates();
         }
 
-        private void lblMiniTimer_MouseDown(object sender, MouseEventArgs e)
+        private void MiniTimerForm_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {

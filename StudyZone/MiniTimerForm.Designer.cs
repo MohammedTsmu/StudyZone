@@ -42,7 +42,6 @@
             resources.ApplyResources(this.lblMiniTimer, "lblMiniTimer");
             this.lblMiniTimer.ForeColor = System.Drawing.Color.Transparent;
             this.lblMiniTimer.Name = "lblMiniTimer";
-            this.lblMiniTimer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblMiniTimer_MouseDown);
             // 
             // btnStart
             // 
@@ -107,6 +106,7 @@
             this.Activated += new System.EventHandler(this.MiniTimerForm_Activated);
             this.Deactivate += new System.EventHandler(this.MiniTimerForm_Deactivate);
             this.Load += new System.EventHandler(this.MiniTimerForm_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MiniTimerForm_MouseDown);
             this.ResumeLayout(false);
 
         }
