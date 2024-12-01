@@ -83,7 +83,8 @@ namespace StudyZone
                 btnPause.Visible = true;
                 btnStop.Visible = true;
                 //btnPause.Text = "Pause";
-                btnPause.Image = StudyZone.Properties.Resources.pause;
+                //btnPause.Image = StudyZone.Properties.Resources.pause;
+                btnPause.Image = StudyZone.Properties.Resources.Pause_PNG_40;
             }
             else if (mainForm.IsSessionPaused())
             {
@@ -91,7 +92,7 @@ namespace StudyZone
                 btnPause.Visible = true;
                 btnStop.Visible = true;
                 //btnPause.Text = "Resume";
-                btnPause.Image = StudyZone.Properties.Resources.resume;
+                btnPause.Image = StudyZone.Properties.Resources.Resume_Button_PNG_40;
             }
             else
             {
@@ -99,7 +100,7 @@ namespace StudyZone
                 btnPause.Visible = false;
                 btnStop.Visible = false;
                 //btnPause.Text = "Pause";
-                btnPause.Image = StudyZone.Properties.Resources.pause;
+                btnPause.Image = StudyZone.Properties.Resources.Pause_PNG_40;
             }
 
             // Rearrange buttons based on visibility

@@ -49,6 +49,7 @@
             this.btnStart.BackColor = System.Drawing.Color.Transparent;
             this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStart.FlatAppearance.BorderSize = 0;
+            this.btnStart.Image = global::StudyZone.Properties.Resources.Play_PNG_40;
             this.btnStart.Name = "btnStart";
             this.toolTipButtons.SetToolTip(this.btnStart, resources.GetString("btnStart.ToolTip"));
             this.btnStart.UseVisualStyleBackColor = false;
@@ -60,6 +61,7 @@
             this.btnPause.BackColor = System.Drawing.Color.Transparent;
             this.btnPause.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPause.FlatAppearance.BorderSize = 0;
+            this.btnPause.Image = global::StudyZone.Properties.Resources.Pause_PNG_40;
             this.btnPause.Name = "btnPause";
             this.toolTipButtons.SetToolTip(this.btnPause, resources.GetString("btnPause.ToolTip"));
             this.btnPause.UseVisualStyleBackColor = false;
@@ -71,6 +73,7 @@
             this.btnStop.BackColor = System.Drawing.Color.Transparent;
             this.btnStop.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStop.FlatAppearance.BorderSize = 0;
+            this.btnStop.Image = global::StudyZone.Properties.Resources.Stop_PNG_40;
             this.btnStop.Name = "btnStop";
             this.toolTipButtons.SetToolTip(this.btnStop, resources.GetString("btnStop.ToolTip"));
             this.btnStop.UseVisualStyleBackColor = false;
@@ -97,6 +100,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MiniTimerForm";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.TopMost = true;
             this.Activated += new System.EventHandler(this.MiniTimerForm_Activated);
             this.Deactivate += new System.EventHandler(this.MiniTimerForm_Deactivate);
