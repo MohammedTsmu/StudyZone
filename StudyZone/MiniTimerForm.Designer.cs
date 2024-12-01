@@ -35,6 +35,7 @@
             this.btnPause = new System.Windows.Forms.Button();
             this.btnStop = new System.Windows.Forms.Button();
             this.toolTipButtons = new System.Windows.Forms.ToolTip(this.components);
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblMiniTimer
@@ -87,11 +88,24 @@
             this.toolTipButtons.ShowAlways = true;
             this.toolTipButtons.ToolTipTitle = "Click to:";
             // 
+            // btnExit
+            // 
+            resources.ApplyResources(this.btnExit, "btnExit");
+            this.btnExit.BackColor = System.Drawing.Color.Transparent;
+            this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnExit.FlatAppearance.BorderSize = 0;
+            this.btnExit.Image = global::StudyZone.Properties.Resources.Cancel;
+            this.btnExit.Name = "btnExit";
+            this.toolTipButtons.SetToolTip(this.btnExit, resources.GetString("btnExit.ToolTip"));
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // MiniTimerForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPause);
             this.Controls.Add(this.btnStart);
@@ -118,5 +132,6 @@
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.ToolTip toolTipButtons;
+        private System.Windows.Forms.Button btnExit;
     }
 }

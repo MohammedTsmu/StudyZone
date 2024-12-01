@@ -70,6 +70,11 @@ namespace StudyZone
             base.OnFormClosing(e);
         }
 
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnStart_Click(object sender, EventArgs e)
         {
             mainForm.StartSession();
