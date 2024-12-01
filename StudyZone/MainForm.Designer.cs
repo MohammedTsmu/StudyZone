@@ -77,6 +77,7 @@
             this.pnHeaderBottom = new System.Windows.Forms.Panel();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -124,11 +125,14 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(62, 29);
+            this.btnStart.Image = global::StudyZone.Properties.Resources.Play_PNG_40;
+            this.btnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnStart.Location = new System.Drawing.Point(37, 21);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(180, 50);
+            this.btnStart.Size = new System.Drawing.Size(200, 50);
             this.btnStart.TabIndex = 2;
             this.btnStart.Text = "Start";
+            this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnsDetails.SetToolTip(this.btnStart, "Start the focus session timer.");
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
@@ -136,11 +140,14 @@
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Location = new System.Drawing.Point(434, 29);
+            this.btnStop.Image = global::StudyZone.Properties.Resources.Stop_PNG_40;
+            this.btnStop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnStop.Location = new System.Drawing.Point(453, 21);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(180, 50);
+            this.btnStop.Size = new System.Drawing.Size(200, 50);
             this.btnStop.TabIndex = 3;
             this.btnStop.Text = "Stop";
+            this.btnStop.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnsDetails.SetToolTip(this.btnStop, "Terminate / Stop the focus session timer.");
             this.btnStop.UseVisualStyleBackColor = true;
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
@@ -148,7 +155,7 @@
             // nudStudyMinutes
             // 
             this.nudStudyMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudStudyMinutes.Location = new System.Drawing.Point(221, 32);
+            this.nudStudyMinutes.Location = new System.Drawing.Point(213, 30);
             this.nudStudyMinutes.Maximum = new decimal(new int[] {
             120,
             0,
@@ -166,7 +173,7 @@
             // nudBreakMinutes
             // 
             this.nudBreakMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudBreakMinutes.Location = new System.Drawing.Point(221, 31);
+            this.nudBreakMinutes.Location = new System.Drawing.Point(213, 30);
             this.nudBreakMinutes.Maximum = new decimal(new int[] {
             60,
             0,
@@ -185,7 +192,7 @@
             // 
             this.studyMinuteslbl.AutoSize = true;
             this.studyMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studyMinuteslbl.Location = new System.Drawing.Point(62, 38);
+            this.studyMinuteslbl.Location = new System.Drawing.Point(63, 34);
             this.studyMinuteslbl.Name = "studyMinuteslbl";
             this.studyMinuteslbl.Size = new System.Drawing.Size(134, 23);
             this.studyMinuteslbl.TabIndex = 6;
@@ -195,7 +202,7 @@
             // 
             this.breakMinuteslbl.AutoSize = true;
             this.breakMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.breakMinuteslbl.Location = new System.Drawing.Point(62, 37);
+            this.breakMinuteslbl.Location = new System.Drawing.Point(61, 34);
             this.breakMinuteslbl.Name = "breakMinuteslbl";
             this.breakMinuteslbl.Size = new System.Drawing.Size(136, 23);
             this.breakMinuteslbl.TabIndex = 7;
@@ -209,7 +216,7 @@
             // nudStudySeconds
             // 
             this.nudStudySeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudStudySeconds.Location = new System.Drawing.Point(508, 32);
+            this.nudStudySeconds.Location = new System.Drawing.Point(507, 30);
             this.nudStudySeconds.Maximum = new decimal(new int[] {
             59,
             0,
@@ -222,7 +229,7 @@
             // nudBreakSeconds
             // 
             this.nudBreakSeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudBreakSeconds.Location = new System.Drawing.Point(508, 31);
+            this.nudBreakSeconds.Location = new System.Drawing.Point(509, 30);
             this.nudBreakSeconds.Maximum = new decimal(new int[] {
             59,
             0,
@@ -236,7 +243,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(349, 33);
+            this.label1.Location = new System.Drawing.Point(349, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 23);
             this.label1.TabIndex = 10;
@@ -246,7 +253,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(352, 37);
+            this.label2.Location = new System.Drawing.Point(349, 34);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 23);
             this.label2.TabIndex = 11;
@@ -258,9 +265,9 @@
             this.cmbSessions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbSessions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSessions.FormattingEnabled = true;
-            this.cmbSessions.Location = new System.Drawing.Point(62, 22);
+            this.cmbSessions.Location = new System.Drawing.Point(141, 22);
             this.cmbSessions.Name = "cmbSessions";
-            this.cmbSessions.Size = new System.Drawing.Size(368, 31);
+            this.cmbSessions.Size = new System.Drawing.Size(408, 31);
             this.cmbSessions.TabIndex = 12;
             this.cmbSessions.Text = "Select Session";
             this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
@@ -268,9 +275,9 @@
             // btnSaveSession
             // 
             this.btnSaveSession.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSession.Location = new System.Drawing.Point(62, 61);
+            this.btnSaveSession.Location = new System.Drawing.Point(141, 61);
             this.btnSaveSession.Name = "btnSaveSession";
-            this.btnSaveSession.Size = new System.Drawing.Size(180, 50);
+            this.btnSaveSession.Size = new System.Drawing.Size(200, 50);
             this.btnSaveSession.TabIndex = 13;
             this.btnSaveSession.Text = "Save Session";
             this.BtnsDetails.SetToolTip(this.btnSaveSession, "Save the current duration settings as a new session or add new durations.");
@@ -287,7 +294,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(31, 152);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(690, 91);
+            this.groupBox1.Size = new System.Drawing.Size(690, 90);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Study Duration";
@@ -302,7 +309,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(31, 251);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(690, 91);
+            this.groupBox2.Size = new System.Drawing.Size(690, 90);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Break Duration";
@@ -320,9 +327,9 @@
             // btnDeleteSession
             // 
             this.btnDeleteSession.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSession.Location = new System.Drawing.Point(248, 59);
+            this.btnDeleteSession.Location = new System.Drawing.Point(349, 59);
             this.btnDeleteSession.Name = "btnDeleteSession";
-            this.btnDeleteSession.Size = new System.Drawing.Size(180, 50);
+            this.btnDeleteSession.Size = new System.Drawing.Size(200, 50);
             this.btnDeleteSession.TabIndex = 17;
             this.btnDeleteSession.Text = "Delete Session";
             this.BtnsDetails.SetToolTip(this.btnDeleteSession, "Delete selected session.");
@@ -346,11 +353,14 @@
             // btnViewLogs
             // 
             this.btnViewLogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewLogs.Location = new System.Drawing.Point(438, 29);
+            this.btnViewLogs.Image = global::StudyZone.Properties.Resources.LOG;
+            this.btnViewLogs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnViewLogs.Location = new System.Drawing.Point(453, 21);
             this.btnViewLogs.Name = "btnViewLogs";
-            this.btnViewLogs.Size = new System.Drawing.Size(180, 50);
+            this.btnViewLogs.Size = new System.Drawing.Size(200, 50);
             this.btnViewLogs.TabIndex = 19;
             this.btnViewLogs.Text = "View Logs";
+            this.btnViewLogs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnsDetails.SetToolTip(this.btnViewLogs, "View statistics for previous sessions and breaks.");
             this.btnViewLogs.UseVisualStyleBackColor = true;
             this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
@@ -359,12 +369,14 @@
             // 
             this.btnTaskManager.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnTaskManager.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaskManager.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnTaskManager.Location = new System.Drawing.Point(62, 29);
+            this.btnTaskManager.Image = global::StudyZone.Properties.Resources.Tasks;
+            this.btnTaskManager.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTaskManager.Location = new System.Drawing.Point(37, 21);
             this.btnTaskManager.Name = "btnTaskManager";
-            this.btnTaskManager.Size = new System.Drawing.Size(180, 50);
+            this.btnTaskManager.Size = new System.Drawing.Size(200, 50);
             this.btnTaskManager.TabIndex = 20;
             this.btnTaskManager.Text = "Task Manager";
+            this.btnTaskManager.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnsDetails.SetToolTip(this.btnTaskManager, "Add / Edit / Delete tasks");
             this.btnTaskManager.UseVisualStyleBackColor = true;
             this.btnTaskManager.Click += new System.EventHandler(this.btnTaskManager_Click);
@@ -373,12 +385,12 @@
             // 
             this.txtTaskDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTaskDetails.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTaskDetails.Location = new System.Drawing.Point(3, 26);
+            this.txtTaskDetails.Location = new System.Drawing.Point(10, 33);
             this.txtTaskDetails.Multiline = true;
             this.txtTaskDetails.Name = "txtTaskDetails";
             this.txtTaskDetails.ReadOnly = true;
             this.txtTaskDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTaskDetails.Size = new System.Drawing.Size(613, 309);
+            this.txtTaskDetails.Size = new System.Drawing.Size(579, 331);
             this.txtTaskDetails.TabIndex = 22;
             this.lblsAndTxtBoxsToolTip.SetToolTip(this.txtTaskDetails, "Displays selected task details.");
             // 
@@ -389,13 +401,12 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listViewTasks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewTasks.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTasks.FullRowSelect = true;
             this.listViewTasks.HideSelection = false;
-            this.listViewTasks.Location = new System.Drawing.Point(3, 26);
+            this.listViewTasks.Location = new System.Drawing.Point(6, 25);
             this.listViewTasks.Name = "listViewTasks";
-            this.listViewTasks.Size = new System.Drawing.Size(613, 777);
+            this.listViewTasks.Size = new System.Drawing.Size(601, 381);
             this.listViewTasks.TabIndex = 23;
             this.lblsAndTxtBoxsToolTip.SetToolTip(this.listViewTasks, "Displays selected session registered tasks.");
             this.listViewTasks.UseCompatibleStateImageBehavior = false;
@@ -429,11 +440,14 @@
             // btnReminders
             // 
             this.btnReminders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReminders.Location = new System.Drawing.Point(250, 29);
+            this.btnReminders.Image = global::StudyZone.Properties.Resources.Bell;
+            this.btnReminders.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnReminders.Location = new System.Drawing.Point(245, 21);
             this.btnReminders.Name = "btnReminders";
-            this.btnReminders.Size = new System.Drawing.Size(180, 50);
+            this.btnReminders.Size = new System.Drawing.Size(200, 50);
             this.btnReminders.TabIndex = 24;
             this.btnReminders.Text = "Reminders";
+            this.btnReminders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnsDetails.SetToolTip(this.btnReminders, "Add a reminder to prompt the user to start a focus or study session if they forge" +
         "t.");
             this.btnReminders.UseVisualStyleBackColor = true;
@@ -441,11 +455,12 @@
             // 
             // chkStartWithWindows
             // 
-            this.chkStartWithWindows.AutoSize = true;
             this.chkStartWithWindows.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkStartWithWindows.Location = new System.Drawing.Point(62, 39);
+            this.chkStartWithWindows.Image = global::StudyZone.Properties.Resources.Launch;
+            this.chkStartWithWindows.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkStartWithWindows.Location = new System.Drawing.Point(163, 15);
             this.chkStartWithWindows.Name = "chkStartWithWindows";
-            this.chkStartWithWindows.Size = new System.Drawing.Size(269, 27);
+            this.chkStartWithWindows.Size = new System.Drawing.Size(362, 40);
             this.chkStartWithWindows.TabIndex = 25;
             this.chkStartWithWindows.Text = "Start when Windows starts";
             this.chkBoxsToolTip.SetToolTip(this.chkStartWithWindows, "Ensure the app starts with Windows at login or system startup.");
@@ -473,23 +488,28 @@
             // btnPause
             // 
             this.btnPause.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPause.Location = new System.Drawing.Point(248, 29);
+            this.btnPause.Image = global::StudyZone.Properties.Resources.Pause_PNG_40;
+            this.btnPause.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPause.Location = new System.Drawing.Point(245, 21);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(180, 50);
+            this.btnPause.Size = new System.Drawing.Size(200, 50);
             this.btnPause.TabIndex = 27;
             this.btnPause.Text = "Pause";
+            this.btnPause.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnsDetails.SetToolTip(this.btnPause, "Pause the focus session timer.");
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // groupBox4
             // 
+            this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox4.Controls.Add(this.listViewTasks);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(0, 0);
+            this.groupBox4.Location = new System.Drawing.Point(10, 10);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(619, 806);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(10);
+            this.groupBox4.Size = new System.Drawing.Size(599, 412);
             this.groupBox4.TabIndex = 28;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tasks";
@@ -517,7 +537,7 @@
             this.groupBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(31, 450);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(690, 96);
+            this.groupBox6.Size = new System.Drawing.Size(690, 92);
             this.groupBox6.TabIndex = 30;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Goals and Tasks";
@@ -529,7 +549,7 @@
             this.groupBox7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(32, 554);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(689, 72);
+            this.groupBox7.Size = new System.Drawing.Size(689, 70);
             this.groupBox7.TabIndex = 31;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Automation";
@@ -557,12 +577,14 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox8.Controls.Add(this.txtTaskDetails);
-            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(0, 468);
+            this.groupBox8.Location = new System.Drawing.Point(10, 422);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(619, 338);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(10);
+            this.groupBox8.Size = new System.Drawing.Size(599, 374);
             this.groupBox8.TabIndex = 32;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Task Details";
@@ -579,6 +601,7 @@
             this.pnRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnRight.Location = new System.Drawing.Point(752, 0);
             this.pnRight.Name = "pnRight";
+            this.pnRight.Padding = new System.Windows.Forms.Padding(10);
             this.pnRight.Size = new System.Drawing.Size(619, 806);
             this.pnRight.TabIndex = 33;
             // 
@@ -611,6 +634,7 @@
             // pnHeaderBottom
             // 
             this.pnHeaderBottom.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pnHeaderBottom.Controls.Add(this.label4);
             this.pnHeaderBottom.Controls.Add(this.lblTimer);
             this.pnHeaderBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnHeaderBottom.Location = new System.Drawing.Point(0, 100);
@@ -640,6 +664,19 @@
             this.pnMainLeft.Size = new System.Drawing.Size(752, 806);
             this.pnMainLeft.TabIndex = 34;
             // 
+            // label4
+            // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.label4.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Image = global::StudyZone.Properties.Resources.Timer1;
+            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.Location = new System.Drawing.Point(456, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(296, 68);
+            this.label4.TabIndex = 1;
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -667,7 +704,6 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.pnRight.ResumeLayout(false);
@@ -731,6 +767,7 @@
         private System.Windows.Forms.Panel pnMainLeft;
         private System.Windows.Forms.Panel pnHeaderTop;
         private System.Windows.Forms.Panel pnHeaderBottom;
+        private System.Windows.Forms.Label label4;
     }
 }
 
