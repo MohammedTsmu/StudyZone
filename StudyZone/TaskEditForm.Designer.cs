@@ -39,129 +39,171 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dtpDueDate = new System.Windows.Forms.DateTimePicker();
             this.cmbSessions = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // titlelbl
             // 
+            this.titlelbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.titlelbl.AutoSize = true;
-            this.titlelbl.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titlelbl.Location = new System.Drawing.Point(12, 52);
+            this.titlelbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titlelbl.Location = new System.Drawing.Point(8, 42);
             this.titlelbl.Name = "titlelbl";
-            this.titlelbl.Size = new System.Drawing.Size(40, 22);
+            this.titlelbl.Size = new System.Drawing.Size(46, 23);
             this.titlelbl.TabIndex = 0;
             this.titlelbl.Text = "Title";
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 82);
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(8, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 22);
+            this.label2.Size = new System.Drawing.Size(108, 23);
             this.label2.TabIndex = 1;
             this.label2.Text = "Description";
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 164);
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(8, 154);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 22);
+            this.label3.Size = new System.Drawing.Size(93, 23);
             this.label3.TabIndex = 2;
             this.label3.Text = "Due Date";
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Narrow", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 197);
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(8, 187);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(135, 22);
+            this.label4.Size = new System.Drawing.Size(166, 23);
             this.label4.TabIndex = 3;
             this.label4.Text = "Assign to Session";
             // 
             // btnOK
             // 
-            this.btnOK.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(157, 228);
+            this.btnOK.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnOK.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOK.Image = global::StudyZone.Properties.Resources.Save_Close;
+            this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOK.Location = new System.Drawing.Point(12, 28);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(86, 46);
+            this.btnOK.Size = new System.Drawing.Size(135, 60);
             this.btnOK.TabIndex = 4;
             this.btnOK.Text = "OK";
+            this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(249, 228);
+            this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnCancel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = global::StudyZone.Properties.Resources.Cancel;
+            this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancel.Location = new System.Drawing.Point(435, 28);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(86, 46);
+            this.btnCancel.Size = new System.Drawing.Size(135, 60);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtTitle
             // 
-            this.txtTitle.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitle.Location = new System.Drawing.Point(157, 52);
+            this.txtTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTitle.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTitle.Location = new System.Drawing.Point(214, 39);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(422, 27);
+            this.txtTitle.Size = new System.Drawing.Size(356, 30);
             this.txtTitle.TabIndex = 6;
             // 
             // txtDescription
             // 
-            this.txtDescription.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(157, 82);
+            this.txtDescription.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDescription.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(214, 69);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(422, 76);
+            this.txtDescription.Size = new System.Drawing.Size(356, 76);
             this.txtDescription.TabIndex = 7;
             // 
             // dtpDueDate
             // 
-            this.dtpDueDate.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDueDate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dtpDueDate.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpDueDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDueDate.Location = new System.Drawing.Point(157, 164);
+            this.dtpDueDate.Location = new System.Drawing.Point(214, 151);
             this.dtpDueDate.Name = "dtpDueDate";
             this.dtpDueDate.ShowCheckBox = true;
-            this.dtpDueDate.Size = new System.Drawing.Size(422, 27);
+            this.dtpDueDate.Size = new System.Drawing.Size(356, 30);
             this.dtpDueDate.TabIndex = 8;
             // 
             // cmbSessions
             // 
-            this.cmbSessions.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cmbSessions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSessions.FormattingEnabled = true;
-            this.cmbSessions.Location = new System.Drawing.Point(157, 197);
+            this.cmbSessions.Location = new System.Drawing.Point(214, 184);
             this.cmbSessions.Name = "cmbSessions";
-            this.cmbSessions.Size = new System.Drawing.Size(422, 27);
+            this.cmbSessions.Size = new System.Drawing.Size(356, 31);
             this.cmbSessions.TabIndex = 9;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.Controls.Add(this.titlelbl);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.cmbSessions);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.dtpDueDate);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.txtDescription);
+            this.panel1.Controls.Add(this.txtTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(593, 353);
+            this.panel1.TabIndex = 10;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.panel2.Controls.Add(this.btnCancel);
+            this.panel2.Controls.Add(this.btnOK);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 253);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(593, 100);
+            this.panel2.TabIndex = 10;
             // 
             // TaskEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 312);
-            this.Controls.Add(this.cmbSessions);
-            this.Controls.Add(this.dtpDueDate);
-            this.Controls.Add(this.txtDescription);
-            this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.titlelbl);
+            this.ClientSize = new System.Drawing.Size(593, 353);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TaskEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task Edit";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -177,5 +219,7 @@
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.DateTimePicker dtpDueDate;
         private System.Windows.Forms.ComboBox cmbSessions;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
