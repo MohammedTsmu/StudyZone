@@ -150,6 +150,35 @@ namespace StudyZone
         }
 
 
+        //public void StartSession()
+        //{
+        //    if (isPaused)
+        //    {
+        //        // Resume the paused session
+        //        timerPomodoro.Start();
+        //        isPaused = false;
+        //    }
+        //    else if (!timerPomodoro.Enabled)
+        //    {
+        //        // Start a new session only if the timer is not running and not paused
+        //        totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
+        //        isStudyTime = true;
+        //        UpdateTimerLabel();
+        //        timerPomodoro.Start();
+
+        //        // Initialize current session log
+        //        currentSessionLog = new SessionLog();
+
+        //        // Clear the notified tasks list
+        //        notifiedTasks.Clear();
+
+        //        // Start notification timer
+        //        notificationTimer.Start();
+        //    }
+
+        //    UpdateButtonStates();
+        //}
+
         public void StartSession()
         {
             if (isPaused)
@@ -174,12 +203,41 @@ namespace StudyZone
 
                 // Start notification timer
                 notificationTimer.Start();
+
+                // Disable session selection while the timer is running
+                cmbSessions.Enabled = false;
             }
 
             UpdateButtonStates();
         }
 
 
+
+        //public void PauseSession()
+        //{
+        //    if (timerPomodoro.Enabled)
+        //    {
+        //        // Pause the session
+        //        timerPomodoro.Stop();
+        //        isPaused = true;
+
+        //        // Start tracking pause duration
+        //        pauseDurationInSeconds = 0;
+        //        pauseDurationTimer.Start();
+        //    }
+        //    else if (isPaused)
+        //    {
+        //        // Resume the session
+        //        timerPomodoro.Start();
+        //        isPaused = false;
+
+        //        // Stop tracking pause duration
+        //        pauseDurationTimer.Stop();
+        //        pauseDurationInSeconds = 0;
+        //    }
+
+        //    UpdateButtonStates();
+        //}
         public void PauseSession()
         {
             if (timerPomodoro.Enabled)
@@ -203,11 +261,40 @@ namespace StudyZone
                 pauseDurationInSeconds = 0;
             }
 
+            // Keep session selection disabled while paused
+            cmbSessions.Enabled = false;
+
             UpdateButtonStates();
         }
 
 
 
+
+        //public void StopSession()
+        //{
+        //    if (timerPomodoro.Enabled || isPaused)
+        //    {
+        //        timerPomodoro.Stop();
+        //        totalSeconds = 0;
+
+        //        // Reset pause state and timer
+        //        isPaused = false;
+        //        pauseDurationTimer.Stop();
+        //        pauseDurationInSeconds = 0;
+        //        UpdateTimerLabel();
+
+        //        if (currentSessionLog != null)
+        //        {
+        //            SaveSessionLog(currentSessionLog);
+        //            currentSessionLog = null;
+        //        }
+
+        //        // Stop notification timer
+        //        notificationTimer.Stop();
+        //    }
+
+        //    UpdateButtonStates();
+        //}
         public void StopSession()
         {
             if (timerPomodoro.Enabled || isPaused)
@@ -229,10 +316,14 @@ namespace StudyZone
 
                 // Stop notification timer
                 notificationTimer.Stop();
+
+                // Re-enable session selection
+                cmbSessions.Enabled = true;
             }
 
             UpdateButtonStates();
         }
+
 
 
 
@@ -354,8 +445,48 @@ namespace StudyZone
             }
         }
 
+        //private void cmbSessions_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
+        //    {
+        //        nudStudyMinutes.Value = selectedSession.StudyMinutes;
+        //        nudStudySeconds.Value = selectedSession.StudySeconds;
+        //        nudBreakMinutes.Value = selectedSession.BreakMinutes;
+        //        nudBreakSeconds.Value = selectedSession.BreakSeconds;
+
+        //        DisplayTasksForSelectedSession();
+        //    }
+        //}
+        //private void cmbSessions_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
+        //    {
+        //        nudStudyMinutes.Value = selectedSession.StudyMinutes;
+        //        nudStudySeconds.Value = selectedSession.StudySeconds;
+        //        nudBreakMinutes.Value = selectedSession.BreakMinutes;
+        //        nudBreakSeconds.Value = selectedSession.BreakSeconds;
+
+        //        // Update the total seconds based on the new session
+        //        totalSeconds = (selectedSession.StudyMinutes * 60) + selectedSession.StudySeconds;
+
+        //        // Update the timer label immediately
+        //        UpdateTimerLabel();
+
+        //        DisplayTasksForSelectedSession();
+        //    }
+        //}
         private void cmbSessions_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (timerPomodoro.Enabled || isPaused)
+            {
+                // Do not allow changing sessions while the timer is active or paused
+                MessageBox.Show("Cannot change session while a study session is running or paused. Please stop the session first.",
+                                "Action Restricted",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+
             if (cmbSessions.SelectedItem is StudySession selectedSession)
             {
                 nudStudyMinutes.Value = selectedSession.StudyMinutes;
@@ -363,9 +494,17 @@ namespace StudyZone
                 nudBreakMinutes.Value = selectedSession.BreakMinutes;
                 nudBreakSeconds.Value = selectedSession.BreakSeconds;
 
+                // Update the total seconds based on the new session
+                totalSeconds = (selectedSession.StudyMinutes * 60) + selectedSession.StudySeconds;
+
+                // Update the timer label immediately
+                UpdateTimerLabel();
+
                 DisplayTasksForSelectedSession();
             }
         }
+
+
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
