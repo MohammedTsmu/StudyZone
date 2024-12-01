@@ -75,6 +75,7 @@ namespace StudyZone
             pauseDurationTimer.Interval = 1000; // Tick every second
             pauseDurationTimer.Tick += PauseDurationTimer_Tick;
 
+            UpdateButtonStates();
             // Start the reminder timer
             StartReminderTimer();
         }
@@ -312,25 +313,26 @@ namespace StudyZone
             {
                 btnStart.Enabled = false;
                 btnPause.Enabled = true;
-                btnPause.Text = "Pause";
                 btnStop.Enabled = true;
+                btnPause.Text = "Pause";
+                btnPause.Image = StudyZone.Properties.Resources.Pause_PNG_40;
             }
             else if (IsSessionPaused())
             {
                 btnStart.Enabled = false;
                 btnPause.Enabled = true;
-                btnPause.Text = "Resume";
                 btnStop.Enabled = true;
+                btnPause.Text = "Resume";
+                btnPause.Image = StudyZone.Properties.Resources.Resume_Button_PNG_40;
             }
             else
             {
                 btnStart.Enabled = true;
                 btnPause.Enabled = false;
-                btnPause.Text = "Pause";
                 btnStop.Enabled = false;
+                //btnPause.Text = "Pause";
             }
         }
-
 
         private void btnSaveSession_Click(object sender, EventArgs e)
         {
@@ -717,7 +719,6 @@ namespace StudyZone
             CheckForDueTasksDuringSession();
         }
 
-        
         private void CheckForDueTasksDuringSession()
         {
             DateTime today = DateTime.Today;
@@ -937,7 +938,6 @@ namespace StudyZone
             notifyIcon.ContextMenuStrip = trayMenu;
         }
 
-
         private void Restore_Click(object sender, EventArgs e)
         {
             // Show the form
@@ -947,7 +947,6 @@ namespace StudyZone
             // Hide the notify icon
             notifyIcon.Visible = false;
         }
-
         
         private void Exit_Click(object sender, EventArgs e)
         {
@@ -955,7 +954,6 @@ namespace StudyZone
             // Close the application
             this.Close();
         }
-
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -1027,7 +1025,6 @@ namespace StudyZone
             }
         }
 
-
         private void EnableStartup()
         {
             try
@@ -1043,7 +1040,6 @@ namespace StudyZone
                 MessageBox.Show("An error occurred while enabling startup: " + ex.Message);
             }
         }
-
 
         private void DisableStartup()
         {
@@ -1088,7 +1084,6 @@ namespace StudyZone
             // Handle the mini form's FormClosed event to show the main form again
             miniTimerForm.FormClosed += MiniTimerForm_FormClosed;
         }
-
 
         private void MiniTimerForm_FormClosed(object sender, FormClosedEventArgs e)
         {

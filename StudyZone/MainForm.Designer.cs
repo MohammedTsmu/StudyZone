@@ -457,7 +457,7 @@
             this.notifyIcon.BalloonTipText = "StudyZone";
             this.notifyIcon.BalloonTipTitle = "StudyZone";
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "Study Zone";
+            this.notifyIcon.Text = "Study Zone /  v1.0.51";
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
@@ -588,7 +588,6 @@
             // miniTimerBtnToolTip
             // 
             this.miniTimerBtnToolTip.ShowAlways = true;
-            this.miniTimerBtnToolTip.ToolTipTitle = "Click to:";
             // 
             // BtnsDetails
             // 
@@ -596,7 +595,6 @@
             this.BtnsDetails.InitialDelay = 1000;
             this.BtnsDetails.ReshowDelay = 100;
             this.BtnsDetails.ShowAlways = true;
-            this.BtnsDetails.ToolTipTitle = "Click to:";
             // 
             // chkBoxsToolTip
             // 
@@ -604,7 +602,6 @@
             this.chkBoxsToolTip.InitialDelay = 1000;
             this.chkBoxsToolTip.ReshowDelay = 100;
             this.chkBoxsToolTip.ShowAlways = true;
-            this.chkBoxsToolTip.ToolTipTitle = "Check to:";
             // 
             // groupBox8
             // 
@@ -619,10 +616,6 @@
             this.groupBox8.TabIndex = 32;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Task Details";
-            // 
-            // lblsAndTxtBoxsToolTip
-            // 
-            this.lblsAndTxtBoxsToolTip.ToolTipTitle = "What is this:";
             // 
             // pnRight
             // 
@@ -719,7 +712,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Study Zone";
+            this.Text = "Study Zone / v1.0.51";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).EndInit();

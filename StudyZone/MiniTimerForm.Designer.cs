@@ -86,7 +86,6 @@
             this.toolTipButtons.InitialDelay = 1000;
             this.toolTipButtons.ReshowDelay = 500;
             this.toolTipButtons.ShowAlways = true;
-            this.toolTipButtons.ToolTipTitle = "Click to:";
             // 
             // btnExit
             // 
@@ -94,7 +93,7 @@
             this.btnExit.BackColor = System.Drawing.Color.Transparent;
             this.btnExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnExit.FlatAppearance.BorderSize = 0;
-            this.btnExit.Image = global::StudyZone.Properties.Resources.Cancel;
+            this.btnExit.Image = global::StudyZone.Properties.Resources.Expand;
             this.btnExit.Name = "btnExit";
             this.toolTipButtons.SetToolTip(this.btnExit, resources.GetString("btnExit.ToolTip"));
             this.btnExit.UseVisualStyleBackColor = false;
@@ -104,7 +103,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.Gray;
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.btnPause);
