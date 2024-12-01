@@ -124,7 +124,7 @@
             // btnStart
             // 
             this.btnStart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(69, 21);
+            this.btnStart.Location = new System.Drawing.Point(62, 29);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(180, 50);
             this.btnStart.TabIndex = 2;
@@ -136,7 +136,7 @@
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.Location = new System.Drawing.Point(441, 21);
+            this.btnStop.Location = new System.Drawing.Point(434, 29);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(180, 50);
             this.btnStop.TabIndex = 3;
@@ -147,7 +147,8 @@
             // 
             // nudStudyMinutes
             // 
-            this.nudStudyMinutes.Location = new System.Drawing.Point(221, 30);
+            this.nudStudyMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudStudyMinutes.Location = new System.Drawing.Point(221, 32);
             this.nudStudyMinutes.Maximum = new decimal(new int[] {
             120,
             0,
@@ -164,7 +165,8 @@
             // 
             // nudBreakMinutes
             // 
-            this.nudBreakMinutes.Location = new System.Drawing.Point(221, 30);
+            this.nudBreakMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudBreakMinutes.Location = new System.Drawing.Point(221, 31);
             this.nudBreakMinutes.Maximum = new decimal(new int[] {
             60,
             0,
@@ -182,7 +184,8 @@
             // studyMinuteslbl
             // 
             this.studyMinuteslbl.AutoSize = true;
-            this.studyMinuteslbl.Location = new System.Drawing.Point(62, 36);
+            this.studyMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studyMinuteslbl.Location = new System.Drawing.Point(62, 38);
             this.studyMinuteslbl.Name = "studyMinuteslbl";
             this.studyMinuteslbl.Size = new System.Drawing.Size(134, 23);
             this.studyMinuteslbl.TabIndex = 6;
@@ -191,7 +194,8 @@
             // breakMinuteslbl
             // 
             this.breakMinuteslbl.AutoSize = true;
-            this.breakMinuteslbl.Location = new System.Drawing.Point(62, 36);
+            this.breakMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.breakMinuteslbl.Location = new System.Drawing.Point(62, 37);
             this.breakMinuteslbl.Name = "breakMinuteslbl";
             this.breakMinuteslbl.Size = new System.Drawing.Size(136, 23);
             this.breakMinuteslbl.TabIndex = 7;
@@ -204,7 +208,8 @@
             // 
             // nudStudySeconds
             // 
-            this.nudStudySeconds.Location = new System.Drawing.Point(508, 30);
+            this.nudStudySeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudStudySeconds.Location = new System.Drawing.Point(508, 32);
             this.nudStudySeconds.Maximum = new decimal(new int[] {
             59,
             0,
@@ -216,7 +221,8 @@
             // 
             // nudBreakSeconds
             // 
-            this.nudBreakSeconds.Location = new System.Drawing.Point(508, 30);
+            this.nudBreakSeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudBreakSeconds.Location = new System.Drawing.Point(508, 31);
             this.nudBreakSeconds.Maximum = new decimal(new int[] {
             59,
             0,
@@ -229,7 +235,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(349, 31);
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(349, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 23);
             this.label1.TabIndex = 10;
@@ -238,7 +245,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(352, 36);
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(352, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 23);
             this.label2.TabIndex = 11;
@@ -250,7 +258,7 @@
             this.cmbSessions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbSessions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSessions.FormattingEnabled = true;
-            this.cmbSessions.Location = new System.Drawing.Point(161, 22);
+            this.cmbSessions.Location = new System.Drawing.Point(62, 22);
             this.cmbSessions.Name = "cmbSessions";
             this.cmbSessions.Size = new System.Drawing.Size(368, 31);
             this.cmbSessions.TabIndex = 12;
@@ -260,7 +268,7 @@
             // btnSaveSession
             // 
             this.btnSaveSession.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSession.Location = new System.Drawing.Point(161, 61);
+            this.btnSaveSession.Location = new System.Drawing.Point(62, 61);
             this.btnSaveSession.Name = "btnSaveSession";
             this.btnSaveSession.Size = new System.Drawing.Size(180, 50);
             this.btnSaveSession.TabIndex = 13;
@@ -276,7 +284,7 @@
             this.groupBox1.Controls.Add(this.studyMinuteslbl);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.nudStudySeconds);
-            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(31, 152);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(690, 91);
@@ -291,7 +299,7 @@
             this.groupBox2.Controls.Add(this.nudBreakMinutes);
             this.groupBox2.Controls.Add(this.breakMinuteslbl);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(31, 251);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(690, 91);
@@ -312,7 +320,7 @@
             // btnDeleteSession
             // 
             this.btnDeleteSession.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSession.Location = new System.Drawing.Point(347, 59);
+            this.btnDeleteSession.Location = new System.Drawing.Point(248, 59);
             this.btnDeleteSession.Name = "btnDeleteSession";
             this.btnDeleteSession.Size = new System.Drawing.Size(180, 50);
             this.btnDeleteSession.TabIndex = 17;
@@ -327,7 +335,7 @@
             this.groupBox3.Controls.Add(this.cmbSessions);
             this.groupBox3.Controls.Add(this.btnDeleteSession);
             this.groupBox3.Controls.Add(this.btnSaveSession);
-            this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(31, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(690, 132);
@@ -338,7 +346,7 @@
             // btnViewLogs
             // 
             this.btnViewLogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewLogs.Location = new System.Drawing.Point(443, 23);
+            this.btnViewLogs.Location = new System.Drawing.Point(438, 29);
             this.btnViewLogs.Name = "btnViewLogs";
             this.btnViewLogs.Size = new System.Drawing.Size(180, 50);
             this.btnViewLogs.TabIndex = 19;
@@ -352,7 +360,7 @@
             this.btnTaskManager.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnTaskManager.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTaskManager.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.btnTaskManager.Location = new System.Drawing.Point(67, 23);
+            this.btnTaskManager.Location = new System.Drawing.Point(62, 29);
             this.btnTaskManager.Name = "btnTaskManager";
             this.btnTaskManager.Size = new System.Drawing.Size(180, 50);
             this.btnTaskManager.TabIndex = 20;
@@ -363,28 +371,31 @@
             // 
             // txtTaskDetails
             // 
+            this.txtTaskDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtTaskDetails.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTaskDetails.Location = new System.Drawing.Point(6, 21);
+            this.txtTaskDetails.Location = new System.Drawing.Point(3, 26);
             this.txtTaskDetails.Multiline = true;
             this.txtTaskDetails.Name = "txtTaskDetails";
             this.txtTaskDetails.ReadOnly = true;
             this.txtTaskDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTaskDetails.Size = new System.Drawing.Size(574, 211);
+            this.txtTaskDetails.Size = new System.Drawing.Size(613, 309);
             this.txtTaskDetails.TabIndex = 22;
             this.lblsAndTxtBoxsToolTip.SetToolTip(this.txtTaskDetails, "Displays selected task details.");
             // 
             // listViewTasks
             // 
+            this.listViewTasks.BackColor = System.Drawing.SystemColors.Control;
             this.listViewTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listViewTasks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewTasks.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTasks.FullRowSelect = true;
             this.listViewTasks.HideSelection = false;
-            this.listViewTasks.Location = new System.Drawing.Point(6, 25);
+            this.listViewTasks.Location = new System.Drawing.Point(3, 26);
             this.listViewTasks.Name = "listViewTasks";
-            this.listViewTasks.Size = new System.Drawing.Size(574, 421);
+            this.listViewTasks.Size = new System.Drawing.Size(613, 777);
             this.listViewTasks.TabIndex = 23;
             this.lblsAndTxtBoxsToolTip.SetToolTip(this.listViewTasks, "Displays selected session registered tasks.");
             this.listViewTasks.UseCompatibleStateImageBehavior = false;
@@ -418,7 +429,7 @@
             // btnReminders
             // 
             this.btnReminders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReminders.Location = new System.Drawing.Point(255, 23);
+            this.btnReminders.Location = new System.Drawing.Point(250, 29);
             this.btnReminders.Name = "btnReminders";
             this.btnReminders.Size = new System.Drawing.Size(180, 50);
             this.btnReminders.TabIndex = 24;
@@ -432,7 +443,7 @@
             // 
             this.chkStartWithWindows.AutoSize = true;
             this.chkStartWithWindows.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkStartWithWindows.Location = new System.Drawing.Point(210, 23);
+            this.chkStartWithWindows.Location = new System.Drawing.Point(62, 39);
             this.chkStartWithWindows.Name = "chkStartWithWindows";
             this.chkStartWithWindows.Size = new System.Drawing.Size(269, 27);
             this.chkStartWithWindows.TabIndex = 25;
@@ -462,7 +473,7 @@
             // btnPause
             // 
             this.btnPause.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPause.Location = new System.Drawing.Point(255, 21);
+            this.btnPause.Location = new System.Drawing.Point(248, 29);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(180, 50);
             this.btnPause.TabIndex = 27;
@@ -473,12 +484,12 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox4.Controls.Add(this.listViewTasks);
-            this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(19, 16);
+            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(0, 0);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(586, 448);
+            this.groupBox4.Size = new System.Drawing.Size(619, 806);
             this.groupBox4.TabIndex = 28;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tasks";
@@ -489,7 +500,7 @@
             this.groupBox5.Controls.Add(this.btnPause);
             this.groupBox5.Controls.Add(this.btnStart);
             this.groupBox5.Controls.Add(this.btnStop);
-            this.groupBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(31, 350);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(690, 92);
@@ -503,7 +514,7 @@
             this.groupBox6.Controls.Add(this.btnViewLogs);
             this.groupBox6.Controls.Add(this.btnTaskManager);
             this.groupBox6.Controls.Add(this.btnReminders);
-            this.groupBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.Location = new System.Drawing.Point(31, 450);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(690, 96);
@@ -515,7 +526,7 @@
             // 
             this.groupBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox7.Controls.Add(this.chkStartWithWindows);
-            this.groupBox7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.Location = new System.Drawing.Point(32, 554);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(689, 72);
@@ -546,12 +557,12 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox8.Controls.Add(this.txtTaskDetails);
-            this.groupBox8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(13, 470);
+            this.groupBox8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox8.Location = new System.Drawing.Point(0, 468);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(586, 238);
+            this.groupBox8.Size = new System.Drawing.Size(619, 338);
             this.groupBox8.TabIndex = 32;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Task Details";
