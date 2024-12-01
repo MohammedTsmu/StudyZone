@@ -105,7 +105,7 @@
             this.Welcomelbl.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Welcomelbl.Location = new System.Drawing.Point(0, 0);
             this.Welcomelbl.Name = "Welcomelbl";
-            this.Welcomelbl.Size = new System.Drawing.Size(752, 100);
+            this.Welcomelbl.Size = new System.Drawing.Size(937, 100);
             this.Welcomelbl.TabIndex = 0;
             this.Welcomelbl.Text = "Welcome to Study Zone!";
             this.Welcomelbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -117,7 +117,7 @@
             this.lblTimer.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.Location = new System.Drawing.Point(0, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(752, 123);
+            this.lblTimer.Size = new System.Drawing.Size(937, 123);
             this.lblTimer.TabIndex = 1;
             this.lblTimer.Text = "25:00";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -128,7 +128,7 @@
             this.btnStart.ForeColor = System.Drawing.Color.Black;
             this.btnStart.Image = global::StudyZone.Properties.Resources.Play_PNG_40;
             this.btnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStart.Location = new System.Drawing.Point(13, 24);
+            this.btnStart.Location = new System.Drawing.Point(127, 24);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(216, 58);
             this.btnStart.TabIndex = 2;
@@ -144,7 +144,7 @@
             this.btnStop.ForeColor = System.Drawing.Color.Black;
             this.btnStop.Image = global::StudyZone.Properties.Resources.Stop_PNG_40;
             this.btnStop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStop.Location = new System.Drawing.Point(461, 24);
+            this.btnStop.Location = new System.Drawing.Point(575, 24);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(216, 58);
             this.btnStop.TabIndex = 3;
@@ -158,7 +158,7 @@
             // 
             this.nudStudyMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudStudyMinutes.ForeColor = System.Drawing.Color.Black;
-            this.nudStudyMinutes.Location = new System.Drawing.Point(213, 20);
+            this.nudStudyMinutes.Location = new System.Drawing.Point(327, 20);
             this.nudStudyMinutes.Maximum = new decimal(new int[] {
             120,
             0,
@@ -177,7 +177,7 @@
             // 
             this.nudBreakMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudBreakMinutes.ForeColor = System.Drawing.Color.Black;
-            this.nudBreakMinutes.Location = new System.Drawing.Point(213, 20);
+            this.nudBreakMinutes.Location = new System.Drawing.Point(327, 20);
             this.nudBreakMinutes.Maximum = new decimal(new int[] {
             60,
             0,
@@ -197,7 +197,7 @@
             this.studyMinuteslbl.AutoSize = true;
             this.studyMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studyMinuteslbl.ForeColor = System.Drawing.Color.Black;
-            this.studyMinuteslbl.Location = new System.Drawing.Point(63, 24);
+            this.studyMinuteslbl.Location = new System.Drawing.Point(177, 24);
             this.studyMinuteslbl.Name = "studyMinuteslbl";
             this.studyMinuteslbl.Size = new System.Drawing.Size(134, 23);
             this.studyMinuteslbl.TabIndex = 6;
@@ -208,7 +208,7 @@
             this.breakMinuteslbl.AutoSize = true;
             this.breakMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.breakMinuteslbl.ForeColor = System.Drawing.Color.Black;
-            this.breakMinuteslbl.Location = new System.Drawing.Point(61, 24);
+            this.breakMinuteslbl.Location = new System.Drawing.Point(175, 24);
             this.breakMinuteslbl.Name = "breakMinuteslbl";
             this.breakMinuteslbl.Size = new System.Drawing.Size(136, 23);
             this.breakMinuteslbl.TabIndex = 7;
@@ -223,7 +223,7 @@
             // 
             this.nudStudySeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudStudySeconds.ForeColor = System.Drawing.Color.Black;
-            this.nudStudySeconds.Location = new System.Drawing.Point(507, 20);
+            this.nudStudySeconds.Location = new System.Drawing.Point(621, 20);
             this.nudStudySeconds.Maximum = new decimal(new int[] {
             59,
             0,
@@ -237,7 +237,7 @@
             // 
             this.nudBreakSeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudBreakSeconds.ForeColor = System.Drawing.Color.Black;
-            this.nudBreakSeconds.Location = new System.Drawing.Point(509, 20);
+            this.nudBreakSeconds.Location = new System.Drawing.Point(623, 20);
             this.nudBreakSeconds.Maximum = new decimal(new int[] {
             59,
             0,
@@ -252,7 +252,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(349, 24);
+            this.label1.Location = new System.Drawing.Point(463, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 23);
             this.label1.TabIndex = 10;
@@ -263,7 +263,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(349, 24);
+            this.label2.Location = new System.Drawing.Point(463, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(144, 23);
             this.label2.TabIndex = 11;
@@ -276,7 +276,7 @@
             this.cmbSessions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSessions.ForeColor = System.Drawing.Color.Black;
             this.cmbSessions.FormattingEnabled = true;
-            this.cmbSessions.Location = new System.Drawing.Point(125, 21);
+            this.cmbSessions.Location = new System.Drawing.Point(239, 17);
             this.cmbSessions.Name = "cmbSessions";
             this.cmbSessions.Size = new System.Drawing.Size(440, 31);
             this.cmbSessions.TabIndex = 12;
@@ -289,7 +289,7 @@
             this.btnSaveSession.ForeColor = System.Drawing.Color.Black;
             this.btnSaveSession.Image = global::StudyZone.Properties.Resources.Save_Close;
             this.btnSaveSession.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSaveSession.Location = new System.Drawing.Point(125, 58);
+            this.btnSaveSession.Location = new System.Drawing.Point(239, 56);
             this.btnSaveSession.Name = "btnSaveSession";
             this.btnSaveSession.Size = new System.Drawing.Size(216, 58);
             this.btnSaveSession.TabIndex = 13;
@@ -308,9 +308,9 @@
             this.groupBox1.Controls.Add(this.nudStudySeconds);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(31, 159);
+            this.groupBox1.Location = new System.Drawing.Point(9, 145);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(690, 70);
+            this.groupBox1.Size = new System.Drawing.Size(919, 70);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Study Duration";
@@ -324,9 +324,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(31, 237);
+            this.groupBox2.Location = new System.Drawing.Point(9, 223);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(690, 70);
+            this.groupBox2.Size = new System.Drawing.Size(919, 70);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Break Duration";
@@ -347,7 +347,7 @@
             this.btnDeleteSession.ForeColor = System.Drawing.Color.Black;
             this.btnDeleteSession.Image = global::StudyZone.Properties.Resources.Delete;
             this.btnDeleteSession.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteSession.Location = new System.Drawing.Point(349, 56);
+            this.btnDeleteSession.Location = new System.Drawing.Point(463, 56);
             this.btnDeleteSession.Name = "btnDeleteSession";
             this.btnDeleteSession.Size = new System.Drawing.Size(216, 58);
             this.btnDeleteSession.TabIndex = 17;
@@ -365,9 +365,9 @@
             this.groupBox3.Controls.Add(this.btnSaveSession);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox3.Location = new System.Drawing.Point(31, 15);
+            this.groupBox3.Location = new System.Drawing.Point(9, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(690, 136);
+            this.groupBox3.Size = new System.Drawing.Size(919, 131);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Study Sessions";
@@ -378,7 +378,7 @@
             this.btnViewLogs.ForeColor = System.Drawing.Color.Black;
             this.btnViewLogs.Image = global::StudyZone.Properties.Resources.LOG;
             this.btnViewLogs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnViewLogs.Location = new System.Drawing.Point(469, 23);
+            this.btnViewLogs.Location = new System.Drawing.Point(575, 23);
             this.btnViewLogs.Name = "btnViewLogs";
             this.btnViewLogs.Size = new System.Drawing.Size(216, 58);
             this.btnViewLogs.TabIndex = 19;
@@ -395,7 +395,7 @@
             this.btnTaskManager.ForeColor = System.Drawing.Color.Black;
             this.btnTaskManager.Image = global::StudyZone.Properties.Resources.Tasks;
             this.btnTaskManager.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTaskManager.Location = new System.Drawing.Point(21, 23);
+            this.btnTaskManager.Location = new System.Drawing.Point(127, 23);
             this.btnTaskManager.Name = "btnTaskManager";
             this.btnTaskManager.Size = new System.Drawing.Size(216, 58);
             this.btnTaskManager.TabIndex = 20;
@@ -467,7 +467,7 @@
             this.btnReminders.ForeColor = System.Drawing.Color.Black;
             this.btnReminders.Image = global::StudyZone.Properties.Resources.Bell;
             this.btnReminders.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReminders.Location = new System.Drawing.Point(245, 23);
+            this.btnReminders.Location = new System.Drawing.Point(351, 23);
             this.btnReminders.Name = "btnReminders";
             this.btnReminders.Size = new System.Drawing.Size(216, 58);
             this.btnReminders.TabIndex = 24;
@@ -485,7 +485,7 @@
             this.chkStartWithWindows.ForeColor = System.Drawing.Color.Black;
             this.chkStartWithWindows.Image = global::StudyZone.Properties.Resources.Launch;
             this.chkStartWithWindows.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.chkStartWithWindows.Location = new System.Drawing.Point(163, 14);
+            this.chkStartWithWindows.Location = new System.Drawing.Point(278, 14);
             this.chkStartWithWindows.Name = "chkStartWithWindows";
             this.chkStartWithWindows.Size = new System.Drawing.Size(362, 55);
             this.chkStartWithWindows.TabIndex = 25;
@@ -504,7 +504,7 @@
             this.btnMiniTimer.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMiniTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnMiniTimer.Image = global::StudyZone.Properties.Resources.Up_Squared;
-            this.btnMiniTimer.Location = new System.Drawing.Point(702, 0);
+            this.btnMiniTimer.Location = new System.Drawing.Point(887, 0);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(50, 100);
             this.btnMiniTimer.TabIndex = 26;
@@ -518,7 +518,7 @@
             this.btnPause.ForeColor = System.Drawing.Color.Black;
             this.btnPause.Image = global::StudyZone.Properties.Resources.Pause_PNG_40;
             this.btnPause.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPause.Location = new System.Drawing.Point(237, 24);
+            this.btnPause.Location = new System.Drawing.Point(351, 24);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(216, 58);
             this.btnPause.TabIndex = 27;
@@ -550,9 +550,9 @@
             this.groupBox5.Controls.Add(this.btnStop);
             this.groupBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox5.Location = new System.Drawing.Point(31, 315);
+            this.groupBox5.Location = new System.Drawing.Point(9, 301);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(690, 105);
+            this.groupBox5.Size = new System.Drawing.Size(919, 105);
             this.groupBox5.TabIndex = 29;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Control";
@@ -565,9 +565,9 @@
             this.groupBox6.Controls.Add(this.btnReminders);
             this.groupBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox6.Location = new System.Drawing.Point(31, 428);
+            this.groupBox6.Location = new System.Drawing.Point(9, 414);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(690, 105);
+            this.groupBox6.Size = new System.Drawing.Size(919, 105);
             this.groupBox6.TabIndex = 30;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Goals and Tasks";
@@ -578,9 +578,9 @@
             this.groupBox7.Controls.Add(this.chkStartWithWindows);
             this.groupBox7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox7.Location = new System.Drawing.Point(32, 541);
+            this.groupBox7.Location = new System.Drawing.Point(10, 527);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(689, 82);
+            this.groupBox7.Size = new System.Drawing.Size(918, 82);
             this.groupBox7.TabIndex = 31;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Automation";
@@ -623,7 +623,7 @@
             this.pnRight.Controls.Add(this.groupBox8);
             this.pnRight.Controls.Add(this.groupBox4);
             this.pnRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnRight.Location = new System.Drawing.Point(752, 0);
+            this.pnRight.Location = new System.Drawing.Point(937, 0);
             this.pnRight.Name = "pnRight";
             this.pnRight.Padding = new System.Windows.Forms.Padding(10);
             this.pnRight.Size = new System.Drawing.Size(619, 861);
@@ -641,7 +641,7 @@
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnLeft.Location = new System.Drawing.Point(0, 223);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(752, 638);
+            this.pnLeft.Size = new System.Drawing.Size(937, 638);
             this.pnLeft.TabIndex = 34;
             // 
             // pnTop
@@ -652,7 +652,7 @@
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(752, 223);
+            this.pnTop.Size = new System.Drawing.Size(937, 223);
             this.pnTop.TabIndex = 35;
             // 
             // pnHeaderBottom
@@ -663,7 +663,7 @@
             this.pnHeaderBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnHeaderBottom.Location = new System.Drawing.Point(0, 100);
             this.pnHeaderBottom.Name = "pnHeaderBottom";
-            this.pnHeaderBottom.Size = new System.Drawing.Size(752, 123);
+            this.pnHeaderBottom.Size = new System.Drawing.Size(937, 123);
             this.pnHeaderBottom.TabIndex = 27;
             // 
             // label4
@@ -673,7 +673,7 @@
             this.label4.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Image = global::StudyZone.Properties.Resources.Timer1;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(510, 27);
+            this.label4.Location = new System.Drawing.Point(602, 27);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(242, 68);
             this.label4.TabIndex = 1;
@@ -687,7 +687,7 @@
             this.pnHeaderTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeaderTop.Location = new System.Drawing.Point(0, 0);
             this.pnHeaderTop.Name = "pnHeaderTop";
-            this.pnHeaderTop.Size = new System.Drawing.Size(752, 100);
+            this.pnHeaderTop.Size = new System.Drawing.Size(937, 100);
             this.pnHeaderTop.TabIndex = 27;
             // 
             // pnMainLeft
@@ -698,14 +698,14 @@
             this.pnMainLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnMainLeft.Location = new System.Drawing.Point(0, 0);
             this.pnMainLeft.Name = "pnMainLeft";
-            this.pnMainLeft.Size = new System.Drawing.Size(752, 861);
+            this.pnMainLeft.Size = new System.Drawing.Size(937, 861);
             this.pnMainLeft.TabIndex = 34;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1371, 861);
+            this.ClientSize = new System.Drawing.Size(1556, 861);
             this.Controls.Add(this.pnMainLeft);
             this.Controls.Add(this.pnRight);
             this.Controls.Add(this.label3);
