@@ -58,9 +58,9 @@
             this.btnAddReminder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddReminder.Image = global::StudyZone.Properties.Resources.Add;
             this.btnAddReminder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddReminder.Location = new System.Drawing.Point(36, 65);
+            this.btnAddReminder.Location = new System.Drawing.Point(36, 64);
             this.btnAddReminder.Name = "btnAddReminder";
-            this.btnAddReminder.Size = new System.Drawing.Size(251, 88);
+            this.btnAddReminder.Size = new System.Drawing.Size(250, 90);
             this.btnAddReminder.TabIndex = 1;
             this.btnAddReminder.Text = "Add Reminder";
             this.btnAddReminder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -73,9 +73,9 @@
             this.btnEditReminder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditReminder.Image = global::StudyZone.Properties.Resources.Edit_Text_File;
             this.btnEditReminder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditReminder.Location = new System.Drawing.Point(36, 161);
+            this.btnEditReminder.Location = new System.Drawing.Point(36, 160);
             this.btnEditReminder.Name = "btnEditReminder";
-            this.btnEditReminder.Size = new System.Drawing.Size(251, 88);
+            this.btnEditReminder.Size = new System.Drawing.Size(250, 90);
             this.btnEditReminder.TabIndex = 2;
             this.btnEditReminder.Text = "Edit Reminder";
             this.btnEditReminder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -88,9 +88,9 @@
             this.btnDeleteReminder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteReminder.Image = global::StudyZone.Properties.Resources.Delete;
             this.btnDeleteReminder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteReminder.Location = new System.Drawing.Point(36, 257);
+            this.btnDeleteReminder.Location = new System.Drawing.Point(36, 256);
             this.btnDeleteReminder.Name = "btnDeleteReminder";
-            this.btnDeleteReminder.Size = new System.Drawing.Size(251, 88);
+            this.btnDeleteReminder.Size = new System.Drawing.Size(250, 90);
             this.btnDeleteReminder.TabIndex = 3;
             this.btnDeleteReminder.Text = "Delete Reminder";
             this.btnDeleteReminder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -103,9 +103,9 @@
             this.btnToggleReminder.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnToggleReminder.Image = global::StudyZone.Properties.Resources.Toggle_On;
             this.btnToggleReminder.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnToggleReminder.Location = new System.Drawing.Point(36, 353);
+            this.btnToggleReminder.Location = new System.Drawing.Point(36, 352);
             this.btnToggleReminder.Name = "btnToggleReminder";
-            this.btnToggleReminder.Size = new System.Drawing.Size(251, 88);
+            this.btnToggleReminder.Size = new System.Drawing.Size(250, 90);
             this.btnToggleReminder.TabIndex = 4;
             this.btnToggleReminder.Text = "Toggle Reminder";
             this.btnToggleReminder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
