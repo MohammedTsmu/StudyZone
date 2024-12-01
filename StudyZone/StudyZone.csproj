@@ -1442,6 +1442,7 @@
     <Content Include="Music\wherex27s-my-love-soft-piano-music-248975.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Up Squared.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -74,9 +74,9 @@
             this.pnRight = new System.Windows.Forms.Panel();
             this.pnLeft = new System.Windows.Forms.Panel();
             this.pnTop = new System.Windows.Forms.Panel();
-            this.pnMainLeft = new System.Windows.Forms.Panel();
-            this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnHeaderBottom = new System.Windows.Forms.Panel();
+            this.pnHeaderTop = new System.Windows.Forms.Panel();
+            this.pnMainLeft = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -92,9 +92,9 @@
             this.pnRight.SuspendLayout();
             this.pnLeft.SuspendLayout();
             this.pnTop.SuspendLayout();
-            this.pnMainLeft.SuspendLayout();
-            this.pnHeaderTop.SuspendLayout();
             this.pnHeaderBottom.SuspendLayout();
+            this.pnHeaderTop.SuspendLayout();
+            this.pnMainLeft.SuspendLayout();
             this.SuspendLayout();
             // 
             // Welcomelbl
@@ -445,14 +445,15 @@
             // 
             this.btnMiniTimer.AutoSize = true;
             this.btnMiniTimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnMiniTimer.BackgroundImage = global::StudyZone.Properties.Resources.arrow;
-            this.btnMiniTimer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnMiniTimer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnMiniTimer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMiniTimer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnMiniTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMiniTimer.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMiniTimer.Location = new System.Drawing.Point(696, 0);
+            this.btnMiniTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnMiniTimer.Image = global::StudyZone.Properties.Resources.Up_Squared;
+            this.btnMiniTimer.Location = new System.Drawing.Point(702, 0);
             this.btnMiniTimer.Name = "btnMiniTimer";
-            this.btnMiniTimer.Size = new System.Drawing.Size(56, 100);
+            this.btnMiniTimer.Size = new System.Drawing.Size(50, 100);
             this.btnMiniTimer.TabIndex = 26;
             this.miniTimerBtnToolTip.SetToolTip(this.btnMiniTimer, "Open Mini Timer");
             this.btnMiniTimer.UseVisualStyleBackColor = false;
@@ -596,16 +597,15 @@
             this.pnTop.Size = new System.Drawing.Size(752, 168);
             this.pnTop.TabIndex = 35;
             // 
-            // pnMainLeft
+            // pnHeaderBottom
             // 
-            this.pnMainLeft.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pnMainLeft.Controls.Add(this.pnTop);
-            this.pnMainLeft.Controls.Add(this.pnLeft);
-            this.pnMainLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMainLeft.Location = new System.Drawing.Point(0, 0);
-            this.pnMainLeft.Name = "pnMainLeft";
-            this.pnMainLeft.Size = new System.Drawing.Size(752, 806);
-            this.pnMainLeft.TabIndex = 34;
+            this.pnHeaderBottom.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pnHeaderBottom.Controls.Add(this.lblTimer);
+            this.pnHeaderBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnHeaderBottom.Location = new System.Drawing.Point(0, 100);
+            this.pnHeaderBottom.Name = "pnHeaderBottom";
+            this.pnHeaderBottom.Size = new System.Drawing.Size(752, 68);
+            this.pnHeaderBottom.TabIndex = 27;
             // 
             // pnHeaderTop
             // 
@@ -618,15 +618,16 @@
             this.pnHeaderTop.Size = new System.Drawing.Size(752, 100);
             this.pnHeaderTop.TabIndex = 27;
             // 
-            // pnHeaderBottom
+            // pnMainLeft
             // 
-            this.pnHeaderBottom.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pnHeaderBottom.Controls.Add(this.lblTimer);
-            this.pnHeaderBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnHeaderBottom.Location = new System.Drawing.Point(0, 100);
-            this.pnHeaderBottom.Name = "pnHeaderBottom";
-            this.pnHeaderBottom.Size = new System.Drawing.Size(752, 68);
-            this.pnHeaderBottom.TabIndex = 27;
+            this.pnMainLeft.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnMainLeft.Controls.Add(this.pnTop);
+            this.pnMainLeft.Controls.Add(this.pnLeft);
+            this.pnMainLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMainLeft.Location = new System.Drawing.Point(0, 0);
+            this.pnMainLeft.Name = "pnMainLeft";
+            this.pnMainLeft.Size = new System.Drawing.Size(752, 806);
+            this.pnMainLeft.TabIndex = 34;
             // 
             // MainForm
             // 
@@ -661,10 +662,10 @@
             this.pnRight.ResumeLayout(false);
             this.pnLeft.ResumeLayout(false);
             this.pnTop.ResumeLayout(false);
-            this.pnMainLeft.ResumeLayout(false);
+            this.pnHeaderBottom.ResumeLayout(false);
             this.pnHeaderTop.ResumeLayout(false);
             this.pnHeaderTop.PerformLayout();
-            this.pnHeaderBottom.ResumeLayout(false);
+            this.pnMainLeft.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
