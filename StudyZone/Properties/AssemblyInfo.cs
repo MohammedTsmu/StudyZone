@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StudyZone")]
+[assembly: AssemblyTitle("Study Zone")]
 [assembly: AssemblyDescription("StudyZone - A productivity application that helps you manage your study sessions effectively using the Pomodoro and other Techniques. Includes features like customizable timers, task management, reminders, session logs, and a mini timer for convenience.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Dr. Mohammed Studio")]
-[assembly: AssemblyProduct("StudyZone")]
+[assembly: AssemblyProduct("Study Zone")]
 [assembly: AssemblyCopyright("Copyright ©  2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -29,5 +29,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.5.1")]
+[assembly: AssemblyFileVersion("1.0.5.1")]
