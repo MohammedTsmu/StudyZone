@@ -129,7 +129,7 @@
     <value>Arial, 16.2pt, style=Bold</value>
   </data>
   <data name="lblMiniTimer.Location" type="System.Drawing.Point, System.Drawing">
-    <value>19, 9</value>
+    <value>17, 9</value>
   </data>
   <data name="lblMiniTimer.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 40</value>
@@ -159,9 +159,6 @@
   <metadata name="btnStart.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="toolTipButtons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="btnStart.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom</value>
   </data>
@@ -169,7 +166,7 @@
     <value>Center</value>
   </data>
   <data name="btnStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 69</value>
+    <value>10, 65</value>
   </data>
   <data name="btnStart.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -180,6 +177,9 @@
   <data name="btnStart.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
+  <metadata name="toolTipButtons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="btnStart.ToolTip" xml:space="preserve">
     <value>Start Session</value>
   </data>
@@ -205,7 +205,7 @@
     <value>Center</value>
   </data>
   <data name="btnPause.Location" type="System.Drawing.Point, System.Drawing">
-    <value>83, 69</value>
+    <value>81, 65</value>
   </data>
   <data name="btnPause.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -241,7 +241,7 @@
     <value>Center</value>
   </data>
   <data name="btnStop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>157, 69</value>
+    <value>155, 65</value>
   </data>
   <data name="btnStop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
@@ -267,9 +267,6 @@
   <data name="&gt;&gt;btnStop.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <metadata name="toolTipButtons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -280,7 +277,7 @@
     <value>8, 16</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>209, 110</value>
+    <value>205, 106</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -569,6 +566,9 @@
         //////////////////////////////////////////////////8=
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>227, 157</value>
   </data>
@@ -576,7 +576,7 @@
     <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Focus</value>
+    <value>FOCUS</value>
   </data>
   <data name="&gt;&gt;toolTipButtons.Name" xml:space="preserve">
     <value>toolTipButtons</value>
