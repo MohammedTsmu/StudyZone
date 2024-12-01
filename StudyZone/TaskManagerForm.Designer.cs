@@ -161,7 +161,7 @@
             this.chkShowCompleted.Location = new System.Drawing.Point(6, 20);
             this.chkShowCompleted.Name = "chkShowCompleted";
             this.chkShowCompleted.Size = new System.Drawing.Size(239, 27);
-            this.chkShowCompleted.TabIndex = 5;
+            this.chkShowCompleted.TabIndex = 6;
             this.chkShowCompleted.Text = "Show Completed Tasks";
             this.chkShowCompleted.UseVisualStyleBackColor = false;
             this.chkShowCompleted.CheckedChanged += new System.EventHandler(this.chkShowCompleted_CheckedChanged);
@@ -175,7 +175,7 @@
             this.cmbSortBy.Location = new System.Drawing.Point(126, 18);
             this.cmbSortBy.Name = "cmbSortBy";
             this.cmbSortBy.Size = new System.Drawing.Size(208, 31);
-            this.cmbSortBy.TabIndex = 6;
+            this.cmbSortBy.TabIndex = 5;
             this.cmbSortBy.SelectedIndexChanged += new System.EventHandler(this.cmbSortBy_SelectedIndexChanged);
             // 
             // label1
@@ -199,7 +199,7 @@
             this.cmbSessionFilter.Location = new System.Drawing.Point(126, 16);
             this.cmbSessionFilter.Name = "cmbSessionFilter";
             this.cmbSessionFilter.Size = new System.Drawing.Size(208, 31);
-            this.cmbSessionFilter.TabIndex = 8;
+            this.cmbSessionFilter.TabIndex = 7;
             this.cmbSessionFilter.SelectedIndexChanged += new System.EventHandler(this.cmbSessionFilter_SelectedIndexChanged);
             // 
             // label2
@@ -235,7 +235,7 @@
             this.cmbDueDateFilter.Location = new System.Drawing.Point(528, 19);
             this.cmbDueDateFilter.Name = "cmbDueDateFilter";
             this.cmbDueDateFilter.Size = new System.Drawing.Size(208, 31);
-            this.cmbDueDateFilter.TabIndex = 11;
+            this.cmbDueDateFilter.TabIndex = 8;
             this.cmbDueDateFilter.SelectedIndexChanged += new System.EventHandler(this.cmbDueDateFilter_SelectedIndexChanged);
             // 
             // groupBox1
