@@ -1442,6 +1442,10 @@
     <Content Include="Music\wherex27s-my-love-soft-piano-music-248975.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\Toggle On.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Edit Text File.png" />
+    <None Include="Resources\Add.png" />
     <None Include="Resources\Save Close.png" />
     <None Include="Resources\Cancel.png" />
     <None Include="Resources\Resume Button_PNG_40.png" />

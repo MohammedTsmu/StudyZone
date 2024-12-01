@@ -83,6 +83,16 @@ namespace StudyZone.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add {
+            get {
+                object obj = ResourceManager.GetObject("Add", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap arrow {
             get {
                 object obj = ResourceManager.GetObject("arrow", resourceCulture);
@@ -121,12 +131,32 @@ namespace StudyZone.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Delete {
+            get {
+                object obj = ResourceManager.GetObject("Delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon edit_reminder512px {
             get {
                 object obj = ResourceManager.GetObject("edit_reminder512px", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Edit_Text_File {
+            get {
+                object obj = ResourceManager.GetObject("Edit Text File", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -316,6 +346,16 @@ namespace StudyZone.Properties {
         internal static System.Drawing.Bitmap Timer1 {
             get {
                 object obj = ResourceManager.GetObject("Timer1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Toggle_On {
+            get {
+                object obj = ResourceManager.GetObject("Toggle On", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
