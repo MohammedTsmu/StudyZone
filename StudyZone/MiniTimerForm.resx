@@ -162,14 +162,17 @@
   <data name="btnStart.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
+  <data name="btnStart.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnStart.Location" type="System.Drawing.Point, System.Drawing">
-    <value>10, 65</value>
+    <value>6, 65</value>
   </data>
   <data name="btnStart.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnStart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
+    <value>42, 42</value>
   </data>
   <data name="btnStart.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -201,14 +204,17 @@
   <data name="btnPause.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
+  <data name="btnPause.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnPause.Location" type="System.Drawing.Point, System.Drawing">
-    <value>81, 65</value>
+    <value>56, 65</value>
   </data>
   <data name="btnPause.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnPause.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
+    <value>42, 42</value>
   </data>
   <data name="btnPause.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -237,14 +243,17 @@
   <data name="btnStop.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Popup</value>
   </data>
+  <data name="btnStop.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnStop.Location" type="System.Drawing.Point, System.Drawing">
-    <value>155, 65</value>
+    <value>106, 65</value>
   </data>
   <data name="btnStop.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnStop.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
+    <value>42, 42</value>
   </data>
   <data name="btnStop.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -277,13 +286,13 @@
     <value>NoControl</value>
   </data>
   <data name="btnExit.Location" type="System.Drawing.Point, System.Drawing">
-    <value>155, 13</value>
+    <value>156, 65</value>
   </data>
   <data name="btnExit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>0, 0, 0, 0</value>
   </data>
   <data name="btnExit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 40</value>
+    <value>42, 42</value>
   </data>
   <data name="btnExit.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
