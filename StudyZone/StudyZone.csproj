@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\coffee.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Empty Hourglass_100.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
@@ -68,6 +68,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppSettings.cs" />
     <Compile Include="BreakForm.cs">
       <SubType>Form</SubType>
@@ -133,6 +139,9 @@
     <Compile Include="TaskManagerForm.Designer.cs">
       <DependentUpon>TaskManagerForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BreakForm.resx">
       <DependentUpon>BreakForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -1445,6 +1454,14 @@
     <Content Include="Music\wherex27s-my-love-soft-piano-music-248975.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\About.png" />
+    <None Include="Resources\Empty Hourglass_PNG_100.png" />
+    <None Include="Resources\Cup_40.ico" />
+    <None Include="Resources\Cup_50.ico" />
+    <None Include="Resources\Cup_100.ico" />
+    <None Include="Resources\Empty Hourglass_100.ico" />
+    <None Include="Resources\Empty Hourglass_50.ico" />
+    <None Include="Resources\Empty Hourglass_40.ico" />
     <None Include="Resources\Expand.png" />
     <None Include="Resources\Order Completed.png" />
     <None Include="Resources\Filter.png" />

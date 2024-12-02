@@ -149,36 +149,6 @@ namespace StudyZone
             StopSession();
         }
 
-
-        //public void StartSession()
-        //{
-        //    if (isPaused)
-        //    {
-        //        // Resume the paused session
-        //        timerPomodoro.Start();
-        //        isPaused = false;
-        //    }
-        //    else if (!timerPomodoro.Enabled)
-        //    {
-        //        // Start a new session only if the timer is not running and not paused
-        //        totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
-        //        isStudyTime = true;
-        //        UpdateTimerLabel();
-        //        timerPomodoro.Start();
-
-        //        // Initialize current session log
-        //        currentSessionLog = new SessionLog();
-
-        //        // Clear the notified tasks list
-        //        notifiedTasks.Clear();
-
-        //        // Start notification timer
-        //        notificationTimer.Start();
-        //    }
-
-        //    UpdateButtonStates();
-        //}
-
         public void StartSession()
         {
             if (isPaused)
@@ -204,40 +174,19 @@ namespace StudyZone
                 // Start notification timer
                 notificationTimer.Start();
 
-                // Disable session selection while the timer is running
+                // Disable session selection and other componenets while the timer is running
                 cmbSessions.Enabled = false;
+                btnSaveSession.Enabled = false;
+                btnDeleteSession.Enabled = false;
+                nudStudyMinutes.Enabled = false;
+                nudStudySeconds.Enabled = false;
+                nudBreakMinutes.Enabled = false;
+                nudBreakSeconds.Enabled = false;
             }
 
             UpdateButtonStates();
         }
 
-
-
-        //public void PauseSession()
-        //{
-        //    if (timerPomodoro.Enabled)
-        //    {
-        //        // Pause the session
-        //        timerPomodoro.Stop();
-        //        isPaused = true;
-
-        //        // Start tracking pause duration
-        //        pauseDurationInSeconds = 0;
-        //        pauseDurationTimer.Start();
-        //    }
-        //    else if (isPaused)
-        //    {
-        //        // Resume the session
-        //        timerPomodoro.Start();
-        //        isPaused = false;
-
-        //        // Stop tracking pause duration
-        //        pauseDurationTimer.Stop();
-        //        pauseDurationInSeconds = 0;
-        //    }
-
-        //    UpdateButtonStates();
-        //}
         public void PauseSession()
         {
             if (timerPomodoro.Enabled)
@@ -261,40 +210,18 @@ namespace StudyZone
                 pauseDurationInSeconds = 0;
             }
 
-            // Keep session selection disabled while paused
+            // Keep session selection and other components disabled while paused
             cmbSessions.Enabled = false;
+            btnSaveSession.Enabled = false;
+            btnDeleteSession.Enabled = false;
+            nudStudyMinutes.Enabled = false;
+            nudStudySeconds.Enabled = false;
+            nudBreakMinutes.Enabled = false;
+            nudBreakSeconds.Enabled = false;
 
             UpdateButtonStates();
         }
 
-
-
-
-        //public void StopSession()
-        //{
-        //    if (timerPomodoro.Enabled || isPaused)
-        //    {
-        //        timerPomodoro.Stop();
-        //        totalSeconds = 0;
-
-        //        // Reset pause state and timer
-        //        isPaused = false;
-        //        pauseDurationTimer.Stop();
-        //        pauseDurationInSeconds = 0;
-        //        UpdateTimerLabel();
-
-        //        if (currentSessionLog != null)
-        //        {
-        //            SaveSessionLog(currentSessionLog);
-        //            currentSessionLog = null;
-        //        }
-
-        //        // Stop notification timer
-        //        notificationTimer.Stop();
-        //    }
-
-        //    UpdateButtonStates();
-        //}
         public void StopSession()
         {
             if (timerPomodoro.Enabled || isPaused)
@@ -319,6 +246,12 @@ namespace StudyZone
 
                 // Re-enable session selection
                 cmbSessions.Enabled = true;
+                btnSaveSession.Enabled = true;
+                btnDeleteSession.Enabled = true;
+                nudStudyMinutes.Enabled = true;
+                nudStudySeconds.Enabled = true;
+                nudBreakMinutes.Enabled = true;
+                nudBreakSeconds.Enabled = true;
             }
 
             UpdateButtonStates();
@@ -445,36 +378,6 @@ namespace StudyZone
             }
         }
 
-        //private void cmbSessions_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
-        //    {
-        //        nudStudyMinutes.Value = selectedSession.StudyMinutes;
-        //        nudStudySeconds.Value = selectedSession.StudySeconds;
-        //        nudBreakMinutes.Value = selectedSession.BreakMinutes;
-        //        nudBreakSeconds.Value = selectedSession.BreakSeconds;
-
-        //        DisplayTasksForSelectedSession();
-        //    }
-        //}
-        //private void cmbSessions_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
-        //    {
-        //        nudStudyMinutes.Value = selectedSession.StudyMinutes;
-        //        nudStudySeconds.Value = selectedSession.StudySeconds;
-        //        nudBreakMinutes.Value = selectedSession.BreakMinutes;
-        //        nudBreakSeconds.Value = selectedSession.BreakSeconds;
-
-        //        // Update the total seconds based on the new session
-        //        totalSeconds = (selectedSession.StudyMinutes * 60) + selectedSession.StudySeconds;
-
-        //        // Update the timer label immediately
-        //        UpdateTimerLabel();
-
-        //        DisplayTasksForSelectedSession();
-        //    }
-        //}
         private void cmbSessions_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (timerPomodoro.Enabled || isPaused)
@@ -503,8 +406,6 @@ namespace StudyZone
                 DisplayTasksForSelectedSession();
             }
         }
-
-
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
@@ -574,7 +475,6 @@ namespace StudyZone
                 MessageBox.Show("Please select a session to delete.", "Delete Session", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
 
         private void LoadSessions()
         {
@@ -790,7 +690,6 @@ namespace StudyZone
                 }
             }
         }
-
 
         private void listViewTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1271,6 +1170,12 @@ namespace StudyZone
             // Optionally, you can play a sound or bring the application to the front
             // For example, you can flash the taskbar icon:
             FlashWindow(this.Handle, true);
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            About about = new About();
+            about.Show();
         }
     }
 }
