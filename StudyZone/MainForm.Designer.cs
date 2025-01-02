@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -46,6 +48,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnSaveSession = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteSession = new DevExpress.XtraEditors.SimpleButton();
             this.txtTaskDetails = new System.Windows.Forms.TextBox();
             this.listViewTasks = new System.Windows.Forms.ListView();
@@ -53,11 +56,18 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.btnMiniTimer = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btnStop = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPause = new DevExpress.XtraEditors.SimpleButton();
+            this.btnStart = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnTaskManager = new DevExpress.XtraEditors.SimpleButton();
+            this.btnReminders = new DevExpress.XtraEditors.SimpleButton();
+            this.btnViewLogs = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.chkStartWithWindows = new DevExpress.XtraEditors.CheckEdit();
+            this.svgImageBoxAbout = new DevExpress.XtraEditors.SvgImageBox();
             this.miniTimerBtnToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.BtnsDetails = new System.Windows.Forms.ToolTip(this.components);
             this.chkBoxsToolTip = new System.Windows.Forms.ToolTip(this.components);
@@ -67,18 +77,10 @@
             this.pnLeft = new System.Windows.Forms.Panel();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnHeaderBottom = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
-            this.btnSaveSession = new DevExpress.XtraEditors.SimpleButton();
-            this.btnStart = new DevExpress.XtraEditors.SimpleButton();
-            this.btnPause = new DevExpress.XtraEditors.SimpleButton();
-            this.btnStop = new DevExpress.XtraEditors.SimpleButton();
-            this.btnViewLogs = new DevExpress.XtraEditors.SimpleButton();
-            this.btnReminders = new DevExpress.XtraEditors.SimpleButton();
-            this.btnTaskManager = new DevExpress.XtraEditors.SimpleButton();
-            this.svgImageBoxAbout = new DevExpress.XtraEditors.SvgImageBox();
-            this.chkStartWithWindows = new DevExpress.XtraEditors.CheckEdit();
+            this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
+            this.btnMiniTimer = new DevExpress.XtraEditors.SvgImageBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -90,6 +92,8 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkStartWithWindows.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBoxAbout)).BeginInit();
             this.groupBox8.SuspendLayout();
             this.pnRight.SuspendLayout();
             this.pnLeft.SuspendLayout();
@@ -97,30 +101,29 @@
             this.pnHeaderBottom.SuspendLayout();
             this.pnHeaderTop.SuspendLayout();
             this.pnMainLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBoxAbout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkStartWithWindows.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMiniTimer)).BeginInit();
             this.SuspendLayout();
             // 
             // Welcomelbl
             // 
-            this.Welcomelbl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Welcomelbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Welcomelbl.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Welcomelbl.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Welcomelbl.Location = new System.Drawing.Point(0, 0);
+            this.Welcomelbl.Location = new System.Drawing.Point(9, 10);
             this.Welcomelbl.Name = "Welcomelbl";
-            this.Welcomelbl.Size = new System.Drawing.Size(937, 100);
+            this.Welcomelbl.Size = new System.Drawing.Size(878, 90);
             this.Welcomelbl.TabIndex = 0;
             this.Welcomelbl.Text = "Welcome to Study Zone!";
             this.Welcomelbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer
             // 
-            this.lblTimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.lblTimer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTimer.BackColor = System.Drawing.Color.Turquoise;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(0, 0);
+            this.lblTimer.Location = new System.Drawing.Point(9, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(937, 123);
+            this.lblTimer.Size = new System.Drawing.Size(878, 80);
             this.lblTimer.TabIndex = 1;
             this.lblTimer.Text = "00:00";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -264,7 +267,7 @@
             this.groupBox1.Controls.Add(this.nudStudySeconds);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox1.Location = new System.Drawing.Point(29, 157);
+            this.groupBox1.Location = new System.Drawing.Point(9, 157);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(878, 70);
             this.groupBox1.TabIndex = 14;
@@ -281,7 +284,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox2.Location = new System.Drawing.Point(29, 235);
+            this.groupBox2.Location = new System.Drawing.Point(9, 235);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(878, 70);
             this.groupBox2.TabIndex = 15;
@@ -291,7 +294,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 693);
+            this.label3.Location = new System.Drawing.Point(29, 713);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(152, 32);
             this.label3.TabIndex = 16;
@@ -307,18 +310,31 @@
             this.groupBox3.Controls.Add(this.cmbSessions);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox3.Location = new System.Drawing.Point(29, 18);
+            this.groupBox3.Location = new System.Drawing.Point(9, 18);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(878, 131);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Study Sessions";
             // 
+            // btnSaveSession
+            // 
+            this.btnSaveSession.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnSaveSession.Appearance.Options.UseFont = true;
+            this.btnSaveSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveSession.ImageOptions.SvgImage")));
+            this.btnSaveSession.Location = new System.Drawing.Point(219, 56);
+            this.btnSaveSession.Name = "btnSaveSession";
+            this.btnSaveSession.Size = new System.Drawing.Size(200, 50);
+            this.btnSaveSession.TabIndex = 19;
+            this.btnSaveSession.Text = "Save Session";
+            this.BtnsDetails.SetToolTip(this.btnSaveSession, "Save the current duration settings as a new session or add new durations.");
+            this.btnSaveSession.Click += new System.EventHandler(this.btnSaveSession_Click);
+            // 
             // btnDeleteSession
             // 
             this.btnDeleteSession.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnDeleteSession.Appearance.Options.UseFont = true;
-            this.btnDeleteSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteSession2.ImageOptions.SvgImage")));
+            this.btnDeleteSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteSession.ImageOptions.SvgImage")));
             this.btnDeleteSession.Location = new System.Drawing.Point(459, 56);
             this.btnDeleteSession.Name = "btnDeleteSession";
             this.btnDeleteSession.Size = new System.Drawing.Size(200, 50);
@@ -336,7 +352,7 @@
             this.txtTaskDetails.Name = "txtTaskDetails";
             this.txtTaskDetails.ReadOnly = true;
             this.txtTaskDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTaskDetails.Size = new System.Drawing.Size(579, 386);
+            this.txtTaskDetails.Size = new System.Drawing.Size(559, 326);
             this.txtTaskDetails.TabIndex = 22;
             this.lblsAndTxtBoxsToolTip.SetToolTip(this.txtTaskDetails, "Displays selected task details.");
             // 
@@ -383,34 +399,16 @@
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
-            // btnMiniTimer
-            // 
-            this.btnMiniTimer.AutoSize = true;
-            this.btnMiniTimer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnMiniTimer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMiniTimer.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnMiniTimer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMiniTimer.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMiniTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnMiniTimer.Image = global::StudyZone.Properties.Resources.Up_Squared;
-            this.btnMiniTimer.Location = new System.Drawing.Point(887, 0);
-            this.btnMiniTimer.Name = "btnMiniTimer";
-            this.btnMiniTimer.Size = new System.Drawing.Size(50, 100);
-            this.btnMiniTimer.TabIndex = 26;
-            this.miniTimerBtnToolTip.SetToolTip(this.btnMiniTimer, "Open Mini Timer");
-            this.btnMiniTimer.UseVisualStyleBackColor = false;
-            this.btnMiniTimer.Click += new System.EventHandler(this.btnMiniTimer_Click);
-            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox4.Controls.Add(this.listViewTasks);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(10, 10);
+            this.groupBox4.Location = new System.Drawing.Point(20, 20);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox4.Size = new System.Drawing.Size(599, 412);
+            this.groupBox4.Size = new System.Drawing.Size(579, 412);
             this.groupBox4.TabIndex = 28;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tasks";
@@ -424,12 +422,55 @@
             this.groupBox5.Controls.Add(this.btnStart);
             this.groupBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox5.Location = new System.Drawing.Point(29, 313);
+            this.groupBox5.Location = new System.Drawing.Point(9, 313);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(878, 105);
             this.groupBox5.TabIndex = 29;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Control";
+            // 
+            // btnStop
+            // 
+            this.btnStop.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnStop.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.btnStop.Appearance.Options.UseFont = true;
+            this.btnStop.Appearance.Options.UseForeColor = true;
+            this.btnStop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStop.ImageOptions.SvgImage")));
+            this.btnStop.Location = new System.Drawing.Point(537, 27);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(200, 50);
+            this.btnStop.TabIndex = 30;
+            this.btnStop.Text = "Stop";
+            this.BtnsDetails.SetToolTip(this.btnStop, "Terminate / Stop the focus session timer.");
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnPause.Appearance.ForeColor = System.Drawing.Color.Blue;
+            this.btnPause.Appearance.Options.UseFont = true;
+            this.btnPause.Appearance.Options.UseForeColor = true;
+            this.btnPause.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPause.ImageOptions.SvgImage")));
+            this.btnPause.Location = new System.Drawing.Point(331, 27);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(200, 50);
+            this.btnPause.TabIndex = 29;
+            this.btnPause.Text = "Pause";
+            this.BtnsDetails.SetToolTip(this.btnPause, "Pause the focus session timer.");
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnStart.Appearance.Options.UseFont = true;
+            this.btnStart.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStart.ImageOptions.SvgImage")));
+            this.btnStart.Location = new System.Drawing.Point(129, 27);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(196, 50);
+            this.btnStart.TabIndex = 28;
+            this.btnStart.Text = "Start";
+            this.BtnsDetails.SetToolTip(this.btnStart, "Start the focus session timer.");
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // groupBox6
             // 
@@ -440,12 +481,52 @@
             this.groupBox6.Controls.Add(this.btnViewLogs);
             this.groupBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox6.Location = new System.Drawing.Point(29, 426);
+            this.groupBox6.Location = new System.Drawing.Point(9, 426);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(878, 105);
             this.groupBox6.TabIndex = 30;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Goals and Tasks";
+            // 
+            // btnTaskManager
+            // 
+            this.btnTaskManager.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnTaskManager.Appearance.Options.UseFont = true;
+            this.btnTaskManager.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaskManager.ImageOptions.SvgImage")));
+            this.btnTaskManager.Location = new System.Drawing.Point(125, 27);
+            this.btnTaskManager.Name = "btnTaskManager";
+            this.btnTaskManager.Size = new System.Drawing.Size(200, 50);
+            this.btnTaskManager.TabIndex = 27;
+            this.btnTaskManager.Text = "Task Manager";
+            this.BtnsDetails.SetToolTip(this.btnTaskManager, "Add / Edit / Delete tasks");
+            this.btnTaskManager.Click += new System.EventHandler(this.btnTaskManager_Click);
+            // 
+            // btnReminders
+            // 
+            this.btnReminders.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnReminders.Appearance.Options.UseFont = true;
+            this.btnReminders.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReminders.ImageOptions.SvgImage")));
+            this.btnReminders.Location = new System.Drawing.Point(329, 27);
+            this.btnReminders.Name = "btnReminders";
+            this.btnReminders.Size = new System.Drawing.Size(200, 50);
+            this.btnReminders.TabIndex = 26;
+            this.btnReminders.Text = "Reminders";
+            this.BtnsDetails.SetToolTip(this.btnReminders, "Add a reminder to prompt the user to start a focus or study session if they forge" +
+        "t.");
+            this.btnReminders.Click += new System.EventHandler(this.btnReminders_Click);
+            // 
+            // btnViewLogs
+            // 
+            this.btnViewLogs.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnViewLogs.Appearance.Options.UseFont = true;
+            this.btnViewLogs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnViewLogs.ImageOptions.SvgImage")));
+            this.btnViewLogs.Location = new System.Drawing.Point(553, 27);
+            this.btnViewLogs.Name = "btnViewLogs";
+            this.btnViewLogs.Size = new System.Drawing.Size(200, 50);
+            this.btnViewLogs.TabIndex = 25;
+            this.btnViewLogs.Text = "View Logs";
+            this.BtnsDetails.SetToolTip(this.btnViewLogs, "View statistics for previous sessions and breaks.");
+            this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
             // 
             // groupBox7
             // 
@@ -455,12 +536,35 @@
             this.groupBox7.Controls.Add(this.svgImageBoxAbout);
             this.groupBox7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox7.Location = new System.Drawing.Point(30, 539);
+            this.groupBox7.Location = new System.Drawing.Point(10, 539);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(877, 82);
             this.groupBox7.TabIndex = 31;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Automation";
+            // 
+            // chkStartWithWindows
+            // 
+            this.chkStartWithWindows.Location = new System.Drawing.Point(28, 30);
+            this.chkStartWithWindows.Name = "chkStartWithWindows";
+            this.chkStartWithWindows.Properties.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.chkStartWithWindows.Properties.Appearance.Options.UseFont = true;
+            this.chkStartWithWindows.Properties.Caption = "Start when Windows starts";
+            this.chkStartWithWindows.Size = new System.Drawing.Size(419, 25);
+            this.chkStartWithWindows.TabIndex = 27;
+            this.chkBoxsToolTip.SetToolTip(this.chkStartWithWindows, "Ensure the app starts with Windows at login or system startup.");
+            this.chkStartWithWindows.CheckedChanged += new System.EventHandler(this.chkStartWithWindows_CheckedChanged);
+            // 
+            // svgImageBoxAbout
+            // 
+            this.svgImageBoxAbout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.svgImageBoxAbout.Location = new System.Drawing.Point(663, 14);
+            this.svgImageBoxAbout.Name = "svgImageBoxAbout";
+            this.svgImageBoxAbout.Size = new System.Drawing.Size(59, 50);
+            this.svgImageBoxAbout.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBoxAbout.SvgImage")));
+            this.svgImageBoxAbout.TabIndex = 26;
+            this.svgImageBoxAbout.ToolTip = "About Study Zone Information";
+            this.svgImageBoxAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // miniTimerBtnToolTip
             // 
@@ -486,24 +590,23 @@
             this.groupBox8.Controls.Add(this.txtTaskDetails);
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox8.Location = new System.Drawing.Point(10, 422);
+            this.groupBox8.Location = new System.Drawing.Point(20, 432);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(10);
-            this.groupBox8.Size = new System.Drawing.Size(599, 429);
+            this.groupBox8.Size = new System.Drawing.Size(579, 369);
             this.groupBox8.TabIndex = 32;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Task Details";
             // 
             // pnRight
             // 
-            this.pnRight.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pnRight.Controls.Add(this.groupBox8);
             this.pnRight.Controls.Add(this.groupBox4);
             this.pnRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnRight.Location = new System.Drawing.Point(937, 0);
+            this.pnRight.Location = new System.Drawing.Point(917, 20);
             this.pnRight.Name = "pnRight";
-            this.pnRight.Padding = new System.Windows.Forms.Padding(10);
-            this.pnRight.Size = new System.Drawing.Size(619, 861);
+            this.pnRight.Padding = new System.Windows.Forms.Padding(20);
+            this.pnRight.Size = new System.Drawing.Size(619, 821);
             this.pnRight.TabIndex = 33;
             // 
             // pnLeft
@@ -516,186 +619,78 @@
             this.pnLeft.Controls.Add(this.groupBox6);
             this.pnLeft.Controls.Add(this.groupBox5);
             this.pnLeft.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnLeft.Location = new System.Drawing.Point(0, 223);
+            this.pnLeft.Location = new System.Drawing.Point(0, 183);
             this.pnLeft.Name = "pnLeft";
-            this.pnLeft.Size = new System.Drawing.Size(937, 638);
+            this.pnLeft.Size = new System.Drawing.Size(897, 638);
             this.pnLeft.TabIndex = 34;
             // 
             // pnTop
             // 
-            this.pnTop.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pnTop.Controls.Add(this.pnHeaderBottom);
             this.pnTop.Controls.Add(this.pnHeaderTop);
             this.pnTop.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnTop.Location = new System.Drawing.Point(0, 0);
             this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(937, 223);
+            this.pnTop.Size = new System.Drawing.Size(897, 183);
             this.pnTop.TabIndex = 35;
             // 
             // pnHeaderBottom
             // 
-            this.pnHeaderBottom.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pnHeaderBottom.Controls.Add(this.label4);
+            this.pnHeaderBottom.Controls.Add(this.btnMiniTimer);
+            this.pnHeaderBottom.Controls.Add(this.svgImageBox1);
             this.pnHeaderBottom.Controls.Add(this.lblTimer);
             this.pnHeaderBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnHeaderBottom.Location = new System.Drawing.Point(0, 100);
             this.pnHeaderBottom.Name = "pnHeaderBottom";
-            this.pnHeaderBottom.Size = new System.Drawing.Size(937, 123);
+            this.pnHeaderBottom.Size = new System.Drawing.Size(897, 83);
             this.pnHeaderBottom.TabIndex = 27;
-            // 
-            // label4
-            // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.label4.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Image = global::StudyZone.Properties.Resources.Timer1;
-            this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label4.Location = new System.Drawing.Point(602, 27);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(242, 68);
-            this.label4.TabIndex = 1;
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // pnHeaderTop
             // 
-            this.pnHeaderTop.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pnHeaderTop.Controls.Add(this.btnMiniTimer);
             this.pnHeaderTop.Controls.Add(this.Welcomelbl);
             this.pnHeaderTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnHeaderTop.Location = new System.Drawing.Point(0, 0);
             this.pnHeaderTop.Name = "pnHeaderTop";
-            this.pnHeaderTop.Size = new System.Drawing.Size(937, 100);
+            this.pnHeaderTop.Size = new System.Drawing.Size(897, 100);
             this.pnHeaderTop.TabIndex = 27;
             // 
             // pnMainLeft
             // 
-            this.pnMainLeft.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pnMainLeft.Controls.Add(this.pnTop);
             this.pnMainLeft.Controls.Add(this.pnLeft);
             this.pnMainLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMainLeft.Location = new System.Drawing.Point(0, 0);
+            this.pnMainLeft.Location = new System.Drawing.Point(20, 20);
             this.pnMainLeft.Name = "pnMainLeft";
-            this.pnMainLeft.Size = new System.Drawing.Size(937, 861);
+            this.pnMainLeft.Size = new System.Drawing.Size(897, 821);
             this.pnMainLeft.TabIndex = 34;
             // 
-            // btnSaveSession
+            // svgImageBox1
             // 
-            this.btnSaveSession.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.btnSaveSession.Appearance.Options.UseFont = true;
-            this.btnSaveSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnSaveSession.Location = new System.Drawing.Point(219, 56);
-            this.btnSaveSession.Name = "btnSaveSession";
-            this.btnSaveSession.Size = new System.Drawing.Size(200, 50);
-            this.btnSaveSession.TabIndex = 19;
-            this.btnSaveSession.Text = "Save Session";
-            this.BtnsDetails.SetToolTip(this.btnSaveSession, "Save the current duration settings as a new session or add new durations.");
-            this.btnSaveSession.Click += new System.EventHandler(this.btnSaveSession_Click);
+            this.svgImageBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.svgImageBox1.BackColor = System.Drawing.Color.Turquoise;
+            this.svgImageBox1.Location = new System.Drawing.Point(603, 3);
+            this.svgImageBox1.Name = "svgImageBox1";
+            this.svgImageBox1.Size = new System.Drawing.Size(65, 77);
+            this.svgImageBox1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBox1.SvgImage")));
+            this.svgImageBox1.TabIndex = 2;
+            this.svgImageBox1.Text = "svgImageBox1";
             // 
-            // btnStart
+            // btnMiniTimer
             // 
-            this.btnStart.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.btnStart.Appearance.Options.UseFont = true;
-            this.btnStart.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage3")));
-            this.btnStart.Location = new System.Drawing.Point(129, 27);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(196, 50);
-            this.btnStart.TabIndex = 28;
-            this.btnStart.Text = "Start";
-            this.BtnsDetails.SetToolTip(this.btnStart, "Start the focus session timer.");
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // btnPause
-            // 
-            this.btnPause.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.btnPause.Appearance.ForeColor = System.Drawing.Color.Blue;
-            this.btnPause.Appearance.Options.UseFont = true;
-            this.btnPause.Appearance.Options.UseForeColor = true;
-            this.btnPause.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage2")));
-            this.btnPause.Location = new System.Drawing.Point(331, 27);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(200, 50);
-            this.btnPause.TabIndex = 29;
-            this.btnPause.Text = "Pause";
-            this.BtnsDetails.SetToolTip(this.btnPause, "Pause the focus session timer.");
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
-            // 
-            // btnStop
-            // 
-            this.btnStop.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.btnStop.Appearance.ForeColor = System.Drawing.Color.Red;
-            this.btnStop.Appearance.Options.UseFont = true;
-            this.btnStop.Appearance.Options.UseForeColor = true;
-            this.btnStop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage1")));
-            this.btnStop.Location = new System.Drawing.Point(537, 27);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(200, 50);
-            this.btnStop.TabIndex = 30;
-            this.btnStop.Text = "Stop";
-            this.BtnsDetails.SetToolTip(this.btnStop, "Terminate / Stop the focus session timer.");
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // btnViewLogs
-            // 
-            this.btnViewLogs.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.btnViewLogs.Appearance.Options.UseFont = true;
-            this.btnViewLogs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage6")));
-            this.btnViewLogs.Location = new System.Drawing.Point(553, 27);
-            this.btnViewLogs.Name = "btnViewLogs";
-            this.btnViewLogs.Size = new System.Drawing.Size(200, 50);
-            this.btnViewLogs.TabIndex = 25;
-            this.btnViewLogs.Text = "View Logs";
-            this.BtnsDetails.SetToolTip(this.btnViewLogs, "View statistics for previous sessions and breaks.");
-            this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
-            // 
-            // btnReminders
-            // 
-            this.btnReminders.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.btnReminders.Appearance.Options.UseFont = true;
-            this.btnReminders.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage5")));
-            this.btnReminders.Location = new System.Drawing.Point(329, 27);
-            this.btnReminders.Name = "btnReminders";
-            this.btnReminders.Size = new System.Drawing.Size(200, 50);
-            this.btnReminders.TabIndex = 26;
-            this.btnReminders.Text = "Reminders";
-            this.BtnsDetails.SetToolTip(this.btnReminders, "Add a reminder to prompt the user to start a focus or study session if they forge" +
-        "t.");
-            this.btnReminders.Click += new System.EventHandler(this.btnReminders_Click);
-            // 
-            // btnTaskManager
-            // 
-            this.btnTaskManager.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.btnTaskManager.Appearance.Options.UseFont = true;
-            this.btnTaskManager.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage4")));
-            this.btnTaskManager.Location = new System.Drawing.Point(125, 27);
-            this.btnTaskManager.Name = "btnTaskManager";
-            this.btnTaskManager.Size = new System.Drawing.Size(200, 50);
-            this.btnTaskManager.TabIndex = 27;
-            this.btnTaskManager.Text = "Task Manager";
-            this.BtnsDetails.SetToolTip(this.btnTaskManager, "Add / Edit / Delete tasks");
-            this.btnTaskManager.Click += new System.EventHandler(this.btnTaskManager_Click);
-            // 
-            // svgImageBoxAbout
-            // 
-            this.svgImageBoxAbout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.svgImageBoxAbout.Location = new System.Drawing.Point(663, 14);
-            this.svgImageBoxAbout.Name = "svgImageBoxAbout";
-            this.svgImageBoxAbout.Size = new System.Drawing.Size(59, 50);
-            this.svgImageBoxAbout.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBoxAbout.SvgImage")));
-            this.svgImageBoxAbout.TabIndex = 26;
-            this.svgImageBoxAbout.ToolTip = "About Study Zone Information";
-            this.svgImageBoxAbout.Click += new System.EventHandler(this.btnAbout_Click);
-            // 
-            // chkStartWithWindows
-            // 
-            this.chkStartWithWindows.Location = new System.Drawing.Point(28, 30);
-            this.chkStartWithWindows.Name = "chkStartWithWindows";
-            this.chkStartWithWindows.Properties.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.chkStartWithWindows.Properties.Appearance.Options.UseFont = true;
-            this.chkStartWithWindows.Properties.Caption = "Start when Windows starts";
-            this.chkStartWithWindows.Size = new System.Drawing.Size(419, 25);
-            this.chkStartWithWindows.TabIndex = 27;
-            this.chkBoxsToolTip.SetToolTip(this.chkStartWithWindows, "Ensure the app starts with Windows at login or system startup.");
-            this.chkStartWithWindows.CheckedChanged += new System.EventHandler(this.chkStartWithWindows_CheckedChanged);
+            this.btnMiniTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMiniTimer.BackColor = System.Drawing.Color.Turquoise;
+            this.btnMiniTimer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMiniTimer.Location = new System.Drawing.Point(822, 3);
+            this.btnMiniTimer.Name = "btnMiniTimer";
+            this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
+            toolTipItem7.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem7.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip7.Items.Add(toolTipItem7);
+            this.btnMiniTimer.SuperTip = superToolTip7;
+            this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
+            this.btnMiniTimer.TabIndex = 3;
+            this.btnMiniTimer.Text = "svgImageBox2";
+            this.btnMiniTimer.Click += new System.EventHandler(this.btnMiniTimer_Click);
             // 
             // MainForm
             // 
@@ -707,6 +702,7 @@
             this.Controls.Add(this.label3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
+            this.Padding = new System.Windows.Forms.Padding(20);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Study Zone / v1.0.51";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -724,6 +720,8 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkStartWithWindows.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBoxAbout)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.pnRight.ResumeLayout(false);
@@ -731,10 +729,9 @@
             this.pnTop.ResumeLayout(false);
             this.pnHeaderBottom.ResumeLayout(false);
             this.pnHeaderTop.ResumeLayout(false);
-            this.pnHeaderTop.PerformLayout();
             this.pnMainLeft.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBoxAbout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkStartWithWindows.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMiniTimer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -764,7 +761,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.NotifyIcon notifyIcon;
-        private System.Windows.Forms.Button btnMiniTimer;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -780,7 +776,6 @@
         private System.Windows.Forms.Panel pnMainLeft;
         private System.Windows.Forms.Panel pnHeaderTop;
         private System.Windows.Forms.Panel pnHeaderBottom;
-        private System.Windows.Forms.Label label4;
         private DevExpress.XtraEditors.SimpleButton btnDeleteSession;
         private DevExpress.XtraEditors.SimpleButton btnSaveSession;
         private DevExpress.XtraEditors.SimpleButton btnStart;
@@ -791,6 +786,8 @@
         private DevExpress.XtraEditors.SimpleButton btnTaskManager;
         private DevExpress.XtraEditors.SvgImageBox svgImageBoxAbout;
         private DevExpress.XtraEditors.CheckEdit chkStartWithWindows;
+        private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
+        private DevExpress.XtraEditors.SvgImageBox btnMiniTimer;
     }
 }
 
