@@ -50,6 +50,7 @@ namespace StudyZone
         {
             TaskItem newTask = new TaskItem();
             TaskEditForm editForm = new TaskEditForm(newTask, GetSessionNames());
+            editForm.Text = "Add New Task";
             if (editForm.ShowDialog() == DialogResult.OK)
             {
                 tasks.Add(newTask);

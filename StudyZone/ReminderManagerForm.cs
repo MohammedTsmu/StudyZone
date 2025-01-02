@@ -36,6 +36,8 @@ namespace StudyZone
         {
             StudyReminder newReminder = new StudyReminder();
             ReminderEditForm editForm = new ReminderEditForm(newReminder);
+
+            editForm.Text = "Add Reminder";
             if (editForm.ShowDialog() == DialogResult.OK)
             {
                 reminders.Add(newReminder);

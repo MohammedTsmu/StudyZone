@@ -28,15 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskManagerForm));
             this.dataGridViewTasks = new System.Windows.Forms.DataGridView();
-            this.btnAddTask = new System.Windows.Forms.Button();
-            this.btnEditTask = new System.Windows.Forms.Button();
-            this.btnDeleteTask = new System.Windows.Forms.Button();
-            this.btnMarkCompleted = new System.Windows.Forms.Button();
             this.chkShowCompleted = new System.Windows.Forms.CheckBox();
             this.cmbSortBy = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -50,6 +46,10 @@
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnFill = new System.Windows.Forms.Panel();
             this.pnBottom = new System.Windows.Forms.Panel();
+            this.btnAddTask = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDeleteTask = new DevExpress.XtraEditors.SimpleButton();
+            this.btnMarkCompleted = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -63,94 +63,35 @@
             // 
             this.dataGridViewTasks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewTasks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTasks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTasks.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTasks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewTasks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewTasks.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewTasks.Name = "dataGridViewTasks";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTasks.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTasks.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTasks.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTasks.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTasks.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTasks.RowTemplate.Height = 24;
-            this.dataGridViewTasks.Size = new System.Drawing.Size(1200, 395);
+            this.dataGridViewTasks.Size = new System.Drawing.Size(1200, 418);
             this.dataGridViewTasks.TabIndex = 0;
             this.dataGridViewTasks.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridViewTasks_DataBindingComplete);
-            // 
-            // btnAddTask
-            // 
-            this.btnAddTask.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddTask.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddTask.Image = global::StudyZone.Properties.Resources.Add;
-            this.btnAddTask.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAddTask.Location = new System.Drawing.Point(34, 16);
-            this.btnAddTask.Name = "btnAddTask";
-            this.btnAddTask.Size = new System.Drawing.Size(263, 68);
-            this.btnAddTask.TabIndex = 1;
-            this.btnAddTask.Text = "Add Task";
-            this.btnAddTask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddTask.UseVisualStyleBackColor = true;
-            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
-            // 
-            // btnEditTask
-            // 
-            this.btnEditTask.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditTask.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditTask.Image = global::StudyZone.Properties.Resources.Edit_Text_File;
-            this.btnEditTask.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEditTask.Location = new System.Drawing.Point(324, 16);
-            this.btnEditTask.Name = "btnEditTask";
-            this.btnEditTask.Size = new System.Drawing.Size(263, 68);
-            this.btnEditTask.TabIndex = 2;
-            this.btnEditTask.Text = "Edit Task";
-            this.btnEditTask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditTask.UseVisualStyleBackColor = true;
-            this.btnEditTask.Click += new System.EventHandler(this.btnEditTask_Click);
-            // 
-            // btnDeleteTask
-            // 
-            this.btnDeleteTask.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDeleteTask.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteTask.Image = global::StudyZone.Properties.Resources.Delete;
-            this.btnDeleteTask.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteTask.Location = new System.Drawing.Point(614, 16);
-            this.btnDeleteTask.Name = "btnDeleteTask";
-            this.btnDeleteTask.Size = new System.Drawing.Size(263, 68);
-            this.btnDeleteTask.TabIndex = 3;
-            this.btnDeleteTask.Text = "Delete Task";
-            this.btnDeleteTask.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteTask.UseVisualStyleBackColor = true;
-            this.btnDeleteTask.Click += new System.EventHandler(this.btnDeleteTask_Click);
-            // 
-            // btnMarkCompleted
-            // 
-            this.btnMarkCompleted.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMarkCompleted.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMarkCompleted.Image = global::StudyZone.Properties.Resources.Order_Completed;
-            this.btnMarkCompleted.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnMarkCompleted.Location = new System.Drawing.Point(904, 16);
-            this.btnMarkCompleted.Name = "btnMarkCompleted";
-            this.btnMarkCompleted.Size = new System.Drawing.Size(263, 68);
-            this.btnMarkCompleted.TabIndex = 4;
-            this.btnMarkCompleted.Text = "Mark as Completed";
-            this.btnMarkCompleted.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMarkCompleted.UseVisualStyleBackColor = true;
-            this.btnMarkCompleted.Click += new System.EventHandler(this.btnMarkCompleted_Click);
             // 
             // chkShowCompleted
             // 
@@ -243,9 +184,10 @@
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.cmbSortBy);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.groupBox1.Location = new System.Drawing.Point(12, 3);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.groupBox1.Location = new System.Drawing.Point(13, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(578, 67);
             this.groupBox1.TabIndex = 12;
@@ -260,7 +202,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox2.Location = new System.Drawing.Point(12, 70);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1176, 67);
@@ -273,8 +215,8 @@
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.Controls.Add(this.chkShowCompleted);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.groupBox3.Location = new System.Drawing.Point(608, 3);
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.groupBox3.Location = new System.Drawing.Point(609, 3);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(578, 67);
             this.groupBox3.TabIndex = 14;
@@ -284,7 +226,6 @@
             // pnTop
             // 
             this.pnTop.AutoScroll = true;
-            this.pnTop.BackColor = System.Drawing.Color.DarkGray;
             this.pnTop.Controls.Add(this.groupBox1);
             this.pnTop.Controls.Add(this.groupBox3);
             this.pnTop.Controls.Add(this.groupBox2);
@@ -301,21 +242,73 @@
             this.pnFill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnFill.Location = new System.Drawing.Point(0, 151);
             this.pnFill.Name = "pnFill";
-            this.pnFill.Size = new System.Drawing.Size(1200, 395);
+            this.pnFill.Size = new System.Drawing.Size(1200, 418);
             this.pnFill.TabIndex = 9;
             // 
             // pnBottom
             // 
             this.pnBottom.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.pnBottom.Controls.Add(this.btnAddTask);
-            this.pnBottom.Controls.Add(this.btnEditTask);
-            this.pnBottom.Controls.Add(this.btnDeleteTask);
             this.pnBottom.Controls.Add(this.btnMarkCompleted);
+            this.pnBottom.Controls.Add(this.btnDeleteTask);
+            this.pnBottom.Controls.Add(this.simpleButton1);
+            this.pnBottom.Controls.Add(this.btnAddTask);
             this.pnBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnBottom.Location = new System.Drawing.Point(0, 546);
+            this.pnBottom.Location = new System.Drawing.Point(0, 569);
             this.pnBottom.Name = "pnBottom";
-            this.pnBottom.Size = new System.Drawing.Size(1200, 100);
+            this.pnBottom.Size = new System.Drawing.Size(1200, 77);
             this.pnBottom.TabIndex = 10;
+            // 
+            // btnAddTask
+            // 
+            this.btnAddTask.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnAddTask.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnAddTask.Appearance.Options.UseFont = true;
+            this.btnAddTask.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveSession.ImageOptions.SvgImage")));
+            this.btnAddTask.Location = new System.Drawing.Point(94, 13);
+            this.btnAddTask.Name = "btnAddTask";
+            this.btnAddTask.Size = new System.Drawing.Size(200, 50);
+            this.btnAddTask.TabIndex = 1;
+            this.btnAddTask.Text = "Add Task";
+            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
+            // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.simpleButton1.Appearance.Options.UseFont = true;
+            this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.simpleButton1.Location = new System.Drawing.Point(302, 13);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(200, 50);
+            this.simpleButton1.TabIndex = 2;
+            this.simpleButton1.Text = "Edit Task";
+            this.simpleButton1.Click += new System.EventHandler(this.btnEditTask_Click);
+            // 
+            // btnDeleteTask
+            // 
+            this.btnDeleteTask.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDeleteTask.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteTask.Appearance.Options.UseFont = true;
+            this.btnDeleteTask.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage1")));
+            this.btnDeleteTask.Location = new System.Drawing.Point(510, 13);
+            this.btnDeleteTask.Name = "btnDeleteTask";
+            this.btnDeleteTask.Size = new System.Drawing.Size(200, 50);
+            this.btnDeleteTask.TabIndex = 3;
+            this.btnDeleteTask.Text = "Delete Task";
+            this.btnDeleteTask.Click += new System.EventHandler(this.btnDeleteTask_Click);
+            // 
+            // btnMarkCompleted
+            // 
+            this.btnMarkCompleted.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMarkCompleted.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnMarkCompleted.Appearance.Options.UseFont = true;
+            this.btnMarkCompleted.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton2.ImageOptions.SvgImage")));
+            this.btnMarkCompleted.Location = new System.Drawing.Point(718, 13);
+            this.btnMarkCompleted.Name = "btnMarkCompleted";
+            this.btnMarkCompleted.Size = new System.Drawing.Size(388, 50);
+            this.btnMarkCompleted.TabIndex = 4;
+            this.btnMarkCompleted.Text = "Mark Completed";
+            this.btnMarkCompleted.Click += new System.EventHandler(this.btnMarkCompleted_Click);
             // 
             // TaskManagerForm
             // 
@@ -348,10 +341,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewTasks;
-        private System.Windows.Forms.Button btnAddTask;
-        private System.Windows.Forms.Button btnEditTask;
-        private System.Windows.Forms.Button btnDeleteTask;
-        private System.Windows.Forms.Button btnMarkCompleted;
         private System.Windows.Forms.CheckBox chkShowCompleted;
         private System.Windows.Forms.ComboBox cmbSortBy;
         private System.Windows.Forms.Label label1;
@@ -365,5 +354,9 @@
         private System.Windows.Forms.Panel pnTop;
         private System.Windows.Forms.Panel pnFill;
         private System.Windows.Forms.Panel pnBottom;
+        private DevExpress.XtraEditors.SimpleButton btnAddTask;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnDeleteTask;
+        private DevExpress.XtraEditors.SimpleButton btnMarkCompleted;
     }
 }
