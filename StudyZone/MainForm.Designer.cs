@@ -32,8 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.btnStop = new System.Windows.Forms.Button();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
             this.nudBreakMinutes = new System.Windows.Forms.NumericUpDown();
             this.studyMinuteslbl = new System.Windows.Forms.Label();
@@ -44,24 +42,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbSessions = new System.Windows.Forms.ComboBox();
-            this.btnSaveSession = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnDeleteSession = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnViewLogs = new System.Windows.Forms.Button();
-            this.btnTaskManager = new System.Windows.Forms.Button();
+            this.btnDeleteSession = new DevExpress.XtraEditors.SimpleButton();
             this.txtTaskDetails = new System.Windows.Forms.TextBox();
             this.listViewTasks = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.btnReminders = new System.Windows.Forms.Button();
             this.chkStartWithWindows = new System.Windows.Forms.CheckBox();
             this.btnMiniTimer = new System.Windows.Forms.Button();
-            this.btnPause = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -79,6 +72,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
+            this.btnSaveSession = new DevExpress.XtraEditors.SimpleButton();
+            this.btnStart = new DevExpress.XtraEditors.SimpleButton();
+            this.btnPause = new DevExpress.XtraEditors.SimpleButton();
+            this.btnStop = new DevExpress.XtraEditors.SimpleButton();
+            this.btnViewLogs = new DevExpress.XtraEditors.SimpleButton();
+            this.btnReminders = new DevExpress.XtraEditors.SimpleButton();
+            this.btnTaskManager = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -122,38 +122,6 @@
             this.lblTimer.TabIndex = 1;
             this.lblTimer.Text = "00:00";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnStart
-            // 
-            this.btnStart.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.ForeColor = System.Drawing.Color.Black;
-            this.btnStart.Image = global::StudyZone.Properties.Resources.Play_PNG_40;
-            this.btnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStart.Location = new System.Drawing.Point(107, 23);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(216, 58);
-            this.btnStart.TabIndex = 2;
-            this.btnStart.Text = "Start";
-            this.btnStart.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnsDetails.SetToolTip(this.btnStart, "Start the focus session timer.");
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // btnStop
-            // 
-            this.btnStop.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStop.ForeColor = System.Drawing.Color.Red;
-            this.btnStop.Image = global::StudyZone.Properties.Resources.Stop_PNG_40;
-            this.btnStop.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnStop.Location = new System.Drawing.Point(555, 23);
-            this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(216, 58);
-            this.btnStop.TabIndex = 3;
-            this.btnStop.Text = "Stop";
-            this.btnStop.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnsDetails.SetToolTip(this.btnStop, "Terminate / Stop the focus session timer.");
-            this.btnStop.UseVisualStyleBackColor = true;
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // nudStudyMinutes
             // 
@@ -284,31 +252,16 @@
             this.cmbSessions.Text = "Select Session";
             this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
             // 
-            // btnSaveSession
-            // 
-            this.btnSaveSession.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveSession.ForeColor = System.Drawing.Color.Black;
-            this.btnSaveSession.Image = global::StudyZone.Properties.Resources.Save_Close;
-            this.btnSaveSession.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSaveSession.Location = new System.Drawing.Point(219, 56);
-            this.btnSaveSession.Name = "btnSaveSession";
-            this.btnSaveSession.Size = new System.Drawing.Size(216, 58);
-            this.btnSaveSession.TabIndex = 13;
-            this.btnSaveSession.Text = "Save Session";
-            this.btnSaveSession.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnsDetails.SetToolTip(this.btnSaveSession, "Save the current duration settings as a new session or add new durations.");
-            this.btnSaveSession.UseVisualStyleBackColor = true;
-            this.btnSaveSession.Click += new System.EventHandler(this.btnSaveSession_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox1.Controls.Add(this.nudStudyMinutes);
             this.groupBox1.Controls.Add(this.studyMinuteslbl);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.nudStudySeconds);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox1.Location = new System.Drawing.Point(29, 157);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(878, 70);
@@ -319,12 +272,13 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox2.Controls.Add(this.nudBreakSeconds);
             this.groupBox2.Controls.Add(this.nudBreakMinutes);
             this.groupBox2.Controls.Add(this.breakMinuteslbl);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox2.Location = new System.Drawing.Point(29, 235);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(878, 70);
@@ -342,30 +296,15 @@
             this.label3.Text = "v1.0.4\r\n© Dr. Mohammed Qasim";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnDeleteSession
-            // 
-            this.btnDeleteSession.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteSession.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteSession.Image = global::StudyZone.Properties.Resources.Delete;
-            this.btnDeleteSession.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnDeleteSession.Location = new System.Drawing.Point(443, 56);
-            this.btnDeleteSession.Name = "btnDeleteSession";
-            this.btnDeleteSession.Size = new System.Drawing.Size(216, 58);
-            this.btnDeleteSession.TabIndex = 17;
-            this.btnDeleteSession.Text = "Delete Session";
-            this.btnDeleteSession.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnsDetails.SetToolTip(this.btnDeleteSession, "Delete selected session.");
-            this.btnDeleteSession.UseVisualStyleBackColor = true;
-            this.btnDeleteSession.Click += new System.EventHandler(this.btnDeleteSession_Click);
-            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox3.Controls.Add(this.cmbSessions);
-            this.groupBox3.Controls.Add(this.btnDeleteSession);
+            this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox3.Controls.Add(this.btnSaveSession);
+            this.groupBox3.Controls.Add(this.btnDeleteSession);
+            this.groupBox3.Controls.Add(this.cmbSessions);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox3.Location = new System.Drawing.Point(29, 18);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(878, 131);
@@ -373,38 +312,18 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Study Sessions";
             // 
-            // btnViewLogs
+            // btnDeleteSession
             // 
-            this.btnViewLogs.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewLogs.ForeColor = System.Drawing.Color.Black;
-            this.btnViewLogs.Image = global::StudyZone.Properties.Resources.LOG;
-            this.btnViewLogs.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnViewLogs.Location = new System.Drawing.Point(555, 23);
-            this.btnViewLogs.Name = "btnViewLogs";
-            this.btnViewLogs.Size = new System.Drawing.Size(216, 58);
-            this.btnViewLogs.TabIndex = 19;
-            this.btnViewLogs.Text = "View Logs";
-            this.btnViewLogs.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnsDetails.SetToolTip(this.btnViewLogs, "View statistics for previous sessions and breaks.");
-            this.btnViewLogs.UseVisualStyleBackColor = true;
-            this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
-            // 
-            // btnTaskManager
-            // 
-            this.btnTaskManager.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTaskManager.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTaskManager.ForeColor = System.Drawing.Color.Black;
-            this.btnTaskManager.Image = global::StudyZone.Properties.Resources.Tasks;
-            this.btnTaskManager.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnTaskManager.Location = new System.Drawing.Point(107, 23);
-            this.btnTaskManager.Name = "btnTaskManager";
-            this.btnTaskManager.Size = new System.Drawing.Size(216, 58);
-            this.btnTaskManager.TabIndex = 20;
-            this.btnTaskManager.Text = "Task Manager";
-            this.btnTaskManager.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnsDetails.SetToolTip(this.btnTaskManager, "Add / Edit / Delete tasks");
-            this.btnTaskManager.UseVisualStyleBackColor = true;
-            this.btnTaskManager.Click += new System.EventHandler(this.btnTaskManager_Click);
+            this.btnDeleteSession.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteSession.Appearance.Options.UseFont = true;
+            this.btnDeleteSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteSession2.ImageOptions.SvgImage")));
+            this.btnDeleteSession.Location = new System.Drawing.Point(459, 56);
+            this.btnDeleteSession.Name = "btnDeleteSession";
+            this.btnDeleteSession.Size = new System.Drawing.Size(200, 50);
+            this.btnDeleteSession.TabIndex = 18;
+            this.btnDeleteSession.Text = "Delete Session";
+            this.BtnsDetails.SetToolTip(this.btnDeleteSession, "Delete selected session.");
+            this.btnDeleteSession.Click += new System.EventHandler(this.btnDeleteSession_Click);
             // 
             // txtTaskDetails
             // 
@@ -462,23 +381,6 @@
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
-            // btnReminders
-            // 
-            this.btnReminders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReminders.ForeColor = System.Drawing.Color.Black;
-            this.btnReminders.Image = global::StudyZone.Properties.Resources.Bell;
-            this.btnReminders.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnReminders.Location = new System.Drawing.Point(331, 23);
-            this.btnReminders.Name = "btnReminders";
-            this.btnReminders.Size = new System.Drawing.Size(216, 58);
-            this.btnReminders.TabIndex = 24;
-            this.btnReminders.Text = "Reminders";
-            this.btnReminders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnsDetails.SetToolTip(this.btnReminders, "Add a reminder to prompt the user to start a focus or study session if they forge" +
-        "t.");
-            this.btnReminders.UseVisualStyleBackColor = true;
-            this.btnReminders.Click += new System.EventHandler(this.btnReminders_Click);
-            // 
             // chkStartWithWindows
             // 
             this.chkStartWithWindows.BackColor = System.Drawing.Color.Transparent;
@@ -513,22 +415,6 @@
             this.btnMiniTimer.UseVisualStyleBackColor = false;
             this.btnMiniTimer.Click += new System.EventHandler(this.btnMiniTimer_Click);
             // 
-            // btnPause
-            // 
-            this.btnPause.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPause.ForeColor = System.Drawing.Color.Black;
-            this.btnPause.Image = global::StudyZone.Properties.Resources.Pause_PNG_40;
-            this.btnPause.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPause.Location = new System.Drawing.Point(331, 23);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(216, 58);
-            this.btnPause.TabIndex = 27;
-            this.btnPause.Text = "Pause";
-            this.btnPause.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnsDetails.SetToolTip(this.btnPause, "Pause the focus session timer.");
-            this.btnPause.UseVisualStyleBackColor = true;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
-            // 
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -546,11 +432,12 @@
             // groupBox5
             // 
             this.groupBox5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox5.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox5.Controls.Add(this.btnStop);
             this.groupBox5.Controls.Add(this.btnPause);
             this.groupBox5.Controls.Add(this.btnStart);
-            this.groupBox5.Controls.Add(this.btnStop);
             this.groupBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.groupBox5.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox5.Location = new System.Drawing.Point(29, 313);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(878, 105);
@@ -561,11 +448,12 @@
             // groupBox6
             // 
             this.groupBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox6.Controls.Add(this.btnViewLogs);
+            this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox6.Controls.Add(this.btnTaskManager);
             this.groupBox6.Controls.Add(this.btnReminders);
+            this.groupBox6.Controls.Add(this.btnViewLogs);
             this.groupBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox6.Location = new System.Drawing.Point(29, 426);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(878, 105);
@@ -576,10 +464,11 @@
             // groupBox7
             // 
             this.groupBox7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox7.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox7.Controls.Add(this.btnAbout);
             this.groupBox7.Controls.Add(this.chkStartWithWindows);
             this.groupBox7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.ForeColor = System.Drawing.SystemColors.MenuBar;
+            this.groupBox7.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox7.Location = new System.Drawing.Point(30, 539);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(877, 82);
@@ -647,7 +536,7 @@
             // 
             // pnLeft
             // 
-            this.pnLeft.BackColor = System.Drawing.Color.DarkGray;
+            this.pnLeft.BackColor = System.Drawing.SystemColors.Control;
             this.pnLeft.Controls.Add(this.groupBox3);
             this.pnLeft.Controls.Add(this.groupBox1);
             this.pnLeft.Controls.Add(this.groupBox7);
@@ -717,6 +606,100 @@
             this.pnMainLeft.Size = new System.Drawing.Size(937, 861);
             this.pnMainLeft.TabIndex = 34;
             // 
+            // btnSaveSession
+            // 
+            this.btnSaveSession.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnSaveSession.Appearance.Options.UseFont = true;
+            this.btnSaveSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
+            this.btnSaveSession.Location = new System.Drawing.Point(219, 56);
+            this.btnSaveSession.Name = "btnSaveSession";
+            this.btnSaveSession.Size = new System.Drawing.Size(200, 50);
+            this.btnSaveSession.TabIndex = 19;
+            this.btnSaveSession.Text = "Save Session";
+            this.BtnsDetails.SetToolTip(this.btnSaveSession, "Save the current duration settings as a new session or add new durations.");
+            this.btnSaveSession.Click += new System.EventHandler(this.btnSaveSession_Click);
+            // 
+            // btnStart
+            // 
+            this.btnStart.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnStart.Appearance.Options.UseFont = true;
+            this.btnStart.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image2")));
+            this.btnStart.Location = new System.Drawing.Point(129, 27);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(196, 50);
+            this.btnStart.TabIndex = 28;
+            this.btnStart.Text = "Start";
+            this.BtnsDetails.SetToolTip(this.btnStart, "Start the focus session timer.");
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // btnPause
+            // 
+            this.btnPause.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnPause.Appearance.Options.UseFont = true;
+            this.btnPause.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image1")));
+            this.btnPause.Location = new System.Drawing.Point(331, 27);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(200, 50);
+            this.btnPause.TabIndex = 29;
+            this.btnPause.Text = "Pause";
+            this.BtnsDetails.SetToolTip(this.btnPause, "Pause the focus session timer.");
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnStop
+            // 
+            this.btnStop.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnStop.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.btnStop.Appearance.Options.UseFont = true;
+            this.btnStop.Appearance.Options.UseForeColor = true;
+            this.btnStop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.btnStop.Location = new System.Drawing.Point(537, 27);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(200, 50);
+            this.btnStop.TabIndex = 30;
+            this.btnStop.Text = "Stop";
+            this.BtnsDetails.SetToolTip(this.btnStop, "Terminate / Stop the focus session timer.");
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
+            // 
+            // btnViewLogs
+            // 
+            this.btnViewLogs.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnViewLogs.Appearance.Options.UseFont = true;
+            this.btnViewLogs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage3")));
+            this.btnViewLogs.Location = new System.Drawing.Point(553, 27);
+            this.btnViewLogs.Name = "btnViewLogs";
+            this.btnViewLogs.Size = new System.Drawing.Size(200, 50);
+            this.btnViewLogs.TabIndex = 25;
+            this.btnViewLogs.Text = "View Logs";
+            this.BtnsDetails.SetToolTip(this.btnViewLogs, "View statistics for previous sessions and breaks.");
+            this.btnViewLogs.Click += new System.EventHandler(this.btnViewLogs_Click);
+            // 
+            // btnReminders
+            // 
+            this.btnReminders.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnReminders.Appearance.Options.UseFont = true;
+            this.btnReminders.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage2")));
+            this.btnReminders.Location = new System.Drawing.Point(329, 27);
+            this.btnReminders.Name = "btnReminders";
+            this.btnReminders.Size = new System.Drawing.Size(200, 50);
+            this.btnReminders.TabIndex = 26;
+            this.btnReminders.Text = "Reminders";
+            this.BtnsDetails.SetToolTip(this.btnReminders, "Add a reminder to prompt the user to start a focus or study session if they forge" +
+        "t.");
+            this.btnReminders.Click += new System.EventHandler(this.btnReminders_Click);
+            // 
+            // btnTaskManager
+            // 
+            this.btnTaskManager.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnTaskManager.Appearance.Options.UseFont = true;
+            this.btnTaskManager.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage1")));
+            this.btnTaskManager.Location = new System.Drawing.Point(125, 27);
+            this.btnTaskManager.Name = "btnTaskManager";
+            this.btnTaskManager.Size = new System.Drawing.Size(200, 50);
+            this.btnTaskManager.TabIndex = 27;
+            this.btnTaskManager.Text = "Task Manager";
+            this.BtnsDetails.SetToolTip(this.btnTaskManager, "Add / Edit / Delete tasks");
+            this.btnTaskManager.Click += new System.EventHandler(this.btnTaskManager_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -762,8 +745,6 @@
 
         private System.Windows.Forms.Label Welcomelbl;
         private System.Windows.Forms.Label lblTimer;
-        private System.Windows.Forms.Button btnStart;
-        private System.Windows.Forms.Button btnStop;
         private System.Windows.Forms.NumericUpDown nudStudyMinutes;
         private System.Windows.Forms.NumericUpDown nudBreakMinutes;
         private System.Windows.Forms.Label studyMinuteslbl;
@@ -774,24 +755,18 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbSessions;
-        private System.Windows.Forms.Button btnSaveSession;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnDeleteSession;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnViewLogs;
-        private System.Windows.Forms.Button btnTaskManager;
         private System.Windows.Forms.TextBox txtTaskDetails;
         private System.Windows.Forms.ListView listViewTasks;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.NotifyIcon notifyIcon;
-        private System.Windows.Forms.Button btnReminders;
         private System.Windows.Forms.CheckBox chkStartWithWindows;
         private System.Windows.Forms.Button btnMiniTimer;
-        private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.GroupBox groupBox6;
@@ -809,6 +784,14 @@
         private System.Windows.Forms.Panel pnHeaderBottom;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAbout;
+        private DevExpress.XtraEditors.SimpleButton btnDeleteSession;
+        private DevExpress.XtraEditors.SimpleButton btnSaveSession;
+        private DevExpress.XtraEditors.SimpleButton btnStart;
+        private DevExpress.XtraEditors.SimpleButton btnPause;
+        private DevExpress.XtraEditors.SimpleButton btnStop;
+        private DevExpress.XtraEditors.SimpleButton btnViewLogs;
+        private DevExpress.XtraEditors.SimpleButton btnReminders;
+        private DevExpress.XtraEditors.SimpleButton btnTaskManager;
     }
 }
 
