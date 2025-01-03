@@ -24,7 +24,6 @@ namespace StudyZone
         private Label lblQuote;
         private CircularProgressBar progressBar;
         private List<string> musicFiles = new List<string>();
-        private List<Image> backgroundImages = new List<Image>();
         private SoundPlayer player;
         private List<string> motivationalQuotes = new List<string>
         {
@@ -335,6 +334,95 @@ namespace StudyZone
         // Additional quotes can be added here following the same format.
         };
 
+        // دالة لتحويل قيم HSB إلى Color (ARGB)
+        private Color ColorFromAhsb(int alpha, float hue, float saturation, float brightness)
+        {
+            if (0 > hue || 360 < hue)
+            {
+                while (hue < 0) { hue += 360; }
+                while (hue > 360) { hue -= 360; }
+            }
+
+            if (0 > saturation) saturation = 0;
+            if (0 > brightness) brightness = 0;
+            if (1 < saturation) saturation = 1;
+            if (1 < brightness) brightness = 1;
+
+            float fMax, fMid, fMin;
+            int iSextant;
+            byte iMax, iMid, iMin;
+
+            iSextant = (int)(hue / 60f);
+            if (360f <= hue) hue = 0f;
+            hue /= 60f;
+            hue -= (float)iSextant;
+
+            fMax = brightness;
+            fMin = brightness * (1 - saturation);
+            fMid = fMin + hue * (fMax - fMin);
+
+            switch (iSextant)
+            {
+                case 0:
+                    iMax = (byte)(fMax * 255);
+                    iMid = (byte)(fMid * 255);
+                    iMin = (byte)(fMin * 255);
+                    break;
+                case 1:
+                    iMax = (byte)(fMid * 255);
+                    iMid = (byte)(fMax * 255);
+                    iMin = (byte)(fMin * 255);
+                    break;
+                case 2:
+                    iMax = (byte)(fMin * 255);
+                    iMid = (byte)(fMax * 255);
+                    iMin = (byte)(fMid * 255);
+                    break;
+                case 3:
+                    iMax = (byte)(fMin * 255);
+                    iMid = (byte)(fMid * 255);
+                    iMin = (byte)(fMax * 255);
+                    break;
+                case 4:
+                    iMax = (byte)(fMid * 255);
+                    iMid = (byte)(fMin * 255);
+                    iMin = (byte)(fMax * 255);
+                    break;
+                case 5:
+                    iMax = (byte)(fMax * 255);
+                    iMid = (byte)(fMin * 255);
+                    iMin = (byte)(fMid * 255);
+                    break;
+                default:
+                    iMax = (byte)0;
+                    iMid = (byte)0;
+                    iMin = (byte)0;
+                    break;
+            }
+
+            return Color.FromArgb(alpha, iMax, iMid, iMin);
+        }
+
+        // دالة للحصول على لون عشوائي في نطاق هادئ (Pastel-like أو قريب منه)
+        private Color GetRandomPastelColor(Random rand)
+        {
+            // الصبغة من 0 إلى 360
+            float hue = (float)rand.NextDouble() * 360f;
+            // الإشباع من 0.3 إلى 0.7 تقريبًا
+            float saturation = 0.3f + (float)rand.NextDouble() * 0.4f;
+            // الإضاءة من 0.7 إلى 1
+            float brightness = 0.7f + (float)rand.NextDouble() * 0.3f;
+            // يمكن أيضًا تعديل القيم حسب الذوق
+            return ColorFromAhsb(255, hue, saturation, brightness);
+        }
+
+        // حقل للاحتفاظ بالتدرج اللوني المختار عشوائيًا
+        private (Color start, Color end) selectedGradient;
+
+
+        private float gradientAngle = 0f;
+
+
         // Add these fields at the class level
         private List<Particle> particles = new List<Particle>();
         private Timer particleTimer;
@@ -374,11 +462,21 @@ namespace StudyZone
             // Enable double buffering to reduce flickering and improve rendering performance
             this.SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.DoubleBuffer, true);
 
+            // اختر لون البداية من الدالة العشوائية
+            Color startColor = GetRandomPastelColor(rand);
+            // اختر لون النهاية من الدالة العشوائية
+            Color endColor = GetRandomPastelColor(rand);
+
+            // خزّنهما في selectedGradient
+            selectedGradient = (startColor, endColor);
+
+            // وأخيرًا نختار زاوية تدرج عشوائية بين 0 و 360
+            gradientAngle = (float)rand.Next(0, 361);
+
+
 
             LoadMusicFiles();
-            LoadBackgroundImages();
             PlayRandomMusic();
-            SetRandomBackgroundImage();
         }
 
         private void InitializeTimerLabel()
@@ -467,98 +565,6 @@ namespace StudyZone
         //----------------------------End Constructor and Initialization----------------------------
 
         //-----------------------------------Start Load Resources-----------------------------------
-        private void LoadBackgroundImages()
-        {
-            ClearBackgroundImages(); // Clear old images first
-
-            string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
-
-            if (Directory.Exists(imagesFolderPath))
-            {
-                // Get all image file paths in the directory
-                var imageFiles = Directory.GetFiles(imagesFolderPath, "*.jpg")
-                                           .Concat(Directory.GetFiles(imagesFolderPath, "*.png"))
-                                           .OrderBy(_ => Guid.NewGuid()) // Shuffle images
-                                           .Take(1) // Take only 5 random images for this session
-                                           .ToList();
-
-                foreach (string file in imageFiles)
-                {
-                    try
-                    {
-                        using (var bmpTemp = new Bitmap(file))
-                        {
-                            backgroundImages.Add(new Bitmap(bmpTemp));
-                        }
-                        Debug.WriteLine($"Successfully loaded image: {file}");
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine($"Error loading image {file}: {ex.Message}");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("مجلد الصور غير موجود. يرجى التأكد من وجوده.");
-            }
-        }
-
-        private void SetRandomBackgroundImage()
-        {
-            string imagesFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Images");
-
-            if (Directory.Exists(imagesFolderPath))
-            {
-                string[] allFiles = Directory.GetFiles(imagesFolderPath, "*.jpg")
-                    .Concat(Directory.GetFiles(imagesFolderPath, "*.png")).ToArray();
-
-                if (allFiles.Length > 0)
-                {
-                    int numberOfImagesToPick = Math.Min(1, allFiles.Length);
-                    var selectedFiles = allFiles.OrderBy(x => rand.Next()).Take(numberOfImagesToPick).ToArray();
-
-                    string selectedImagePath = selectedFiles[rand.Next(selectedFiles.Length)];
-                    try
-                    {
-                        Console.WriteLine($"Attempting to load image: {selectedImagePath}");
-
-                        if (this.BackgroundImage != null)
-                        {
-                            this.BackgroundImage.Dispose(); // تحرير الصورة القديمة
-                        }
-
-                        this.BackgroundImage = Image.FromFile(selectedImagePath);
-                        this.BackgroundImageLayout = ImageLayout.Stretch;
-                    }
-                    catch (ArgumentException ex)
-                    {
-                        Console.WriteLine($"Error loading image {selectedImagePath}: {ex.Message}");
-                        MessageBox.Show($"Error loading image: {selectedImagePath}\n{ex.Message}");
-                    }
-                    catch (OutOfMemoryException)
-                    {
-                        Console.WriteLine($"Out of memory when loading image: {selectedImagePath}");
-                        MessageBox.Show("Out of memory when loading image: " + selectedImagePath);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("مجلد الصور غير موجود. يرجى التأكد من وجوده.");
-            }
-        }
-
-        private void ClearBackgroundImages()
-        {
-            foreach (var image in backgroundImages)
-            {
-                image.Dispose();
-            }
-            backgroundImages.Clear();
-        }
-
-
         private void LoadMusicFiles()
         {
             string musicFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Music");
@@ -772,18 +778,36 @@ namespace StudyZone
         //-----------------------------Start Rendering and Graphics-----------------------------
         protected override void OnPaint(PaintEventArgs e)
         {
+            // 1) إنشاء التدرج بلونينا العشوائيين وبالزاوية العشوائية
+            using (LinearGradientBrush gradientBrush = new LinearGradientBrush(
+                this.ClientRectangle,
+                selectedGradient.start,
+                selectedGradient.end,
+                gradientAngle
+            ))
+            {
+                e.Graphics.FillRectangle(gradientBrush, this.ClientRectangle);
+            }
+
+            // 2) الدالة الأصلية
             base.OnPaint(e);
 
-            // Draw particles
+            // 3) رسم الجزيئات (Particles)
             DrawParticles(e.Graphics);
 
-            // ... existing gradient overlay code ...
-            using (System.Drawing.Drawing2D.LinearGradientBrush brush = new System.Drawing.Drawing2D.LinearGradientBrush(
-                this.ClientRectangle, Color.FromArgb(50, Color.Black), Color.Transparent, 90F))
+            // 4) الطبقة الشفافة إن أردت الإبقاء عليها
+            using (LinearGradientBrush overlayBrush = new LinearGradientBrush(
+                this.ClientRectangle,
+                Color.FromArgb(50, Color.Black),
+                Color.Transparent,
+                90F
+            ))
             {
-                e.Graphics.FillRectangle(brush, this.ClientRectangle);
+                e.Graphics.FillRectangle(overlayBrush, this.ClientRectangle);
             }
         }
+
+
 
         private void DrawParticles(Graphics g)
         {
