@@ -444,8 +444,8 @@ namespace StudyZone
             this.TopMost = true;
             this.KeyPreview = true;
 
-            // Screen Lock Label Notification Settings
-            lblScreenLocked.Size = new Size(1000, 100);
+            //// Screen Lock Label Notification Settings
+            //lblScreenLocked.Size = new Size(1000, 100);
             lblScreenLocked.Font = new Font("Segoe UI", 14F, FontStyle.Regular);
             lblScreenLocked.ForeColor = Color.White;
             lblScreenLocked.TextAlign = ContentAlignment.MiddleCenter;

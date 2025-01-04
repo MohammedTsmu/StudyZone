@@ -42,14 +42,15 @@
             // 
             // lblScreenLocked
             // 
-            this.lblScreenLocked.AutoSize = true;
+            this.lblScreenLocked.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblScreenLocked.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScreenLocked.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblScreenLocked.Location = new System.Drawing.Point(12, 9);
+            this.lblScreenLocked.Location = new System.Drawing.Point(0, 0);
             this.lblScreenLocked.Name = "lblScreenLocked";
-            this.lblScreenLocked.Size = new System.Drawing.Size(124, 16);
+            this.lblScreenLocked.Size = new System.Drawing.Size(800, 42);
             this.lblScreenLocked.TabIndex = 1;
             this.lblScreenLocked.Text = "Screen Locked🔒";
+            this.lblScreenLocked.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BreakForm
             // 
@@ -66,7 +67,6 @@
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
