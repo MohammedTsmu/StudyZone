@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -396,7 +396,7 @@
             this.notifyIcon.BalloonTipText = "StudyZone";
             this.notifyIcon.BalloonTipTitle = "StudyZone";
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
-            this.notifyIcon.Text = "Study Zone /  v1.0.51";
+            this.notifyIcon.Text = "Study Zone";
             this.notifyIcon.Visible = true;
             this.notifyIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseDoubleClick);
             // 
@@ -654,10 +654,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(820, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem2.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.btnMiniTimer.SuperTip = superToolTip2;
+            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnMiniTimer.SuperTip = superToolTip3;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
