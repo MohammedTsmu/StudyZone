@@ -29,13 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskManagerForm));
-            this.chkShowCompleted = new System.Windows.Forms.CheckBox();
-            this.cmbSortBy = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbSessionFilter = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cmbDueDateFilter = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboSortBy = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -66,55 +62,17 @@
             this.pnBottom.SuspendLayout();
             this.SuspendLayout();
             // 
-            // chkShowCompleted
-            // 
-            this.chkShowCompleted.AutoSize = true;
-            this.chkShowCompleted.BackColor = System.Drawing.Color.Transparent;
-            this.chkShowCompleted.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkShowCompleted.ForeColor = System.Drawing.Color.Black;
-            this.chkShowCompleted.Location = new System.Drawing.Point(170, 14);
-            this.chkShowCompleted.Name = "chkShowCompleted";
-            this.chkShowCompleted.Size = new System.Drawing.Size(239, 27);
-            this.chkShowCompleted.TabIndex = 6;
-            this.chkShowCompleted.Text = "Show Completed Tasks";
-            this.chkShowCompleted.UseVisualStyleBackColor = false;
-            this.chkShowCompleted.CheckedChanged += new System.EventHandler(this.chkShowCompleted_CheckedChanged);
-            // 
-            // cmbSortBy
-            // 
-            this.cmbSortBy.BackColor = System.Drawing.Color.Silver;
-            this.cmbSortBy.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSortBy.ForeColor = System.Drawing.Color.Black;
-            this.cmbSortBy.FormattingEnabled = true;
-            this.cmbSortBy.Location = new System.Drawing.Point(208, 12);
-            this.cmbSortBy.Name = "cmbSortBy";
-            this.cmbSortBy.Size = new System.Drawing.Size(208, 31);
-            this.cmbSortBy.TabIndex = 5;
-            this.cmbSortBy.SelectedIndexChanged += new System.EventHandler(this.cmbSortBy_SelectedIndexChanged);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(163, 16);
+            this.label1.Location = new System.Drawing.Point(162, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 23);
             this.label1.TabIndex = 7;
             this.label1.Text = "By:";
-            // 
-            // cmbSessionFilter
-            // 
-            this.cmbSessionFilter.BackColor = System.Drawing.Color.Silver;
-            this.cmbSessionFilter.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSessionFilter.ForeColor = System.Drawing.Color.Black;
-            this.cmbSessionFilter.FormattingEnabled = true;
-            this.cmbSessionFilter.Location = new System.Drawing.Point(370, 15);
-            this.cmbSessionFilter.Name = "cmbSessionFilter";
-            this.cmbSessionFilter.Size = new System.Drawing.Size(208, 31);
-            this.cmbSessionFilter.TabIndex = 7;
-            this.cmbSessionFilter.SelectedIndexChanged += new System.EventHandler(this.cmbSessionFilter_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -134,30 +92,17 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(584, 19);
+            this.label3.Location = new System.Drawing.Point(585, 19);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 23);
             this.label3.TabIndex = 10;
             this.label3.Text = "Due Date:";
-            // 
-            // cmbDueDateFilter
-            // 
-            this.cmbDueDateFilter.BackColor = System.Drawing.Color.Silver;
-            this.cmbDueDateFilter.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbDueDateFilter.ForeColor = System.Drawing.Color.Black;
-            this.cmbDueDateFilter.FormattingEnabled = true;
-            this.cmbDueDateFilter.Location = new System.Drawing.Point(689, 15);
-            this.cmbDueDateFilter.Name = "cmbDueDateFilter";
-            this.cmbDueDateFilter.Size = new System.Drawing.Size(208, 31);
-            this.cmbDueDateFilter.TabIndex = 8;
-            this.cmbDueDateFilter.SelectedIndexChanged += new System.EventHandler(this.cmbDueDateFilter_SelectedIndexChanged);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox1.Controls.Add(this.comboSortBy);
-            this.groupBox1.Controls.Add(this.cmbSortBy);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -171,11 +116,29 @@
             // 
             // comboSortBy
             // 
-            this.comboSortBy.Location = new System.Drawing.Point(422, 13);
+            this.comboSortBy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboSortBy.Location = new System.Drawing.Point(207, 11);
             this.comboSortBy.Name = "comboSortBy";
+            this.comboSortBy.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSortBy.Properties.Appearance.Options.UseFont = true;
+            this.comboSortBy.Properties.AppearanceDisabled.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSortBy.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.comboSortBy.Properties.AppearanceDropDown.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSortBy.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.comboSortBy.Properties.AppearanceFocused.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSortBy.Properties.AppearanceFocused.Options.UseFont = true;
+            this.comboSortBy.Properties.AppearanceItemDisabled.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSortBy.Properties.AppearanceItemDisabled.Options.UseFont = true;
+            this.comboSortBy.Properties.AppearanceItemHighlight.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSortBy.Properties.AppearanceItemHighlight.Options.UseFont = true;
+            this.comboSortBy.Properties.AppearanceItemSelected.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSortBy.Properties.AppearanceItemSelected.Options.UseFont = true;
+            this.comboSortBy.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSortBy.Properties.AppearanceReadOnly.Options.UseFont = true;
             this.comboSortBy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboSortBy.Size = new System.Drawing.Size(125, 22);
+            this.comboSortBy.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboSortBy.Size = new System.Drawing.Size(209, 32);
             this.comboSortBy.TabIndex = 13;
             // 
             // groupBox2
@@ -184,8 +147,6 @@
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox2.Controls.Add(this.comboDueDateFilter);
             this.groupBox2.Controls.Add(this.comboSessionFilter);
-            this.groupBox2.Controls.Add(this.cmbDueDateFilter);
-            this.groupBox2.Controls.Add(this.cmbSessionFilter);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -199,20 +160,56 @@
             // 
             // comboDueDateFilter
             // 
-            this.comboDueDateFilter.Location = new System.Drawing.Point(903, 19);
+            this.comboDueDateFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboDueDateFilter.Location = new System.Drawing.Point(690, 14);
             this.comboDueDateFilter.Name = "comboDueDateFilter";
+            this.comboDueDateFilter.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboDueDateFilter.Properties.Appearance.Options.UseFont = true;
+            this.comboDueDateFilter.Properties.AppearanceDisabled.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboDueDateFilter.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.comboDueDateFilter.Properties.AppearanceDropDown.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboDueDateFilter.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.comboDueDateFilter.Properties.AppearanceFocused.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboDueDateFilter.Properties.AppearanceFocused.Options.UseFont = true;
+            this.comboDueDateFilter.Properties.AppearanceItemDisabled.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboDueDateFilter.Properties.AppearanceItemDisabled.Options.UseFont = true;
+            this.comboDueDateFilter.Properties.AppearanceItemHighlight.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboDueDateFilter.Properties.AppearanceItemHighlight.Options.UseFont = true;
+            this.comboDueDateFilter.Properties.AppearanceItemSelected.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboDueDateFilter.Properties.AppearanceItemSelected.Options.UseFont = true;
+            this.comboDueDateFilter.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboDueDateFilter.Properties.AppearanceReadOnly.Options.UseFont = true;
             this.comboDueDateFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboDueDateFilter.Size = new System.Drawing.Size(125, 22);
+            this.comboDueDateFilter.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboDueDateFilter.Size = new System.Drawing.Size(208, 32);
             this.comboDueDateFilter.TabIndex = 12;
             // 
             // comboSessionFilter
             // 
-            this.comboSessionFilter.Location = new System.Drawing.Point(45, 19);
+            this.comboSessionFilter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.comboSessionFilter.Location = new System.Drawing.Point(370, 14);
             this.comboSessionFilter.Name = "comboSessionFilter";
+            this.comboSessionFilter.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSessionFilter.Properties.Appearance.Options.UseFont = true;
+            this.comboSessionFilter.Properties.AppearanceDisabled.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSessionFilter.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.comboSessionFilter.Properties.AppearanceDropDown.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSessionFilter.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.comboSessionFilter.Properties.AppearanceFocused.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSessionFilter.Properties.AppearanceFocused.Options.UseFont = true;
+            this.comboSessionFilter.Properties.AppearanceItemDisabled.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSessionFilter.Properties.AppearanceItemDisabled.Options.UseFont = true;
+            this.comboSessionFilter.Properties.AppearanceItemHighlight.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSessionFilter.Properties.AppearanceItemHighlight.Options.UseFont = true;
+            this.comboSessionFilter.Properties.AppearanceItemSelected.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSessionFilter.Properties.AppearanceItemSelected.Options.UseFont = true;
+            this.comboSessionFilter.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboSessionFilter.Properties.AppearanceReadOnly.Options.UseFont = true;
             this.comboSessionFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboSessionFilter.Size = new System.Drawing.Size(125, 22);
+            this.comboSessionFilter.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboSessionFilter.Size = new System.Drawing.Size(209, 32);
             this.comboSessionFilter.TabIndex = 11;
             // 
             // groupBox3
@@ -220,7 +217,6 @@
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox3.Controls.Add(this.checkShowCompleted);
-            this.groupBox3.Controls.Add(this.chkShowCompleted);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox3.Location = new System.Drawing.Point(608, 12);
@@ -232,10 +228,19 @@
             // 
             // checkShowCompleted
             // 
-            this.checkShowCompleted.Location = new System.Drawing.Point(416, 17);
+            this.checkShowCompleted.Location = new System.Drawing.Point(155, 12);
             this.checkShowCompleted.Name = "checkShowCompleted";
-            this.checkShowCompleted.Properties.Caption = "checkEdit1";
-            this.checkShowCompleted.Size = new System.Drawing.Size(94, 24);
+            this.checkShowCompleted.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.checkShowCompleted.Properties.Appearance.Options.UseFont = true;
+            this.checkShowCompleted.Properties.AppearanceDisabled.Font = new System.Drawing.Font("LBC", 12F);
+            this.checkShowCompleted.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.checkShowCompleted.Properties.AppearanceFocused.Font = new System.Drawing.Font("LBC", 12F);
+            this.checkShowCompleted.Properties.AppearanceFocused.Options.UseFont = true;
+            this.checkShowCompleted.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("LBC", 12F);
+            this.checkShowCompleted.Properties.AppearanceReadOnly.Options.UseFont = true;
+            this.checkShowCompleted.Properties.Caption = "Show Completed Tasks";
+            this.checkShowCompleted.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.checkShowCompleted.Size = new System.Drawing.Size(271, 30);
             this.checkShowCompleted.TabIndex = 7;
             // 
             // pnTop
@@ -472,7 +477,7 @@
             this.btnToggleCompleted.Appearance.Options.UseFont = true;
             this.btnToggleCompleted.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnToggleCompleted.ImageOptions.SvgImage")));
             this.btnToggleCompleted.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnToggleCompleted.Location = new System.Drawing.Point(755, 16);
+            this.btnToggleCompleted.Location = new System.Drawing.Point(125, 16);
             this.btnToggleCompleted.Name = "btnToggleCompleted";
             this.btnToggleCompleted.Size = new System.Drawing.Size(363, 38);
             this.btnToggleCompleted.TabIndex = 4;
@@ -486,7 +491,7 @@
             this.btnDeleteTask.Appearance.Options.UseFont = true;
             this.btnDeleteTask.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteTask.ImageOptions.SvgImage")));
             this.btnDeleteTask.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeleteTask.Location = new System.Drawing.Point(547, 16);
+            this.btnDeleteTask.Location = new System.Drawing.Point(494, 16);
             this.btnDeleteTask.Name = "btnDeleteTask";
             this.btnDeleteTask.Size = new System.Drawing.Size(190, 38);
             this.btnDeleteTask.TabIndex = 3;
@@ -500,7 +505,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton1.Location = new System.Drawing.Point(339, 16);
+            this.simpleButton1.Location = new System.Drawing.Point(690, 16);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(190, 38);
             this.simpleButton1.TabIndex = 2;
@@ -514,7 +519,7 @@
             this.btnAddTask.Appearance.Options.UseFont = true;
             this.btnAddTask.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddTask.ImageOptions.SvgImage")));
             this.btnAddTask.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnAddTask.Location = new System.Drawing.Point(131, 16);
+            this.btnAddTask.Location = new System.Drawing.Point(886, 16);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(190, 38);
             this.btnAddTask.TabIndex = 1;
@@ -547,7 +552,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.comboDueDateFilter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comboSessionFilter.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkShowCompleted.Properties)).EndInit();
             this.pnTop.ResumeLayout(false);
             this.pnFill.ResumeLayout(false);
@@ -559,13 +563,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.CheckBox chkShowCompleted;
-        private System.Windows.Forms.ComboBox cmbSortBy;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbSessionFilter;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbDueDateFilter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;

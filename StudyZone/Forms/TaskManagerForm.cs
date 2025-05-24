@@ -460,7 +460,7 @@ namespace StudyZone
        
         private void cmbSessionFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbSessionFilter.SelectedItem != null)
+            if (comboSessionFilter.SelectedItem != null)
             {
                 LoadTasks();
             }
