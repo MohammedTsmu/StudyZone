@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -107,23 +107,23 @@
             // 
             // Welcomelbl
             // 
-            this.Welcomelbl.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Welcomelbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Welcomelbl.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Welcomelbl.Location = new System.Drawing.Point(26, 10);
+            this.Welcomelbl.Location = new System.Drawing.Point(0, 0);
             this.Welcomelbl.Name = "Welcomelbl";
-            this.Welcomelbl.Size = new System.Drawing.Size(638, 90);
+            this.Welcomelbl.Size = new System.Drawing.Size(690, 100);
             this.Welcomelbl.TabIndex = 0;
             this.Welcomelbl.Text = "Welcome to Study Zone!";
             this.Welcomelbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTimer
             // 
-            this.lblTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTimer.BackColor = System.Drawing.Color.Turquoise;
+            this.lblTimer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(26, 0);
+            this.lblTimer.Location = new System.Drawing.Point(0, 0);
             this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(638, 80);
+            this.lblTimer.Size = new System.Drawing.Size(690, 83);
             this.lblTimer.TabIndex = 1;
             this.lblTimer.Text = "00:00";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -266,9 +266,9 @@
             this.groupBox1.Controls.Add(this.nudStudySeconds);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox1.Location = new System.Drawing.Point(26, 157);
+            this.groupBox1.Location = new System.Drawing.Point(8, 157);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(638, 70);
+            this.groupBox1.Size = new System.Drawing.Size(676, 70);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Study Duration";
@@ -283,9 +283,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox2.Location = new System.Drawing.Point(26, 235);
+            this.groupBox2.Location = new System.Drawing.Point(8, 235);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(638, 70);
+            this.groupBox2.Size = new System.Drawing.Size(676, 70);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Break Duration";
@@ -309,9 +309,9 @@
             this.groupBox3.Controls.Add(this.cmbSessions);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox3.Location = new System.Drawing.Point(26, 18);
+            this.groupBox3.Location = new System.Drawing.Point(8, 18);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(638, 131);
+            this.groupBox3.Size = new System.Drawing.Size(676, 131);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Study Sessions";
@@ -425,9 +425,9 @@
             this.groupBox5.Controls.Add(this.btnStart);
             this.groupBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox5.Location = new System.Drawing.Point(26, 313);
+            this.groupBox5.Location = new System.Drawing.Point(8, 313);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(638, 96);
+            this.groupBox5.Size = new System.Drawing.Size(676, 96);
             this.groupBox5.TabIndex = 29;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Control";
@@ -487,9 +487,9 @@
             this.groupBox6.Controls.Add(this.btnViewLogs);
             this.groupBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox6.Location = new System.Drawing.Point(26, 415);
+            this.groupBox6.Location = new System.Drawing.Point(8, 415);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(638, 96);
+            this.groupBox6.Size = new System.Drawing.Size(676, 96);
             this.groupBox6.TabIndex = 30;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Goals and Tasks";
@@ -545,9 +545,9 @@
             this.groupBox7.Controls.Add(this.svgImageBoxAbout);
             this.groupBox7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox7.Location = new System.Drawing.Point(27, 517);
+            this.groupBox7.Location = new System.Drawing.Point(8, 517);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(637, 82);
+            this.groupBox7.Size = new System.Drawing.Size(676, 82);
             this.groupBox7.TabIndex = 31;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Automation";
@@ -620,7 +620,7 @@
             // 
             // pnLeft
             // 
-            this.pnLeft.BackColor = System.Drawing.SystemColors.Control;
+            this.pnLeft.BackColor = System.Drawing.Color.WhiteSmoke;
             this.pnLeft.Controls.Add(this.groupBox3);
             this.pnLeft.Controls.Add(this.groupBox1);
             this.pnLeft.Controls.Add(this.groupBox7);
@@ -662,10 +662,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem1.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnMiniTimer.SuperTip = superToolTip1;
+            toolTipItem12.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem12.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip12.Items.Add(toolTipItem12);
+            this.btnMiniTimer.SuperTip = superToolTip12;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
@@ -709,7 +709,9 @@
             this.Controls.Add(this.pnMainLeft);
             this.Controls.Add(this.pnRight);
             this.Controls.Add(this.label3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Padding = new System.Windows.Forms.Padding(20);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
