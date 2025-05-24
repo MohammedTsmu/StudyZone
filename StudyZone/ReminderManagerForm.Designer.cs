@@ -47,9 +47,9 @@
             this.panel1.Controls.Add(this.btnEditReminder);
             this.panel1.Controls.Add(this.btnAddReminder);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(20, 532);
+            this.panel1.Location = new System.Drawing.Point(5, 555);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(920, 68);
+            this.panel1.Size = new System.Drawing.Size(950, 60);
             this.panel1.TabIndex = 999;
             this.panel1.TabStop = true;
             // 
@@ -59,9 +59,10 @@
             this.btnToggleReminder.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnToggleReminder.Appearance.Options.UseFont = true;
             this.btnToggleReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnToggleReminder.ImageOptions.SvgImage")));
-            this.btnToggleReminder.Location = new System.Drawing.Point(48, 9);
+            this.btnToggleReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnToggleReminder.Location = new System.Drawing.Point(68, 11);
             this.btnToggleReminder.Name = "btnToggleReminder";
-            this.btnToggleReminder.Size = new System.Drawing.Size(200, 50);
+            this.btnToggleReminder.Size = new System.Drawing.Size(190, 38);
             this.btnToggleReminder.TabIndex = 4;
             this.btnToggleReminder.Text = "Toggle On/Off";
             this.btnToggleReminder.Click += new System.EventHandler(this.btnToggleReminder_Click);
@@ -72,9 +73,10 @@
             this.btnDeleteReminder.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnDeleteReminder.Appearance.Options.UseFont = true;
             this.btnDeleteReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteReminder.ImageOptions.SvgImage")));
-            this.btnDeleteReminder.Location = new System.Drawing.Point(256, 9);
+            this.btnDeleteReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnDeleteReminder.Location = new System.Drawing.Point(276, 11);
             this.btnDeleteReminder.Name = "btnDeleteReminder";
-            this.btnDeleteReminder.Size = new System.Drawing.Size(200, 50);
+            this.btnDeleteReminder.Size = new System.Drawing.Size(190, 38);
             this.btnDeleteReminder.TabIndex = 3;
             this.btnDeleteReminder.Text = "Delete";
             this.btnDeleteReminder.Click += new System.EventHandler(this.btnDeleteReminder_Click);
@@ -85,9 +87,10 @@
             this.btnEditReminder.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnEditReminder.Appearance.Options.UseFont = true;
             this.btnEditReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEditReminder.ImageOptions.SvgImage")));
-            this.btnEditReminder.Location = new System.Drawing.Point(464, 9);
+            this.btnEditReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnEditReminder.Location = new System.Drawing.Point(484, 11);
             this.btnEditReminder.Name = "btnEditReminder";
-            this.btnEditReminder.Size = new System.Drawing.Size(200, 50);
+            this.btnEditReminder.Size = new System.Drawing.Size(190, 38);
             this.btnEditReminder.TabIndex = 2;
             this.btnEditReminder.Text = "Edit";
             this.btnEditReminder.Click += new System.EventHandler(this.btnEditReminder_Click);
@@ -98,9 +101,10 @@
             this.btnAddReminder.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnAddReminder.Appearance.Options.UseFont = true;
             this.btnAddReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddReminder.ImageOptions.SvgImage")));
-            this.btnAddReminder.Location = new System.Drawing.Point(672, 9);
+            this.btnAddReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnAddReminder.Location = new System.Drawing.Point(692, 11);
             this.btnAddReminder.Name = "btnAddReminder";
-            this.btnAddReminder.Size = new System.Drawing.Size(200, 50);
+            this.btnAddReminder.Size = new System.Drawing.Size(190, 38);
             this.btnAddReminder.TabIndex = 1;
             this.btnAddReminder.Text = "Add";
             this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
@@ -109,13 +113,13 @@
             // 
             this.lstReminders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lstReminders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstReminders.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstReminders.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstReminders.FormattingEnabled = true;
-            this.lstReminders.ItemHeight = 24;
-            this.lstReminders.Location = new System.Drawing.Point(20, 20);
+            this.lstReminders.ItemHeight = 26;
+            this.lstReminders.Location = new System.Drawing.Point(5, 5);
             this.lstReminders.Name = "lstReminders";
             this.lstReminders.ScrollAlwaysVisible = true;
-            this.lstReminders.Size = new System.Drawing.Size(920, 512);
+            this.lstReminders.Size = new System.Drawing.Size(950, 550);
             this.lstReminders.TabIndex = 5;
             // 
             // ReminderManagerForm
@@ -127,13 +131,14 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ReminderManagerForm";
-            this.Padding = new System.Windows.Forms.Padding(20);
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reminder Manager";
-            this.TopMost = true;
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
