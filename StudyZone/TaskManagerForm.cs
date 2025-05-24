@@ -81,7 +81,7 @@ namespace StudyZone
             }
         }
 
-
+        
         private void btnDeleteTask_Click(object sender, EventArgs e)
         {
             if (dataGridViewTasks.CurrentRow != null)
