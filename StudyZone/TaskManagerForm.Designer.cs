@@ -89,7 +89,7 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dataGridViewTasks.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTasks.RowTemplate.Height = 24;
-            this.dataGridViewTasks.Size = new System.Drawing.Size(1200, 418);
+            this.dataGridViewTasks.Size = new System.Drawing.Size(1200, 424);
             this.dataGridViewTasks.TabIndex = 0;
             this.dataGridViewTasks.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridViewTasks_DataBindingComplete);
             // 
@@ -245,7 +245,7 @@
             this.pnFill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnFill.Location = new System.Drawing.Point(0, 151);
             this.pnFill.Name = "pnFill";
-            this.pnFill.Size = new System.Drawing.Size(1200, 418);
+            this.pnFill.Size = new System.Drawing.Size(1200, 424);
             this.pnFill.TabIndex = 9;
             // 
             // pnBottom
@@ -256,9 +256,9 @@
             this.pnBottom.Controls.Add(this.simpleButton1);
             this.pnBottom.Controls.Add(this.btnAddTask);
             this.pnBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnBottom.Location = new System.Drawing.Point(0, 569);
+            this.pnBottom.Location = new System.Drawing.Point(0, 575);
             this.pnBottom.Name = "pnBottom";
-            this.pnBottom.Size = new System.Drawing.Size(1200, 77);
+            this.pnBottom.Size = new System.Drawing.Size(1200, 71);
             this.pnBottom.TabIndex = 10;
             // 
             // btnMarkCompleted
@@ -267,9 +267,10 @@
             this.btnMarkCompleted.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnMarkCompleted.Appearance.Options.UseFont = true;
             this.btnMarkCompleted.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMarkCompleted.ImageOptions.SvgImage")));
-            this.btnMarkCompleted.Location = new System.Drawing.Point(718, 13);
+            this.btnMarkCompleted.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnMarkCompleted.Location = new System.Drawing.Point(794, 16);
             this.btnMarkCompleted.Name = "btnMarkCompleted";
-            this.btnMarkCompleted.Size = new System.Drawing.Size(388, 50);
+            this.btnMarkCompleted.Size = new System.Drawing.Size(237, 38);
             this.btnMarkCompleted.TabIndex = 4;
             this.btnMarkCompleted.Text = "Mark Completed";
             this.btnMarkCompleted.Click += new System.EventHandler(this.btnMarkCompleted_Click);
@@ -280,11 +281,12 @@
             this.btnDeleteTask.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnDeleteTask.Appearance.Options.UseFont = true;
             this.btnDeleteTask.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteTask.ImageOptions.SvgImage")));
-            this.btnDeleteTask.Location = new System.Drawing.Point(510, 13);
+            this.btnDeleteTask.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnDeleteTask.Location = new System.Drawing.Point(586, 16);
             this.btnDeleteTask.Name = "btnDeleteTask";
-            this.btnDeleteTask.Size = new System.Drawing.Size(200, 50);
+            this.btnDeleteTask.Size = new System.Drawing.Size(190, 38);
             this.btnDeleteTask.TabIndex = 3;
-            this.btnDeleteTask.Text = "Delete Task";
+            this.btnDeleteTask.Text = "Delete";
             this.btnDeleteTask.Click += new System.EventHandler(this.btnDeleteTask_Click);
             // 
             // simpleButton1
@@ -293,11 +295,12 @@
             this.simpleButton1.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.simpleButton1.Location = new System.Drawing.Point(302, 13);
+            this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.simpleButton1.Location = new System.Drawing.Point(378, 16);
             this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(200, 50);
+            this.simpleButton1.Size = new System.Drawing.Size(190, 38);
             this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Edit Task";
+            this.simpleButton1.Text = "Edit";
             this.simpleButton1.Click += new System.EventHandler(this.btnEditTask_Click);
             // 
             // btnAddTask
@@ -306,11 +309,12 @@
             this.btnAddTask.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnAddTask.Appearance.Options.UseFont = true;
             this.btnAddTask.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddTask.ImageOptions.SvgImage")));
-            this.btnAddTask.Location = new System.Drawing.Point(94, 13);
+            this.btnAddTask.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnAddTask.Location = new System.Drawing.Point(170, 16);
             this.btnAddTask.Name = "btnAddTask";
-            this.btnAddTask.Size = new System.Drawing.Size(200, 50);
+            this.btnAddTask.Size = new System.Drawing.Size(190, 38);
             this.btnAddTask.TabIndex = 1;
-            this.btnAddTask.Text = "Add Task";
+            this.btnAddTask.Text = "Add";
             this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
             // 
             // TaskManagerForm
