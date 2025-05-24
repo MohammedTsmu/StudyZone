@@ -9,6 +9,7 @@ namespace StudyZone
         private List<TaskItem> tasks;
         private Action saveTasksToFile;
         private List<StudySession> sessions;
+        private bool rowStyleAttached = false;
 
         public TaskManagerForm(List<TaskItem> tasksList, Action saveTasksAction, List<StudySession> sessionsList)
         {
@@ -39,7 +40,9 @@ namespace StudyZone
             cmbSessionFilter.SelectedIndexChanged += cmbSessionFilter_SelectedIndexChanged;
             cmbDueDateFilter.SelectedIndexChanged += cmbDueDateFilter_SelectedIndexChanged;
 
-            dataGridViewTasks.DataBindingComplete += DataGridViewTasks_DataBindingComplete;
+
+
+            //dataGridViewTasks.DataBindingComplete += DataGridViewTasks_DataBindingComplete;
             LoadTasks();
         }
 
@@ -62,9 +65,11 @@ namespace StudyZone
 
         private void btnEditTask_Click(object sender, EventArgs e)
         {
-            if (dataGridViewTasks.CurrentRow != null)
+            var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view != null && view.FocusedRowHandle >= 0)
             {
-                var selectedTask = dataGridViewTasks.CurrentRow.DataBoundItem as TaskItem;
+                var selectedTask = view.GetRow(view.FocusedRowHandle) as TaskItem;
+
                 if (selectedTask != null)
                 {
                     TaskEditForm editForm = new TaskEditForm(selectedTask, GetSessionNames());
@@ -81,12 +86,15 @@ namespace StudyZone
             }
         }
 
-        
+
+
         private void btnDeleteTask_Click(object sender, EventArgs e)
         {
-            if (dataGridViewTasks.CurrentRow != null)
+            var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view != null && view.FocusedRowHandle >= 0)
             {
-                var selectedTask = dataGridViewTasks.CurrentRow.DataBoundItem as TaskItem;
+                var selectedTask = view.GetRow(view.FocusedRowHandle) as TaskItem;
+
                 if (selectedTask != null)
                 {
                     var result = MessageBox.Show($"Are you sure you want to delete the task '{selectedTask.Title}'?", "Delete Task", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -105,23 +113,50 @@ namespace StudyZone
         }
 
 
-        private void btnMarkCompleted_Click(object sender, EventArgs e)
+        //private void btnMarkCompleted_Click(object sender, EventArgs e)
+        //{
+        //    var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+        //    if (view != null && view.FocusedRowHandle >= 0)
+        //    {
+        //        var selectedTask = view.GetRow(view.FocusedRowHandle) as TaskItem;
+
+        //        if (selectedTask != null)
+        //        {
+        //            selectedTask.IsCompleted = true;
+        //            saveTasksToFile();
+        //            LoadTasks();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Please select a task to mark as completed.", "Mark as Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
+
+
+
+
+        private void btnToggleCompleted_Click(object sender, EventArgs e)
         {
-            if (dataGridViewTasks.CurrentRow != null)
+            var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view != null && view.FocusedRowHandle >= 0)
             {
-                var selectedTask = dataGridViewTasks.CurrentRow.DataBoundItem as TaskItem;
+                var selectedTask = view.GetRow(view.FocusedRowHandle) as TaskItem;
+
                 if (selectedTask != null)
                 {
-                    selectedTask.IsCompleted = true;
+                    // Toggle the status (true ↔ false)
+                    selectedTask.IsCompleted = !selectedTask.IsCompleted;
                     saveTasksToFile();
                     LoadTasks();
                 }
             }
             else
             {
-                MessageBox.Show("Please select a task to mark as completed.", "Mark as Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please select a task to toggle its status.", "Toggle Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
 
 
         private void chkShowCompleted_CheckedChanged(object sender, EventArgs e)
@@ -138,6 +173,7 @@ namespace StudyZone
 
             string sessionFilter = cmbSessionFilter.SelectedItem as string ?? "All Sessions";
             string dueDateFilter = cmbDueDateFilter.SelectedItem as string ?? "Any Time";
+
 
             foreach (var task in tasks)
             {
@@ -176,29 +212,72 @@ namespace StudyZone
                     break;
             }
 
-            dataGridViewTasks.DataSource = null;
-            dataGridViewTasks.DataSource = displayedTasks;
+            gridControlTasks.DataSource = null;
+            gridControlTasks.DataSource = displayedTasks;
+
+
+            var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view != null)
+            {
+                view.Columns["Title"].Caption = "Task Title";
+                view.Columns["Title"].Width = 250;
+
+                view.Columns["DueDate"].Caption = "Due Date";
+                view.Columns["DueDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                view.Columns["DueDate"].DisplayFormat.FormatString = "d"; // Short date
+
+                view.Columns["IsCompleted"].Caption = "Completed";
+
+                view.Columns["SessionAssignment"].Caption = "Assigned Session";
+                view.Columns["SessionAssignment"].Width = 190;
+
+                view.Columns["Description"].Caption = "Description";
+                view.Columns["Description"].Width = 188;
+
+                view.OptionsView.ShowGroupPanel = false;
+                view.OptionsBehavior.Editable = false;
+
+            }
+            if (!rowStyleAttached)
+            {
+                gridViewTasks.RowStyle += (s, e) =>
+                {
+                    var gridViewLocal = s as DevExpress.XtraGrid.Views.Grid.GridView;
+                    if (gridViewLocal == null) return;
+
+                    var task = gridViewLocal.GetRow(e.RowHandle) as TaskItem;
+                    if (task != null && task.IsCompleted)
+                    {
+                        e.Appearance.BackColor = System.Drawing.Color.LightGray;
+                        e.Appearance.ForeColor = System.Drawing.Color.DarkGray;
+                        e.HighPriority = true;
+                    }
+                };
+
+                rowStyleAttached = true;
+            }
+
         }
 
 
 
 
-        private void DataGridViewTasks_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            // Adjust column headers and formatting
-            dataGridViewTasks.Columns["Title"].HeaderText = "Task Title";
-            dataGridViewTasks.Columns["Title"].Width = 250;
-            dataGridViewTasks.Columns["DueDate"].HeaderText = "Due Date";
-            dataGridViewTasks.Columns["IsCompleted"].HeaderText = "Completed";
-            dataGridViewTasks.Columns["SessionAssignment"].HeaderText = "Assigned Session";
-            dataGridViewTasks.Columns["SessionAssignment"].Width = 190;
-            //dataGridViewTasks.Columns["Description"].Visible = false; // Hide description column in grid
-            dataGridViewTasks.Columns["Description"].HeaderText = "Description";
-            dataGridViewTasks.Columns["Description"].Width = 188;
+        //private void DataGridViewTasks_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        //{
+        //    //// Adjust column headers and formatting
+        //    //dataGridViewTasks.Columns["Title"].HeaderText = "Task Title";
+        //    //dataGridViewTasks.Columns["Title"].Width = 250;
+        //    //dataGridViewTasks.Columns["DueDate"].HeaderText = "Due Date";
+        //    //dataGridViewTasks.Columns["IsCompleted"].HeaderText = "Completed";
+        //    //dataGridViewTasks.Columns["SessionAssignment"].HeaderText = "Assigned Session";
+        //    //dataGridViewTasks.Columns["SessionAssignment"].Width = 190;
+        //    ////dataGridViewTasks.Columns["Description"].Visible = false; // Hide description column in grid
+        //    //dataGridViewTasks.Columns["Description"].HeaderText = "Description";
+        //    //dataGridViewTasks.Columns["Description"].Width = 188;
 
-            // Format the DueDate column
-            dataGridViewTasks.Columns["DueDate"].DefaultCellStyle.Format = "d"; // Short date pattern
-        }
+        //    //// Format the DueDate column
+        //    //dataGridViewTasks.Columns["DueDate"].DefaultCellStyle.Format = "d"; // Short date pattern
+        //}
 
         private List<string> GetSessionNames()
         {
@@ -271,6 +350,6 @@ namespace StudyZone
         {
             LoadTasks();
         }
-    
+
     }
 }

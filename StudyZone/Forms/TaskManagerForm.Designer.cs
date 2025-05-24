@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaskManagerForm));
-            this.dataGridViewTasks = new System.Windows.Forms.DataGridView();
             this.chkShowCompleted = new System.Windows.Forms.CheckBox();
             this.cmbSortBy = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,54 +41,22 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnFill = new System.Windows.Forms.Panel();
+            this.gridControlTasks = new DevExpress.XtraGrid.GridControl();
+            this.gridViewTasks = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.pnBottom = new System.Windows.Forms.Panel();
-            this.btnMarkCompleted = new DevExpress.XtraEditors.SimpleButton();
+            this.btnToggleCompleted = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteTask = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddTask = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.pnTop.SuspendLayout();
             this.pnFill.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTasks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTasks)).BeginInit();
             this.pnBottom.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // dataGridViewTasks
-            // 
-            this.dataGridViewTasks.AllowUserToOrderColumns = true;
-            this.dataGridViewTasks.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewTasks.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridViewTasks.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTasks.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTasks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewTasks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewTasks.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewTasks.Name = "dataGridViewTasks";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTasks.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTasks.RowHeadersWidth = 51;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTasks.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTasks.RowTemplate.Height = 24;
-            this.dataGridViewTasks.Size = new System.Drawing.Size(1200, 424);
-            this.dataGridViewTasks.TabIndex = 0;
-            this.dataGridViewTasks.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridViewTasks_DataBindingComplete);
             // 
             // chkShowCompleted
             // 
@@ -242,17 +206,209 @@
             // pnFill
             // 
             this.pnFill.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pnFill.Controls.Add(this.dataGridViewTasks);
+            this.pnFill.Controls.Add(this.gridControlTasks);
             this.pnFill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnFill.Location = new System.Drawing.Point(0, 151);
             this.pnFill.Name = "pnFill";
             this.pnFill.Size = new System.Drawing.Size(1200, 424);
             this.pnFill.TabIndex = 9;
             // 
+            // gridControlTasks
+            // 
+            this.gridControlTasks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControlTasks.Location = new System.Drawing.Point(0, 0);
+            this.gridControlTasks.MainView = this.gridViewTasks;
+            this.gridControlTasks.Name = "gridControlTasks";
+            this.gridControlTasks.Size = new System.Drawing.Size(1200, 424);
+            this.gridControlTasks.TabIndex = 1;
+            this.gridControlTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewTasks});
+            // 
+            // gridViewTasks
+            // 
+            this.gridViewTasks.Appearance.ColumnFilterButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.ColumnFilterButton.Options.UseFont = true;
+            this.gridViewTasks.Appearance.ColumnFilterButton.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.ColumnFilterButton.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.ColumnFilterButton.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.ColumnFilterButton.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.ColumnFilterButtonActive.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.ColumnFilterButtonActive.Options.UseFont = true;
+            this.gridViewTasks.Appearance.ColumnFilterButtonActive.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.ColumnFilterButtonActive.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.ColumnFilterButtonActive.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.ColumnFilterButtonActive.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.CustomizationFormHint.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.CustomizationFormHint.Options.UseFont = true;
+            this.gridViewTasks.Appearance.CustomizationFormHint.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.CustomizationFormHint.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.CustomizationFormHint.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.CustomizationFormHint.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.DetailTip.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.DetailTip.Options.UseFont = true;
+            this.gridViewTasks.Appearance.DetailTip.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.DetailTip.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.DetailTip.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.DetailTip.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.Empty.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.Empty.Options.UseFont = true;
+            this.gridViewTasks.Appearance.Empty.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.Empty.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.Empty.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.Empty.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.EvenRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.EvenRow.Options.UseFont = true;
+            this.gridViewTasks.Appearance.EvenRow.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.EvenRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.EvenRow.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.EvenRow.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.FilterCloseButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.FilterCloseButton.Options.UseFont = true;
+            this.gridViewTasks.Appearance.FilterCloseButton.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.FilterCloseButton.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.FilterCloseButton.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.FilterCloseButton.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.FilterPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.FilterPanel.Options.UseFont = true;
+            this.gridViewTasks.Appearance.FilterPanel.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.FilterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.FilterPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.FilterPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.FixedLine.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.FixedLine.Options.UseFont = true;
+            this.gridViewTasks.Appearance.FixedLine.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.FixedLine.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.FixedLine.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.FixedLine.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.FocusedCell.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.FocusedCell.Options.UseFont = true;
+            this.gridViewTasks.Appearance.FocusedCell.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.FocusedCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.FocusedCell.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.FocusedCell.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.FocusedRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.FocusedRow.Options.UseFont = true;
+            this.gridViewTasks.Appearance.FocusedRow.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.FocusedRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.FocusedRow.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.FocusedRow.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.FooterPanel.Options.UseFont = true;
+            this.gridViewTasks.Appearance.FooterPanel.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.FooterPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.FooterPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.FooterPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.GroupButton.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.GroupButton.Options.UseFont = true;
+            this.gridViewTasks.Appearance.GroupButton.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.GroupButton.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.GroupButton.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.GroupButton.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.GroupFooter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.GroupFooter.Options.UseFont = true;
+            this.gridViewTasks.Appearance.GroupFooter.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.GroupFooter.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.GroupFooter.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.GroupFooter.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.GroupPanel.Options.UseFont = true;
+            this.gridViewTasks.Appearance.GroupPanel.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.GroupPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.GroupPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.GroupPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.GroupRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.GroupRow.Options.UseFont = true;
+            this.gridViewTasks.Appearance.GroupRow.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.GroupRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.GroupRow.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.GroupRow.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.gridViewTasks.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridViewTasks.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.gridViewTasks.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.HeaderPanel.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.HeaderPanel.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.HideSelectionRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.HideSelectionRow.Options.UseFont = true;
+            this.gridViewTasks.Appearance.HideSelectionRow.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.HideSelectionRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.HideSelectionRow.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.HideSelectionRow.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.HorzLine.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.HorzLine.Options.UseFont = true;
+            this.gridViewTasks.Appearance.HorzLine.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.HorzLine.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.HorzLine.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.HorzLine.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.HotTrackedRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.HotTrackedRow.Options.UseFont = true;
+            this.gridViewTasks.Appearance.HotTrackedRow.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.HotTrackedRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.HotTrackedRow.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.HotTrackedRow.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.NoSearchResults.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.NoSearchResults.Options.UseFont = true;
+            this.gridViewTasks.Appearance.NoSearchResults.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.NoSearchResults.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.NoSearchResults.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.NoSearchResults.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.OddRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.OddRow.Options.UseFont = true;
+            this.gridViewTasks.Appearance.OddRow.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.OddRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.OddRow.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.OddRow.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.Preview.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.Preview.Options.UseFont = true;
+            this.gridViewTasks.Appearance.Preview.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.Preview.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.Preview.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.Preview.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.Row.Options.UseFont = true;
+            this.gridViewTasks.Appearance.Row.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.Row.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.Row.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.RowSeparator.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.RowSeparator.Options.UseFont = true;
+            this.gridViewTasks.Appearance.RowSeparator.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.RowSeparator.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.RowSeparator.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.RowSeparator.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.SelectedRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.SelectedRow.Options.UseFont = true;
+            this.gridViewTasks.Appearance.SelectedRow.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.SelectedRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.SelectedRow.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.SelectedRow.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.TopNewRow.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.TopNewRow.Options.UseFont = true;
+            this.gridViewTasks.Appearance.TopNewRow.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.TopNewRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.TopNewRow.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.TopNewRow.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.VertLine.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.VertLine.Options.UseFont = true;
+            this.gridViewTasks.Appearance.VertLine.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.VertLine.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.VertLine.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.VertLine.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.Appearance.ViewCaption.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridViewTasks.Appearance.ViewCaption.Options.UseFont = true;
+            this.gridViewTasks.Appearance.ViewCaption.Options.UseTextOptions = true;
+            this.gridViewTasks.Appearance.ViewCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridViewTasks.Appearance.ViewCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.gridViewTasks.Appearance.ViewCaption.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.gridViewTasks.GridControl = this.gridControlTasks;
+            this.gridViewTasks.Name = "gridViewTasks";
+            // 
             // pnBottom
             // 
             this.pnBottom.BackColor = System.Drawing.Color.SteelBlue;
-            this.pnBottom.Controls.Add(this.btnMarkCompleted);
+            this.pnBottom.Controls.Add(this.btnToggleCompleted);
             this.pnBottom.Controls.Add(this.btnDeleteTask);
             this.pnBottom.Controls.Add(this.simpleButton1);
             this.pnBottom.Controls.Add(this.btnAddTask);
@@ -262,19 +418,19 @@
             this.pnBottom.Size = new System.Drawing.Size(1200, 71);
             this.pnBottom.TabIndex = 10;
             // 
-            // btnMarkCompleted
+            // btnToggleCompleted
             // 
-            this.btnMarkCompleted.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMarkCompleted.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.btnMarkCompleted.Appearance.Options.UseFont = true;
-            this.btnMarkCompleted.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMarkCompleted.ImageOptions.SvgImage")));
-            this.btnMarkCompleted.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnMarkCompleted.Location = new System.Drawing.Point(794, 16);
-            this.btnMarkCompleted.Name = "btnMarkCompleted";
-            this.btnMarkCompleted.Size = new System.Drawing.Size(237, 38);
-            this.btnMarkCompleted.TabIndex = 4;
-            this.btnMarkCompleted.Text = "Mark Completed";
-            this.btnMarkCompleted.Click += new System.EventHandler(this.btnMarkCompleted_Click);
+            this.btnToggleCompleted.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnToggleCompleted.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnToggleCompleted.Appearance.Options.UseFont = true;
+            this.btnToggleCompleted.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMarkCompleted.ImageOptions.SvgImage")));
+            this.btnToggleCompleted.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnToggleCompleted.Location = new System.Drawing.Point(755, 16);
+            this.btnToggleCompleted.Name = "btnToggleCompleted";
+            this.btnToggleCompleted.Size = new System.Drawing.Size(315, 38);
+            this.btnToggleCompleted.TabIndex = 4;
+            this.btnToggleCompleted.Text = "Mark / Unmark Completed";
+            this.btnToggleCompleted.Click += new System.EventHandler(this.btnToggleCompleted_Click);
             // 
             // btnDeleteTask
             // 
@@ -283,7 +439,7 @@
             this.btnDeleteTask.Appearance.Options.UseFont = true;
             this.btnDeleteTask.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteTask.ImageOptions.SvgImage")));
             this.btnDeleteTask.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeleteTask.Location = new System.Drawing.Point(586, 16);
+            this.btnDeleteTask.Location = new System.Drawing.Point(547, 16);
             this.btnDeleteTask.Name = "btnDeleteTask";
             this.btnDeleteTask.Size = new System.Drawing.Size(190, 38);
             this.btnDeleteTask.TabIndex = 3;
@@ -297,7 +453,7 @@
             this.simpleButton1.Appearance.Options.UseFont = true;
             this.simpleButton1.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
             this.simpleButton1.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.simpleButton1.Location = new System.Drawing.Point(378, 16);
+            this.simpleButton1.Location = new System.Drawing.Point(339, 16);
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(190, 38);
             this.simpleButton1.TabIndex = 2;
@@ -311,7 +467,7 @@
             this.btnAddTask.Appearance.Options.UseFont = true;
             this.btnAddTask.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddTask.ImageOptions.SvgImage")));
             this.btnAddTask.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnAddTask.Location = new System.Drawing.Point(170, 16);
+            this.btnAddTask.Location = new System.Drawing.Point(131, 16);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(190, 38);
             this.btnAddTask.TabIndex = 1;
@@ -336,7 +492,6 @@
             this.Text = "Task Manager";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTasks)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -345,14 +500,14 @@
             this.groupBox3.PerformLayout();
             this.pnTop.ResumeLayout(false);
             this.pnFill.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridControlTasks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTasks)).EndInit();
             this.pnBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewTasks;
         private System.Windows.Forms.CheckBox chkShowCompleted;
         private System.Windows.Forms.ComboBox cmbSortBy;
         private System.Windows.Forms.Label label1;
@@ -369,6 +524,8 @@
         private DevExpress.XtraEditors.SimpleButton btnAddTask;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private DevExpress.XtraEditors.SimpleButton btnDeleteTask;
-        private DevExpress.XtraEditors.SimpleButton btnMarkCompleted;
+        private DevExpress.XtraEditors.SimpleButton btnToggleCompleted;
+        private DevExpress.XtraGrid.GridControl gridControlTasks;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewTasks;
     }
 }
