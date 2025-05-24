@@ -37,8 +37,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmbDueDateFilter = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboSortBy = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboDueDateFilter = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.comboSessionFilter = new DevExpress.XtraEditors.ComboBoxEdit();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.checkShowCompleted = new DevExpress.XtraEditors.CheckEdit();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnFill = new System.Windows.Forms.Panel();
             this.gridControlTasks = new DevExpress.XtraGrid.GridControl();
@@ -49,8 +53,12 @@
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddTask = new DevExpress.XtraEditors.SimpleButton();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboSortBy.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboDueDateFilter.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboSessionFilter.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkShowCompleted.Properties)).BeginInit();
             this.pnTop.SuspendLayout();
             this.pnFill.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTasks)).BeginInit();
@@ -148,6 +156,7 @@
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Controls.Add(this.comboSortBy);
             this.groupBox1.Controls.Add(this.cmbSortBy);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -160,10 +169,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Sort";
             // 
+            // comboSortBy
+            // 
+            this.comboSortBy.Location = new System.Drawing.Point(422, 13);
+            this.comboSortBy.Name = "comboSortBy";
+            this.comboSortBy.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboSortBy.Size = new System.Drawing.Size(125, 22);
+            this.comboSortBy.TabIndex = 13;
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox2.Controls.Add(this.comboDueDateFilter);
+            this.groupBox2.Controls.Add(this.comboSessionFilter);
             this.groupBox2.Controls.Add(this.cmbDueDateFilter);
             this.groupBox2.Controls.Add(this.cmbSessionFilter);
             this.groupBox2.Controls.Add(this.label2);
@@ -177,10 +197,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filter";
             // 
+            // comboDueDateFilter
+            // 
+            this.comboDueDateFilter.Location = new System.Drawing.Point(903, 19);
+            this.comboDueDateFilter.Name = "comboDueDateFilter";
+            this.comboDueDateFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboDueDateFilter.Size = new System.Drawing.Size(125, 22);
+            this.comboDueDateFilter.TabIndex = 12;
+            // 
+            // comboSessionFilter
+            // 
+            this.comboSessionFilter.Location = new System.Drawing.Point(45, 19);
+            this.comboSessionFilter.Name = "comboSessionFilter";
+            this.comboSessionFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboSessionFilter.Size = new System.Drawing.Size(125, 22);
+            this.comboSessionFilter.TabIndex = 11;
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox3.Controls.Add(this.checkShowCompleted);
             this.groupBox3.Controls.Add(this.chkShowCompleted);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -190,6 +229,14 @@
             this.groupBox3.TabIndex = 14;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Status";
+            // 
+            // checkShowCompleted
+            // 
+            this.checkShowCompleted.Location = new System.Drawing.Point(416, 17);
+            this.checkShowCompleted.Name = "checkShowCompleted";
+            this.checkShowCompleted.Properties.Caption = "checkEdit1";
+            this.checkShowCompleted.Size = new System.Drawing.Size(94, 24);
+            this.checkShowCompleted.TabIndex = 7;
             // 
             // pnTop
             // 
@@ -423,13 +470,13 @@
             this.btnToggleCompleted.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnToggleCompleted.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnToggleCompleted.Appearance.Options.UseFont = true;
-            this.btnToggleCompleted.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMarkCompleted.ImageOptions.SvgImage")));
+            this.btnToggleCompleted.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnToggleCompleted.ImageOptions.SvgImage")));
             this.btnToggleCompleted.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnToggleCompleted.Location = new System.Drawing.Point(755, 16);
             this.btnToggleCompleted.Name = "btnToggleCompleted";
-            this.btnToggleCompleted.Size = new System.Drawing.Size(315, 38);
+            this.btnToggleCompleted.Size = new System.Drawing.Size(363, 38);
             this.btnToggleCompleted.TabIndex = 4;
-            this.btnToggleCompleted.Text = "Mark / Unmark Completed";
+            this.btnToggleCompleted.Text = "Mark / Unmark Completed ✔️/❌";
             this.btnToggleCompleted.Click += new System.EventHandler(this.btnToggleCompleted_Click);
             // 
             // btnDeleteTask
@@ -494,10 +541,14 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboSortBy.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboDueDateFilter.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comboSessionFilter.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkShowCompleted.Properties)).EndInit();
             this.pnTop.ResumeLayout(false);
             this.pnFill.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridControlTasks)).EndInit();
@@ -527,5 +578,9 @@
         private DevExpress.XtraEditors.SimpleButton btnToggleCompleted;
         private DevExpress.XtraGrid.GridControl gridControlTasks;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewTasks;
+        private DevExpress.XtraEditors.ComboBoxEdit comboSortBy;
+        private DevExpress.XtraEditors.ComboBoxEdit comboDueDateFilter;
+        private DevExpress.XtraEditors.ComboBoxEdit comboSessionFilter;
+        private DevExpress.XtraEditors.CheckEdit checkShowCompleted;
     }
 }

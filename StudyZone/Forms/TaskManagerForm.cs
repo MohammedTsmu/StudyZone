@@ -11,6 +11,47 @@ namespace StudyZone
         private List<StudySession> sessions;
         private bool rowStyleAttached = false;
 
+        //public TaskManagerForm(List<TaskItem> tasksList, Action saveTasksAction, List<StudySession> sessionsList)
+        //{
+        //    InitializeComponent();
+        //    tasks = tasksList;
+        //    saveTasksToFile = saveTasksAction;
+        //    sessions = sessionsList;
+
+        //    // Initialize session filter
+        //    cmbSessionFilter.Items.Add("All Sessions");
+        //    foreach (var session in sessions)
+        //    {
+        //        cmbSessionFilter.Items.Add(session.SessionName);
+        //    }
+        //    cmbSessionFilter.SelectedIndex = 0; // Default to 'All Sessions'
+
+        //    // Initialize due date filter
+        //    cmbDueDateFilter.Items.AddRange(new string[] { "Any Time", "Today", "This Week", "This Month", "Overdue" });
+        //    cmbDueDateFilter.SelectedIndex = 0; // Default to 'Any Time'
+
+        //    // Initialize sorting ComboBox
+        //    cmbSortBy.Items.AddRange(new string[] { "Title", "Due Date", "Status" });
+        //    cmbSortBy.SelectedIndex = 0; // Default to 'Title'
+
+
+        //    //To Be Deleted //To Be Deleted //To Be Deleted //To Be Deleted //To Be Deleted 
+        //    //To Be Deleted //To Be Deleted //To Be Deleted //To Be Deleted //To Be Deleted 
+        //    // Attach event handlers AFTER initialization
+        //    //chkShowCompleted.CheckedChanged += chkShowCompleted_CheckedChanged;
+        //    //cmbSortBy.SelectedIndexChanged += cmbSortBy_SelectedIndexChanged;
+        //    //cmbSessionFilter.SelectedIndexChanged += cmbSessionFilter_SelectedIndexChanged;
+        //    //cmbDueDateFilter.SelectedIndexChanged += cmbDueDateFilter_SelectedIndexChanged;
+
+
+        //    //// Attach event handlers AFTER initialization
+        //    comboSessionFilter.SelectedIndexChanged += cmbSessionFilter_SelectedIndexChanged;
+        //    comboDueDateFilter.SelectedIndexChanged += cmbDueDateFilter_SelectedIndexChanged;
+        //    comboSortBy.SelectedIndexChanged += cmbSortBy_SelectedIndexChanged;
+        //    checkShowCompleted.CheckedChanged += chkShowCompleted_CheckedChanged;
+
+        //    LoadTasks();
+        //}
         public TaskManagerForm(List<TaskItem> tasksList, Action saveTasksAction, List<StudySession> sessionsList)
         {
             InitializeComponent();
@@ -18,33 +59,38 @@ namespace StudyZone
             saveTasksToFile = saveTasksAction;
             sessions = sessionsList;
 
-            // Initialize session filter
-            cmbSessionFilter.Items.Add("All Sessions");
+            // 🔷 تهيئة ComboBoxEdit للجلسات
+            comboSessionFilter.Properties.Items.Add("All Sessions");
             foreach (var session in sessions)
             {
-                cmbSessionFilter.Items.Add(session.SessionName);
+                comboSessionFilter.Properties.Items.Add(session.SessionName);
             }
-            cmbSessionFilter.SelectedIndex = 0; // Default to 'All Sessions'
+            comboSessionFilter.SelectedIndex = 0;
 
-            // Initialize due date filter
-            cmbDueDateFilter.Items.AddRange(new string[] { "Any Time", "Today", "This Week", "This Month", "Overdue" });
-            cmbDueDateFilter.SelectedIndex = 0; // Default to 'Any Time'
+            // 🔷 تهيئة ComboBoxEdit للفلترة حسب التاريخ
+            comboDueDateFilter.Properties.Items.AddRange(new string[]
+            {
+        "Any Time", "Today", "This Week", "This Month", "Overdue"
+            });
+            comboDueDateFilter.SelectedIndex = 0;
 
-            // Initialize sorting ComboBox
-            cmbSortBy.Items.AddRange(new string[] { "Title", "Due Date", "Status" });
-            cmbSortBy.SelectedIndex = 0; // Default to 'Title'
+            // 🔷 تهيئة ComboBoxEdit للترتيب
+            comboSortBy.Properties.Items.AddRange(new string[]
+            {
+        "Title", "Due Date", "Status"
+            });
+            comboSortBy.SelectedIndex = 0;
 
-            // Attach event handlers AFTER initialization
-            chkShowCompleted.CheckedChanged += chkShowCompleted_CheckedChanged;
-            cmbSortBy.SelectedIndexChanged += cmbSortBy_SelectedIndexChanged;
-            cmbSessionFilter.SelectedIndexChanged += cmbSessionFilter_SelectedIndexChanged;
-            cmbDueDateFilter.SelectedIndexChanged += cmbDueDateFilter_SelectedIndexChanged;
+            // 🔷 ربط الأحداث
+            checkShowCompleted.CheckedChanged += chkShowCompleted_CheckedChanged;
+            comboSortBy.SelectedIndexChanged += cmbSortBy_SelectedIndexChanged;
+            comboSessionFilter.SelectedIndexChanged += cmbSessionFilter_SelectedIndexChanged;
+            comboDueDateFilter.SelectedIndexChanged += cmbDueDateFilter_SelectedIndexChanged;
 
-
-
-            //dataGridViewTasks.DataBindingComplete += DataGridViewTasks_DataBindingComplete;
+            // تحميل المهام
             LoadTasks();
         }
+
 
 
 
@@ -164,39 +210,129 @@ namespace StudyZone
             LoadTasks();
         }
 
-        
 
+
+        //private void LoadTasks()
+        //{
+        //    // Apply filters
+        //    List<TaskItem> displayedTasks = new List<TaskItem>();
+
+        //    //string sessionFilter = cmbSessionFilter.SelectedItem as string ?? "All Sessions";
+        //    string sessionFilter = comboSessionFilter.SelectedItem?.ToString() ?? "All Sessions";
+
+        //    string dueDateFilter = cmbDueDateFilter.SelectedItem as string ?? "Any Time";
+
+
+        //    foreach (var task in tasks)
+        //    {
+        //        // Filter by completion status
+        //        //if (!chkShowCompleted.Checked && task.IsCompleted)
+        //        if (!checkShowCompleted.Checked && task.IsCompleted)
+        //            continue;
+
+        //        // Filter by session assignment
+        //        if (sessionFilter != "All Sessions")
+        //        {
+        //            if (task.SessionAssignment != sessionFilter)
+        //                continue;
+        //        }
+
+        //        // Filter by due date
+        //        if (!IsTaskWithinDueDateFilter(task, dueDateFilter))
+        //            continue;
+
+        //        displayedTasks.Add(task);
+        //    }
+
+        //    // Apply sorting
+        //    switch (cmbSortBy.SelectedItem as string)
+        //    {
+        //        case "Title":
+        //            displayedTasks.Sort((x, y) => x.Title.CompareTo(y.Title));
+        //            break;
+        //        case "Due Date":
+        //            displayedTasks.Sort((x, y) => Nullable.Compare(x.DueDate, y.DueDate));
+        //            break;
+        //        case "Status":
+        //            displayedTasks.Sort((x, y) => x.IsCompleted.CompareTo(y.IsCompleted));
+        //            break;
+        //        default:
+        //            // Default sorting if none selected
+        //            break;
+        //    }
+
+        //    gridControlTasks.DataSource = null;
+        //    gridControlTasks.DataSource = displayedTasks;
+
+
+        //    var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+        //    if (view != null)
+        //    {
+        //        view.Columns["Title"].Caption = "Task Title";
+        //        view.Columns["Title"].Width = 250;
+
+        //        view.Columns["DueDate"].Caption = "Due Date";
+        //        view.Columns["DueDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+        //        view.Columns["DueDate"].DisplayFormat.FormatString = "d"; // Short date
+
+        //        view.Columns["IsCompleted"].Caption = "Completed";
+
+        //        view.Columns["SessionAssignment"].Caption = "Assigned Session";
+        //        view.Columns["SessionAssignment"].Width = 190;
+
+        //        view.Columns["Description"].Caption = "Description";
+        //        view.Columns["Description"].Width = 188;
+
+        //        view.OptionsView.ShowGroupPanel = false;
+        //        view.OptionsBehavior.Editable = false;
+
+        //    }
+        //    if (!rowStyleAttached)
+        //    {
+        //        gridViewTasks.RowStyle += (s, e) =>
+        //        {
+        //            var gridViewLocal = s as DevExpress.XtraGrid.Views.Grid.GridView;
+        //            if (gridViewLocal == null) return;
+
+        //            var task = gridViewLocal.GetRow(e.RowHandle) as TaskItem;
+        //            if (task != null && task.IsCompleted)
+        //            {
+        //                e.Appearance.BackColor = System.Drawing.Color.LightGray;
+        //                e.Appearance.ForeColor = System.Drawing.Color.DarkGray;
+        //                e.HighPriority = true;
+        //            }
+        //        };
+
+        //        rowStyleAttached = true;
+        //    }
+
+        //}
         private void LoadTasks()
         {
-            // Apply filters
             List<TaskItem> displayedTasks = new List<TaskItem>();
 
-            string sessionFilter = cmbSessionFilter.SelectedItem as string ?? "All Sessions";
-            string dueDateFilter = cmbDueDateFilter.SelectedItem as string ?? "Any Time";
-
+            string sessionFilter = comboSessionFilter.SelectedItem?.ToString() ?? "All Sessions";
+            string dueDateFilter = comboDueDateFilter.SelectedItem?.ToString() ?? "Any Time";
 
             foreach (var task in tasks)
             {
-                // Filter by completion status
-                if (!chkShowCompleted.Checked && task.IsCompleted)
+                // فلترة حسب إظهار المهام المكتملة
+                if (!checkShowCompleted.Checked && task.IsCompleted)
                     continue;
 
-                // Filter by session assignment
-                if (sessionFilter != "All Sessions")
-                {
-                    if (task.SessionAssignment != sessionFilter)
-                        continue;
-                }
+                // فلترة حسب الجلسة
+                if (sessionFilter != "All Sessions" && task.SessionAssignment != sessionFilter)
+                    continue;
 
-                // Filter by due date
+                // فلترة حسب التاريخ
                 if (!IsTaskWithinDueDateFilter(task, dueDateFilter))
                     continue;
 
                 displayedTasks.Add(task);
             }
 
-            // Apply sorting
-            switch (cmbSortBy.SelectedItem as string)
+            // ترتيب حسب الاختيار
+            switch (comboSortBy.SelectedItem?.ToString())
             {
                 case "Title":
                     displayedTasks.Sort((x, y) => x.Title.CompareTo(y.Title));
@@ -207,15 +343,13 @@ namespace StudyZone
                 case "Status":
                     displayedTasks.Sort((x, y) => x.IsCompleted.CompareTo(y.IsCompleted));
                     break;
-                default:
-                    // Default sorting if none selected
-                    break;
             }
 
+            // ربط البيانات بـ GridControl
             gridControlTasks.DataSource = null;
             gridControlTasks.DataSource = displayedTasks;
 
-
+            // إعداد الأعمدة
             var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
             if (view != null)
             {
@@ -224,10 +358,9 @@ namespace StudyZone
 
                 view.Columns["DueDate"].Caption = "Due Date";
                 view.Columns["DueDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-                view.Columns["DueDate"].DisplayFormat.FormatString = "d"; // Short date
+                view.Columns["DueDate"].DisplayFormat.FormatString = "d";
 
                 view.Columns["IsCompleted"].Caption = "Completed";
-
                 view.Columns["SessionAssignment"].Caption = "Assigned Session";
                 view.Columns["SessionAssignment"].Width = 190;
 
@@ -237,7 +370,11 @@ namespace StudyZone
                 view.OptionsView.ShowGroupPanel = false;
                 view.OptionsBehavior.Editable = false;
 
+                // إظهار فلترة تلقائية
+                view.OptionsView.ShowAutoFilterRow = true;
             }
+
+            // تخصيص الصف المكتمل بلون مختلف
             if (!rowStyleAttached)
             {
                 gridViewTasks.RowStyle += (s, e) =>
@@ -253,31 +390,15 @@ namespace StudyZone
                         e.HighPriority = true;
                     }
                 };
-
                 rowStyleAttached = true;
             }
-
         }
 
 
 
 
-        //private void DataGridViewTasks_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        //{
-        //    //// Adjust column headers and formatting
-        //    //dataGridViewTasks.Columns["Title"].HeaderText = "Task Title";
-        //    //dataGridViewTasks.Columns["Title"].Width = 250;
-        //    //dataGridViewTasks.Columns["DueDate"].HeaderText = "Due Date";
-        //    //dataGridViewTasks.Columns["IsCompleted"].HeaderText = "Completed";
-        //    //dataGridViewTasks.Columns["SessionAssignment"].HeaderText = "Assigned Session";
-        //    //dataGridViewTasks.Columns["SessionAssignment"].Width = 190;
-        //    ////dataGridViewTasks.Columns["Description"].Visible = false; // Hide description column in grid
-        //    //dataGridViewTasks.Columns["Description"].HeaderText = "Description";
-        //    //dataGridViewTasks.Columns["Description"].Width = 188;
 
-        //    //// Format the DueDate column
-        //    //dataGridViewTasks.Columns["DueDate"].DefaultCellStyle.Format = "d"; // Short date pattern
-        //}
+
 
         private List<string> GetSessionNames()
         {
