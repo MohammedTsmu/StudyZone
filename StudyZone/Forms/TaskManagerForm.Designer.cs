@@ -228,6 +228,7 @@
             // 
             // checkShowCompleted
             // 
+            this.checkShowCompleted.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkShowCompleted.Location = new System.Drawing.Point(155, 12);
             this.checkShowCompleted.Name = "checkShowCompleted";
             this.checkShowCompleted.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
