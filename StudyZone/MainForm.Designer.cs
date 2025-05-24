@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip12 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem12 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -132,7 +132,7 @@
             // 
             this.nudStudyMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudStudyMinutes.ForeColor = System.Drawing.Color.Navy;
-            this.nudStudyMinutes.Location = new System.Drawing.Point(187, 20);
+            this.nudStudyMinutes.Location = new System.Drawing.Point(211, 28);
             this.nudStudyMinutes.Maximum = new decimal(new int[] {
             120,
             0,
@@ -151,7 +151,7 @@
             // 
             this.nudBreakMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudBreakMinutes.ForeColor = System.Drawing.Color.Navy;
-            this.nudBreakMinutes.Location = new System.Drawing.Point(187, 20);
+            this.nudBreakMinutes.Location = new System.Drawing.Point(211, 28);
             this.nudBreakMinutes.Maximum = new decimal(new int[] {
             60,
             0,
@@ -171,22 +171,22 @@
             this.studyMinuteslbl.AutoSize = true;
             this.studyMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studyMinuteslbl.ForeColor = System.Drawing.Color.Navy;
-            this.studyMinuteslbl.Location = new System.Drawing.Point(37, 24);
+            this.studyMinuteslbl.Location = new System.Drawing.Point(127, 32);
             this.studyMinuteslbl.Name = "studyMinuteslbl";
-            this.studyMinuteslbl.Size = new System.Drawing.Size(134, 23);
+            this.studyMinuteslbl.Size = new System.Drawing.Size(78, 23);
             this.studyMinuteslbl.TabIndex = 6;
-            this.studyMinuteslbl.Text = "Study Minutes";
+            this.studyMinuteslbl.Text = "Minutes";
             // 
             // breakMinuteslbl
             // 
             this.breakMinuteslbl.AutoSize = true;
             this.breakMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.breakMinuteslbl.ForeColor = System.Drawing.Color.Navy;
-            this.breakMinuteslbl.Location = new System.Drawing.Point(35, 24);
+            this.breakMinuteslbl.Location = new System.Drawing.Point(127, 32);
             this.breakMinuteslbl.Name = "breakMinuteslbl";
-            this.breakMinuteslbl.Size = new System.Drawing.Size(136, 23);
+            this.breakMinuteslbl.Size = new System.Drawing.Size(78, 23);
             this.breakMinuteslbl.TabIndex = 7;
-            this.breakMinuteslbl.Text = "Break Minutes";
+            this.breakMinuteslbl.Text = "Minutes";
             // 
             // timerPomodoro
             // 
@@ -197,7 +197,7 @@
             // 
             this.nudStudySeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudStudySeconds.ForeColor = System.Drawing.Color.Navy;
-            this.nudStudySeconds.Location = new System.Drawing.Point(481, 20);
+            this.nudStudySeconds.Location = new System.Drawing.Point(429, 28);
             this.nudStudySeconds.Maximum = new decimal(new int[] {
             59,
             0,
@@ -211,7 +211,7 @@
             // 
             this.nudBreakSeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudBreakSeconds.ForeColor = System.Drawing.Color.Navy;
-            this.nudBreakSeconds.Location = new System.Drawing.Point(483, 20);
+            this.nudBreakSeconds.Location = new System.Drawing.Point(429, 28);
             this.nudBreakSeconds.Maximum = new decimal(new int[] {
             59,
             0,
@@ -226,22 +226,22 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Location = new System.Drawing.Point(323, 24);
+            this.label1.Location = new System.Drawing.Point(337, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 23);
+            this.label1.Size = new System.Drawing.Size(86, 23);
             this.label1.TabIndex = 10;
-            this.label1.Text = "Study Seconds";
+            this.label1.Text = "Seconds";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Location = new System.Drawing.Point(323, 24);
+            this.label2.Location = new System.Drawing.Point(337, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 23);
+            this.label2.Size = new System.Drawing.Size(86, 23);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Break Seconds";
+            this.label2.Text = "Seconds";
             // 
             // cmbSessions
             // 
@@ -250,7 +250,7 @@
             this.cmbSessions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSessions.ForeColor = System.Drawing.Color.Black;
             this.cmbSessions.FormattingEnabled = true;
-            this.cmbSessions.Location = new System.Drawing.Point(99, 27);
+            this.cmbSessions.Location = new System.Drawing.Point(118, 27);
             this.cmbSessions.Name = "cmbSessions";
             this.cmbSessions.Size = new System.Drawing.Size(440, 31);
             this.cmbSessions.TabIndex = 12;
@@ -268,7 +268,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox1.Location = new System.Drawing.Point(8, 157);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(676, 70);
+            this.groupBox1.Size = new System.Drawing.Size(676, 86);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Study Duration";
@@ -283,9 +283,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox2.Location = new System.Drawing.Point(8, 235);
+            this.groupBox2.Location = new System.Drawing.Point(8, 249);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(676, 70);
+            this.groupBox2.Size = new System.Drawing.Size(676, 86);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Break Duration";
@@ -322,7 +322,7 @@
             this.btnSaveSession.Appearance.Options.UseFont = true;
             this.btnSaveSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveSession.ImageOptions.SvgImage")));
             this.btnSaveSession.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnSaveSession.Location = new System.Drawing.Point(99, 66);
+            this.btnSaveSession.Location = new System.Drawing.Point(118, 66);
             this.btnSaveSession.Name = "btnSaveSession";
             this.btnSaveSession.Size = new System.Drawing.Size(195, 38);
             this.btnSaveSession.TabIndex = 19;
@@ -336,7 +336,7 @@
             this.btnDeleteSession.Appearance.Options.UseFont = true;
             this.btnDeleteSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteSession.ImageOptions.SvgImage")));
             this.btnDeleteSession.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeleteSession.Location = new System.Drawing.Point(344, 66);
+            this.btnDeleteSession.Location = new System.Drawing.Point(363, 66);
             this.btnDeleteSession.Name = "btnDeleteSession";
             this.btnDeleteSession.Size = new System.Drawing.Size(195, 38);
             this.btnDeleteSession.TabIndex = 18;
@@ -425,7 +425,7 @@
             this.groupBox5.Controls.Add(this.btnStart);
             this.groupBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox5.Location = new System.Drawing.Point(8, 313);
+            this.groupBox5.Location = new System.Drawing.Point(8, 341);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(676, 96);
             this.groupBox5.TabIndex = 29;
@@ -440,7 +440,7 @@
             this.btnStop.Appearance.Options.UseForeColor = true;
             this.btnStop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStop.ImageOptions.SvgImage")));
             this.btnStop.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnStop.Location = new System.Drawing.Point(428, 29);
+            this.btnStop.Location = new System.Drawing.Point(447, 29);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(195, 38);
             this.btnStop.TabIndex = 30;
@@ -456,7 +456,7 @@
             this.btnPause.Appearance.Options.UseForeColor = true;
             this.btnPause.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPause.ImageOptions.SvgImage")));
             this.btnPause.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnPause.Location = new System.Drawing.Point(220, 29);
+            this.btnPause.Location = new System.Drawing.Point(239, 29);
             this.btnPause.Name = "btnPause";
             this.btnPause.Size = new System.Drawing.Size(195, 38);
             this.btnPause.TabIndex = 29;
@@ -470,7 +470,7 @@
             this.btnStart.Appearance.Options.UseFont = true;
             this.btnStart.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStart.ImageOptions.SvgImage")));
             this.btnStart.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnStart.Location = new System.Drawing.Point(16, 29);
+            this.btnStart.Location = new System.Drawing.Point(35, 29);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(191, 38);
             this.btnStart.TabIndex = 28;
@@ -487,7 +487,7 @@
             this.groupBox6.Controls.Add(this.btnViewLogs);
             this.groupBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox6.Location = new System.Drawing.Point(8, 415);
+            this.groupBox6.Location = new System.Drawing.Point(8, 443);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(676, 96);
             this.groupBox6.TabIndex = 30;
@@ -500,7 +500,7 @@
             this.btnTaskManager.Appearance.Options.UseFont = true;
             this.btnTaskManager.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaskManager.ImageOptions.SvgImage")));
             this.btnTaskManager.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnTaskManager.Location = new System.Drawing.Point(14, 29);
+            this.btnTaskManager.Location = new System.Drawing.Point(33, 29);
             this.btnTaskManager.Name = "btnTaskManager";
             this.btnTaskManager.Size = new System.Drawing.Size(195, 38);
             this.btnTaskManager.TabIndex = 27;
@@ -514,7 +514,7 @@
             this.btnReminders.Appearance.Options.UseFont = true;
             this.btnReminders.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReminders.ImageOptions.SvgImage")));
             this.btnReminders.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnReminders.Location = new System.Drawing.Point(222, 29);
+            this.btnReminders.Location = new System.Drawing.Point(241, 29);
             this.btnReminders.Name = "btnReminders";
             this.btnReminders.Size = new System.Drawing.Size(195, 38);
             this.btnReminders.TabIndex = 26;
@@ -529,7 +529,7 @@
             this.btnViewLogs.Appearance.Options.UseFont = true;
             this.btnViewLogs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnViewLogs.ImageOptions.SvgImage")));
             this.btnViewLogs.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnViewLogs.Location = new System.Drawing.Point(430, 29);
+            this.btnViewLogs.Location = new System.Drawing.Point(449, 29);
             this.btnViewLogs.Name = "btnViewLogs";
             this.btnViewLogs.Size = new System.Drawing.Size(195, 38);
             this.btnViewLogs.TabIndex = 25;
@@ -545,7 +545,7 @@
             this.groupBox7.Controls.Add(this.svgImageBoxAbout);
             this.groupBox7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox7.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.groupBox7.Location = new System.Drawing.Point(8, 517);
+            this.groupBox7.Location = new System.Drawing.Point(8, 545);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(676, 82);
             this.groupBox7.TabIndex = 31;
@@ -662,10 +662,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem12.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem12.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip12.Items.Add(toolTipItem12);
-            this.btnMiniTimer.SuperTip = superToolTip12;
+            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnMiniTimer.SuperTip = superToolTip3;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
