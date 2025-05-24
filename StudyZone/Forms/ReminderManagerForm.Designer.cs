@@ -56,7 +56,7 @@
             // btnToggleReminder
             // 
             this.btnToggleReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnToggleReminder.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnToggleReminder.Appearance.Font = new System.Drawing.Font("LBC", 12F);
             this.btnToggleReminder.Appearance.Options.UseFont = true;
             this.btnToggleReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnToggleReminder.ImageOptions.SvgImage")));
             this.btnToggleReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -70,7 +70,7 @@
             // btnDeleteReminder
             // 
             this.btnDeleteReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDeleteReminder.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteReminder.Appearance.Font = new System.Drawing.Font("LBC", 12F);
             this.btnDeleteReminder.Appearance.Options.UseFont = true;
             this.btnDeleteReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteReminder.ImageOptions.SvgImage")));
             this.btnDeleteReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -84,7 +84,7 @@
             // btnEditReminder
             // 
             this.btnEditReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEditReminder.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnEditReminder.Appearance.Font = new System.Drawing.Font("LBC", 12F);
             this.btnEditReminder.Appearance.Options.UseFont = true;
             this.btnEditReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEditReminder.ImageOptions.SvgImage")));
             this.btnEditReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
@@ -98,7 +98,7 @@
             // btnAddReminder
             // 
             this.btnAddReminder.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAddReminder.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnAddReminder.Appearance.Font = new System.Drawing.Font("LBC", 12F);
             this.btnAddReminder.Appearance.Options.UseFont = true;
             this.btnAddReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddReminder.ImageOptions.SvgImage")));
             this.btnAddReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);

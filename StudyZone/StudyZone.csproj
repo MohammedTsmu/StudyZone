@@ -77,33 +77,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About.cs">
+    <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="About.Designer.cs">
+    <Compile Include="Forms\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="AppSettings.cs" />
-    <Compile Include="BreakForm.cs">
+    <Compile Include="Forms\BreakForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BreakForm.Designer.cs">
+    <Compile Include="Forms\BreakForm.Designer.cs">
       <DependentUpon>BreakForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CircularProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="KeyboardHook.cs" />
-    <Compile Include="MainForm.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainForm.Designer.cs">
+    <Compile Include="Forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MiniTimerForm.cs">
+    <Compile Include="Forms\MiniTimerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MiniTimerForm.Designer.cs">
+    <Compile Include="Forms\MiniTimerForm.Designer.cs">
       <DependentUpon>MiniTimerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Particle.cs" />
@@ -114,50 +114,50 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ReminderEditForm.cs">
+    <Compile Include="Forms\ReminderEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReminderEditForm.Designer.cs">
+    <Compile Include="Forms\ReminderEditForm.Designer.cs">
       <DependentUpon>ReminderEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReminderManagerForm.cs">
+    <Compile Include="Forms\ReminderManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReminderManagerForm.Designer.cs">
+    <Compile Include="Forms\ReminderManagerForm.Designer.cs">
       <DependentUpon>ReminderManagerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SessionLog.cs" />
-    <Compile Include="SessionLogsForm.cs">
+    <Compile Include="Forms\SessionLogsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SessionLogsForm.Designer.cs">
+    <Compile Include="Forms\SessionLogsForm.Designer.cs">
       <DependentUpon>SessionLogsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StudyReminder.cs" />
     <Compile Include="StudySession.cs" />
-    <Compile Include="TaskEditForm.cs">
+    <Compile Include="Forms\TaskEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TaskEditForm.Designer.cs">
+    <Compile Include="Forms\TaskEditForm.Designer.cs">
       <DependentUpon>TaskEditForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TaskItem.cs" />
-    <Compile Include="TaskManagerForm.cs">
+    <Compile Include="Forms\TaskManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TaskManagerForm.Designer.cs">
+    <Compile Include="Forms\TaskManagerForm.Designer.cs">
       <DependentUpon>TaskManagerForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="About.resx">
+    <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BreakForm.resx">
+    <EmbeddedResource Include="Forms\BreakForm.resx">
       <DependentUpon>BreakForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
+    <EmbeddedResource Include="Forms\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MiniTimerForm.resx">
+    <EmbeddedResource Include="Forms\MiniTimerForm.resx">
       <DependentUpon>MiniTimerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -166,19 +166,19 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReminderEditForm.resx">
+    <EmbeddedResource Include="Forms\ReminderEditForm.resx">
       <DependentUpon>ReminderEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReminderManagerForm.resx">
+    <EmbeddedResource Include="Forms\ReminderManagerForm.resx">
       <DependentUpon>ReminderManagerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SessionLogsForm.resx">
+    <EmbeddedResource Include="Forms\SessionLogsForm.resx">
       <DependentUpon>SessionLogsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TaskEditForm.resx">
+    <EmbeddedResource Include="Forms\TaskEditForm.resx">
       <DependentUpon>TaskEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TaskManagerForm.resx">
+    <EmbeddedResource Include="Forms\TaskManagerForm.resx">
       <DependentUpon>TaskManagerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />

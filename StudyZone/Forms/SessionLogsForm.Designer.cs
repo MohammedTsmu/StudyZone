@@ -37,8 +37,8 @@
             this.lblTotalSessions = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnDeleteLog = new DevExpress.XtraEditors.SimpleButton();
             this.btnApplyFilter = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDeleteLog = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLogs)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -52,19 +52,19 @@
             this.dataGridViewLogs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewLogs.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewLogs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewLogs.Location = new System.Drawing.Point(20, 126);
+            this.dataGridViewLogs.Location = new System.Drawing.Point(5, 111);
             this.dataGridViewLogs.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewLogs.Name = "dataGridViewLogs";
             this.dataGridViewLogs.RowHeadersWidth = 51;
             this.dataGridViewLogs.RowTemplate.Height = 24;
-            this.dataGridViewLogs.Size = new System.Drawing.Size(1022, 375);
+            this.dataGridViewLogs.Size = new System.Drawing.Size(1052, 405);
             this.dataGridViewLogs.TabIndex = 4;
             this.dataGridViewLogs.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridViewLogs_DataBindingComplete);
             // 
@@ -75,7 +75,7 @@
             this.cmbFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbFilter.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Location = new System.Drawing.Point(308, 9);
+            this.cmbFilter.Location = new System.Drawing.Point(323, 9);
             this.cmbFilter.Margin = new System.Windows.Forms.Padding(4);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(406, 31);
@@ -123,11 +123,11 @@
             this.groupBox1.Controls.Add(this.lblTotalSessions);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(20, 501);
+            this.groupBox1.Location = new System.Drawing.Point(5, 516);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(1022, 152);
+            this.groupBox1.Size = new System.Drawing.Size(1052, 152);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Statisitcs";
@@ -139,37 +139,39 @@
             this.panel1.Controls.Add(this.btnDeleteLog);
             this.panel1.Controls.Add(this.cmbFilter);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(20, 20);
+            this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(1022, 106);
+            this.panel1.Size = new System.Drawing.Size(1052, 106);
             this.panel1.TabIndex = 8;
-            // 
-            // btnDeleteLog
-            // 
-            this.btnDeleteLog.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDeleteLog.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
-            this.btnDeleteLog.Appearance.Options.UseFont = true;
-            this.btnDeleteLog.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnOK.ImageOptions.SvgImage")));
-            this.btnDeleteLog.Location = new System.Drawing.Point(514, 47);
-            this.btnDeleteLog.Name = "btnDeleteLog";
-            this.btnDeleteLog.Size = new System.Drawing.Size(200, 50);
-            this.btnDeleteLog.TabIndex = 2;
-            this.btnDeleteLog.Text = "Delete Log";
-            this.btnDeleteLog.Click += new System.EventHandler(this.btnDeleteLog_Click);
             // 
             // btnApplyFilter
             // 
             this.btnApplyFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnApplyFilter.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnApplyFilter.Appearance.Options.UseFont = true;
-            this.btnApplyFilter.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("simpleButton1.ImageOptions.SvgImage")));
-            this.btnApplyFilter.Location = new System.Drawing.Point(308, 47);
+            this.btnApplyFilter.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnApplyFilter.ImageOptions.SvgImage")));
+            this.btnApplyFilter.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnApplyFilter.Location = new System.Drawing.Point(323, 47);
             this.btnApplyFilter.Name = "btnApplyFilter";
-            this.btnApplyFilter.Size = new System.Drawing.Size(200, 50);
+            this.btnApplyFilter.Size = new System.Drawing.Size(190, 38);
             this.btnApplyFilter.TabIndex = 1;
             this.btnApplyFilter.Text = "Applay Filter";
             this.btnApplyFilter.Click += new System.EventHandler(this.btnApplyFilter_Click);
+            // 
+            // btnDeleteLog
+            // 
+            this.btnDeleteLog.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDeleteLog.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
+            this.btnDeleteLog.Appearance.Options.UseFont = true;
+            this.btnDeleteLog.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteLog.ImageOptions.SvgImage")));
+            this.btnDeleteLog.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnDeleteLog.Location = new System.Drawing.Point(539, 47);
+            this.btnDeleteLog.Name = "btnDeleteLog";
+            this.btnDeleteLog.Size = new System.Drawing.Size(190, 38);
+            this.btnDeleteLog.TabIndex = 2;
+            this.btnDeleteLog.Text = "Delete Log";
+            this.btnDeleteLog.Click += new System.EventHandler(this.btnDeleteLog_Click);
             // 
             // SessionLogsForm
             // 
@@ -182,7 +184,7 @@
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SessionLogsForm";
-            this.Padding = new System.Windows.Forms.Padding(20);
+            this.Padding = new System.Windows.Forms.Padding(5);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
