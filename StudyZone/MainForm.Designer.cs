@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -321,9 +321,10 @@
             this.btnSaveSession.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnSaveSession.Appearance.Options.UseFont = true;
             this.btnSaveSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveSession.ImageOptions.SvgImage")));
+            this.btnSaveSession.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnSaveSession.Location = new System.Drawing.Point(219, 60);
             this.btnSaveSession.Name = "btnSaveSession";
-            this.btnSaveSession.Size = new System.Drawing.Size(200, 50);
+            this.btnSaveSession.Size = new System.Drawing.Size(195, 38);
             this.btnSaveSession.TabIndex = 19;
             this.btnSaveSession.Text = "Save Session";
             this.BtnsDetails.SetToolTip(this.btnSaveSession, "Save the current duration settings as a new session or add new durations.");
@@ -334,9 +335,10 @@
             this.btnDeleteSession.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnDeleteSession.Appearance.Options.UseFont = true;
             this.btnDeleteSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteSession.ImageOptions.SvgImage")));
+            this.btnDeleteSession.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnDeleteSession.Location = new System.Drawing.Point(459, 60);
             this.btnDeleteSession.Name = "btnDeleteSession";
-            this.btnDeleteSession.Size = new System.Drawing.Size(200, 50);
+            this.btnDeleteSession.Size = new System.Drawing.Size(195, 38);
             this.btnDeleteSession.TabIndex = 18;
             this.btnDeleteSession.Text = "Delete Session";
             this.BtnsDetails.SetToolTip(this.btnDeleteSession, "Delete selected session.");
@@ -437,9 +439,10 @@
             this.btnStop.Appearance.Options.UseFont = true;
             this.btnStop.Appearance.Options.UseForeColor = true;
             this.btnStop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStop.ImageOptions.SvgImage")));
+            this.btnStop.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnStop.Location = new System.Drawing.Point(545, 27);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(200, 50);
+            this.btnStop.Size = new System.Drawing.Size(195, 38);
             this.btnStop.TabIndex = 30;
             this.btnStop.Text = "Stop";
             this.BtnsDetails.SetToolTip(this.btnStop, "Terminate / Stop the focus session timer.");
@@ -452,9 +455,10 @@
             this.btnPause.Appearance.Options.UseFont = true;
             this.btnPause.Appearance.Options.UseForeColor = true;
             this.btnPause.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPause.ImageOptions.SvgImage")));
+            this.btnPause.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnPause.Location = new System.Drawing.Point(337, 27);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(200, 50);
+            this.btnPause.Size = new System.Drawing.Size(195, 38);
             this.btnPause.TabIndex = 29;
             this.btnPause.Text = "Pause";
             this.BtnsDetails.SetToolTip(this.btnPause, "Pause the focus session timer.");
@@ -465,9 +469,10 @@
             this.btnStart.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnStart.Appearance.Options.UseFont = true;
             this.btnStart.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStart.ImageOptions.SvgImage")));
+            this.btnStart.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnStart.Location = new System.Drawing.Point(133, 27);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(196, 50);
+            this.btnStart.Size = new System.Drawing.Size(191, 38);
             this.btnStart.TabIndex = 28;
             this.btnStart.Text = "Start";
             this.BtnsDetails.SetToolTip(this.btnStart, "Start the focus session timer.");
@@ -494,9 +499,10 @@
             this.btnTaskManager.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnTaskManager.Appearance.Options.UseFont = true;
             this.btnTaskManager.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaskManager.ImageOptions.SvgImage")));
+            this.btnTaskManager.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnTaskManager.Location = new System.Drawing.Point(131, 27);
             this.btnTaskManager.Name = "btnTaskManager";
-            this.btnTaskManager.Size = new System.Drawing.Size(200, 50);
+            this.btnTaskManager.Size = new System.Drawing.Size(195, 38);
             this.btnTaskManager.TabIndex = 27;
             this.btnTaskManager.Text = "Task Manager";
             this.BtnsDetails.SetToolTip(this.btnTaskManager, "Add / Edit / Delete tasks");
@@ -507,9 +513,10 @@
             this.btnReminders.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnReminders.Appearance.Options.UseFont = true;
             this.btnReminders.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReminders.ImageOptions.SvgImage")));
+            this.btnReminders.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnReminders.Location = new System.Drawing.Point(339, 27);
             this.btnReminders.Name = "btnReminders";
-            this.btnReminders.Size = new System.Drawing.Size(200, 50);
+            this.btnReminders.Size = new System.Drawing.Size(195, 38);
             this.btnReminders.TabIndex = 26;
             this.btnReminders.Text = "Reminders";
             this.BtnsDetails.SetToolTip(this.btnReminders, "Add a reminder to prompt the user to start a focus or study session if they forge" +
@@ -521,9 +528,10 @@
             this.btnViewLogs.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnViewLogs.Appearance.Options.UseFont = true;
             this.btnViewLogs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnViewLogs.ImageOptions.SvgImage")));
+            this.btnViewLogs.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
             this.btnViewLogs.Location = new System.Drawing.Point(547, 27);
             this.btnViewLogs.Name = "btnViewLogs";
-            this.btnViewLogs.Size = new System.Drawing.Size(200, 50);
+            this.btnViewLogs.Size = new System.Drawing.Size(195, 38);
             this.btnViewLogs.TabIndex = 25;
             this.btnViewLogs.Text = "View Logs";
             this.BtnsDetails.SetToolTip(this.btnViewLogs, "View statistics for previous sessions and breaks.");
@@ -654,10 +662,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(820, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnMiniTimer.SuperTip = superToolTip3;
+            toolTipItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem1.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnMiniTimer.SuperTip = superToolTip1;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
