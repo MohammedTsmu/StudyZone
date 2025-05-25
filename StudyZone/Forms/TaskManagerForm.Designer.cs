@@ -66,7 +66,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Arial", 12F);
             this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(162, 16);
             this.label1.Name = "label1";
@@ -78,7 +78,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Arial", 12F);
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(279, 19);
             this.label2.Name = "label2";
@@ -90,7 +90,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Arial", 12F);
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(585, 19);
             this.label3.Name = "label3";
@@ -231,7 +231,7 @@
             this.checkShowCompleted.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkShowCompleted.Location = new System.Drawing.Point(155, 12);
             this.checkShowCompleted.Name = "checkShowCompleted";
-            this.checkShowCompleted.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.checkShowCompleted.Properties.Appearance.Font = new System.Drawing.Font("Arial", 12F);
             this.checkShowCompleted.Properties.Appearance.Options.UseFont = true;
             this.checkShowCompleted.Properties.AppearanceDisabled.Font = new System.Drawing.Font("LBC", 12F);
             this.checkShowCompleted.Properties.AppearanceDisabled.Options.UseFont = true;
@@ -241,7 +241,7 @@
             this.checkShowCompleted.Properties.AppearanceReadOnly.Options.UseFont = true;
             this.checkShowCompleted.Properties.Caption = "Show Completed Tasks";
             this.checkShowCompleted.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.checkShowCompleted.Size = new System.Drawing.Size(271, 30);
+            this.checkShowCompleted.Size = new System.Drawing.Size(271, 27);
             this.checkShowCompleted.TabIndex = 7;
             // 
             // pnTop
@@ -478,11 +478,11 @@
             this.btnToggleCompleted.Appearance.Options.UseFont = true;
             this.btnToggleCompleted.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnToggleCompleted.ImageOptions.SvgImage")));
             this.btnToggleCompleted.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnToggleCompleted.Location = new System.Drawing.Point(125, 16);
+            this.btnToggleCompleted.Location = new System.Drawing.Point(178, 16);
             this.btnToggleCompleted.Name = "btnToggleCompleted";
-            this.btnToggleCompleted.Size = new System.Drawing.Size(363, 38);
+            this.btnToggleCompleted.Size = new System.Drawing.Size(310, 38);
             this.btnToggleCompleted.TabIndex = 4;
-            this.btnToggleCompleted.Text = "Mark / Unmark Completed ✔️/❌";
+            this.btnToggleCompleted.Text = "Mark / Unmark Completed";
             this.btnToggleCompleted.Click += new System.EventHandler(this.btnToggleCompleted_Click);
             // 
             // btnDeleteTask
