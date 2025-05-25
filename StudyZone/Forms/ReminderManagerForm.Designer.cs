@@ -34,8 +34,9 @@
             this.btnDeleteReminder = new DevExpress.XtraEditors.SimpleButton();
             this.btnEditReminder = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddReminder = new DevExpress.XtraEditors.SimpleButton();
-            this.lstReminders = new System.Windows.Forms.ListBox();
+            this.listBoxReminders = new DevExpress.XtraEditors.ListBoxControl();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxReminders)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -49,7 +50,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(5, 555);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(950, 60);
+            this.panel1.Size = new System.Drawing.Size(843, 60);
             this.panel1.TabIndex = 999;
             this.panel1.TabStop = true;
             // 
@@ -60,7 +61,7 @@
             this.btnToggleReminder.Appearance.Options.UseFont = true;
             this.btnToggleReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnToggleReminder.ImageOptions.SvgImage")));
             this.btnToggleReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnToggleReminder.Location = new System.Drawing.Point(68, 11);
+            this.btnToggleReminder.Location = new System.Drawing.Point(14, 11);
             this.btnToggleReminder.Name = "btnToggleReminder";
             this.btnToggleReminder.Size = new System.Drawing.Size(190, 38);
             this.btnToggleReminder.TabIndex = 4;
@@ -74,7 +75,7 @@
             this.btnDeleteReminder.Appearance.Options.UseFont = true;
             this.btnDeleteReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteReminder.ImageOptions.SvgImage")));
             this.btnDeleteReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeleteReminder.Location = new System.Drawing.Point(276, 11);
+            this.btnDeleteReminder.Location = new System.Drawing.Point(222, 11);
             this.btnDeleteReminder.Name = "btnDeleteReminder";
             this.btnDeleteReminder.Size = new System.Drawing.Size(190, 38);
             this.btnDeleteReminder.TabIndex = 3;
@@ -88,7 +89,7 @@
             this.btnEditReminder.Appearance.Options.UseFont = true;
             this.btnEditReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEditReminder.ImageOptions.SvgImage")));
             this.btnEditReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnEditReminder.Location = new System.Drawing.Point(484, 11);
+            this.btnEditReminder.Location = new System.Drawing.Point(430, 11);
             this.btnEditReminder.Name = "btnEditReminder";
             this.btnEditReminder.Size = new System.Drawing.Size(190, 38);
             this.btnEditReminder.TabIndex = 2;
@@ -102,32 +103,41 @@
             this.btnAddReminder.Appearance.Options.UseFont = true;
             this.btnAddReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddReminder.ImageOptions.SvgImage")));
             this.btnAddReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnAddReminder.Location = new System.Drawing.Point(692, 11);
+            this.btnAddReminder.Location = new System.Drawing.Point(638, 11);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(190, 38);
             this.btnAddReminder.TabIndex = 1;
             this.btnAddReminder.Text = "Add";
             this.btnAddReminder.Click += new System.EventHandler(this.btnAddReminder_Click);
             // 
-            // lstReminders
+            // listBoxReminders
             // 
-            this.lstReminders.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lstReminders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstReminders.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstReminders.FormattingEnabled = true;
-            this.lstReminders.ItemHeight = 26;
-            this.lstReminders.Location = new System.Drawing.Point(5, 5);
-            this.lstReminders.Name = "lstReminders";
-            this.lstReminders.ScrollAlwaysVisible = true;
-            this.lstReminders.Size = new System.Drawing.Size(950, 550);
-            this.lstReminders.TabIndex = 5;
+            this.listBoxReminders.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.listBoxReminders.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.listBoxReminders.Appearance.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.listBoxReminders.Appearance.Options.UseBackColor = true;
+            this.listBoxReminders.Appearance.Options.UseFont = true;
+            this.listBoxReminders.Appearance.Options.UseForeColor = true;
+            this.listBoxReminders.Appearance.Options.UseTextOptions = true;
+            this.listBoxReminders.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.listBoxReminders.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.listBoxReminders.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.listBoxReminders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listBoxReminders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxReminders.HotTrackItems = true;
+            this.listBoxReminders.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick;
+            this.listBoxReminders.ItemPadding = new System.Windows.Forms.Padding(5);
+            this.listBoxReminders.Location = new System.Drawing.Point(5, 5);
+            this.listBoxReminders.Name = "listBoxReminders";
+            this.listBoxReminders.Size = new System.Drawing.Size(843, 550);
+            this.listBoxReminders.TabIndex = 1000;
             // 
             // ReminderManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(960, 620);
-            this.Controls.Add(this.lstReminders);
+            this.ClientSize = new System.Drawing.Size(853, 620);
+            this.Controls.Add(this.listBoxReminders);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -140,6 +150,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reminder Manager";
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxReminders)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -150,6 +161,6 @@
         private DevExpress.XtraEditors.SimpleButton btnEditReminder;
         private DevExpress.XtraEditors.SimpleButton btnDeleteReminder;
         private DevExpress.XtraEditors.SimpleButton btnToggleReminder;
-        private System.Windows.Forms.ListBox lstReminders;
+        private DevExpress.XtraEditors.ListBoxControl listBoxReminders;
     }
 }
