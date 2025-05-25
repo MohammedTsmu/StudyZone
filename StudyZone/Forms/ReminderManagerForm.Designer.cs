@@ -42,7 +42,7 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panel1.BackColor = System.Drawing.Color.SteelBlue;
             this.panel1.Controls.Add(this.btnToggleReminder);
             this.panel1.Controls.Add(this.btnDeleteReminder);
             this.panel1.Controls.Add(this.btnEditReminder);
@@ -61,7 +61,7 @@
             this.btnToggleReminder.Appearance.Options.UseFont = true;
             this.btnToggleReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnToggleReminder.ImageOptions.SvgImage")));
             this.btnToggleReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnToggleReminder.Location = new System.Drawing.Point(14, 11);
+            this.btnToggleReminder.Location = new System.Drawing.Point(32, 11);
             this.btnToggleReminder.Name = "btnToggleReminder";
             this.btnToggleReminder.Size = new System.Drawing.Size(190, 38);
             this.btnToggleReminder.TabIndex = 4;
@@ -75,7 +75,7 @@
             this.btnDeleteReminder.Appearance.Options.UseFont = true;
             this.btnDeleteReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteReminder.ImageOptions.SvgImage")));
             this.btnDeleteReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeleteReminder.Location = new System.Drawing.Point(222, 11);
+            this.btnDeleteReminder.Location = new System.Drawing.Point(228, 11);
             this.btnDeleteReminder.Name = "btnDeleteReminder";
             this.btnDeleteReminder.Size = new System.Drawing.Size(190, 38);
             this.btnDeleteReminder.TabIndex = 3;
@@ -89,7 +89,7 @@
             this.btnEditReminder.Appearance.Options.UseFont = true;
             this.btnEditReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnEditReminder.ImageOptions.SvgImage")));
             this.btnEditReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnEditReminder.Location = new System.Drawing.Point(430, 11);
+            this.btnEditReminder.Location = new System.Drawing.Point(424, 11);
             this.btnEditReminder.Name = "btnEditReminder";
             this.btnEditReminder.Size = new System.Drawing.Size(190, 38);
             this.btnEditReminder.TabIndex = 2;
@@ -103,7 +103,7 @@
             this.btnAddReminder.Appearance.Options.UseFont = true;
             this.btnAddReminder.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnAddReminder.ImageOptions.SvgImage")));
             this.btnAddReminder.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnAddReminder.Location = new System.Drawing.Point(638, 11);
+            this.btnAddReminder.Location = new System.Drawing.Point(620, 11);
             this.btnAddReminder.Name = "btnAddReminder";
             this.btnAddReminder.Size = new System.Drawing.Size(190, 38);
             this.btnAddReminder.TabIndex = 1;

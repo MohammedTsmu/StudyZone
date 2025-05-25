@@ -258,7 +258,7 @@
             // 
             // pnFill
             // 
-            this.pnFill.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.pnFill.BackColor = System.Drawing.Color.Transparent;
             this.pnFill.Controls.Add(this.gridControlTasks);
             this.pnFill.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnFill.Location = new System.Drawing.Point(0, 151);
