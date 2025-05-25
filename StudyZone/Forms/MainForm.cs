@@ -165,8 +165,23 @@ namespace StudyZone
                 UpdateTimerLabel();
                 timerPomodoro.Start();
 
-                // Initialize current session log
-                currentSessionLog = new SessionLog();
+                //// Initialize current session log
+                //currentSessionLog = new SessionLog();
+                if (cmbSessions.SelectedItem is StudySession selected)
+                {
+                    currentSessionLog = new SessionLog
+                    {
+                        SessionName = selected.SessionName
+                    };
+                }
+                else
+                {
+                    currentSessionLog = new SessionLog
+                    {
+                        SessionName = $"Session {DateTime.Now:MMM dd, HH:mm}"
+                    };
+                }
+
 
                 // Clear the notified tasks list
                 notifiedTasks.Clear();

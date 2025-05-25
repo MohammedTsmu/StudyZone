@@ -16,5 +16,8 @@ namespace StudyZone
             BreakDuration = TimeSpan.Zero;
             NumberOfBreaks = 0;
         }
+
+        // ✅ جديد
+        public string SessionName { get; set; }
     }
 }
