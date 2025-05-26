@@ -652,7 +652,8 @@ namespace StudyZone
 
         private void DisplayTasksForSelectedSession()
         {
-            txtTaskDetails.Text = string.Empty; // Clear task details
+            //txtTaskDetails.Text = string.Empty; // Clear task details
+            memoTaskDetails.Text = string.Empty; // Clear task details
 
             if (cmbSessions.SelectedItem is StudySession selectedSession)
             {
@@ -774,12 +775,15 @@ namespace StudyZone
                         taskDetails.AppendLine("Due Date: N/A");
                     taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
 
-                    txtTaskDetails.Text = taskDetails.ToString();
+                    //txtTaskDetails.Text = taskDetails.ToString();
+                    memoTaskDetails.Text = taskDetails.ToString();
+
                 }
             }
             else
             {
-                txtTaskDetails.Text = string.Empty;
+                //txtTaskDetails.Text = string.Empty;
+                memoTaskDetails.Text = string.Empty;
             }
         }
 

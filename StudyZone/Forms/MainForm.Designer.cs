@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -54,11 +54,6 @@
             this.cmbSessions = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnSaveSession = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteSession = new DevExpress.XtraEditors.SimpleButton();
-            this.txtTaskDetails = new System.Windows.Forms.TextBox();
-            this.listViewTasks = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.gridTasks = new DevExpress.XtraGrid.GridControl();
@@ -87,6 +82,7 @@
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
+            this.memoTaskDetails = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -116,6 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.pnHeaderTop.SuspendLayout();
             this.pnMainLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoTaskDetails.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // Welcomelbl
@@ -435,54 +432,6 @@
             this.BtnsDetails.SetToolTip(this.btnDeleteSession, "Delete selected session.");
             this.btnDeleteSession.Click += new System.EventHandler(this.btnDeleteSession_Click);
             // 
-            // txtTaskDetails
-            // 
-            this.txtTaskDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtTaskDetails.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTaskDetails.Location = new System.Drawing.Point(10, 33);
-            this.txtTaskDetails.Multiline = true;
-            this.txtTaskDetails.Name = "txtTaskDetails";
-            this.txtTaskDetails.ReadOnly = true;
-            this.txtTaskDetails.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTaskDetails.Size = new System.Drawing.Size(629, 332);
-            this.txtTaskDetails.TabIndex = 22;
-            this.lblsAndTxtBoxsToolTip.SetToolTip(this.txtTaskDetails, "Displays selected task details.");
-            // 
-            // listViewTasks
-            // 
-            this.listViewTasks.AllowColumnReorder = true;
-            this.listViewTasks.BackColor = System.Drawing.SystemColors.Control;
-            this.listViewTasks.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
-            this.listViewTasks.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewTasks.FullRowSelect = true;
-            this.listViewTasks.HideSelection = false;
-            this.listViewTasks.Location = new System.Drawing.Point(10, 33);
-            this.listViewTasks.Name = "listViewTasks";
-            this.listViewTasks.Size = new System.Drawing.Size(629, 137);
-            this.listViewTasks.TabIndex = 23;
-            this.lblsAndTxtBoxsToolTip.SetToolTip(this.listViewTasks, "Displays selected session registered tasks.");
-            this.listViewTasks.UseCompatibleStateImageBehavior = false;
-            this.listViewTasks.View = System.Windows.Forms.View.Details;
-            this.listViewTasks.SelectedIndexChanged += new System.EventHandler(this.listViewTasks_SelectedIndexChanged);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Title";
-            this.columnHeader1.Width = 172;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Due Date";
-            this.columnHeader2.Width = 134;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Status";
-            this.columnHeader3.Width = 125;
-            // 
             // notifyIcon
             // 
             this.notifyIcon.BalloonTipText = "StudyZone";
@@ -496,7 +445,6 @@
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox4.Controls.Add(this.gridTasks);
-            this.groupBox4.Controls.Add(this.listViewTasks);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(20, 20);
@@ -509,10 +457,11 @@
             // 
             // gridTasks
             // 
-            this.gridTasks.Location = new System.Drawing.Point(14, 214);
+            this.gridTasks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridTasks.Location = new System.Drawing.Point(10, 33);
             this.gridTasks.MainView = this.gridViewTasks;
             this.gridTasks.Name = "gridTasks";
-            this.gridTasks.Size = new System.Drawing.Size(622, 200);
+            this.gridTasks.Size = new System.Drawing.Size(629, 363);
             this.gridTasks.TabIndex = 24;
             this.gridTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTasks});
@@ -703,7 +652,7 @@
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox8.Controls.Add(this.txtTaskDetails);
+            this.groupBox8.Controls.Add(this.memoTaskDetails);
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox8.Location = new System.Drawing.Point(20, 426);
@@ -769,10 +718,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem1.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnMiniTimer.SuperTip = superToolTip1;
+            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnMiniTimer.SuperTip = superToolTip3;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
@@ -807,6 +756,15 @@
             this.pnMainLeft.Name = "pnMainLeft";
             this.pnMainLeft.Size = new System.Drawing.Size(690, 821);
             this.pnMainLeft.TabIndex = 34;
+            // 
+            // memoTaskDetails
+            // 
+            this.memoTaskDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memoTaskDetails.Location = new System.Drawing.Point(10, 33);
+            this.memoTaskDetails.Name = "memoTaskDetails";
+            this.memoTaskDetails.Properties.ReadOnly = true;
+            this.memoTaskDetails.Size = new System.Drawing.Size(629, 332);
+            this.memoTaskDetails.TabIndex = 23;
             // 
             // MainForm
             // 
@@ -848,7 +806,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkStartWithWindows.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBoxAbout)).EndInit();
             this.groupBox8.ResumeLayout(false);
-            this.groupBox8.PerformLayout();
             this.pnRight.ResumeLayout(false);
             this.pnLeft.ResumeLayout(false);
             this.pnTop.ResumeLayout(false);
@@ -857,6 +814,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.pnHeaderTop.ResumeLayout(false);
             this.pnMainLeft.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoTaskDetails.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -879,11 +837,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox txtTaskDetails;
-        private System.Windows.Forms.ListView listViewTasks;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -919,6 +872,7 @@
         private DevExpress.XtraEditors.ComboBoxEdit cmbSessions;
         private DevExpress.XtraGrid.GridControl gridTasks;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewTasks;
+        private DevExpress.XtraEditors.MemoEdit memoTaskDetails;
     }
 }
 
