@@ -96,6 +96,7 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.btnHideReminders = new DevExpress.XtraEditors.SimpleButton();
             this.listBoxReminders = new DevExpress.XtraEditors.ListBoxControl();
+            this.lblAllSessions = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -550,6 +551,7 @@
             // 
             // panelLegend
             // 
+            this.panelLegend.Controls.Add(this.lblAllSessions);
             this.panelLegend.Controls.Add(this.lblNormal);
             this.panelLegend.Controls.Add(this.lblCompleted);
             this.panelLegend.Controls.Add(this.lblUpcoming);
@@ -987,6 +989,17 @@
             this.listBoxReminders.Size = new System.Drawing.Size(688, 516);
             this.listBoxReminders.TabIndex = 3;
             // 
+            // lblAllSessions
+            // 
+            this.lblAllSessions.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAllSessions.Appearance.Options.UseFont = true;
+            this.lblAllSessions.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblAllSessions.Location = new System.Drawing.Point(3, 62);
+            this.lblAllSessions.Name = "lblAllSessions";
+            this.lblAllSessions.Size = new System.Drawing.Size(300, 20);
+            this.lblAllSessions.TabIndex = 4;
+            this.lblAllSessions.Text = "All Sessions";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1106,6 +1119,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.SimpleButton btnHideReminders;
         private DevExpress.XtraEditors.ListBoxControl listBoxReminders;
+        private DevExpress.XtraEditors.LabelControl lblAllSessions;
     }
 }
 
