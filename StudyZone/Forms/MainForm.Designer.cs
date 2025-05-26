@@ -235,7 +235,7 @@
             // spinStudyMinutes
             // 
             this.spinStudyMinutes.EditValue = new decimal(new int[] {
-            0,
+            15,
             0,
             0,
             0});
@@ -247,6 +247,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinStudyMinutes.Properties.MaxValue = new decimal(new int[] {
             120,
+            0,
+            0,
+            0});
+            this.spinStudyMinutes.Properties.MinValue = new decimal(new int[] {
+            15,
             0,
             0,
             0});
@@ -294,7 +299,7 @@
             // spinBreakMinutes
             // 
             this.spinBreakMinutes.EditValue = new decimal(new int[] {
-            0,
+            5,
             0,
             0,
             0});
@@ -306,6 +311,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinBreakMinutes.Properties.MaxValue = new decimal(new int[] {
             60,
+            0,
+            0,
+            0});
+            this.spinBreakMinutes.Properties.MinValue = new decimal(new int[] {
+            5,
             0,
             0,
             0});
@@ -905,6 +915,7 @@
             this.btnMiniTimer.BackColor = System.Drawing.Color.SteelBlue;
             this.btnMiniTimer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
+            this.btnMiniTimer.Margin = new System.Windows.Forms.Padding(0);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
             toolTipItem6.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
