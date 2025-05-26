@@ -23,7 +23,6 @@ namespace StudyZone
 
 
             LoadReminders();
-            //StyleListBox();
         }
 
         private void LoadReminders()
@@ -112,20 +111,6 @@ namespace StudyZone
             }
         }
 
-        //// دالة لتنسيق ListBox باستخدام DevExpress
-        //private void StyleListBox()
-        //{
-        //    //listBoxReminders.Appearance.Font = new System.Drawing.Font("Segoe UI", 11F);
-        //    //listBoxReminders.BackColor = System.Drawing.Color.WhiteSmoke;
-        //    //listBoxReminders.ForeColor = System.Drawing.Color.DarkSlateGray;
-        //    listBoxReminders.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-        //    listBoxReminders.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-        //    listBoxReminders.Appearance.Options.UseTextOptions = true;
-        //    listBoxReminders.Appearance.Options.UseFont = true;
-        //    listBoxReminders.Appearance.Options.UseBackColor = true;
-        //    listBoxReminders.Appearance.Options.UseForeColor = true;
-        //    listBoxReminders.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-        //}
 
         //دالة لرسم العناصر في ListBox باستخدام DevExpress
         private void listBoxReminders_DrawItem(object sender, DevExpress.XtraEditors.ListBoxDrawItemEventArgs e)
