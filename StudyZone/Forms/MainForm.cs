@@ -874,7 +874,7 @@ namespace StudyZone
 
                     // 🔹 السطر الأول: اسم المهمة بشكل واضح
                     taskDetails.AppendLine($"📌 {selectedTask.Title.ToUpper()}");
-                    taskDetails.AppendLine(new string('~', 35)); // خط فاصل
+                    taskDetails.AppendLine(new string('~', 45)); // خط فاصل
 
                     // 📝 الوصف
                     taskDetails.AppendLine($"📝 Description: {selectedTask.Description}");
