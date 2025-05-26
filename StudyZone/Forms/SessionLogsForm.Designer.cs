@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SessionLogsForm));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panelSummary = new DevExpress.XtraEditors.PanelControl();
+            this.lblSummaryCount = new DevExpress.XtraEditors.LabelControl();
+            this.lblSummaryBreak = new DevExpress.XtraEditors.LabelControl();
+            this.lblSummaryStudy = new DevExpress.XtraEditors.LabelControl();
             this.comboFilter = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnApplyFilter = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteLog = new DevExpress.XtraEditors.SimpleButton();
@@ -39,18 +43,14 @@
             this.lblTotalBreakTime = new DevExpress.XtraEditors.LabelControl();
             this.lblTotalSessions = new DevExpress.XtraEditors.LabelControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.panelSummary = new DevExpress.XtraEditors.PanelControl();
-            this.lblSummaryStudy = new DevExpress.XtraEditors.LabelControl();
-            this.lblSummaryBreak = new DevExpress.XtraEditors.LabelControl();
-            this.lblSummaryCount = new DevExpress.XtraEditors.LabelControl();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelSummary)).BeginInit();
+            this.panelSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.comboFilter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelSummary)).BeginInit();
-            this.panelSummary.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,10 +67,70 @@
             this.panel1.Size = new System.Drawing.Size(1052, 106);
             this.panel1.TabIndex = 8;
             // 
+            // panelSummary
+            // 
+            this.panelSummary.Controls.Add(this.lblSummaryCount);
+            this.panelSummary.Controls.Add(this.lblSummaryBreak);
+            this.panelSummary.Controls.Add(this.lblSummaryStudy);
+            this.panelSummary.Location = new System.Drawing.Point(33, 13);
+            this.panelSummary.Name = "panelSummary";
+            this.panelSummary.Size = new System.Drawing.Size(594, 72);
+            this.panelSummary.TabIndex = 5;
+            // 
+            // lblSummaryCount
+            // 
+            this.lblSummaryCount.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.lblSummaryCount.Appearance.Options.UseFont = true;
+            this.lblSummaryCount.Appearance.Options.UseTextOptions = true;
+            this.lblSummaryCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblSummaryCount.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblSummaryCount.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lblSummaryCount.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblSummaryCount.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblSummaryCount.Location = new System.Drawing.Point(390, 2);
+            this.lblSummaryCount.Name = "lblSummaryCount";
+            this.lblSummaryCount.Size = new System.Drawing.Size(194, 68);
+            this.lblSummaryCount.TabIndex = 2;
+            this.lblSummaryCount.Text = "labelControl3";
+            // 
+            // lblSummaryBreak
+            // 
+            this.lblSummaryBreak.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.lblSummaryBreak.Appearance.Options.UseFont = true;
+            this.lblSummaryBreak.Appearance.Options.UseTextOptions = true;
+            this.lblSummaryBreak.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblSummaryBreak.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblSummaryBreak.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lblSummaryBreak.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblSummaryBreak.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblSummaryBreak.Location = new System.Drawing.Point(196, 2);
+            this.lblSummaryBreak.Name = "lblSummaryBreak";
+            this.lblSummaryBreak.Size = new System.Drawing.Size(194, 68);
+            this.lblSummaryBreak.TabIndex = 1;
+            this.lblSummaryBreak.Text = "labelControl2";
+            // 
+            // lblSummaryStudy
+            // 
+            this.lblSummaryStudy.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.lblSummaryStudy.Appearance.Options.UseFont = true;
+            this.lblSummaryStudy.Appearance.Options.UseTextOptions = true;
+            this.lblSummaryStudy.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblSummaryStudy.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblSummaryStudy.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.lblSummaryStudy.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblSummaryStudy.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblSummaryStudy.Location = new System.Drawing.Point(2, 2);
+            this.lblSummaryStudy.Name = "lblSummaryStudy";
+            this.lblSummaryStudy.Size = new System.Drawing.Size(194, 68);
+            this.lblSummaryStudy.TabIndex = 0;
+            this.lblSummaryStudy.Text = "labelControl1";
+            // 
             // comboFilter
             // 
-            this.comboFilter.Location = new System.Drawing.Point(896, 9);
+            this.comboFilter.Location = new System.Drawing.Point(633, 17);
             this.comboFilter.Name = "comboFilter";
+            this.comboFilter.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.comboFilter.Properties.Appearance.Options.UseFont = true;
             this.comboFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.comboFilter.Properties.Items.AddRange(new object[] {
@@ -78,7 +138,8 @@
             "Today",
             "This Week",
             "This Month"});
-            this.comboFilter.Size = new System.Drawing.Size(125, 22);
+            this.comboFilter.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.comboFilter.Size = new System.Drawing.Size(386, 32);
             this.comboFilter.TabIndex = 4;
             // 
             // btnApplyFilter
@@ -102,7 +163,7 @@
             this.btnDeleteLog.Appearance.Options.UseFont = true;
             this.btnDeleteLog.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteLog.ImageOptions.SvgImage")));
             this.btnDeleteLog.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeleteLog.Location = new System.Drawing.Point(849, 55);
+            this.btnDeleteLog.Location = new System.Drawing.Point(829, 55);
             this.btnDeleteLog.Name = "btnDeleteLog";
             this.btnDeleteLog.Size = new System.Drawing.Size(190, 38);
             this.btnDeleteLog.TabIndex = 2;
@@ -243,40 +304,6 @@
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Statisitcs";
             // 
-            // panelSummary
-            // 
-            this.panelSummary.Controls.Add(this.lblSummaryCount);
-            this.panelSummary.Controls.Add(this.lblSummaryBreak);
-            this.panelSummary.Controls.Add(this.lblSummaryStudy);
-            this.panelSummary.Location = new System.Drawing.Point(33, 13);
-            this.panelSummary.Name = "panelSummary";
-            this.panelSummary.Size = new System.Drawing.Size(560, 72);
-            this.panelSummary.TabIndex = 5;
-            // 
-            // lblSummaryStudy
-            // 
-            this.lblSummaryStudy.Location = new System.Drawing.Point(6, 18);
-            this.lblSummaryStudy.Name = "lblSummaryStudy";
-            this.lblSummaryStudy.Size = new System.Drawing.Size(75, 16);
-            this.lblSummaryStudy.TabIndex = 0;
-            this.lblSummaryStudy.Text = "labelControl1";
-            // 
-            // lblSummaryBreak
-            // 
-            this.lblSummaryBreak.Location = new System.Drawing.Point(243, 28);
-            this.lblSummaryBreak.Name = "lblSummaryBreak";
-            this.lblSummaryBreak.Size = new System.Drawing.Size(75, 16);
-            this.lblSummaryBreak.TabIndex = 1;
-            this.lblSummaryBreak.Text = "labelControl2";
-            // 
-            // lblSummaryCount
-            // 
-            this.lblSummaryCount.Location = new System.Drawing.Point(457, 28);
-            this.lblSummaryCount.Name = "lblSummaryCount";
-            this.lblSummaryCount.Size = new System.Drawing.Size(75, 16);
-            this.lblSummaryCount.TabIndex = 2;
-            this.lblSummaryCount.Text = "labelControl3";
-            // 
             // SessionLogsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
@@ -295,14 +322,13 @@
             this.Text = "Session Logs and Statistics";
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelSummary)).EndInit();
+            this.panelSummary.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboFilter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControlLogs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewLogs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelSummary)).EndInit();
-            this.panelSummary.ResumeLayout(false);
-            this.panelSummary.PerformLayout();
             this.ResumeLayout(false);
 
         }
