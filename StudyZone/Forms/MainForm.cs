@@ -67,7 +67,7 @@ namespace StudyZone
 
             //تايمر للتاسكات المتاخرة
             taskReminderPanelTimer = new Timer();
-            taskReminderPanelTimer.Interval = 2500; // 2.5 ثانية
+            taskReminderPanelTimer.Interval = 4000; // 4 ثانية
             taskReminderPanelTimer.Tick += TaskReminderPanelTimer_Tick;
             taskReminderPanelTimer.Start();
 
@@ -930,9 +930,15 @@ namespace StudyZone
             }
         }
 
+        private void showHidePanelTasksReminders()
+        {
+            listBoxReminders.Visible = true;
+        }
+
         private void TaskReminderPanelTimer_Tick(object sender, EventArgs e)
         {
             taskReminderPanelTimer.Stop();
+            showHidePanelTasksReminders();
             ShowTaskRemindersInPanel(); // ✅ عرض المهام داخل البانل بعد التأخير
         }
 

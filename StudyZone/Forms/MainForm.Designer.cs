@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.studyMinuteslbl = new System.Windows.Forms.Label();
@@ -805,10 +805,12 @@
             this.pnlReminders.Controls.Add(this.listBoxReminders);
             this.pnlReminders.Controls.Add(this.btnHideReminders);
             this.pnlReminders.Controls.Add(this.labelControl1);
+            this.pnlReminders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlReminders.Location = new System.Drawing.Point(0, 0);
             this.pnlReminders.Name = "pnlReminders";
-            this.pnlReminders.Size = new System.Drawing.Size(690, 24);
+            this.pnlReminders.Size = new System.Drawing.Size(690, 638);
             this.pnlReminders.TabIndex = 1;
+            this.pnlReminders.Visible = false;
             // 
             // listBoxReminders
             // 
@@ -827,7 +829,7 @@
             this.listBoxReminders.ItemPadding = new System.Windows.Forms.Padding(5);
             this.listBoxReminders.Location = new System.Drawing.Point(0, 60);
             this.listBoxReminders.Name = "listBoxReminders";
-            this.listBoxReminders.Size = new System.Drawing.Size(688, 0);
+            this.listBoxReminders.Size = new System.Drawing.Size(688, 516);
             this.listBoxReminders.TabIndex = 3;
             // 
             // btnHideReminders
@@ -842,14 +844,14 @@
             this.btnHideReminders.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHideReminders.ImageOptions.Image")));
             this.btnHideReminders.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnHideReminders.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnHideReminders.Location = new System.Drawing.Point(0, -38);
+            this.btnHideReminders.Location = new System.Drawing.Point(0, 576);
             this.btnHideReminders.Name = "btnHideReminders";
             this.btnHideReminders.Size = new System.Drawing.Size(688, 60);
-            toolTipItem1.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            toolTipItem1.Appearance.Options.UseFont = true;
-            toolTipItem1.Text = "Ready to focus? Click here to hide your tasks and get started.";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnHideReminders.SuperTip = superToolTip1;
+            toolTipItem4.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem4.Appearance.Options.UseFont = true;
+            toolTipItem4.Text = "Ready to focus? Click here to hide your tasks and get started.";
+            superToolTip4.Items.Add(toolTipItem4);
+            this.btnHideReminders.SuperTip = superToolTip4;
             this.btnHideReminders.TabIndex = 2;
             this.btnHideReminders.Text = "Hide Tasks";
             this.btnHideReminders.Click += new System.EventHandler(this.btnHideReminders_Click);
@@ -869,11 +871,11 @@
             this.labelControl1.Location = new System.Drawing.Point(0, 0);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(688, 60);
-            toolTipItem2.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            toolTipItem2.Appearance.Options.UseFont = true;
-            toolTipItem2.Text = "These are the tasks that need your attention – either overdue or due soon!";
-            superToolTip2.Items.Add(toolTipItem2);
-            this.labelControl1.SuperTip = superToolTip2;
+            toolTipItem5.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem5.Appearance.Options.UseFont = true;
+            toolTipItem5.Text = "These are the tasks that need your attention – either overdue or due soon!";
+            superToolTip5.Items.Add(toolTipItem5);
+            this.labelControl1.SuperTip = superToolTip5;
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "📌 Tasks Due Soon / Overdue:";
             // 
@@ -905,10 +907,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnMiniTimer.SuperTip = superToolTip3;
+            toolTipItem6.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem6.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip6.Items.Add(toolTipItem6);
+            this.btnMiniTimer.SuperTip = superToolTip6;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
