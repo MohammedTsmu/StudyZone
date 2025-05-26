@@ -97,11 +97,11 @@ namespace StudyZone
                 if (isStudyTime)
                 {
                     // Update study duration
-                    int studyTimeInSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
+                    int studyTimeInSeconds = ((int)spinStudyMinutes.Value * 60) + (int)spinStudySeconds.Value;
                     currentSessionLog.StudyDuration += TimeSpan.FromSeconds(studyTimeInSeconds);
 
                     // Start Break
-                    int breakDuration = ((int)nudBreakMinutes.Value * 60) + (int)nudBreakSeconds.Value;
+                    int breakDuration = ((int)spinBreakMinutes.Value * 60) + (int)spinBreakSeconds.Value;
 
                     // Increment the number of breaks
                     currentSessionLog.NumberOfBreaks++;
@@ -117,7 +117,7 @@ namespace StudyZone
                     currentSessionLog.BreakDuration += TimeSpan.FromSeconds(breakDuration);
 
                     // After the break
-                    totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
+                    totalSeconds = ((int)spinStudyMinutes.Value * 60) + (int)spinStudySeconds.Value;
                     isStudyTime = true;
                     UpdateTimerLabel();
                     timerPomodoro.Start();
@@ -160,7 +160,7 @@ namespace StudyZone
             else if (!timerPomodoro.Enabled)
             {
                 // Start a new session only if the timer is not running and not paused
-                totalSeconds = ((int)nudStudyMinutes.Value * 60) + (int)nudStudySeconds.Value;
+                totalSeconds = ((int)spinStudyMinutes.Value * 60) + (int)spinStudySeconds.Value;
                 isStudyTime = true;
                 UpdateTimerLabel();
                 timerPomodoro.Start();
@@ -193,10 +193,10 @@ namespace StudyZone
                 cmbSessions.Enabled = false;
                 btnSaveSession.Enabled = false;
                 btnDeleteSession.Enabled = false;
-                nudStudyMinutes.Enabled = false;
-                nudStudySeconds.Enabled = false;
-                nudBreakMinutes.Enabled = false;
-                nudBreakSeconds.Enabled = false;
+                spinStudyMinutes.Enabled = false;
+                spinStudySeconds.Enabled = false;
+                spinBreakMinutes.Enabled = false;
+                spinBreakSeconds.Enabled = false;
             }
 
             UpdateButtonStates();
@@ -229,10 +229,10 @@ namespace StudyZone
             cmbSessions.Enabled = false;
             btnSaveSession.Enabled = false;
             btnDeleteSession.Enabled = false;
-            nudStudyMinutes.Enabled = false;
-            nudStudySeconds.Enabled = false;
-            nudBreakMinutes.Enabled = false;
-            nudBreakSeconds.Enabled = false;
+            spinStudyMinutes.Enabled = false;
+            spinStudySeconds.Enabled = false;
+            spinBreakMinutes.Enabled = false;
+            spinBreakSeconds.Enabled = false;
 
             UpdateButtonStates();
         }
@@ -263,10 +263,10 @@ namespace StudyZone
                 cmbSessions.Enabled = true;
                 btnSaveSession.Enabled = true;
                 btnDeleteSession.Enabled = true;
-                nudStudyMinutes.Enabled = true;
-                nudStudySeconds.Enabled = true;
-                nudBreakMinutes.Enabled = true;
-                nudBreakSeconds.Enabled = true;
+                spinStudyMinutes.Enabled = true;
+                spinStudySeconds.Enabled = true;
+                spinBreakMinutes.Enabled = true;
+                spinBreakSeconds.Enabled = true;
             }
 
             UpdateButtonStates();
@@ -383,13 +383,13 @@ namespace StudyZone
                 StudySession newSession = new StudySession
                 {
                     SessionName = sessionName,
-                    StudyMinutes = (int)nudStudyMinutes.Value,
-                    StudySeconds = (int)nudStudySeconds.Value,
-                    BreakMinutes = (int)nudBreakMinutes.Value,
-                    BreakSeconds = (int)nudBreakSeconds.Value
+                    StudyMinutes = (int)spinStudyMinutes.Value,
+                    StudySeconds = (int)spinStudySeconds.Value,
+                    BreakMinutes = (int)spinBreakMinutes.Value,
+                    BreakSeconds = (int)spinBreakSeconds.Value
                 };
                 sessions.Add(newSession);
-                cmbSessions.Items.Add(newSession);
+                cmbSessions.Properties.Items.Add(newSession);
             }
         }
 
@@ -407,10 +407,10 @@ namespace StudyZone
 
             if (cmbSessions.SelectedItem is StudySession selectedSession)
             {
-                nudStudyMinutes.Value = selectedSession.StudyMinutes;
-                nudStudySeconds.Value = selectedSession.StudySeconds;
-                nudBreakMinutes.Value = selectedSession.BreakMinutes;
-                nudBreakSeconds.Value = selectedSession.BreakSeconds;
+                spinStudyMinutes.Value = selectedSession.StudyMinutes;
+                spinStudySeconds.Value = selectedSession.StudySeconds;
+                spinBreakMinutes.Value = selectedSession.BreakMinutes;
+                spinBreakSeconds.Value = selectedSession.BreakSeconds;
 
                 // Update the total seconds based on the new session
                 totalSeconds = (selectedSession.StudyMinutes * 60) + selectedSession.StudySeconds;
@@ -470,16 +470,16 @@ namespace StudyZone
                     sessions.Remove(selectedSession);
 
                     // Remove the session from the ComboBox
-                    cmbSessions.Items.Remove(selectedSession);
+                    cmbSessions.Properties.Items.Remove(selectedSession);
 
                     // Save the updated sessions list
                     SaveSessions();
 
                     // Clear the session details from the input controls
-                    nudStudyMinutes.Value = nudStudyMinutes.Minimum;
-                    nudStudySeconds.Value = nudStudySeconds.Minimum;
-                    nudBreakMinutes.Value = nudBreakMinutes.Minimum;
-                    nudBreakSeconds.Value = nudBreakSeconds.Minimum;
+                    spinStudyMinutes.Value = spinStudyMinutes.Properties.MinValue;
+                    spinStudySeconds.Value = spinStudySeconds.Properties.MinValue;
+                    spinBreakMinutes.Value = spinBreakMinutes.Properties.MinValue;
+                    spinBreakSeconds.Value = spinBreakSeconds.Properties.MinValue;
 
 
                     MessageBox.Show("Session deleted successfully.", "Delete Session", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -520,8 +520,8 @@ namespace StudyZone
             }
 
             // Populate the ComboBox
-            cmbSessions.Items.Clear();
-            cmbSessions.Items.AddRange(sessions.ToArray());
+            cmbSessions.Properties.Items.Clear();
+            cmbSessions.Properties.Items.AddRange(sessions.ToArray());
         }
 
         private void AddDefaultSessions()

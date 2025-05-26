@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -43,9 +43,12 @@
             this.nudBreakSeconds = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cmbSessions = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.spinStudySeconds = new DevExpress.XtraEditors.SpinEdit();
+            this.spinStudyMinutes = new DevExpress.XtraEditors.SpinEdit();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.spinBreakSeconds = new DevExpress.XtraEditors.SpinEdit();
+            this.spinBreakMinutes = new DevExpress.XtraEditors.SpinEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSaveSession = new DevExpress.XtraEditors.SimpleButton();
@@ -81,12 +84,17 @@
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
+            this.cmbSessions = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakSeconds)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinStudySeconds.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinStudyMinutes.Properties)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinBreakSeconds.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinBreakMinutes.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -103,6 +111,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.pnHeaderTop.SuspendLayout();
             this.pnMainLeft.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSessions.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // Welcomelbl
@@ -243,23 +252,12 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Seconds";
             // 
-            // cmbSessions
-            // 
-            this.cmbSessions.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cmbSessions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbSessions.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbSessions.ForeColor = System.Drawing.Color.Black;
-            this.cmbSessions.FormattingEnabled = true;
-            this.cmbSessions.Location = new System.Drawing.Point(118, 27);
-            this.cmbSessions.Name = "cmbSessions";
-            this.cmbSessions.Size = new System.Drawing.Size(440, 31);
-            this.cmbSessions.TabIndex = 12;
-            this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
-            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox1.Controls.Add(this.spinStudySeconds);
+            this.groupBox1.Controls.Add(this.spinStudyMinutes);
             this.groupBox1.Controls.Add(this.nudStudyMinutes);
             this.groupBox1.Controls.Add(this.studyMinuteslbl);
             this.groupBox1.Controls.Add(this.label1);
@@ -273,10 +271,50 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Study Duration";
             // 
+            // spinStudySeconds
+            // 
+            this.spinStudySeconds.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinStudySeconds.Location = new System.Drawing.Point(551, 29);
+            this.spinStudySeconds.Name = "spinStudySeconds";
+            this.spinStudySeconds.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinStudySeconds.Properties.MaxValue = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.spinStudySeconds.Size = new System.Drawing.Size(125, 24);
+            this.spinStudySeconds.TabIndex = 12;
+            // 
+            // spinStudyMinutes
+            // 
+            this.spinStudyMinutes.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinStudyMinutes.Location = new System.Drawing.Point(7, 30);
+            this.spinStudyMinutes.Name = "spinStudyMinutes";
+            this.spinStudyMinutes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinStudyMinutes.Properties.MaxValue = new decimal(new int[] {
+            120,
+            0,
+            0,
+            0});
+            this.spinStudyMinutes.Size = new System.Drawing.Size(125, 24);
+            this.spinStudyMinutes.TabIndex = 11;
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox2.Controls.Add(this.spinBreakSeconds);
+            this.groupBox2.Controls.Add(this.spinBreakMinutes);
             this.groupBox2.Controls.Add(this.nudBreakSeconds);
             this.groupBox2.Controls.Add(this.nudBreakMinutes);
             this.groupBox2.Controls.Add(this.breakMinuteslbl);
@@ -289,6 +327,44 @@
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Break Duration";
+            // 
+            // spinBreakSeconds
+            // 
+            this.spinBreakSeconds.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinBreakSeconds.Location = new System.Drawing.Point(551, 32);
+            this.spinBreakSeconds.Name = "spinBreakSeconds";
+            this.spinBreakSeconds.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinBreakSeconds.Properties.MaxValue = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+            this.spinBreakSeconds.Size = new System.Drawing.Size(125, 24);
+            this.spinBreakSeconds.TabIndex = 13;
+            // 
+            // spinBreakMinutes
+            // 
+            this.spinBreakMinutes.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinBreakMinutes.Location = new System.Drawing.Point(7, 27);
+            this.spinBreakMinutes.Name = "spinBreakMinutes";
+            this.spinBreakMinutes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinBreakMinutes.Properties.MaxValue = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
+            this.spinBreakMinutes.Size = new System.Drawing.Size(125, 24);
+            this.spinBreakMinutes.TabIndex = 12;
             // 
             // label3
             // 
@@ -304,9 +380,9 @@
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox3.Controls.Add(this.cmbSessions);
             this.groupBox3.Controls.Add(this.btnSaveSession);
             this.groupBox3.Controls.Add(this.btnDeleteSession);
-            this.groupBox3.Controls.Add(this.cmbSessions);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox3.Location = new System.Drawing.Point(8, 18);
@@ -662,10 +738,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnMiniTimer.SuperTip = superToolTip3;
+            toolTipItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem1.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnMiniTimer.SuperTip = superToolTip1;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
@@ -701,6 +777,17 @@
             this.pnMainLeft.Size = new System.Drawing.Size(690, 821);
             this.pnMainLeft.TabIndex = 34;
             // 
+            // cmbSessions
+            // 
+            this.cmbSessions.Location = new System.Drawing.Point(7, 30);
+            this.cmbSessions.Name = "cmbSessions";
+            this.cmbSessions.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSessions.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbSessions.Size = new System.Drawing.Size(125, 22);
+            this.cmbSessions.TabIndex = 20;
+            this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -724,8 +811,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakSeconds)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinStudySeconds.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinStudyMinutes.Properties)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.spinBreakSeconds.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinBreakMinutes.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
@@ -743,6 +834,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.pnHeaderTop.ResumeLayout(false);
             this.pnMainLeft.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSessions.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -761,7 +853,6 @@
         private System.Windows.Forms.NumericUpDown nudBreakSeconds;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cmbSessions;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
@@ -799,6 +890,11 @@
         private DevExpress.XtraEditors.CheckEdit chkStartWithWindows;
         private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
         private DevExpress.XtraEditors.SvgImageBox btnMiniTimer;
+        private DevExpress.XtraEditors.SpinEdit spinStudyMinutes;
+        private DevExpress.XtraEditors.SpinEdit spinStudySeconds;
+        private DevExpress.XtraEditors.SpinEdit spinBreakMinutes;
+        private DevExpress.XtraEditors.SpinEdit spinBreakSeconds;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbSessions;
     }
 }
 
