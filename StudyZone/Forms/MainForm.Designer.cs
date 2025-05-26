@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip14 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem14 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -83,11 +83,11 @@
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
-            this.panelLegend = new DevExpress.XtraEditors.PanelControl();
             this.lblNormal = new DevExpress.XtraEditors.LabelControl();
             this.lblUpcoming = new DevExpress.XtraEditors.LabelControl();
             this.lblOverdue = new DevExpress.XtraEditors.LabelControl();
             this.lblCompleted = new DevExpress.XtraEditors.LabelControl();
+            this.panelLegend = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -118,7 +118,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.pnHeaderTop.SuspendLayout();
             this.pnMainLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.panelLegend)).BeginInit();
             this.panelLegend.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -451,8 +450,8 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox4.Controls.Add(this.panelLegend);
             this.groupBox4.Controls.Add(this.gridTasks);
+            this.groupBox4.Controls.Add(this.panelLegend);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(20, 20);
@@ -469,7 +468,7 @@
             this.gridTasks.Location = new System.Drawing.Point(10, 33);
             this.gridTasks.MainView = this.gridViewTasks;
             this.gridTasks.Name = "gridTasks";
-            this.gridTasks.Size = new System.Drawing.Size(629, 363);
+            this.gridTasks.Size = new System.Drawing.Size(629, 301);
             this.gridTasks.TabIndex = 24;
             this.gridTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTasks});
@@ -801,10 +800,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem14.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem14.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip14.Items.Add(toolTipItem14);
-            this.btnMiniTimer.SuperTip = superToolTip14;
+            toolTipItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem1.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnMiniTimer.SuperTip = superToolTip1;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
@@ -840,63 +839,61 @@
             this.pnMainLeft.Size = new System.Drawing.Size(690, 821);
             this.pnMainLeft.TabIndex = 34;
             // 
-            // panelLegend
-            // 
-            this.panelLegend.Appearance.BackColor = System.Drawing.Color.SteelBlue;
-            this.panelLegend.Appearance.Options.UseBackColor = true;
-            this.panelLegend.Controls.Add(this.lblNormal);
-            this.panelLegend.Controls.Add(this.lblUpcoming);
-            this.panelLegend.Controls.Add(this.lblOverdue);
-            this.panelLegend.Controls.Add(this.lblCompleted);
-            this.panelLegend.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLegend.Location = new System.Drawing.Point(10, 331);
-            this.panelLegend.Name = "panelLegend";
-            this.panelLegend.Size = new System.Drawing.Size(629, 65);
-            this.panelLegend.TabIndex = 25;
-            // 
             // lblNormal
             // 
             this.lblNormal.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNormal.Appearance.Options.UseFont = true;
             this.lblNormal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblNormal.Location = new System.Drawing.Point(200, 31);
+            this.lblNormal.Location = new System.Drawing.Point(324, 32);
             this.lblNormal.Name = "lblNormal";
-            this.lblNormal.Size = new System.Drawing.Size(189, 20);
+            this.lblNormal.Size = new System.Drawing.Size(300, 20);
             this.lblNormal.TabIndex = 3;
-            this.lblNormal.Text = "labelControl4";
+            this.lblNormal.Text = "Normal Color";
             // 
             // lblUpcoming
             // 
             this.lblUpcoming.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpcoming.Appearance.Options.UseFont = true;
             this.lblUpcoming.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblUpcoming.Location = new System.Drawing.Point(5, 31);
+            this.lblUpcoming.Location = new System.Drawing.Point(2, 36);
             this.lblUpcoming.Name = "lblUpcoming";
-            this.lblUpcoming.Size = new System.Drawing.Size(189, 20);
+            this.lblUpcoming.Size = new System.Drawing.Size(316, 20);
             this.lblUpcoming.TabIndex = 2;
-            this.lblUpcoming.Text = "labelControl3";
+            this.lblUpcoming.Text = "Upcoming Color";
             // 
             // lblOverdue
             // 
             this.lblOverdue.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOverdue.Appearance.Options.UseFont = true;
             this.lblOverdue.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblOverdue.Location = new System.Drawing.Point(201, 5);
+            this.lblOverdue.Location = new System.Drawing.Point(325, 6);
             this.lblOverdue.Name = "lblOverdue";
-            this.lblOverdue.Size = new System.Drawing.Size(189, 20);
+            this.lblOverdue.Size = new System.Drawing.Size(300, 20);
             this.lblOverdue.TabIndex = 1;
-            this.lblOverdue.Text = "labelControl2";
+            this.lblOverdue.Text = "Overdue Color";
             // 
             // lblCompleted
             // 
             this.lblCompleted.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCompleted.Appearance.Options.UseFont = true;
             this.lblCompleted.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblCompleted.Location = new System.Drawing.Point(6, 5);
+            this.lblCompleted.Location = new System.Drawing.Point(3, 10);
             this.lblCompleted.Name = "lblCompleted";
-            this.lblCompleted.Size = new System.Drawing.Size(189, 20);
+            this.lblCompleted.Size = new System.Drawing.Size(316, 20);
             this.lblCompleted.TabIndex = 0;
-            this.lblCompleted.Text = "labelControl1";
+            this.lblCompleted.Text = "Complete Color";
+            // 
+            // panelLegend
+            // 
+            this.panelLegend.Controls.Add(this.lblNormal);
+            this.panelLegend.Controls.Add(this.lblCompleted);
+            this.panelLegend.Controls.Add(this.lblUpcoming);
+            this.panelLegend.Controls.Add(this.lblOverdue);
+            this.panelLegend.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelLegend.Location = new System.Drawing.Point(10, 334);
+            this.panelLegend.Name = "panelLegend";
+            this.panelLegend.Size = new System.Drawing.Size(629, 62);
+            this.panelLegend.TabIndex = 26;
             // 
             // MainForm
             // 
@@ -947,7 +944,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.pnHeaderTop.ResumeLayout(false);
             this.pnMainLeft.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.panelLegend)).EndInit();
             this.panelLegend.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1007,11 +1003,11 @@
         private DevExpress.XtraGrid.GridControl gridTasks;
         private DevExpress.XtraGrid.Views.Grid.GridView gridViewTasks;
         private DevExpress.XtraEditors.MemoEdit memoTaskDetails;
-        private DevExpress.XtraEditors.PanelControl panelLegend;
         private DevExpress.XtraEditors.LabelControl lblNormal;
         private DevExpress.XtraEditors.LabelControl lblUpcoming;
         private DevExpress.XtraEditors.LabelControl lblOverdue;
         private DevExpress.XtraEditors.LabelControl lblCompleted;
+        private System.Windows.Forms.Panel panelLegend;
     }
 }
 

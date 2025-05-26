@@ -753,7 +753,6 @@ namespace StudyZone
 
         private void SetupLegendPanel()
         {
-            panelLegend.BackColor = Color.SteelBlue; // خلفية بيضاء للنافذة الرئيسية
             // ✅ مكتملة
             var lblCompleted = new DevExpress.XtraEditors.LabelControl
             {
@@ -761,7 +760,7 @@ namespace StudyZone
                 ForeColor = Color.Black,
                 BackColor = Color.LightGreen,
                 AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
-                Size = new Size(200, 25),
+                Size = new Size(220, 25),
                 Padding = new Padding(5)
             };
 
@@ -772,7 +771,7 @@ namespace StudyZone
                 ForeColor = Color.DarkRed,
                 BackColor = Color.MistyRose,
                 AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
-                Size = new Size(200, 25),
+                Size = new Size(220, 25),
                 Padding = new Padding(5)
             };
 
@@ -783,7 +782,7 @@ namespace StudyZone
                 ForeColor = Color.Black,
                 BackColor = Color.LightYellow,
                 AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
-                Size = new Size(200, 25),
+                Size = new Size(220, 25),
                 Padding = new Padding(5)
             };
 
@@ -794,7 +793,7 @@ namespace StudyZone
                 ForeColor = Color.Black,
                 BackColor = Color.White,
                 AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
-                Size = new Size(200, 25),
+                Size = new Size(220, 25),
                 Padding = new Padding(5)
             };
 
