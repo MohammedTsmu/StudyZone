@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -468,7 +468,7 @@
             this.gridTasks.Location = new System.Drawing.Point(10, 33);
             this.gridTasks.MainView = this.gridViewTasks;
             this.gridTasks.Name = "gridTasks";
-            this.gridTasks.Size = new System.Drawing.Size(629, 301);
+            this.gridTasks.Size = new System.Drawing.Size(629, 283);
             this.gridTasks.TabIndex = 24;
             this.gridTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTasks});
@@ -800,10 +800,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem1.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnMiniTimer.SuperTip = superToolTip1;
+            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnMiniTimer.SuperTip = superToolTip3;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
@@ -890,9 +890,9 @@
             this.panelLegend.Controls.Add(this.lblUpcoming);
             this.panelLegend.Controls.Add(this.lblOverdue);
             this.panelLegend.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLegend.Location = new System.Drawing.Point(10, 334);
+            this.panelLegend.Location = new System.Drawing.Point(10, 316);
             this.panelLegend.Name = "panelLegend";
-            this.panelLegend.Size = new System.Drawing.Size(629, 62);
+            this.panelLegend.Size = new System.Drawing.Size(629, 80);
             this.panelLegend.TabIndex = 26;
             // 
             // MainForm

@@ -715,6 +715,7 @@ namespace StudyZone
                     // إخفاء الأعمدة غير المطلوبة
                     view.Columns["Description"].Visible = false;
                     view.Columns["IsCompleted"].Visible = false;
+                    view.Columns["SessionAssignment"].Visible = false;
 
                     // ✅ تلوين الصفوف حسب الحالة
                     view.RowStyle -= GridViewTasks_RowStyle; // لتفادي التكرار
@@ -760,7 +761,7 @@ namespace StudyZone
                 ForeColor = Color.Black,
                 BackColor = Color.LightGreen,
                 AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
-                Size = new Size(220, 25),
+                Size = new Size(230, 25),
                 Padding = new Padding(5)
             };
 
@@ -771,7 +772,7 @@ namespace StudyZone
                 ForeColor = Color.DarkRed,
                 BackColor = Color.MistyRose,
                 AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
-                Size = new Size(220, 25),
+                Size = new Size(230, 25),
                 Padding = new Padding(5)
             };
 
@@ -782,7 +783,7 @@ namespace StudyZone
                 ForeColor = Color.Black,
                 BackColor = Color.LightYellow,
                 AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
-                Size = new Size(220, 25),
+                Size = new Size(230, 25),
                 Padding = new Padding(5)
             };
 
@@ -793,7 +794,7 @@ namespace StudyZone
                 ForeColor = Color.Black,
                 BackColor = Color.White,
                 AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
-                Size = new Size(220, 25),
+                Size = new Size(230, 25),
                 Padding = new Padding(5)
             };
 
@@ -807,11 +808,9 @@ namespace StudyZone
 
 
             // ترتيبهم صفين وعمودين
-            //int padding = 5;
-            int padding = 0;
-            int columnWidth = 220;
-            //int rowHeight = 30;
-            int rowHeight = 20;
+            int padding = 5;
+            int columnWidth = 230;
+            int rowHeight = 30;
 
             for (int i = 0; i < panelLegend.Controls.Count; i++)
             {
