@@ -30,8 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -88,10 +92,10 @@
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
-            this.panelTaskReminder = new System.Windows.Forms.Panel();
+            this.pnlReminders = new System.Windows.Forms.Panel();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.memoReminderTasks = new DevExpress.XtraEditors.MemoEdit();
-            this.btnCloseReminderPanel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnHideReminders = new DevExpress.XtraEditors.SimpleButton();
+            this.listBoxReminders = new DevExpress.XtraEditors.ListBoxControl();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -123,8 +127,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.pnHeaderTop.SuspendLayout();
             this.pnMainLeft.SuspendLayout();
-            this.panelTaskReminder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoReminderTasks.Properties)).BeginInit();
+            this.pnlReminders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxReminders)).BeginInit();
             this.SuspendLayout();
             // 
             // Welcomelbl
@@ -780,7 +784,6 @@
             // groupBox8
             // 
             this.groupBox8.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.groupBox8.Controls.Add(this.panelTaskReminder);
             this.groupBox8.Controls.Add(this.memoTaskDetails);
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -823,6 +826,7 @@
             // pnLeft
             // 
             this.pnLeft.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pnLeft.Controls.Add(this.pnlReminders);
             this.pnLeft.Controls.Add(this.groupBox3);
             this.pnLeft.Controls.Add(this.groupBox1);
             this.pnLeft.Controls.Add(this.groupBox7);
@@ -864,10 +868,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem7.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem7.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip7.Items.Add(toolTipItem7);
-            this.btnMiniTimer.SuperTip = superToolTip7;
+            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnMiniTimer.SuperTip = superToolTip3;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
@@ -903,21 +907,25 @@
             this.pnMainLeft.Size = new System.Drawing.Size(690, 821);
             this.pnMainLeft.TabIndex = 34;
             // 
-            // panelTaskReminder
+            // pnlReminders
             // 
-            this.panelTaskReminder.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panelTaskReminder.Controls.Add(this.btnCloseReminderPanel);
-            this.panelTaskReminder.Controls.Add(this.memoReminderTasks);
-            this.panelTaskReminder.Controls.Add(this.labelControl1);
-            this.panelTaskReminder.Location = new System.Drawing.Point(13, 38);
-            this.panelTaskReminder.Name = "panelTaskReminder";
-            this.panelTaskReminder.Size = new System.Drawing.Size(621, 318);
-            this.panelTaskReminder.TabIndex = 1;
+            this.pnlReminders.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pnlReminders.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlReminders.Controls.Add(this.listBoxReminders);
+            this.pnlReminders.Controls.Add(this.btnHideReminders);
+            this.pnlReminders.Controls.Add(this.labelControl1);
+            this.pnlReminders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlReminders.Location = new System.Drawing.Point(0, 0);
+            this.pnlReminders.Name = "pnlReminders";
+            this.pnlReminders.Size = new System.Drawing.Size(690, 638);
+            this.pnlReminders.TabIndex = 1;
             // 
             // labelControl1
             // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("LBC", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.Gray;
             this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
@@ -926,36 +934,58 @@
             this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelControl1.Location = new System.Drawing.Point(0, 0);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(621, 37);
+            this.labelControl1.Size = new System.Drawing.Size(688, 60);
+            toolTipItem2.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem2.Appearance.Options.UseFont = true;
+            toolTipItem2.Text = "These are the tasks that need your attention – either overdue or due soon!";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.labelControl1.SuperTip = superToolTip2;
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "📌 Tasks Due Soon / Overdue:";
             // 
-            // memoReminderTasks
+            // btnHideReminders
             // 
-            this.memoReminderTasks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memoReminderTasks.Location = new System.Drawing.Point(0, 37);
-            this.memoReminderTasks.Name = "memoReminderTasks";
-            this.memoReminderTasks.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memoReminderTasks.Properties.Appearance.Options.UseFont = true;
-            this.memoReminderTasks.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.memoReminderTasks.Properties.AppearanceReadOnly.Options.UseFont = true;
-            this.memoReminderTasks.Properties.ReadOnly = true;
-            this.memoReminderTasks.Size = new System.Drawing.Size(621, 281);
-            this.memoReminderTasks.TabIndex = 1;
+            this.btnHideReminders.Appearance.Font = new System.Drawing.Font("LBC", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHideReminders.Appearance.Options.UseFont = true;
+            this.btnHideReminders.Appearance.Options.UseTextOptions = true;
+            this.btnHideReminders.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.btnHideReminders.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.btnHideReminders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHideReminders.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnHideReminders.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseReminderPanel.ImageOptions.Image")));
+            this.btnHideReminders.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnHideReminders.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnHideReminders.Location = new System.Drawing.Point(0, 576);
+            this.btnHideReminders.Name = "btnHideReminders";
+            this.btnHideReminders.Size = new System.Drawing.Size(688, 60);
+            toolTipItem1.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem1.Appearance.Options.UseFont = true;
+            toolTipItem1.Text = "Ready to focus? Click here to hide your tasks and get started.";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnHideReminders.SuperTip = superToolTip1;
+            this.btnHideReminders.TabIndex = 2;
+            this.btnHideReminders.Text = "Hide Tasks";
+            this.btnHideReminders.Click += new System.EventHandler(this.btnHideReminders_Click);
             // 
-            // btnCloseReminderPanel
+            // listBoxReminders
             // 
-            this.btnCloseReminderPanel.Appearance.Font = new System.Drawing.Font("LBC", 10.2F);
-            this.btnCloseReminderPanel.Appearance.Options.UseFont = true;
-            this.btnCloseReminderPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnCloseReminderPanel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseReminderPanel.ImageOptions.Image")));
-            this.btnCloseReminderPanel.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnCloseReminderPanel.Location = new System.Drawing.Point(0, 289);
-            this.btnCloseReminderPanel.Name = "btnCloseReminderPanel";
-            this.btnCloseReminderPanel.Size = new System.Drawing.Size(621, 29);
-            this.btnCloseReminderPanel.TabIndex = 2;
-            this.btnCloseReminderPanel.Text = "Hide Tasks";
-            this.btnCloseReminderPanel.Click += new System.EventHandler(this.btnCloseReminderPanel_Click);
+            this.listBoxReminders.Appearance.BorderColor = System.Drawing.Color.Silver;
+            this.listBoxReminders.Appearance.Font = new System.Drawing.Font("LBC", 10.2F);
+            this.listBoxReminders.Appearance.Options.UseBorderColor = true;
+            this.listBoxReminders.Appearance.Options.UseFont = true;
+            this.listBoxReminders.AppearanceSelected.Font = new System.Drawing.Font("LBC", 10.2F);
+            this.listBoxReminders.AppearanceSelected.Options.UseFont = true;
+            this.listBoxReminders.AppearanceSelected.Options.UseTextOptions = true;
+            this.listBoxReminders.AppearanceSelected.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.listBoxReminders.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.listBoxReminders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listBoxReminders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxReminders.ItemHeight = 60;
+            this.listBoxReminders.ItemPadding = new System.Windows.Forms.Padding(5);
+            this.listBoxReminders.Location = new System.Drawing.Point(0, 60);
+            this.listBoxReminders.Name = "listBoxReminders";
+            this.listBoxReminders.Size = new System.Drawing.Size(688, 516);
+            this.listBoxReminders.TabIndex = 3;
             // 
             // MainForm
             // 
@@ -1007,8 +1037,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.pnHeaderTop.ResumeLayout(false);
             this.pnMainLeft.ResumeLayout(false);
-            this.panelTaskReminder.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoReminderTasks.Properties)).EndInit();
+            this.pnlReminders.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxReminders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1072,10 +1102,10 @@
         private DevExpress.XtraEditors.LabelControl lblOverdue;
         private DevExpress.XtraEditors.LabelControl lblCompleted;
         private System.Windows.Forms.Panel panelLegend;
-        private System.Windows.Forms.Panel panelTaskReminder;
+        private System.Windows.Forms.Panel pnlReminders;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.MemoEdit memoReminderTasks;
-        private DevExpress.XtraEditors.SimpleButton btnCloseReminderPanel;
+        private DevExpress.XtraEditors.SimpleButton btnHideReminders;
+        private DevExpress.XtraEditors.ListBoxControl listBoxReminders;
     }
 }
 

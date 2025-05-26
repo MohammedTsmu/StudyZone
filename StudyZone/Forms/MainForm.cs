@@ -940,42 +940,100 @@ namespace StudyZone
         //    }
         //}
 
+        //private void ShowTaskRemindersInPanel()
+        //{
+        //    DateTime today = DateTime.Today;
+        //    List<TaskItem> dueTasks = new List<TaskItem>();
+
+        //    foreach (var task in tasks)
+        //    {
+        //        if (task.IsCompleted)
+        //            continue;
+
+        //        if (task.DueDate.HasValue)
+        //        {
+        //            TimeSpan timeRemaining = task.DueDate.Value.Date - today;
+        //            if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 2)
+        //            {
+        //                dueTasks.Add(task);
+        //            }
+        //        }
+        //    }
+
+        //    if (dueTasks.Count == 0)
+        //    {
+        //        panelReminders.Visible = false;
+        //        return;
+        //    }
+
+        //    // عرض المهام في MemoEdit
+        //    StringBuilder reminderText = new StringBuilder();
+        //    foreach (var task in dueTasks)
+        //    {
+        //        reminderText.AppendLine($"{(task.DueDate < today ? "🔥" : "⏳")} {task.Title} - Due: {task.DueDate?.ToShortDateString()}");
+        //    }
+
+        //    memoReminderTasks.Text = reminderText.ToString();
+        //    panelReminders.Visible = true;
+        //}
+        //private void ShowTaskRemindersInPanel()
+        //{
+        //    //if (listBoxTaskReminders == null) InitializeTaskReminderPanel();
+
+        //    listBoxTaskReminders.Items.Clear();
+        //    DateTime today = DateTime.Today;
+
+        //    foreach (var task in tasks)
+        //    {
+        //        if (task.IsCompleted || !task.DueDate.HasValue) continue;
+
+        //        var daysRemaining = (task.DueDate.Value.Date - today).TotalDays;
+        //        string text = $"{task.Title} - Due: {task.DueDate.Value:MM/dd/yyyy}";
+        //        listBoxTaskReminders.Items.Add(text);
+
+        //        int index = listBoxTaskReminders.Items.Count - 1;
+        //        //if (task.DueDate.Value.Date < today)
+        //        //    listBoxTaskReminders.Appearance.Assign(new DevExpress.XtraEditors.Drawing.ItemAppearance() { BackColor = Color.MistyRose }, index);
+        //        //else if (daysRemaining <= 2)
+        //        //    listBoxTaskReminders.Appearance.Assign(new DevExpress.XtraEditors.Drawing.ItemAppearance() { BackColor = Color.LightYellow }, index);
+        //        //else
+        //        //    listBoxTaskReminders.Appearance.Assign(new DevExpress.XtraEditors.Drawing.ItemAppearance() { BackColor = Color.WhiteSmoke }, index);
+        //    }
+
+        //    panelReminders.Visible = listBoxTaskReminders.Items.Count > 0;
+        //}
+
         private void ShowTaskRemindersInPanel()
         {
+            listBoxReminders.Items.Clear();
+
             DateTime today = DateTime.Today;
-            List<TaskItem> dueTasks = new List<TaskItem>();
+            var dueTasks = tasks.FindAll(task =>
+                !task.IsCompleted &&
+                task.DueDate.HasValue &&
+                (
+                    task.DueDate.Value.Date < today ||     // 🔴 متأخرة
+                    task.DueDate.Value.Date == today       // 🟡 اليوم فقط
+                )
+            );
 
-            foreach (var task in tasks)
-            {
-                if (task.IsCompleted)
-                    continue;
-
-                if (task.DueDate.HasValue)
-                {
-                    TimeSpan timeRemaining = task.DueDate.Value.Date - today;
-                    if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 2)
-                    {
-                        dueTasks.Add(task);
-                    }
-                }
-            }
-
-            if (dueTasks.Count == 0)
-            {
-                panelTaskReminder.Visible = false;
-                return;
-            }
-
-            // عرض المهام في MemoEdit
-            StringBuilder reminderText = new StringBuilder();
             foreach (var task in dueTasks)
             {
-                reminderText.AppendLine($"{(task.DueDate < today ? "🔥" : "⏳")} {task.Title} - Due: {task.DueDate?.ToShortDateString()}");
+                string emoji = task.DueDate.Value.Date < today ? "🔥" : "📅";
+                string line = $"{emoji} {task.Title} - Due: {task.DueDate.Value.ToShortDateString()}";
+                listBoxReminders.Items.Add(line);
             }
 
-            memoReminderTasks.Text = reminderText.ToString();
-            panelTaskReminder.Visible = true;
+            if (dueTasks.Count > 0)
+            {
+                pnlReminders.Visible = true;
+            }
+            else
+            {
+                pnlReminders.Visible = false;
+            }
         }
+
 
         private void TaskReminderPanelTimer_Tick(object sender, EventArgs e)
         {
@@ -1411,9 +1469,9 @@ namespace StudyZone
             about.Show();
         }
 
-        private void btnCloseReminderPanel_Click(object sender, EventArgs e)
+        private void btnHideReminders_Click(object sender, EventArgs e)
         {
-            panelTaskReminder.Visible = false;
+            pnlReminders.Visible = false;
         }
     }
 }
