@@ -69,17 +69,21 @@
             // 
             // panelSummary
             // 
+            this.panelSummary.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.panelSummary.AutoSize = true;
             this.panelSummary.Controls.Add(this.lblSummaryCount);
             this.panelSummary.Controls.Add(this.lblSummaryBreak);
             this.panelSummary.Controls.Add(this.lblSummaryStudy);
-            this.panelSummary.Location = new System.Drawing.Point(33, 13);
+            this.panelSummary.Location = new System.Drawing.Point(13, 20);
             this.panelSummary.Name = "panelSummary";
-            this.panelSummary.Size = new System.Drawing.Size(594, 72);
+            this.panelSummary.Size = new System.Drawing.Size(594, 73);
             this.panelSummary.TabIndex = 5;
             // 
             // lblSummaryCount
             // 
+            this.lblSummaryCount.Appearance.BackColor = System.Drawing.Color.Gray;
             this.lblSummaryCount.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.lblSummaryCount.Appearance.Options.UseBackColor = true;
             this.lblSummaryCount.Appearance.Options.UseFont = true;
             this.lblSummaryCount.Appearance.Options.UseTextOptions = true;
             this.lblSummaryCount.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -89,13 +93,15 @@
             this.lblSummaryCount.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblSummaryCount.Location = new System.Drawing.Point(390, 2);
             this.lblSummaryCount.Name = "lblSummaryCount";
-            this.lblSummaryCount.Size = new System.Drawing.Size(194, 68);
+            this.lblSummaryCount.Size = new System.Drawing.Size(194, 69);
             this.lblSummaryCount.TabIndex = 2;
             this.lblSummaryCount.Text = "labelControl3";
             // 
             // lblSummaryBreak
             // 
+            this.lblSummaryBreak.Appearance.BackColor = System.Drawing.Color.Silver;
             this.lblSummaryBreak.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.lblSummaryBreak.Appearance.Options.UseBackColor = true;
             this.lblSummaryBreak.Appearance.Options.UseFont = true;
             this.lblSummaryBreak.Appearance.Options.UseTextOptions = true;
             this.lblSummaryBreak.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -105,13 +111,15 @@
             this.lblSummaryBreak.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblSummaryBreak.Location = new System.Drawing.Point(196, 2);
             this.lblSummaryBreak.Name = "lblSummaryBreak";
-            this.lblSummaryBreak.Size = new System.Drawing.Size(194, 68);
+            this.lblSummaryBreak.Size = new System.Drawing.Size(194, 69);
             this.lblSummaryBreak.TabIndex = 1;
             this.lblSummaryBreak.Text = "labelControl2";
             // 
             // lblSummaryStudy
             // 
+            this.lblSummaryStudy.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.lblSummaryStudy.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.lblSummaryStudy.Appearance.Options.UseBackColor = true;
             this.lblSummaryStudy.Appearance.Options.UseFont = true;
             this.lblSummaryStudy.Appearance.Options.UseTextOptions = true;
             this.lblSummaryStudy.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
@@ -121,13 +129,14 @@
             this.lblSummaryStudy.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblSummaryStudy.Location = new System.Drawing.Point(2, 2);
             this.lblSummaryStudy.Name = "lblSummaryStudy";
-            this.lblSummaryStudy.Size = new System.Drawing.Size(194, 68);
+            this.lblSummaryStudy.Size = new System.Drawing.Size(194, 69);
             this.lblSummaryStudy.TabIndex = 0;
             this.lblSummaryStudy.Text = "labelControl1";
             // 
             // comboFilter
             // 
-            this.comboFilter.Location = new System.Drawing.Point(633, 17);
+            this.comboFilter.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.comboFilter.Location = new System.Drawing.Point(653, 19);
             this.comboFilter.Name = "comboFilter";
             this.comboFilter.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
             this.comboFilter.Properties.Appearance.Options.UseFont = true;
@@ -144,12 +153,12 @@
             // 
             // btnApplyFilter
             // 
-            this.btnApplyFilter.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnApplyFilter.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnApplyFilter.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnApplyFilter.Appearance.Options.UseFont = true;
             this.btnApplyFilter.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnApplyFilter.ImageOptions.SvgImage")));
             this.btnApplyFilter.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnApplyFilter.Location = new System.Drawing.Point(633, 55);
+            this.btnApplyFilter.Location = new System.Drawing.Point(653, 57);
             this.btnApplyFilter.Name = "btnApplyFilter";
             this.btnApplyFilter.Size = new System.Drawing.Size(190, 38);
             this.btnApplyFilter.TabIndex = 1;
@@ -158,12 +167,12 @@
             // 
             // btnDeleteLog
             // 
-            this.btnDeleteLog.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnDeleteLog.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnDeleteLog.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.btnDeleteLog.Appearance.Options.UseFont = true;
             this.btnDeleteLog.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteLog.ImageOptions.SvgImage")));
             this.btnDeleteLog.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeleteLog.Location = new System.Drawing.Point(829, 55);
+            this.btnDeleteLog.Location = new System.Drawing.Point(849, 57);
             this.btnDeleteLog.Name = "btnDeleteLog";
             this.btnDeleteLog.Size = new System.Drawing.Size(190, 38);
             this.btnDeleteLog.TabIndex = 2;
@@ -252,6 +261,10 @@
             this.lblTotalStudyTime.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalStudyTime.Appearance.Options.UseBackColor = true;
             this.lblTotalStudyTime.Appearance.Options.UseFont = true;
+            this.lblTotalStudyTime.Appearance.Options.UseTextOptions = true;
+            this.lblTotalStudyTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblTotalStudyTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblTotalStudyTime.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lblTotalStudyTime.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblTotalStudyTime.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalStudyTime.Location = new System.Drawing.Point(2, 28);
@@ -266,6 +279,10 @@
             this.lblTotalBreakTime.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalBreakTime.Appearance.Options.UseBackColor = true;
             this.lblTotalBreakTime.Appearance.Options.UseFont = true;
+            this.lblTotalBreakTime.Appearance.Options.UseTextOptions = true;
+            this.lblTotalBreakTime.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblTotalBreakTime.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblTotalBreakTime.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lblTotalBreakTime.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblTotalBreakTime.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalBreakTime.Location = new System.Drawing.Point(250, 28);
@@ -280,6 +297,10 @@
             this.lblTotalSessions.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalSessions.Appearance.Options.UseBackColor = true;
             this.lblTotalSessions.Appearance.Options.UseFont = true;
+            this.lblTotalSessions.Appearance.Options.UseTextOptions = true;
+            this.lblTotalSessions.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblTotalSessions.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.lblTotalSessions.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
             this.lblTotalSessions.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblTotalSessions.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTotalSessions.Location = new System.Drawing.Point(518, 28);
@@ -322,6 +343,7 @@
             this.Text = "Session Logs and Statistics";
             this.TopMost = true;
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelSummary)).EndInit();
             this.panelSummary.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.comboFilter.Properties)).EndInit();
