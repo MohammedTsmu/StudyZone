@@ -56,6 +56,7 @@ namespace StudyZone
         {
 
             InitializeComponent();
+            SetupLegendPanel();
             LoadSessions();
             LoadSessionLogsFromFile();
             LoadTasksFromFile();
@@ -650,19 +651,53 @@ namespace StudyZone
             taskManagerForm.ShowDialog();
         }
 
+        //private void DisplayTasksForSelectedSession()
+        //{
+        //    memoTaskDetails.Text = string.Empty; // Clear task details
+        //    //richTaskDetails.Text = string.Empty; // Clear task details
+
+        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
+        //    {
+        //        var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
+
+        //        gridTasks.DataSource = null;
+        //        gridTasks.DataSource = tasksForSession;
+
+        //        //اعدادات الاعمدة
+        //        var view = gridTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+        //        if (view != null)
+        //        {
+        //            view.Columns["Title"].Caption = "Title";
+        //            view.Columns["DueDate"].Caption = "Due Date";
+        //            view.Columns["SessionAssignment"].Caption = "Session";
+        //            view.Columns["IsCompleted"].Caption = "Completed";
+
+        //            view.Columns["DueDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+        //            view.Columns["DueDate"].DisplayFormat.FormatString = "d";
+
+        //            view.OptionsView.ShowGroupPanel = false;
+        //            view.OptionsBehavior.Editable = false;
+
+        //            //// اخفاء الاعمدة التي لا نحتاجها
+        //            view.Columns["Description"].Visible = false;
+        //            view.Columns["IsCompleted"].Visible = false; // Show the completed status column
+        //            view.Columns["DueDate"].Visible = false; // Show the due date column
+        //        }
+
+        //    }
+        //}
+
         private void DisplayTasksForSelectedSession()
         {
-            memoTaskDetails.Text = string.Empty; // Clear task details
-            //richTaskDetails.Text = string.Empty; // Clear task details
+            memoTaskDetails.Text = string.Empty;
 
             if (cmbSessions.SelectedItem is StudySession selectedSession)
             {
-                var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
+                var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName);
 
                 gridTasks.DataSource = null;
                 gridTasks.DataSource = tasksForSession;
 
-                //اعدادات الاعمدة
                 var view = gridTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
                 if (view != null)
                 {
@@ -677,14 +712,124 @@ namespace StudyZone
                     view.OptionsView.ShowGroupPanel = false;
                     view.OptionsBehavior.Editable = false;
 
-                    //// اخفاء الاعمدة التي لا نحتاجها
+                    // إخفاء الأعمدة غير المطلوبة
                     view.Columns["Description"].Visible = false;
-                    view.Columns["IsCompleted"].Visible = false; // Show the completed status column
-                    view.Columns["DueDate"].Visible = false; // Show the due date column
-                }
+                    view.Columns["IsCompleted"].Visible = false;
 
+                    // ✅ تلوين الصفوف حسب الحالة
+                    view.RowStyle -= GridViewTasks_RowStyle; // لتفادي التكرار
+                    view.RowStyle += GridViewTasks_RowStyle;
+                }
             }
         }
+
+        // 🖌️ هذا الحدث يحدد لون كل صف حسب حالة المهمة
+        private void GridViewTasks_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view == null || e.RowHandle < 0) return;
+
+            var task = view.GetRow(e.RowHandle) as TaskItem;
+            if (task == null) return;
+
+            if (task.IsCompleted)
+            {
+                e.Appearance.BackColor = Color.LightGreen;
+            }
+            else if (task.DueDate.HasValue && task.DueDate.Value.Date < DateTime.Today)
+            {
+                e.Appearance.BackColor = Color.MistyRose;
+                e.Appearance.ForeColor = Color.DarkRed;
+            }
+            else if (task.DueDate.HasValue && (task.DueDate.Value.Date - DateTime.Today).TotalDays <= 2)
+            {
+                e.Appearance.BackColor = Color.LightYellow;
+            }
+            else
+            {
+                e.Appearance.BackColor = Color.White;
+            }
+        }
+
+        private void SetupLegendPanel()
+        {
+            panelLegend.BackColor = Color.SteelBlue; // خلفية بيضاء للنافذة الرئيسية
+            // ✅ مكتملة
+            var lblCompleted = new DevExpress.XtraEditors.LabelControl
+            {
+                Text = "✅  Completed: Light Green",
+                ForeColor = Color.Black,
+                BackColor = Color.LightGreen,
+                AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
+                Size = new Size(200, 25),
+                Padding = new Padding(5)
+            };
+
+            // 🔥 متأخرة
+            var lblOverdue = new DevExpress.XtraEditors.LabelControl
+            {
+                Text = "🔥  Overdue: Misty Rose",
+                ForeColor = Color.DarkRed,
+                BackColor = Color.MistyRose,
+                AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
+                Size = new Size(200, 25),
+                Padding = new Padding(5)
+            };
+
+            // ⏳ قريبة
+            var lblUpcoming = new DevExpress.XtraEditors.LabelControl
+            {
+                Text = "⏳  Due Soon: Light Yellow",
+                ForeColor = Color.Black,
+                BackColor = Color.LightYellow,
+                AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
+                Size = new Size(200, 25),
+                Padding = new Padding(5)
+            };
+
+            // 📦 عادية
+            var lblNormal = new DevExpress.XtraEditors.LabelControl
+            {
+                Text = "📦  Normal: White",
+                ForeColor = Color.Black,
+                BackColor = Color.White,
+                AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
+                Size = new Size(200, 25),
+                Padding = new Padding(5)
+            };
+
+            //إضافة العناصر للوحة//
+            panelLegend.Controls.Clear();
+            panelLegend.Controls.Add(lblCompleted);
+            panelLegend.Controls.Add(lblOverdue);
+            panelLegend.Controls.Add(lblUpcoming);
+            panelLegend.Controls.Add(lblNormal);
+
+
+
+            // ترتيبهم صفين وعمودين
+            //int padding = 5;
+            int padding = 0;
+            int columnWidth = 220;
+            //int rowHeight = 30;
+            int rowHeight = 20;
+
+            for (int i = 0; i < panelLegend.Controls.Count; i++)
+            {
+                int row = i / 2; // 0 أو 1
+                int col = i % 2; // 0 أو 1
+
+                panelLegend.Controls[i].Location = new Point(
+                    col * (columnWidth + padding) + padding,
+                    row * (rowHeight + padding) + padding
+                );
+            }
+
+
+        }
+
+
+
 
         private string GetTaskStatus(TaskItem task)
         {
