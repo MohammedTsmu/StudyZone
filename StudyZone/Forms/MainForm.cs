@@ -31,6 +31,7 @@ namespace StudyZone
         private ContextMenuStrip trayMenu;
         public event Action<TimeSpan> TimerTick;
         private bool isPaused = false;
+        private Timer taskReminderPanelTimer;
 
         //int totalSeconds = 0;
         //bool isStudyTime = true;
@@ -63,7 +64,14 @@ namespace StudyZone
             LoadRemindersFromFile();
             LoadSettings();
             InitializeTrayMenu();
-            CheckForDueTasks();
+            //CheckForDueTasks();
+
+            //تايمر للتاسكات المتاخرة
+            taskReminderPanelTimer = new Timer();
+            taskReminderPanelTimer.Interval = 2500; // 2.5 ثانية
+            taskReminderPanelTimer.Tick += TaskReminderPanelTimer_Tick;
+            taskReminderPanelTimer.Start();
+
 
             // Initialize notification timer
             notificationTimer = new Timer();
@@ -900,7 +908,39 @@ namespace StudyZone
 
 
 
-        private void CheckForDueTasks()
+        //private void CheckForDueTasks()
+        //{
+        //    DateTime today = DateTime.Today;
+        //    List<TaskItem> dueTasks = new List<TaskItem>();
+
+        //    foreach (var task in tasks)
+        //    {
+        //        if (task.IsCompleted)
+        //            continue;
+
+        //        if (task.DueDate.HasValue)
+        //        {
+        //            TimeSpan timeRemaining = task.DueDate.Value.Date - today;
+        //            if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 1)
+        //            {
+        //                dueTasks.Add(task);
+        //            }
+        //        }
+        //    }
+
+        //    if (dueTasks.Count > 0)
+        //    {
+        //        StringBuilder message = new StringBuilder();
+        //        message.AppendLine("You have tasks that are due soon or overdue:");
+        //        foreach (var task in dueTasks)
+        //        {
+        //            message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
+        //        }
+        //        MessageBox.Show(message.ToString(), "Task Reminders", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //}
+
+        private void ShowTaskRemindersInPanel()
         {
             DateTime today = DateTime.Today;
             List<TaskItem> dueTasks = new List<TaskItem>();
@@ -913,24 +953,37 @@ namespace StudyZone
                 if (task.DueDate.HasValue)
                 {
                     TimeSpan timeRemaining = task.DueDate.Value.Date - today;
-                    if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 1)
+                    if (timeRemaining.TotalDays < 0 || timeRemaining.TotalDays <= 2)
                     {
                         dueTasks.Add(task);
                     }
                 }
             }
 
-            if (dueTasks.Count > 0)
+            if (dueTasks.Count == 0)
             {
-                StringBuilder message = new StringBuilder();
-                message.AppendLine("You have tasks that are due soon or overdue:");
-                foreach (var task in dueTasks)
-                {
-                    message.AppendLine($"- {task.Title} (Due: {task.DueDate.Value.ToShortDateString()})");
-                }
-                MessageBox.Show(message.ToString(), "Task Reminders", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                panelTaskReminder.Visible = false;
+                return;
             }
+
+            // عرض المهام في MemoEdit
+            StringBuilder reminderText = new StringBuilder();
+            foreach (var task in dueTasks)
+            {
+                reminderText.AppendLine($"{(task.DueDate < today ? "🔥" : "⏳")} {task.Title} - Due: {task.DueDate?.ToShortDateString()}");
+            }
+
+            memoReminderTasks.Text = reminderText.ToString();
+            panelTaskReminder.Visible = true;
         }
+
+        private void TaskReminderPanelTimer_Tick(object sender, EventArgs e)
+        {
+            taskReminderPanelTimer.Stop();
+            ShowTaskRemindersInPanel(); // ✅ عرض المهام داخل البانل بعد التأخير
+        }
+
+
 
         private void NotificationTimer_Tick(object sender, EventArgs e)
         {
@@ -1358,6 +1411,9 @@ namespace StudyZone
             about.Show();
         }
 
-        
+        private void btnCloseReminderPanel_Click(object sender, EventArgs e)
+        {
+            panelTaskReminder.Visible = false;
+        }
     }
 }
