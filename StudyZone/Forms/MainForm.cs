@@ -652,26 +652,12 @@ namespace StudyZone
 
         private void DisplayTasksForSelectedSession()
         {
-            //txtTaskDetails.Text = string.Empty; // Clear task details
             memoTaskDetails.Text = string.Empty; // Clear task details
 
             if (cmbSessions.SelectedItem is StudySession selectedSession)
             {
                 var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
 
-                //listViewTasks.Items.Clear();
-                //foreach (var task in tasksForSession)
-                //{
-                //    ListViewItem item = new ListViewItem(task.Title);
-                //    item.SubItems.Add(task.DueDate.HasValue ? task.DueDate.Value.ToShortDateString() : "N/A");
-                //    item.SubItems.Add(GetTaskStatus(task));
-
-                //    // Apply formatting based on due date
-                //    ApplyTaskFormatting(item, task);
-
-                //    item.Tag = task; // Store the TaskItem in the Tag property
-                //    listViewTasks.Items.Add(item);
-                //}
                 gridTasks.DataSource = null;
                 gridTasks.DataSource = tasksForSession;
 
@@ -691,8 +677,9 @@ namespace StudyZone
                     view.OptionsBehavior.Editable = false;
 
                     //// اخفاء الاعمدة التي لا نحتاجها
-                    //view.Columns["Description"].Visible = false;
-
+                    view.Columns["Description"].Visible = false;
+                    view.Columns["IsCompleted"].Visible = false; // Show the completed status column
+                    view.Columns["DueDate"].Visible = false; // Show the due date column
                 }
 
             }
@@ -730,62 +717,7 @@ namespace StudyZone
             }
         }
 
-        //private void listViewTasks_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    if (listViewTasks.SelectedItems.Count > 0)
-        //    {
-        //        ListViewItem selectedItem = listViewTasks.SelectedItems[0];
-        //        if (selectedItem.Tag is TaskItem selectedTask)
-        //        {
-        //            // Display task details
-        //            StringBuilder taskDetails = new StringBuilder();
-        //            taskDetails.AppendLine($"Title: {selectedTask.Title}");
-        //            taskDetails.AppendLine($"Description: {selectedTask.Description}");
-        //            if (selectedTask.DueDate.HasValue)
-        //            {
-        //                taskDetails.AppendLine($"Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
-        //            }
-        //            else
-        //            {
-        //                taskDetails.AppendLine("Due Date: N/A");
-        //            }
-        //            taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
-        //            txtTaskDetails.Text = taskDetails.ToString();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        txtTaskDetails.Text = string.Empty;
-        //    }
-        //}
-        //private void gridViewTasks_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        //{
-        //    var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
-        //    if (view != null && view.FocusedRowHandle >= 0)
-        //    {
-        //        var selectedTask = view.GetRow(view.FocusedRowHandle) as TaskItem;
-        //        if (selectedTask != null)
-        //        {
-        //            StringBuilder taskDetails = new StringBuilder();
-        //            taskDetails.AppendLine($"Title: {selectedTask.Title}");
-        //            taskDetails.AppendLine($"Description: {selectedTask.Description}");
-        //            if (selectedTask.DueDate.HasValue)
-        //                taskDetails.AppendLine($"Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
-        //            else
-        //                taskDetails.AppendLine("Due Date: N/A");
-        //            taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
-
-        //            //txtTaskDetails.Text = taskDetails.ToString();
-        //            memoTaskDetails.Text = taskDetails.ToString();
-
-        //        }
-        //    }
-        //    else
-        //    {
-        //        //txtTaskDetails.Text = string.Empty;
-        //        memoTaskDetails.Text = string.Empty;
-        //    }
-        //}
+        
         private void gridViewTasks_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
