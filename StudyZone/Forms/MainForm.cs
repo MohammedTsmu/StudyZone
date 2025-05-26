@@ -197,6 +197,11 @@ namespace StudyZone
                 // Start notification timer
                 notificationTimer.Start();
 
+                // 📴 أوقّف التذكيرات الزمنية
+                SuspendRemindersDuringSession();
+
+
+
                 // Disable session selection and other componenets while the timer is running
                 cmbSessions.Enabled = false;
                 btnSaveSession.Enabled = false;
@@ -209,6 +214,7 @@ namespace StudyZone
 
             UpdateButtonStates();
         }
+
 
         public void PauseSession()
         {
@@ -276,6 +282,8 @@ namespace StudyZone
                 spinBreakMinutes.Enabled = true;
                 spinBreakSeconds.Enabled = true;
             }
+            // 🔔 ارجِّع التذكيرات تشتغل
+            ResumeRemindersAfterSession();
 
             UpdateButtonStates();
         }
@@ -1085,8 +1093,10 @@ namespace StudyZone
 
         private void CheckForReminders()
         {
-            DateTime now = DateTime.Now;
+            if (IsSessionRunning() || IsSessionPaused())
+                return; // لو الجلسة شغالة أو موقوفة مؤقتاً ⇠ لا تزعجني
 
+            DateTime now = DateTime.Now;
 
             foreach (var reminder in reminders)
             {
@@ -1369,5 +1379,18 @@ namespace StudyZone
         {
             pnlReminders.Visible = false;
         }
+
+        private void SuspendRemindersDuringSession()
+        {
+            if (reminderTimer != null && reminderTimer.Enabled)
+                reminderTimer.Stop();
+        }
+
+        private void ResumeRemindersAfterSession()
+        {
+            if (reminderTimer != null && !reminderTimer.Enabled)
+                reminderTimer.Start();
+        }
+
     }
 }
