@@ -401,7 +401,7 @@ namespace StudyZone
             gridControlLogs.DataSource = filteredLogs;
 
             UpdateStatistics(filteredLogs);
-            UpdateSummaryBar(filteredLogs);
+            //UpdateSummaryBar(filteredLogs);
         }
 
         private void UpdateStatistics(List<SessionLog> logs)
@@ -415,26 +415,30 @@ namespace StudyZone
                 totalBreakTime += log.BreakDuration;
             }
 
-            lblTotalStudyTime.Text = $"Total Study Time: {totalStudyTime}";
-            lblTotalBreakTime.Text = $"Total Break Time: {totalBreakTime}";
-            lblTotalSessions.Text = $"Total Sessions: {logs.Count}";
+            //lblTotalStudyTime.Text = $"Total Study Time: {totalStudyTime}";
+            //lblTotalBreakTime.Text = $"Total Break Time: {totalBreakTime}";
+            //lblTotalSessions.Text = $"Total Sessions: {logs.Count}";
+            lblTotalStudyTime.Text = $"🕓 Total Study Time: {totalStudyTime}";
+            //lblTotalBreakTime.Text = $"☕    Total Break Time: {totalBreakTime}";
+            lblTotalBreakTime.Text = $"🍵 Total Break Time: {totalBreakTime}";
+            lblTotalSessions.Text = $"📦 Total Sessions: {logs.Count}";
         }
 
-        private void UpdateSummaryBar(List<SessionLog> logs)
-        {
-            TimeSpan totalStudy = TimeSpan.Zero;
-            TimeSpan totalBreak = TimeSpan.Zero;
+        //private void UpdateSummaryBar(List<SessionLog> logs)
+        //{
+        //    TimeSpan totalStudy = TimeSpan.Zero;
+        //    TimeSpan totalBreak = TimeSpan.Zero;
 
-            foreach (var log in logs)
-            {
-                totalStudy += log.StudyDuration;
-                totalBreak += log.BreakDuration;
-            }
+        //    foreach (var log in logs)
+        //    {
+        //        totalStudy += log.StudyDuration;
+        //        totalBreak += log.BreakDuration;
+        //    }
 
-            lblSummaryStudy.Text = $"🕓 Study: {totalStudy}";
-            lblSummaryBreak.Text = $"☕ Break: {totalBreak}";
-            lblSummaryCount.Text = $"📦 Sessions: {logs.Count}";
-        }
+        //    lblSummaryStudy.Text = $"🕓 Study: {totalStudy}";
+        //    lblSummaryBreak.Text = $"☕ Break: {totalBreak}";
+        //    lblSummaryCount.Text = $"📦 Sessions: {logs.Count}";
+        //}
 
         private void btnApplyFilter_Click(object sender, EventArgs e)
         {

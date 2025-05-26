@@ -1081,6 +1081,7 @@ namespace StudyZone
         {
             DateTime now = DateTime.Now;
 
+
             foreach (var reminder in reminders)
             {
                 if (!reminder.IsEnabled)
