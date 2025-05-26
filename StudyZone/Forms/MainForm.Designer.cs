@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -58,6 +58,11 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.gridTasks = new DevExpress.XtraGrid.GridControl();
             this.gridViewTasks = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.panelLegend = new System.Windows.Forms.Panel();
+            this.lblNormal = new DevExpress.XtraEditors.LabelControl();
+            this.lblCompleted = new DevExpress.XtraEditors.LabelControl();
+            this.lblUpcoming = new DevExpress.XtraEditors.LabelControl();
+            this.lblOverdue = new DevExpress.XtraEditors.LabelControl();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnStop = new DevExpress.XtraEditors.SimpleButton();
             this.btnPause = new DevExpress.XtraEditors.SimpleButton();
@@ -83,11 +88,6 @@
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
-            this.lblNormal = new DevExpress.XtraEditors.LabelControl();
-            this.lblUpcoming = new DevExpress.XtraEditors.LabelControl();
-            this.lblOverdue = new DevExpress.XtraEditors.LabelControl();
-            this.lblCompleted = new DevExpress.XtraEditors.LabelControl();
-            this.panelLegend = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -103,6 +103,7 @@
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridTasks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTasks)).BeginInit();
+            this.panelLegend.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -118,7 +119,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.pnHeaderTop.SuspendLayout();
             this.pnMainLeft.SuspendLayout();
-            this.panelLegend.SuspendLayout();
             this.SuspendLayout();
             // 
             // Welcomelbl
@@ -468,7 +468,7 @@
             this.gridTasks.Location = new System.Drawing.Point(10, 33);
             this.gridTasks.MainView = this.gridViewTasks;
             this.gridTasks.Name = "gridTasks";
-            this.gridTasks.Size = new System.Drawing.Size(629, 283);
+            this.gridTasks.Size = new System.Drawing.Size(629, 240);
             this.gridTasks.TabIndex = 24;
             this.gridTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridViewTasks});
@@ -535,7 +535,64 @@
             this.gridViewTasks.Appearance.ViewCaption.Options.UseFont = true;
             this.gridViewTasks.GridControl = this.gridTasks;
             this.gridViewTasks.Name = "gridViewTasks";
+            this.gridViewTasks.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.GridViewTasks_RowStyle);
             this.gridViewTasks.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewTasks_FocusedRowChanged);
+            // 
+            // panelLegend
+            // 
+            this.panelLegend.Controls.Add(this.lblNormal);
+            this.panelLegend.Controls.Add(this.lblCompleted);
+            this.panelLegend.Controls.Add(this.lblUpcoming);
+            this.panelLegend.Controls.Add(this.lblOverdue);
+            this.panelLegend.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelLegend.Location = new System.Drawing.Point(10, 273);
+            this.panelLegend.Name = "panelLegend";
+            this.panelLegend.Size = new System.Drawing.Size(629, 123);
+            this.panelLegend.TabIndex = 26;
+            // 
+            // lblNormal
+            // 
+            this.lblNormal.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNormal.Appearance.Options.UseFont = true;
+            this.lblNormal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblNormal.Location = new System.Drawing.Point(324, 32);
+            this.lblNormal.Name = "lblNormal";
+            this.lblNormal.Size = new System.Drawing.Size(300, 20);
+            this.lblNormal.TabIndex = 3;
+            this.lblNormal.Text = "Normal Color";
+            // 
+            // lblCompleted
+            // 
+            this.lblCompleted.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompleted.Appearance.Options.UseFont = true;
+            this.lblCompleted.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblCompleted.Location = new System.Drawing.Point(3, 10);
+            this.lblCompleted.Name = "lblCompleted";
+            this.lblCompleted.Size = new System.Drawing.Size(316, 20);
+            this.lblCompleted.TabIndex = 0;
+            this.lblCompleted.Text = "Complete Color";
+            // 
+            // lblUpcoming
+            // 
+            this.lblUpcoming.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpcoming.Appearance.Options.UseFont = true;
+            this.lblUpcoming.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblUpcoming.Location = new System.Drawing.Point(2, 36);
+            this.lblUpcoming.Name = "lblUpcoming";
+            this.lblUpcoming.Size = new System.Drawing.Size(316, 20);
+            this.lblUpcoming.TabIndex = 2;
+            this.lblUpcoming.Text = "Upcoming Color";
+            // 
+            // lblOverdue
+            // 
+            this.lblOverdue.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverdue.Appearance.Options.UseFont = true;
+            this.lblOverdue.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblOverdue.Location = new System.Drawing.Point(325, 6);
+            this.lblOverdue.Name = "lblOverdue";
+            this.lblOverdue.Size = new System.Drawing.Size(300, 20);
+            this.lblOverdue.TabIndex = 1;
+            this.lblOverdue.Text = "Overdue Color";
             // 
             // groupBox5
             // 
@@ -800,10 +857,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnMiniTimer.SuperTip = superToolTip3;
+            toolTipItem2.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem2.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.btnMiniTimer.SuperTip = superToolTip2;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
@@ -839,62 +896,6 @@
             this.pnMainLeft.Size = new System.Drawing.Size(690, 821);
             this.pnMainLeft.TabIndex = 34;
             // 
-            // lblNormal
-            // 
-            this.lblNormal.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNormal.Appearance.Options.UseFont = true;
-            this.lblNormal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblNormal.Location = new System.Drawing.Point(324, 32);
-            this.lblNormal.Name = "lblNormal";
-            this.lblNormal.Size = new System.Drawing.Size(300, 20);
-            this.lblNormal.TabIndex = 3;
-            this.lblNormal.Text = "Normal Color";
-            // 
-            // lblUpcoming
-            // 
-            this.lblUpcoming.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpcoming.Appearance.Options.UseFont = true;
-            this.lblUpcoming.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblUpcoming.Location = new System.Drawing.Point(2, 36);
-            this.lblUpcoming.Name = "lblUpcoming";
-            this.lblUpcoming.Size = new System.Drawing.Size(316, 20);
-            this.lblUpcoming.TabIndex = 2;
-            this.lblUpcoming.Text = "Upcoming Color";
-            // 
-            // lblOverdue
-            // 
-            this.lblOverdue.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOverdue.Appearance.Options.UseFont = true;
-            this.lblOverdue.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblOverdue.Location = new System.Drawing.Point(325, 6);
-            this.lblOverdue.Name = "lblOverdue";
-            this.lblOverdue.Size = new System.Drawing.Size(300, 20);
-            this.lblOverdue.TabIndex = 1;
-            this.lblOverdue.Text = "Overdue Color";
-            // 
-            // lblCompleted
-            // 
-            this.lblCompleted.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCompleted.Appearance.Options.UseFont = true;
-            this.lblCompleted.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblCompleted.Location = new System.Drawing.Point(3, 10);
-            this.lblCompleted.Name = "lblCompleted";
-            this.lblCompleted.Size = new System.Drawing.Size(316, 20);
-            this.lblCompleted.TabIndex = 0;
-            this.lblCompleted.Text = "Complete Color";
-            // 
-            // panelLegend
-            // 
-            this.panelLegend.Controls.Add(this.lblNormal);
-            this.panelLegend.Controls.Add(this.lblCompleted);
-            this.panelLegend.Controls.Add(this.lblUpcoming);
-            this.panelLegend.Controls.Add(this.lblOverdue);
-            this.panelLegend.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLegend.Location = new System.Drawing.Point(10, 316);
-            this.panelLegend.Name = "panelLegend";
-            this.panelLegend.Size = new System.Drawing.Size(629, 80);
-            this.panelLegend.TabIndex = 26;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -929,6 +930,7 @@
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridTasks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewTasks)).EndInit();
+            this.panelLegend.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
@@ -944,7 +946,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.pnHeaderTop.ResumeLayout(false);
             this.pnMainLeft.ResumeLayout(false);
-            this.panelLegend.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

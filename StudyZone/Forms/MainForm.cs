@@ -687,13 +687,161 @@ namespace StudyZone
         //    }
         //}
 
+        //private void DisplayTasksForSelectedSession()
+        //{
+        //    memoTaskDetails.Text = string.Empty;
+
+        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
+        //    {
+        //        var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName);
+
+        //        gridTasks.DataSource = null;
+        //        gridTasks.DataSource = tasksForSession;
+
+        //        var view = gridTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+        //        if (view != null)
+        //        {
+        //            view.Columns["Title"].Caption = "Title";
+        //            view.Columns["DueDate"].Caption = "Due Date";
+        //            view.Columns["SessionAssignment"].Caption = "Session";
+        //            view.Columns["IsCompleted"].Caption = "Completed";
+
+        //            view.Columns["DueDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+        //            view.Columns["DueDate"].DisplayFormat.FormatString = "d";
+
+        //            view.OptionsView.ShowGroupPanel = false;
+        //            view.OptionsBehavior.Editable = false;
+
+        //            // إخفاء الأعمدة غير المطلوبة
+        //            view.Columns["Description"].Visible = false;
+        //            view.Columns["IsCompleted"].Visible = false;
+        //            view.Columns["SessionAssignment"].Visible = false;
+
+        //            // ✅ تلوين الصفوف حسب الحالة
+        //            view.RowStyle -= GridViewTasks_RowStyle; // لتفادي التكرار
+        //            view.RowStyle += GridViewTasks_RowStyle;
+        //        }
+        //    }
+        //}
+
+
+        //private void DisplayTasksForSelectedSession()
+        //{
+        //    memoTaskDetails.Text = string.Empty;
+
+        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
+        //    {
+        //        var tasksForSession = tasks.FindAll(t =>
+        //            (string.IsNullOrEmpty(t.SessionAssignment) || t.SessionAssignment == selectedSession.SessionName)
+        //            && !t.IsCompleted);
+
+        //        gridTasks.DataSource = null;
+        //        gridTasks.DataSource = tasksForSession;
+
+        //        // إعدادات الأعمدة
+        //        var view = gridTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+        //        if (view != null)
+        //        {
+        //            view.Columns["Title"].Caption = "Title";
+        //            view.Columns["DueDate"].Caption = "Due Date";
+        //            view.Columns["SessionAssignment"].Caption = "Session";
+        //            view.Columns["IsCompleted"].Caption = "Completed";
+
+        //            view.Columns["DueDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+        //            view.Columns["DueDate"].DisplayFormat.FormatString = "d";
+
+        //            view.OptionsView.ShowGroupPanel = false;
+        //            view.OptionsBehavior.Editable = false;
+
+        //            view.Columns["Description"].Visible = false;
+        //            view.Columns["IsCompleted"].Visible = false;
+        //            view.Columns["DueDate"].Visible = false;
+
+
+        //            // ✅ تلوين الصفوف حسب الحالة
+        //            view.RowStyle -= GridViewTasks_RowStyle; // لتفادي التكرار
+        //            view.RowStyle += GridViewTasks_RowStyle;
+        //        }
+        //    }
+        //}
+        //private void DisplayTasksForSelectedSession()
+        //{
+        //    memoTaskDetails.Text = string.Empty; // Clear task details
+
+        //    if (cmbSessions.SelectedItem is StudySession selectedSession)
+        //    {
+        //        var tasksForSession = tasks.FindAll(t =>
+        //            string.IsNullOrEmpty(t.SessionAssignment) || // ✅ include tasks assigned to all sessions
+        //            t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
+
+        //        gridTasks.DataSource = null;
+        //        gridTasks.DataSource = tasksForSession;
+
+        //        var view = gridTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+        //        if (view != null)
+        //        {
+        //            view.Columns["Title"].Caption = "Title";
+        //            view.Columns["DueDate"].Caption = "Due Date";
+        //            view.Columns["SessionAssignment"].Caption = "Session";
+        //            view.Columns["IsCompleted"].Caption = "Completed";
+
+        //            view.Columns["DueDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+        //            view.Columns["DueDate"].DisplayFormat.FormatString = "d";
+
+        //            view.OptionsView.ShowGroupPanel = false;
+        //            view.OptionsBehavior.Editable = false;
+
+        //            view.Columns["Description"].Visible = false;
+        //            view.Columns["IsCompleted"].Visible = false;
+        //            view.Columns["DueDate"].Visible = false;
+
+        //            // ✅ عرض "All Sessions" بدلًا من الفراغ
+        //            view.CustomColumnDisplayText += (s, e) =>
+        //            {
+        //                if (e.Column.FieldName == "SessionAssignment" && string.IsNullOrEmpty(Convert.ToString(e.Value)))
+        //                {
+        //                    e.DisplayText = "All Sessions";
+        //                }
+        //            };
+
+        //            // ✅ تلوين حسب الحالة
+        //            view.RowStyle += (s, e) =>
+        //            {
+        //                var gridView = s as DevExpress.XtraGrid.Views.Grid.GridView;
+        //                var task = gridView.GetRow(e.RowHandle) as TaskItem;
+        //                if (task == null) return;
+
+        //                if (string.IsNullOrEmpty(task.SessionAssignment))
+        //                {
+        //                    e.Appearance.BackColor = Color.LightSkyBlue;
+        //                }
+        //                else if (task.DueDate.HasValue && task.DueDate.Value.Date < DateTime.Today)
+        //                {
+        //                    e.Appearance.BackColor = Color.MistyRose;
+        //                }
+        //                else if (task.DueDate.HasValue && (task.DueDate.Value.Date - DateTime.Today).TotalDays <= 3)
+        //                {
+        //                    e.Appearance.BackColor = Color.LightYellow;
+        //                }
+        //                else if (task.IsCompleted)
+        //                {
+        //                    e.Appearance.BackColor = Color.LightGreen;
+        //                }
+        //            };
+        //        }
+        //    }
+        //}
+
+
         private void DisplayTasksForSelectedSession()
         {
             memoTaskDetails.Text = string.Empty;
 
             if (cmbSessions.SelectedItem is StudySession selectedSession)
             {
-                var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName);
+                var tasksForSession = tasks.FindAll(t =>
+                    string.IsNullOrEmpty(t.SessionAssignment) || // تظهر في كل الجلسات
+                    t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
 
                 gridTasks.DataSource = null;
                 gridTasks.DataSource = tasksForSession;
@@ -712,19 +860,50 @@ namespace StudyZone
                     view.OptionsView.ShowGroupPanel = false;
                     view.OptionsBehavior.Editable = false;
 
-                    // إخفاء الأعمدة غير المطلوبة
                     view.Columns["Description"].Visible = false;
                     view.Columns["IsCompleted"].Visible = false;
-                    view.Columns["SessionAssignment"].Visible = false;
+                    view.Columns["DueDate"].Visible = false;
 
-                    // ✅ تلوين الصفوف حسب الحالة
-                    view.RowStyle -= GridViewTasks_RowStyle; // لتفادي التكرار
-                    view.RowStyle += GridViewTasks_RowStyle;
+                    // ✅ عرض "All Sessions" بدل الفراغ
+                    view.CustomColumnDisplayText += (s, e) =>
+                    {
+                        if (e.Column.FieldName == "SessionAssignment" && string.IsNullOrEmpty(Convert.ToString(e.Value)))
+                        {
+                            e.DisplayText = "All Sessions";
+                        }
+                    };
                 }
             }
         }
 
+
         // 🖌️ هذا الحدث يحدد لون كل صف حسب حالة المهمة
+        //private void GridViewTasks_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        //{
+        //    var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+        //    if (view == null || e.RowHandle < 0) return;
+
+        //    var task = view.GetRow(e.RowHandle) as TaskItem;
+        //    if (task == null) return;
+
+        //    if (task.IsCompleted)
+        //    {
+        //        e.Appearance.BackColor = Color.LightGreen;
+        //    }
+        //    else if (task.DueDate.HasValue && task.DueDate.Value.Date < DateTime.Today)
+        //    {
+        //        e.Appearance.BackColor = Color.MistyRose;
+        //        e.Appearance.ForeColor = Color.DarkRed;
+        //    }
+        //    else if (task.DueDate.HasValue && (task.DueDate.Value.Date - DateTime.Today).TotalDays <= 2)
+        //    {
+        //        e.Appearance.BackColor = Color.LightYellow;
+        //    }
+        //    else
+        //    {
+        //        e.Appearance.BackColor = Color.White;
+        //    }
+        //}
         private void GridViewTasks_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
         {
             var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
@@ -737,12 +916,16 @@ namespace StudyZone
             {
                 e.Appearance.BackColor = Color.LightGreen;
             }
+            else if (string.IsNullOrEmpty(task.SessionAssignment))
+            {
+                e.Appearance.BackColor = Color.LightSkyBlue;
+            }
             else if (task.DueDate.HasValue && task.DueDate.Value.Date < DateTime.Today)
             {
                 e.Appearance.BackColor = Color.MistyRose;
                 e.Appearance.ForeColor = Color.DarkRed;
             }
-            else if (task.DueDate.HasValue && (task.DueDate.Value.Date - DateTime.Today).TotalDays <= 2)
+            else if (task.DueDate.HasValue && (task.DueDate.Value.Date - DateTime.Today).TotalDays <= 3)
             {
                 e.Appearance.BackColor = Color.LightYellow;
             }
@@ -751,6 +934,7 @@ namespace StudyZone
                 e.Appearance.BackColor = Color.White;
             }
         }
+
 
         private void SetupLegendPanel()
         {
@@ -798,12 +982,25 @@ namespace StudyZone
                 Padding = new Padding(5)
             };
 
+            var lblAllSessions = new DevExpress.XtraEditors.LabelControl
+            {
+                Text = "🌐  All Sessions: Light Sky Blue",
+                ForeColor = Color.Black,
+                BackColor = Color.LightSkyBlue,
+                AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None,
+                Size = new Size(230, 25),
+                Padding = new Padding(5)
+            };
+            panelLegend.Controls.Add(lblAllSessions);
+
+
             //إضافة العناصر للوحة//
             panelLegend.Controls.Clear();
             panelLegend.Controls.Add(lblCompleted);
             panelLegend.Controls.Add(lblOverdue);
             panelLegend.Controls.Add(lblUpcoming);
             panelLegend.Controls.Add(lblNormal);
+            panelLegend.Controls.Add(lblAllSessions);
 
 
 
@@ -1394,6 +1591,6 @@ namespace StudyZone
             about.Show();
         }
 
-
+        
     }
 }
