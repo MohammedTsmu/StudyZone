@@ -203,7 +203,7 @@
             this.groupBox1.Controls.Add(this.studyMinuteslbl);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.groupBox1.Location = new System.Drawing.Point(8, 157);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(676, 86);
@@ -262,7 +262,7 @@
             this.groupBox2.Controls.Add(this.breakMinuteslbl);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.groupBox2.Location = new System.Drawing.Point(8, 249);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(676, 86);
@@ -330,7 +330,7 @@
             this.groupBox3.Controls.Add(this.btnSaveSession);
             this.groupBox3.Controls.Add(this.btnDeleteSession);
             this.groupBox3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.groupBox3.Location = new System.Drawing.Point(8, 18);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(676, 131);
@@ -341,7 +341,7 @@
             // cmbSessions
             // 
             this.cmbSessions.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmbSessions.Location = new System.Drawing.Point(118, 27);
+            this.cmbSessions.Location = new System.Drawing.Point(140, 27);
             this.cmbSessions.Name = "cmbSessions";
             this.cmbSessions.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbSessions.Properties.Appearance.Options.UseFont = true;
@@ -362,7 +362,7 @@
             this.cmbSessions.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSessions.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbSessions.Size = new System.Drawing.Size(440, 32);
+            this.cmbSessions.Size = new System.Drawing.Size(396, 32);
             this.cmbSessions.TabIndex = 20;
             this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
             // 
@@ -372,7 +372,7 @@
             this.btnSaveSession.Appearance.Options.UseFont = true;
             this.btnSaveSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveSession.ImageOptions.SvgImage")));
             this.btnSaveSession.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnSaveSession.Location = new System.Drawing.Point(118, 65);
+            this.btnSaveSession.Location = new System.Drawing.Point(140, 65);
             this.btnSaveSession.Name = "btnSaveSession";
             this.btnSaveSession.Size = new System.Drawing.Size(195, 38);
             this.btnSaveSession.TabIndex = 19;
@@ -386,7 +386,7 @@
             this.btnDeleteSession.Appearance.Options.UseFont = true;
             this.btnDeleteSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteSession.ImageOptions.SvgImage")));
             this.btnDeleteSession.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeleteSession.Location = new System.Drawing.Point(363, 65);
+            this.btnDeleteSession.Location = new System.Drawing.Point(341, 65);
             this.btnDeleteSession.Name = "btnDeleteSession";
             this.btnDeleteSession.Size = new System.Drawing.Size(195, 38);
             this.btnDeleteSession.TabIndex = 18;
@@ -570,7 +570,7 @@
             this.groupBox5.Controls.Add(this.btnPause);
             this.groupBox5.Controls.Add(this.btnStart);
             this.groupBox5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.groupBox5.Location = new System.Drawing.Point(8, 341);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(676, 96);
@@ -632,7 +632,7 @@
             this.groupBox6.Controls.Add(this.btnReminders);
             this.groupBox6.Controls.Add(this.btnViewLogs);
             this.groupBox6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox6.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.groupBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.groupBox6.Location = new System.Drawing.Point(8, 443);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(676, 96);
@@ -690,7 +690,7 @@
             this.groupBox7.Controls.Add(this.chkStartWithWindows);
             this.groupBox7.Controls.Add(this.svgImageBoxAbout);
             this.groupBox7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox7.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.groupBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.groupBox7.Location = new System.Drawing.Point(8, 545);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(676, 82);
@@ -805,10 +805,9 @@
             this.pnlReminders.Controls.Add(this.listBoxReminders);
             this.pnlReminders.Controls.Add(this.btnHideReminders);
             this.pnlReminders.Controls.Add(this.labelControl1);
-            this.pnlReminders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlReminders.Location = new System.Drawing.Point(0, 0);
             this.pnlReminders.Name = "pnlReminders";
-            this.pnlReminders.Size = new System.Drawing.Size(690, 638);
+            this.pnlReminders.Size = new System.Drawing.Size(690, 24);
             this.pnlReminders.TabIndex = 1;
             // 
             // listBoxReminders
@@ -828,7 +827,7 @@
             this.listBoxReminders.ItemPadding = new System.Windows.Forms.Padding(5);
             this.listBoxReminders.Location = new System.Drawing.Point(0, 60);
             this.listBoxReminders.Name = "listBoxReminders";
-            this.listBoxReminders.Size = new System.Drawing.Size(688, 516);
+            this.listBoxReminders.Size = new System.Drawing.Size(688, 0);
             this.listBoxReminders.TabIndex = 3;
             // 
             // btnHideReminders
@@ -843,7 +842,7 @@
             this.btnHideReminders.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHideReminders.ImageOptions.Image")));
             this.btnHideReminders.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnHideReminders.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnHideReminders.Location = new System.Drawing.Point(0, 576);
+            this.btnHideReminders.Location = new System.Drawing.Point(0, -38);
             this.btnHideReminders.Name = "btnHideReminders";
             this.btnHideReminders.Size = new System.Drawing.Size(688, 60);
             toolTipItem1.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
