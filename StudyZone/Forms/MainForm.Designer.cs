@@ -586,9 +586,9 @@
             this.btnStop.Appearance.Options.UseForeColor = true;
             this.btnStop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStop.ImageOptions.SvgImage")));
             this.btnStop.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnStop.Location = new System.Drawing.Point(447, 29);
+            this.btnStop.Location = new System.Drawing.Point(439, 29);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(195, 38);
+            this.btnStop.Size = new System.Drawing.Size(190, 38);
             this.btnStop.TabIndex = 30;
             this.btnStop.Text = "Stop";
             this.BtnsDetails.SetToolTip(this.btnStop, "Terminate / Stop the focus session timer.");
@@ -602,9 +602,9 @@
             this.btnPause.Appearance.Options.UseForeColor = true;
             this.btnPause.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPause.ImageOptions.SvgImage")));
             this.btnPause.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnPause.Location = new System.Drawing.Point(239, 29);
+            this.btnPause.Location = new System.Drawing.Point(243, 29);
             this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(195, 38);
+            this.btnPause.Size = new System.Drawing.Size(190, 38);
             this.btnPause.TabIndex = 29;
             this.btnPause.Text = "Pause";
             this.BtnsDetails.SetToolTip(this.btnPause, "Pause the focus session timer.");
@@ -616,9 +616,9 @@
             this.btnStart.Appearance.Options.UseFont = true;
             this.btnStart.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnStart.ImageOptions.SvgImage")));
             this.btnStart.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnStart.Location = new System.Drawing.Point(35, 29);
+            this.btnStart.Location = new System.Drawing.Point(47, 29);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(191, 38);
+            this.btnStart.Size = new System.Drawing.Size(190, 38);
             this.btnStart.TabIndex = 28;
             this.btnStart.Text = "Start";
             this.BtnsDetails.SetToolTip(this.btnStart, "Start the focus session timer.");
@@ -646,9 +646,9 @@
             this.btnTaskManager.Appearance.Options.UseFont = true;
             this.btnTaskManager.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaskManager.ImageOptions.SvgImage")));
             this.btnTaskManager.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnTaskManager.Location = new System.Drawing.Point(33, 29);
+            this.btnTaskManager.Location = new System.Drawing.Point(47, 29);
             this.btnTaskManager.Name = "btnTaskManager";
-            this.btnTaskManager.Size = new System.Drawing.Size(195, 38);
+            this.btnTaskManager.Size = new System.Drawing.Size(190, 38);
             this.btnTaskManager.TabIndex = 27;
             this.btnTaskManager.Text = "Task Manager";
             this.BtnsDetails.SetToolTip(this.btnTaskManager, "Add / Edit / Delete tasks");
@@ -660,9 +660,9 @@
             this.btnReminders.Appearance.Options.UseFont = true;
             this.btnReminders.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReminders.ImageOptions.SvgImage")));
             this.btnReminders.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnReminders.Location = new System.Drawing.Point(241, 29);
+            this.btnReminders.Location = new System.Drawing.Point(243, 29);
             this.btnReminders.Name = "btnReminders";
-            this.btnReminders.Size = new System.Drawing.Size(195, 38);
+            this.btnReminders.Size = new System.Drawing.Size(190, 38);
             this.btnReminders.TabIndex = 26;
             this.btnReminders.Text = "Reminders";
             this.BtnsDetails.SetToolTip(this.btnReminders, "Add a reminder to prompt the user to start a focus or study session if they forge" +
@@ -675,9 +675,9 @@
             this.btnViewLogs.Appearance.Options.UseFont = true;
             this.btnViewLogs.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnViewLogs.ImageOptions.SvgImage")));
             this.btnViewLogs.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnViewLogs.Location = new System.Drawing.Point(449, 29);
+            this.btnViewLogs.Location = new System.Drawing.Point(439, 29);
             this.btnViewLogs.Name = "btnViewLogs";
-            this.btnViewLogs.Size = new System.Drawing.Size(195, 38);
+            this.btnViewLogs.Size = new System.Drawing.Size(190, 38);
             this.btnViewLogs.TabIndex = 25;
             this.btnViewLogs.Text = "View Logs";
             this.BtnsDetails.SetToolTip(this.btnViewLogs, "View statistics for previous sessions and breaks.");
@@ -700,12 +700,13 @@
             // 
             // chkStartWithWindows
             // 
-            this.chkStartWithWindows.Location = new System.Drawing.Point(7, 29);
+            this.chkStartWithWindows.Location = new System.Drawing.Point(47, 29);
             this.chkStartWithWindows.Name = "chkStartWithWindows";
             this.chkStartWithWindows.Properties.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.chkStartWithWindows.Properties.Appearance.Options.UseFont = true;
             this.chkStartWithWindows.Properties.Caption = "Start when Windows starts";
-            this.chkStartWithWindows.Size = new System.Drawing.Size(419, 25);
+            this.chkStartWithWindows.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.chkStartWithWindows.Size = new System.Drawing.Size(266, 25);
             this.chkStartWithWindows.TabIndex = 27;
             this.chkBoxsToolTip.SetToolTip(this.chkStartWithWindows, "Ensure the app starts with Windows at login or system startup.");
             this.chkStartWithWindows.CheckedChanged += new System.EventHandler(this.chkStartWithWindows_CheckedChanged);
@@ -713,7 +714,7 @@
             // svgImageBoxAbout
             // 
             this.svgImageBoxAbout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.svgImageBoxAbout.Location = new System.Drawing.Point(557, 16);
+            this.svgImageBoxAbout.Location = new System.Drawing.Point(570, 16);
             this.svgImageBoxAbout.Name = "svgImageBoxAbout";
             this.svgImageBoxAbout.Size = new System.Drawing.Size(59, 50);
             this.svgImageBoxAbout.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBoxAbout.SvgImage")));
