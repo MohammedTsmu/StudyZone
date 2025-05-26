@@ -30,21 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
-            this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
-            this.nudBreakMinutes = new System.Windows.Forms.NumericUpDown();
             this.studyMinuteslbl = new System.Windows.Forms.Label();
             this.breakMinuteslbl = new System.Windows.Forms.Label();
             this.timerPomodoro = new System.Windows.Forms.Timer(this.components);
-            this.nudStudySeconds = new System.Windows.Forms.NumericUpDown();
-            this.nudBreakSeconds = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,6 +59,7 @@
             this.gridTasks = new DevExpress.XtraGrid.GridControl();
             this.gridViewTasks = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelLegend = new System.Windows.Forms.Panel();
+            this.lblAllSessions = new DevExpress.XtraEditors.LabelControl();
             this.lblNormal = new DevExpress.XtraEditors.LabelControl();
             this.lblCompleted = new DevExpress.XtraEditors.LabelControl();
             this.lblUpcoming = new DevExpress.XtraEditors.LabelControl();
@@ -86,21 +83,15 @@
             this.lblsAndTxtBoxsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnRight = new System.Windows.Forms.Panel();
             this.pnLeft = new System.Windows.Forms.Panel();
+            this.pnlReminders = new System.Windows.Forms.Panel();
+            this.listBoxReminders = new DevExpress.XtraEditors.ListBoxControl();
+            this.btnHideReminders = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.pnTop = new System.Windows.Forms.Panel();
             this.pnHeaderBottom = new System.Windows.Forms.Panel();
             this.btnMiniTimer = new DevExpress.XtraEditors.SvgImageBox();
-            this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
-            this.pnlReminders = new System.Windows.Forms.Panel();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.btnHideReminders = new DevExpress.XtraEditors.SimpleButton();
-            this.listBoxReminders = new DevExpress.XtraEditors.ListBoxControl();
-            this.lblAllSessions = new DevExpress.XtraEditors.LabelControl();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBreakSeconds)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinStudySeconds.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinStudyMinutes.Properties)).BeginInit();
@@ -122,14 +113,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoTaskDetails.Properties)).BeginInit();
             this.pnRight.SuspendLayout();
             this.pnLeft.SuspendLayout();
+            this.pnlReminders.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxReminders)).BeginInit();
             this.pnTop.SuspendLayout();
             this.pnHeaderBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMiniTimer)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.pnHeaderTop.SuspendLayout();
             this.pnMainLeft.SuspendLayout();
-            this.pnlReminders.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxReminders)).BeginInit();
             this.SuspendLayout();
             // 
             // Welcomelbl
@@ -145,7 +135,7 @@
             // 
             // lblTimer
             // 
-            this.lblTimer.BackColor = System.Drawing.Color.Turquoise;
+            this.lblTimer.BackColor = System.Drawing.Color.SteelBlue;
             this.lblTimer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimer.Location = new System.Drawing.Point(0, 0);
@@ -155,50 +145,12 @@
             this.lblTimer.Text = "00:00";
             this.lblTimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // nudStudyMinutes
-            // 
-            this.nudStudyMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudStudyMinutes.ForeColor = System.Drawing.Color.Navy;
-            this.nudStudyMinutes.Location = new System.Drawing.Point(211, 28);
-            this.nudStudyMinutes.Maximum = new decimal(new int[] {
-            120,
-            0,
-            0,
-            0});
-            this.nudStudyMinutes.Name = "nudStudyMinutes";
-            this.nudStudyMinutes.Size = new System.Drawing.Size(120, 30);
-            this.nudStudyMinutes.TabIndex = 4;
-            this.nudStudyMinutes.Value = new decimal(new int[] {
-            25,
-            0,
-            0,
-            0});
-            // 
-            // nudBreakMinutes
-            // 
-            this.nudBreakMinutes.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudBreakMinutes.ForeColor = System.Drawing.Color.Navy;
-            this.nudBreakMinutes.Location = new System.Drawing.Point(211, 28);
-            this.nudBreakMinutes.Maximum = new decimal(new int[] {
-            60,
-            0,
-            0,
-            0});
-            this.nudBreakMinutes.Name = "nudBreakMinutes";
-            this.nudBreakMinutes.Size = new System.Drawing.Size(120, 30);
-            this.nudBreakMinutes.TabIndex = 5;
-            this.nudBreakMinutes.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
             // studyMinuteslbl
             // 
             this.studyMinuteslbl.AutoSize = true;
             this.studyMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.studyMinuteslbl.ForeColor = System.Drawing.Color.Navy;
-            this.studyMinuteslbl.Location = new System.Drawing.Point(127, 32);
+            this.studyMinuteslbl.Location = new System.Drawing.Point(131, 32);
             this.studyMinuteslbl.Name = "studyMinuteslbl";
             this.studyMinuteslbl.Size = new System.Drawing.Size(78, 23);
             this.studyMinuteslbl.TabIndex = 6;
@@ -209,7 +161,7 @@
             this.breakMinuteslbl.AutoSize = true;
             this.breakMinuteslbl.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.breakMinuteslbl.ForeColor = System.Drawing.Color.Navy;
-            this.breakMinuteslbl.Location = new System.Drawing.Point(127, 32);
+            this.breakMinuteslbl.Location = new System.Drawing.Point(131, 32);
             this.breakMinuteslbl.Name = "breakMinuteslbl";
             this.breakMinuteslbl.Size = new System.Drawing.Size(78, 23);
             this.breakMinuteslbl.TabIndex = 7;
@@ -219,34 +171,6 @@
             // 
             this.timerPomodoro.Interval = 1000;
             this.timerPomodoro.Tick += new System.EventHandler(this.timerPomodoro_Tick);
-            // 
-            // nudStudySeconds
-            // 
-            this.nudStudySeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudStudySeconds.ForeColor = System.Drawing.Color.Navy;
-            this.nudStudySeconds.Location = new System.Drawing.Point(429, 28);
-            this.nudStudySeconds.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.nudStudySeconds.Name = "nudStudySeconds";
-            this.nudStudySeconds.Size = new System.Drawing.Size(120, 30);
-            this.nudStudySeconds.TabIndex = 8;
-            // 
-            // nudBreakSeconds
-            // 
-            this.nudBreakSeconds.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudBreakSeconds.ForeColor = System.Drawing.Color.Navy;
-            this.nudBreakSeconds.Location = new System.Drawing.Point(429, 28);
-            this.nudBreakSeconds.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-            this.nudBreakSeconds.Name = "nudBreakSeconds";
-            this.nudBreakSeconds.Size = new System.Drawing.Size(120, 30);
-            this.nudBreakSeconds.TabIndex = 9;
             // 
             // label1
             // 
@@ -276,10 +200,8 @@
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox1.Controls.Add(this.spinStudySeconds);
             this.groupBox1.Controls.Add(this.spinStudyMinutes);
-            this.groupBox1.Controls.Add(this.nudStudyMinutes);
             this.groupBox1.Controls.Add(this.studyMinuteslbl);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.nudStudySeconds);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Desktop;
             this.groupBox1.Location = new System.Drawing.Point(8, 157);
@@ -296,8 +218,10 @@
             0,
             0,
             0});
-            this.spinStudySeconds.Location = new System.Drawing.Point(551, 29);
+            this.spinStudySeconds.Location = new System.Drawing.Point(429, 27);
             this.spinStudySeconds.Name = "spinStudySeconds";
+            this.spinStudySeconds.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spinStudySeconds.Properties.Appearance.Options.UseFont = true;
             this.spinStudySeconds.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinStudySeconds.Properties.MaxValue = new decimal(new int[] {
@@ -305,7 +229,7 @@
             0,
             0,
             0});
-            this.spinStudySeconds.Size = new System.Drawing.Size(125, 24);
+            this.spinStudySeconds.Size = new System.Drawing.Size(116, 32);
             this.spinStudySeconds.TabIndex = 12;
             // 
             // spinStudyMinutes
@@ -315,8 +239,10 @@
             0,
             0,
             0});
-            this.spinStudyMinutes.Location = new System.Drawing.Point(7, 30);
+            this.spinStudyMinutes.Location = new System.Drawing.Point(215, 27);
             this.spinStudyMinutes.Name = "spinStudyMinutes";
+            this.spinStudyMinutes.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spinStudyMinutes.Properties.Appearance.Options.UseFont = true;
             this.spinStudyMinutes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinStudyMinutes.Properties.MaxValue = new decimal(new int[] {
@@ -324,7 +250,7 @@
             0,
             0,
             0});
-            this.spinStudyMinutes.Size = new System.Drawing.Size(125, 24);
+            this.spinStudyMinutes.Size = new System.Drawing.Size(116, 32);
             this.spinStudyMinutes.TabIndex = 11;
             // 
             // groupBox2
@@ -333,8 +259,6 @@
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox2.Controls.Add(this.spinBreakSeconds);
             this.groupBox2.Controls.Add(this.spinBreakMinutes);
-            this.groupBox2.Controls.Add(this.nudBreakSeconds);
-            this.groupBox2.Controls.Add(this.nudBreakMinutes);
             this.groupBox2.Controls.Add(this.breakMinuteslbl);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -353,8 +277,10 @@
             0,
             0,
             0});
-            this.spinBreakSeconds.Location = new System.Drawing.Point(551, 32);
+            this.spinBreakSeconds.Location = new System.Drawing.Point(429, 27);
             this.spinBreakSeconds.Name = "spinBreakSeconds";
+            this.spinBreakSeconds.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spinBreakSeconds.Properties.Appearance.Options.UseFont = true;
             this.spinBreakSeconds.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinBreakSeconds.Properties.MaxValue = new decimal(new int[] {
@@ -362,7 +288,7 @@
             0,
             0,
             0});
-            this.spinBreakSeconds.Size = new System.Drawing.Size(125, 24);
+            this.spinBreakSeconds.Size = new System.Drawing.Size(116, 32);
             this.spinBreakSeconds.TabIndex = 13;
             // 
             // spinBreakMinutes
@@ -372,8 +298,10 @@
             0,
             0,
             0});
-            this.spinBreakMinutes.Location = new System.Drawing.Point(7, 27);
+            this.spinBreakMinutes.Location = new System.Drawing.Point(215, 27);
             this.spinBreakMinutes.Name = "spinBreakMinutes";
+            this.spinBreakMinutes.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spinBreakMinutes.Properties.Appearance.Options.UseFont = true;
             this.spinBreakMinutes.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.spinBreakMinutes.Properties.MaxValue = new decimal(new int[] {
@@ -381,7 +309,7 @@
             0,
             0,
             0});
-            this.spinBreakMinutes.Size = new System.Drawing.Size(125, 24);
+            this.spinBreakMinutes.Size = new System.Drawing.Size(116, 32);
             this.spinBreakMinutes.TabIndex = 12;
             // 
             // label3
@@ -412,12 +340,29 @@
             // 
             // cmbSessions
             // 
-            this.cmbSessions.Location = new System.Drawing.Point(7, 30);
+            this.cmbSessions.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmbSessions.Location = new System.Drawing.Point(118, 27);
             this.cmbSessions.Name = "cmbSessions";
+            this.cmbSessions.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Properties.Appearance.Options.UseFont = true;
+            this.cmbSessions.Properties.AppearanceDisabled.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.cmbSessions.Properties.AppearanceDropDown.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Properties.AppearanceDropDown.Options.UseFont = true;
+            this.cmbSessions.Properties.AppearanceFocused.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Properties.AppearanceFocused.Options.UseFont = true;
+            this.cmbSessions.Properties.AppearanceItemDisabled.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Properties.AppearanceItemDisabled.Options.UseFont = true;
+            this.cmbSessions.Properties.AppearanceItemHighlight.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Properties.AppearanceItemHighlight.Options.UseFont = true;
+            this.cmbSessions.Properties.AppearanceItemSelected.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Properties.AppearanceItemSelected.Options.UseFont = true;
+            this.cmbSessions.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("LBC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbSessions.Properties.AppearanceReadOnly.Options.UseFont = true;
             this.cmbSessions.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.cmbSessions.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbSessions.Size = new System.Drawing.Size(125, 22);
+            this.cmbSessions.Size = new System.Drawing.Size(440, 32);
             this.cmbSessions.TabIndex = 20;
             this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
             // 
@@ -427,7 +372,7 @@
             this.btnSaveSession.Appearance.Options.UseFont = true;
             this.btnSaveSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSaveSession.ImageOptions.SvgImage")));
             this.btnSaveSession.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnSaveSession.Location = new System.Drawing.Point(118, 66);
+            this.btnSaveSession.Location = new System.Drawing.Point(118, 65);
             this.btnSaveSession.Name = "btnSaveSession";
             this.btnSaveSession.Size = new System.Drawing.Size(195, 38);
             this.btnSaveSession.TabIndex = 19;
@@ -441,7 +386,7 @@
             this.btnDeleteSession.Appearance.Options.UseFont = true;
             this.btnDeleteSession.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDeleteSession.ImageOptions.SvgImage")));
             this.btnDeleteSession.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnDeleteSession.Location = new System.Drawing.Point(363, 66);
+            this.btnDeleteSession.Location = new System.Drawing.Point(363, 65);
             this.btnDeleteSession.Name = "btnDeleteSession";
             this.btnDeleteSession.Size = new System.Drawing.Size(195, 38);
             this.btnDeleteSession.TabIndex = 18;
@@ -562,9 +507,20 @@
             this.panelLegend.Size = new System.Drawing.Size(629, 123);
             this.panelLegend.TabIndex = 26;
             // 
+            // lblAllSessions
+            // 
+            this.lblAllSessions.Appearance.Font = new System.Drawing.Font("LBC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAllSessions.Appearance.Options.UseFont = true;
+            this.lblAllSessions.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblAllSessions.Location = new System.Drawing.Point(3, 62);
+            this.lblAllSessions.Name = "lblAllSessions";
+            this.lblAllSessions.Size = new System.Drawing.Size(300, 20);
+            this.lblAllSessions.TabIndex = 4;
+            this.lblAllSessions.Text = "All Sessions";
+            // 
             // lblNormal
             // 
-            this.lblNormal.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNormal.Appearance.Font = new System.Drawing.Font("LBC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNormal.Appearance.Options.UseFont = true;
             this.lblNormal.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblNormal.Location = new System.Drawing.Point(324, 32);
@@ -575,7 +531,7 @@
             // 
             // lblCompleted
             // 
-            this.lblCompleted.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCompleted.Appearance.Font = new System.Drawing.Font("LBC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCompleted.Appearance.Options.UseFont = true;
             this.lblCompleted.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblCompleted.Location = new System.Drawing.Point(3, 10);
@@ -586,7 +542,7 @@
             // 
             // lblUpcoming
             // 
-            this.lblUpcoming.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpcoming.Appearance.Font = new System.Drawing.Font("LBC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpcoming.Appearance.Options.UseFont = true;
             this.lblUpcoming.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblUpcoming.Location = new System.Drawing.Point(2, 36);
@@ -597,7 +553,7 @@
             // 
             // lblOverdue
             // 
-            this.lblOverdue.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverdue.Appearance.Font = new System.Drawing.Font("LBC", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOverdue.Appearance.Options.UseFont = true;
             this.lblOverdue.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
             this.lblOverdue.Location = new System.Drawing.Point(325, 6);
@@ -841,74 +797,6 @@
             this.pnLeft.Size = new System.Drawing.Size(690, 638);
             this.pnLeft.TabIndex = 34;
             // 
-            // pnTop
-            // 
-            this.pnTop.Controls.Add(this.pnHeaderBottom);
-            this.pnTop.Controls.Add(this.pnHeaderTop);
-            this.pnTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnTop.Location = new System.Drawing.Point(0, 0);
-            this.pnTop.Name = "pnTop";
-            this.pnTop.Size = new System.Drawing.Size(690, 183);
-            this.pnTop.TabIndex = 35;
-            // 
-            // pnHeaderBottom
-            // 
-            this.pnHeaderBottom.Controls.Add(this.btnMiniTimer);
-            this.pnHeaderBottom.Controls.Add(this.svgImageBox1);
-            this.pnHeaderBottom.Controls.Add(this.lblTimer);
-            this.pnHeaderBottom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnHeaderBottom.Location = new System.Drawing.Point(0, 100);
-            this.pnHeaderBottom.Name = "pnHeaderBottom";
-            this.pnHeaderBottom.Size = new System.Drawing.Size(690, 83);
-            this.pnHeaderBottom.TabIndex = 27;
-            // 
-            // btnMiniTimer
-            // 
-            this.btnMiniTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMiniTimer.BackColor = System.Drawing.Color.Turquoise;
-            this.btnMiniTimer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
-            this.btnMiniTimer.Name = "btnMiniTimer";
-            this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip3.Items.Add(toolTipItem3);
-            this.btnMiniTimer.SuperTip = superToolTip3;
-            this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
-            this.btnMiniTimer.TabIndex = 3;
-            this.btnMiniTimer.Text = "svgImageBox2";
-            this.btnMiniTimer.Click += new System.EventHandler(this.btnMiniTimer_Click);
-            // 
-            // svgImageBox1
-            // 
-            this.svgImageBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.svgImageBox1.BackColor = System.Drawing.Color.Turquoise;
-            this.svgImageBox1.Location = new System.Drawing.Point(480, 3);
-            this.svgImageBox1.Name = "svgImageBox1";
-            this.svgImageBox1.Size = new System.Drawing.Size(65, 77);
-            this.svgImageBox1.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("svgImageBox1.SvgImage")));
-            this.svgImageBox1.TabIndex = 2;
-            this.svgImageBox1.Text = "svgImageBox1";
-            // 
-            // pnHeaderTop
-            // 
-            this.pnHeaderTop.Controls.Add(this.Welcomelbl);
-            this.pnHeaderTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnHeaderTop.Location = new System.Drawing.Point(0, 0);
-            this.pnHeaderTop.Name = "pnHeaderTop";
-            this.pnHeaderTop.Size = new System.Drawing.Size(690, 100);
-            this.pnHeaderTop.TabIndex = 27;
-            // 
-            // pnMainLeft
-            // 
-            this.pnMainLeft.Controls.Add(this.pnTop);
-            this.pnMainLeft.Controls.Add(this.pnLeft);
-            this.pnMainLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnMainLeft.Location = new System.Drawing.Point(20, 20);
-            this.pnMainLeft.Name = "pnMainLeft";
-            this.pnMainLeft.Size = new System.Drawing.Size(690, 821);
-            this.pnMainLeft.TabIndex = 34;
-            // 
             // pnlReminders
             // 
             this.pnlReminders.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -921,6 +809,50 @@
             this.pnlReminders.Name = "pnlReminders";
             this.pnlReminders.Size = new System.Drawing.Size(690, 638);
             this.pnlReminders.TabIndex = 1;
+            // 
+            // listBoxReminders
+            // 
+            this.listBoxReminders.Appearance.BorderColor = System.Drawing.Color.Silver;
+            this.listBoxReminders.Appearance.Font = new System.Drawing.Font("LBC", 10.2F);
+            this.listBoxReminders.Appearance.Options.UseBorderColor = true;
+            this.listBoxReminders.Appearance.Options.UseFont = true;
+            this.listBoxReminders.AppearanceSelected.Font = new System.Drawing.Font("LBC", 10.2F);
+            this.listBoxReminders.AppearanceSelected.Options.UseFont = true;
+            this.listBoxReminders.AppearanceSelected.Options.UseTextOptions = true;
+            this.listBoxReminders.AppearanceSelected.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.listBoxReminders.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.listBoxReminders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listBoxReminders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listBoxReminders.ItemHeight = 60;
+            this.listBoxReminders.ItemPadding = new System.Windows.Forms.Padding(5);
+            this.listBoxReminders.Location = new System.Drawing.Point(0, 60);
+            this.listBoxReminders.Name = "listBoxReminders";
+            this.listBoxReminders.Size = new System.Drawing.Size(688, 516);
+            this.listBoxReminders.TabIndex = 3;
+            // 
+            // btnHideReminders
+            // 
+            this.btnHideReminders.Appearance.Font = new System.Drawing.Font("LBC", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHideReminders.Appearance.Options.UseFont = true;
+            this.btnHideReminders.Appearance.Options.UseTextOptions = true;
+            this.btnHideReminders.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.btnHideReminders.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.btnHideReminders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHideReminders.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnHideReminders.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnHideReminders.ImageOptions.Image")));
+            this.btnHideReminders.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnHideReminders.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
+            this.btnHideReminders.Location = new System.Drawing.Point(0, 576);
+            this.btnHideReminders.Name = "btnHideReminders";
+            this.btnHideReminders.Size = new System.Drawing.Size(688, 60);
+            toolTipItem1.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            toolTipItem1.Appearance.Options.UseFont = true;
+            toolTipItem1.Text = "Ready to focus? Click here to hide your tasks and get started.";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.btnHideReminders.SuperTip = superToolTip1;
+            this.btnHideReminders.TabIndex = 2;
+            this.btnHideReminders.Text = "Hide Tasks";
+            this.btnHideReminders.Click += new System.EventHandler(this.btnHideReminders_Click);
             // 
             // labelControl1
             // 
@@ -945,60 +877,61 @@
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "📌 Tasks Due Soon / Overdue:";
             // 
-            // btnHideReminders
+            // pnTop
             // 
-            this.btnHideReminders.Appearance.Font = new System.Drawing.Font("LBC", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHideReminders.Appearance.Options.UseFont = true;
-            this.btnHideReminders.Appearance.Options.UseTextOptions = true;
-            this.btnHideReminders.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.btnHideReminders.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.btnHideReminders.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnHideReminders.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnHideReminders.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCloseReminderPanel.ImageOptions.Image")));
-            this.btnHideReminders.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnHideReminders.ImageOptions.SvgImageSize = new System.Drawing.Size(25, 25);
-            this.btnHideReminders.Location = new System.Drawing.Point(0, 576);
-            this.btnHideReminders.Name = "btnHideReminders";
-            this.btnHideReminders.Size = new System.Drawing.Size(688, 60);
-            toolTipItem1.Appearance.Font = new System.Drawing.Font("LBC", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            toolTipItem1.Appearance.Options.UseFont = true;
-            toolTipItem1.Text = "Ready to focus? Click here to hide your tasks and get started.";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnHideReminders.SuperTip = superToolTip1;
-            this.btnHideReminders.TabIndex = 2;
-            this.btnHideReminders.Text = "Hide Tasks";
-            this.btnHideReminders.Click += new System.EventHandler(this.btnHideReminders_Click);
+            this.pnTop.Controls.Add(this.pnHeaderBottom);
+            this.pnTop.Controls.Add(this.pnHeaderTop);
+            this.pnTop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnTop.Location = new System.Drawing.Point(0, 0);
+            this.pnTop.Name = "pnTop";
+            this.pnTop.Size = new System.Drawing.Size(690, 183);
+            this.pnTop.TabIndex = 35;
             // 
-            // listBoxReminders
+            // pnHeaderBottom
             // 
-            this.listBoxReminders.Appearance.BorderColor = System.Drawing.Color.Silver;
-            this.listBoxReminders.Appearance.Font = new System.Drawing.Font("LBC", 10.2F);
-            this.listBoxReminders.Appearance.Options.UseBorderColor = true;
-            this.listBoxReminders.Appearance.Options.UseFont = true;
-            this.listBoxReminders.AppearanceSelected.Font = new System.Drawing.Font("LBC", 10.2F);
-            this.listBoxReminders.AppearanceSelected.Options.UseFont = true;
-            this.listBoxReminders.AppearanceSelected.Options.UseTextOptions = true;
-            this.listBoxReminders.AppearanceSelected.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.listBoxReminders.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-            this.listBoxReminders.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.listBoxReminders.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxReminders.ItemHeight = 60;
-            this.listBoxReminders.ItemPadding = new System.Windows.Forms.Padding(5);
-            this.listBoxReminders.Location = new System.Drawing.Point(0, 60);
-            this.listBoxReminders.Name = "listBoxReminders";
-            this.listBoxReminders.Size = new System.Drawing.Size(688, 516);
-            this.listBoxReminders.TabIndex = 3;
+            this.pnHeaderBottom.Controls.Add(this.btnMiniTimer);
+            this.pnHeaderBottom.Controls.Add(this.lblTimer);
+            this.pnHeaderBottom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnHeaderBottom.Location = new System.Drawing.Point(0, 100);
+            this.pnHeaderBottom.Name = "pnHeaderBottom";
+            this.pnHeaderBottom.Size = new System.Drawing.Size(690, 83);
+            this.pnHeaderBottom.TabIndex = 27;
             // 
-            // lblAllSessions
+            // btnMiniTimer
             // 
-            this.lblAllSessions.Appearance.Font = new System.Drawing.Font("LBC", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAllSessions.Appearance.Options.UseFont = true;
-            this.lblAllSessions.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.lblAllSessions.Location = new System.Drawing.Point(3, 62);
-            this.lblAllSessions.Name = "lblAllSessions";
-            this.lblAllSessions.Size = new System.Drawing.Size(300, 20);
-            this.lblAllSessions.TabIndex = 4;
-            this.lblAllSessions.Text = "All Sessions";
+            this.btnMiniTimer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMiniTimer.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnMiniTimer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
+            this.btnMiniTimer.Name = "btnMiniTimer";
+            this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
+            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnMiniTimer.SuperTip = superToolTip3;
+            this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
+            this.btnMiniTimer.TabIndex = 3;
+            this.btnMiniTimer.Text = "svgImageBox2";
+            this.btnMiniTimer.Click += new System.EventHandler(this.btnMiniTimer_Click);
+            // 
+            // pnHeaderTop
+            // 
+            this.pnHeaderTop.Controls.Add(this.Welcomelbl);
+            this.pnHeaderTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnHeaderTop.Location = new System.Drawing.Point(0, 0);
+            this.pnHeaderTop.Name = "pnHeaderTop";
+            this.pnHeaderTop.Size = new System.Drawing.Size(690, 100);
+            this.pnHeaderTop.TabIndex = 27;
+            // 
+            // pnMainLeft
+            // 
+            this.pnMainLeft.Controls.Add(this.pnTop);
+            this.pnMainLeft.Controls.Add(this.pnLeft);
+            this.pnMainLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnMainLeft.Location = new System.Drawing.Point(20, 20);
+            this.pnMainLeft.Name = "pnMainLeft";
+            this.pnMainLeft.Size = new System.Drawing.Size(690, 821);
+            this.pnMainLeft.TabIndex = 34;
             // 
             // MainForm
             // 
@@ -1017,10 +950,6 @@
             this.Text = "Study Zone";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
-            ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudBreakSeconds)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spinStudySeconds.Properties)).EndInit();
@@ -1044,14 +973,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.memoTaskDetails.Properties)).EndInit();
             this.pnRight.ResumeLayout(false);
             this.pnLeft.ResumeLayout(false);
+            this.pnlReminders.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.listBoxReminders)).EndInit();
             this.pnTop.ResumeLayout(false);
             this.pnHeaderBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnMiniTimer)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.pnHeaderTop.ResumeLayout(false);
             this.pnMainLeft.ResumeLayout(false);
-            this.pnlReminders.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.listBoxReminders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1061,13 +989,9 @@
 
         private System.Windows.Forms.Label Welcomelbl;
         private System.Windows.Forms.Label lblTimer;
-        private System.Windows.Forms.NumericUpDown nudStudyMinutes;
-        private System.Windows.Forms.NumericUpDown nudBreakMinutes;
         private System.Windows.Forms.Label studyMinuteslbl;
         private System.Windows.Forms.Label breakMinuteslbl;
         private System.Windows.Forms.Timer timerPomodoro;
-        private System.Windows.Forms.NumericUpDown nudStudySeconds;
-        private System.Windows.Forms.NumericUpDown nudBreakSeconds;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1100,7 +1024,6 @@
         private DevExpress.XtraEditors.SimpleButton btnTaskManager;
         private DevExpress.XtraEditors.SvgImageBox svgImageBoxAbout;
         private DevExpress.XtraEditors.CheckEdit chkStartWithWindows;
-        private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
         private DevExpress.XtraEditors.SvgImageBox btnMiniTimer;
         private DevExpress.XtraEditors.SpinEdit spinStudyMinutes;
         private DevExpress.XtraEditors.SpinEdit spinStudySeconds;
