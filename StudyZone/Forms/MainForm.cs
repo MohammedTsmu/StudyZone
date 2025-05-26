@@ -758,6 +758,34 @@ namespace StudyZone
         //        txtTaskDetails.Text = string.Empty;
         //    }
         //}
+        //private void gridViewTasks_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        //{
+        //    var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+        //    if (view != null && view.FocusedRowHandle >= 0)
+        //    {
+        //        var selectedTask = view.GetRow(view.FocusedRowHandle) as TaskItem;
+        //        if (selectedTask != null)
+        //        {
+        //            StringBuilder taskDetails = new StringBuilder();
+        //            taskDetails.AppendLine($"Title: {selectedTask.Title}");
+        //            taskDetails.AppendLine($"Description: {selectedTask.Description}");
+        //            if (selectedTask.DueDate.HasValue)
+        //                taskDetails.AppendLine($"Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
+        //            else
+        //                taskDetails.AppendLine("Due Date: N/A");
+        //            taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
+
+        //            //txtTaskDetails.Text = taskDetails.ToString();
+        //            memoTaskDetails.Text = taskDetails.ToString();
+
+        //        }
+        //    }
+        //    else
+        //    {
+        //        //txtTaskDetails.Text = string.Empty;
+        //        memoTaskDetails.Text = string.Empty;
+        //    }
+        //}
         private void gridViewTasks_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
@@ -767,25 +795,25 @@ namespace StudyZone
                 if (selectedTask != null)
                 {
                     StringBuilder taskDetails = new StringBuilder();
-                    taskDetails.AppendLine($"Title: {selectedTask.Title}");
-                    taskDetails.AppendLine($"Description: {selectedTask.Description}");
+                    taskDetails.AppendLine($"📌 Title: {selectedTask.Title}");
+                    taskDetails.AppendLine($"📝 Description: {selectedTask.Description}");
                     if (selectedTask.DueDate.HasValue)
-                        taskDetails.AppendLine($"Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
+                        taskDetails.AppendLine($"📅 Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
                     else
-                        taskDetails.AppendLine("Due Date: N/A");
-                    taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
+                        taskDetails.AppendLine("📅 Due Date: N/A");
 
-                    //txtTaskDetails.Text = taskDetails.ToString();
+                    taskDetails.AppendLine($"🎯 Assigned Session: {selectedTask.SessionAssignment}");
+                    taskDetails.AppendLine(selectedTask.IsCompleted ? "✅ Status: Completed" : "⏳ Status: Pending");
+
                     memoTaskDetails.Text = taskDetails.ToString();
-
                 }
             }
             else
             {
-                //txtTaskDetails.Text = string.Empty;
                 memoTaskDetails.Text = string.Empty;
             }
         }
+
 
         private void CheckForDueTasks()
         {
