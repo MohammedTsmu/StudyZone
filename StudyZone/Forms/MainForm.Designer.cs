@@ -51,6 +51,7 @@
             this.spinBreakMinutes = new DevExpress.XtraEditors.SpinEdit();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cmbSessions = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnSaveSession = new DevExpress.XtraEditors.SimpleButton();
             this.btnDeleteSession = new DevExpress.XtraEditors.SimpleButton();
             this.txtTaskDetails = new System.Windows.Forms.TextBox();
@@ -60,6 +61,8 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.gridTasks = new DevExpress.XtraGrid.GridControl();
+            this.gridViewTasks = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnStop = new DevExpress.XtraEditors.SimpleButton();
             this.btnPause = new DevExpress.XtraEditors.SimpleButton();
@@ -84,7 +87,6 @@
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
-            this.cmbSessions = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -96,7 +98,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinBreakSeconds.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinBreakMinutes.Properties)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSessions.Properties)).BeginInit();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridTasks)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTasks)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -111,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.pnHeaderTop.SuspendLayout();
             this.pnMainLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbSessions.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // Welcomelbl
@@ -392,6 +396,17 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Study Sessions";
             // 
+            // cmbSessions
+            // 
+            this.cmbSessions.Location = new System.Drawing.Point(7, 30);
+            this.cmbSessions.Name = "cmbSessions";
+            this.cmbSessions.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbSessions.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbSessions.Size = new System.Drawing.Size(125, 22);
+            this.cmbSessions.TabIndex = 20;
+            this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
+            // 
             // btnSaveSession
             // 
             this.btnSaveSession.Appearance.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
@@ -441,13 +456,12 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
-            this.listViewTasks.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listViewTasks.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTasks.FullRowSelect = true;
             this.listViewTasks.HideSelection = false;
             this.listViewTasks.Location = new System.Drawing.Point(10, 33);
             this.listViewTasks.Name = "listViewTasks";
-            this.listViewTasks.Size = new System.Drawing.Size(629, 363);
+            this.listViewTasks.Size = new System.Drawing.Size(629, 137);
             this.listViewTasks.TabIndex = 23;
             this.lblsAndTxtBoxsToolTip.SetToolTip(this.listViewTasks, "Displays selected session registered tasks.");
             this.listViewTasks.UseCompatibleStateImageBehavior = false;
@@ -481,6 +495,7 @@
             // groupBox4
             // 
             this.groupBox4.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.groupBox4.Controls.Add(this.gridTasks);
             this.groupBox4.Controls.Add(this.listViewTasks);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -491,6 +506,22 @@
             this.groupBox4.TabIndex = 28;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tasks";
+            // 
+            // gridTasks
+            // 
+            this.gridTasks.Location = new System.Drawing.Point(14, 214);
+            this.gridTasks.MainView = this.gridViewTasks;
+            this.gridTasks.Name = "gridTasks";
+            this.gridTasks.Size = new System.Drawing.Size(622, 200);
+            this.gridTasks.TabIndex = 24;
+            this.gridTasks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridViewTasks});
+            // 
+            // gridViewTasks
+            // 
+            this.gridViewTasks.GridControl = this.gridTasks;
+            this.gridViewTasks.Name = "gridViewTasks";
+            this.gridViewTasks.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gridViewTasks_FocusedRowChanged);
             // 
             // groupBox5
             // 
@@ -777,17 +808,6 @@
             this.pnMainLeft.Size = new System.Drawing.Size(690, 821);
             this.pnMainLeft.TabIndex = 34;
             // 
-            // cmbSessions
-            // 
-            this.cmbSessions.Location = new System.Drawing.Point(7, 30);
-            this.cmbSessions.Name = "cmbSessions";
-            this.cmbSessions.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbSessions.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbSessions.Size = new System.Drawing.Size(125, 22);
-            this.cmbSessions.TabIndex = 20;
-            this.cmbSessions.SelectedIndexChanged += new System.EventHandler(this.cmbSessions_SelectedIndexChanged);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -818,7 +838,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.spinBreakSeconds.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spinBreakMinutes.Properties)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbSessions.Properties)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridTasks)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewTasks)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
@@ -834,7 +857,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.pnHeaderTop.ResumeLayout(false);
             this.pnMainLeft.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbSessions.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -895,6 +917,8 @@
         private DevExpress.XtraEditors.SpinEdit spinBreakMinutes;
         private DevExpress.XtraEditors.SpinEdit spinBreakSeconds;
         private DevExpress.XtraEditors.ComboBoxEdit cmbSessions;
+        private DevExpress.XtraGrid.GridControl gridTasks;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewTasks;
     }
 }
 

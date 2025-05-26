@@ -658,19 +658,42 @@ namespace StudyZone
             {
                 var tasksForSession = tasks.FindAll(t => t.SessionAssignment == selectedSession.SessionName && !t.IsCompleted);
 
-                listViewTasks.Items.Clear();
-                foreach (var task in tasksForSession)
+                //listViewTasks.Items.Clear();
+                //foreach (var task in tasksForSession)
+                //{
+                //    ListViewItem item = new ListViewItem(task.Title);
+                //    item.SubItems.Add(task.DueDate.HasValue ? task.DueDate.Value.ToShortDateString() : "N/A");
+                //    item.SubItems.Add(GetTaskStatus(task));
+
+                //    // Apply formatting based on due date
+                //    ApplyTaskFormatting(item, task);
+
+                //    item.Tag = task; // Store the TaskItem in the Tag property
+                //    listViewTasks.Items.Add(item);
+                //}
+                gridTasks.DataSource = null;
+                gridTasks.DataSource = tasksForSession;
+
+                //اعدادات الاعمدة
+                var view = gridTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
+                if (view != null)
                 {
-                    ListViewItem item = new ListViewItem(task.Title);
-                    item.SubItems.Add(task.DueDate.HasValue ? task.DueDate.Value.ToShortDateString() : "N/A");
-                    item.SubItems.Add(GetTaskStatus(task));
+                    view.Columns["Title"].Caption = "Title";
+                    view.Columns["DueDate"].Caption = "Due Date";
+                    view.Columns["SessionAssignment"].Caption = "Session";
+                    view.Columns["IsCompleted"].Caption = "Completed";
 
-                    // Apply formatting based on due date
-                    ApplyTaskFormatting(item, task);
+                    view.Columns["DueDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+                    view.Columns["DueDate"].DisplayFormat.FormatString = "d";
 
-                    item.Tag = task; // Store the TaskItem in the Tag property
-                    listViewTasks.Items.Add(item);
+                    view.OptionsView.ShowGroupPanel = false;
+                    view.OptionsBehavior.Editable = false;
+
+                    //// اخفاء الاعمدة التي لا نحتاجها
+                    //view.Columns["Description"].Visible = false;
+
                 }
+
             }
         }
 
@@ -706,26 +729,51 @@ namespace StudyZone
             }
         }
 
-        private void listViewTasks_SelectedIndexChanged(object sender, EventArgs e)
+        //private void listViewTasks_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    if (listViewTasks.SelectedItems.Count > 0)
+        //    {
+        //        ListViewItem selectedItem = listViewTasks.SelectedItems[0];
+        //        if (selectedItem.Tag is TaskItem selectedTask)
+        //        {
+        //            // Display task details
+        //            StringBuilder taskDetails = new StringBuilder();
+        //            taskDetails.AppendLine($"Title: {selectedTask.Title}");
+        //            taskDetails.AppendLine($"Description: {selectedTask.Description}");
+        //            if (selectedTask.DueDate.HasValue)
+        //            {
+        //                taskDetails.AppendLine($"Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
+        //            }
+        //            else
+        //            {
+        //                taskDetails.AppendLine("Due Date: N/A");
+        //            }
+        //            taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
+        //            txtTaskDetails.Text = taskDetails.ToString();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        txtTaskDetails.Text = string.Empty;
+        //    }
+        //}
+        private void gridViewTasks_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (listViewTasks.SelectedItems.Count > 0)
+            var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+            if (view != null && view.FocusedRowHandle >= 0)
             {
-                ListViewItem selectedItem = listViewTasks.SelectedItems[0];
-                if (selectedItem.Tag is TaskItem selectedTask)
+                var selectedTask = view.GetRow(view.FocusedRowHandle) as TaskItem;
+                if (selectedTask != null)
                 {
-                    // Display task details
                     StringBuilder taskDetails = new StringBuilder();
                     taskDetails.AppendLine($"Title: {selectedTask.Title}");
                     taskDetails.AppendLine($"Description: {selectedTask.Description}");
                     if (selectedTask.DueDate.HasValue)
-                    {
                         taskDetails.AppendLine($"Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
-                    }
                     else
-                    {
                         taskDetails.AppendLine("Due Date: N/A");
-                    }
                     taskDetails.AppendLine($"Assigned Session: {selectedTask.SessionAssignment}");
+
                     txtTaskDetails.Text = taskDetails.ToString();
                 }
             }
@@ -1192,5 +1240,7 @@ namespace StudyZone
             About about = new About();
             about.Show();
         }
+
+
     }
 }
