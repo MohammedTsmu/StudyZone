@@ -653,6 +653,7 @@ namespace StudyZone
         private void DisplayTasksForSelectedSession()
         {
             memoTaskDetails.Text = string.Empty; // Clear task details
+            //richTaskDetails.Text = string.Empty; // Clear task details
 
             if (cmbSessions.SelectedItem is StudySession selectedSession)
             {
@@ -717,7 +718,35 @@ namespace StudyZone
             }
         }
 
-        
+
+        //private void gridViewTasks_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        //{
+        //    var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
+        //    if (view != null && view.FocusedRowHandle >= 0)
+        //    {
+        //        var selectedTask = view.GetRow(view.FocusedRowHandle) as TaskItem;
+        //        if (selectedTask != null)
+        //        {
+        //            StringBuilder taskDetails = new StringBuilder();
+        //            taskDetails.AppendLine($"📌 Title: {selectedTask.Title}");
+        //            taskDetails.AppendLine($"📝 Description: {selectedTask.Description}");
+        //            if (selectedTask.DueDate.HasValue)
+        //                taskDetails.AppendLine($"📅 Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
+        //            else
+        //                taskDetails.AppendLine("📅 Due Date: N/A");
+
+        //            taskDetails.AppendLine($"🎯 Assigned Session: {selectedTask.SessionAssignment}");
+        //            taskDetails.AppendLine(selectedTask.IsCompleted ? "✅ Status: Completed" : "⏳ Status: Pending");
+
+        //            memoTaskDetails.Text = taskDetails.ToString();
+        //        }
+        //    }
+        //    else
+        //    {
+        //        memoTaskDetails.Text = string.Empty;
+        //    }
+        //}
+
         private void gridViewTasks_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             var view = sender as DevExpress.XtraGrid.Views.Grid.GridView;
@@ -727,15 +756,30 @@ namespace StudyZone
                 if (selectedTask != null)
                 {
                     StringBuilder taskDetails = new StringBuilder();
-                    taskDetails.AppendLine($"📌 Title: {selectedTask.Title}");
-                    taskDetails.AppendLine($"📝 Description: {selectedTask.Description}");
-                    if (selectedTask.DueDate.HasValue)
-                        taskDetails.AppendLine($"📅 Due Date: {selectedTask.DueDate.Value.ToShortDateString()}");
-                    else
-                        taskDetails.AppendLine("📅 Due Date: N/A");
 
-                    taskDetails.AppendLine($"🎯 Assigned Session: {selectedTask.SessionAssignment}");
-                    taskDetails.AppendLine(selectedTask.IsCompleted ? "✅ Status: Completed" : "⏳ Status: Pending");
+                    // 🔹 السطر الأول: اسم المهمة بشكل واضح
+                    taskDetails.AppendLine($"📌 {selectedTask.Title.ToUpper()}");
+                    taskDetails.AppendLine(new string('~', 35)); // خط فاصل
+
+                    // 📝 الوصف
+                    taskDetails.AppendLine($"📝 Description: {selectedTask.Description}");
+
+                    // 📅 تاريخ الاستحقاق
+                    string dueDateStr = selectedTask.DueDate.HasValue
+                        ? selectedTask.DueDate.Value.ToShortDateString()
+                        : "N/A";
+                    taskDetails.AppendLine($"📅 Due Date: {dueDateStr}");
+
+                    // 🎯 الجلسة المخصصة
+                    taskDetails.AppendLine($"🎯 Session: {selectedTask.SessionAssignment}");
+
+                    // ✅ أو ⏳ أو 🔥 حسب الحالة
+                    if (selectedTask.IsCompleted)
+                        taskDetails.AppendLine("✅ Status: Completed");
+                    else if (selectedTask.DueDate.HasValue && selectedTask.DueDate.Value.Date < DateTime.Today)
+                        taskDetails.AppendLine("🔥 Status: Overdue ❗");
+                    else
+                        taskDetails.AppendLine("⏳ Status: Pending");
 
                     memoTaskDetails.Text = taskDetails.ToString();
                 }
@@ -745,6 +789,8 @@ namespace StudyZone
                 memoTaskDetails.Text = string.Empty;
             }
         }
+
+
 
 
         private void CheckForDueTasks()

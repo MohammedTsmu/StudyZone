@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             this.Welcomelbl = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.nudStudyMinutes = new System.Windows.Forms.NumericUpDown();
@@ -73,6 +73,7 @@
             this.BtnsDetails = new System.Windows.Forms.ToolTip(this.components);
             this.chkBoxsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.memoTaskDetails = new DevExpress.XtraEditors.MemoEdit();
             this.lblsAndTxtBoxsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnRight = new System.Windows.Forms.Panel();
             this.pnLeft = new System.Windows.Forms.Panel();
@@ -82,7 +83,6 @@
             this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
             this.pnHeaderTop = new System.Windows.Forms.Panel();
             this.pnMainLeft = new System.Windows.Forms.Panel();
-            this.memoTaskDetails = new DevExpress.XtraEditors.MemoEdit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudyMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudBreakMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudStudySeconds)).BeginInit();
@@ -104,6 +104,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkStartWithWindows.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBoxAbout)).BeginInit();
             this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.memoTaskDetails.Properties)).BeginInit();
             this.pnRight.SuspendLayout();
             this.pnLeft.SuspendLayout();
             this.pnTop.SuspendLayout();
@@ -112,7 +113,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
             this.pnHeaderTop.SuspendLayout();
             this.pnMainLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoTaskDetails.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // Welcomelbl
@@ -721,6 +721,23 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Task Details";
             // 
+            // memoTaskDetails
+            // 
+            this.memoTaskDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.memoTaskDetails.Location = new System.Drawing.Point(10, 33);
+            this.memoTaskDetails.Name = "memoTaskDetails";
+            this.memoTaskDetails.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
+            this.memoTaskDetails.Properties.Appearance.Options.UseFont = true;
+            this.memoTaskDetails.Properties.AppearanceDisabled.Font = new System.Drawing.Font("LBC", 12F);
+            this.memoTaskDetails.Properties.AppearanceDisabled.Options.UseFont = true;
+            this.memoTaskDetails.Properties.AppearanceFocused.Font = new System.Drawing.Font("LBC", 12F);
+            this.memoTaskDetails.Properties.AppearanceFocused.Options.UseFont = true;
+            this.memoTaskDetails.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("LBC", 12F);
+            this.memoTaskDetails.Properties.AppearanceReadOnly.Options.UseFont = true;
+            this.memoTaskDetails.Properties.ReadOnly = true;
+            this.memoTaskDetails.Size = new System.Drawing.Size(629, 332);
+            this.memoTaskDetails.TabIndex = 23;
+            // 
             // pnRight
             // 
             this.pnRight.Controls.Add(this.groupBox8);
@@ -776,10 +793,10 @@
             this.btnMiniTimer.Location = new System.Drawing.Point(584, 3);
             this.btnMiniTimer.Name = "btnMiniTimer";
             this.btnMiniTimer.Size = new System.Drawing.Size(65, 77);
-            toolTipItem1.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
-            toolTipItem1.Text = "<b><i>Mini Mode</i></b>";
-            superToolTip1.Items.Add(toolTipItem1);
-            this.btnMiniTimer.SuperTip = superToolTip1;
+            toolTipItem3.AllowHtmlText = DevExpress.Utils.DefaultBoolean.True;
+            toolTipItem3.Text = "<b><i>Mini Mode</i></b>";
+            superToolTip3.Items.Add(toolTipItem3);
+            this.btnMiniTimer.SuperTip = superToolTip3;
             this.btnMiniTimer.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnMiniTimer.SvgImage")));
             this.btnMiniTimer.TabIndex = 3;
             this.btnMiniTimer.Text = "svgImageBox2";
@@ -814,23 +831,6 @@
             this.pnMainLeft.Name = "pnMainLeft";
             this.pnMainLeft.Size = new System.Drawing.Size(690, 821);
             this.pnMainLeft.TabIndex = 34;
-            // 
-            // memoTaskDetails
-            // 
-            this.memoTaskDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.memoTaskDetails.Location = new System.Drawing.Point(10, 33);
-            this.memoTaskDetails.Name = "memoTaskDetails";
-            this.memoTaskDetails.Properties.Appearance.Font = new System.Drawing.Font("LBC", 12F);
-            this.memoTaskDetails.Properties.Appearance.Options.UseFont = true;
-            this.memoTaskDetails.Properties.AppearanceDisabled.Font = new System.Drawing.Font("LBC", 12F);
-            this.memoTaskDetails.Properties.AppearanceDisabled.Options.UseFont = true;
-            this.memoTaskDetails.Properties.AppearanceFocused.Font = new System.Drawing.Font("LBC", 12F);
-            this.memoTaskDetails.Properties.AppearanceFocused.Options.UseFont = true;
-            this.memoTaskDetails.Properties.AppearanceReadOnly.Font = new System.Drawing.Font("LBC", 12F);
-            this.memoTaskDetails.Properties.AppearanceReadOnly.Options.UseFont = true;
-            this.memoTaskDetails.Properties.ReadOnly = true;
-            this.memoTaskDetails.Size = new System.Drawing.Size(629, 332);
-            this.memoTaskDetails.TabIndex = 23;
             // 
             // MainForm
             // 
@@ -872,6 +872,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkStartWithWindows.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBoxAbout)).EndInit();
             this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.memoTaskDetails.Properties)).EndInit();
             this.pnRight.ResumeLayout(false);
             this.pnLeft.ResumeLayout(false);
             this.pnTop.ResumeLayout(false);
@@ -880,7 +881,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
             this.pnHeaderTop.ResumeLayout(false);
             this.pnMainLeft.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoTaskDetails.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
