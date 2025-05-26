@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace StudyZone
@@ -11,47 +12,6 @@ namespace StudyZone
         private List<StudySession> sessions;
         private bool rowStyleAttached = false;
 
-        //public TaskManagerForm(List<TaskItem> tasksList, Action saveTasksAction, List<StudySession> sessionsList)
-        //{
-        //    InitializeComponent();
-        //    tasks = tasksList;
-        //    saveTasksToFile = saveTasksAction;
-        //    sessions = sessionsList;
-
-        //    // Initialize session filter
-        //    cmbSessionFilter.Items.Add("All Sessions");
-        //    foreach (var session in sessions)
-        //    {
-        //        cmbSessionFilter.Items.Add(session.SessionName);
-        //    }
-        //    cmbSessionFilter.SelectedIndex = 0; // Default to 'All Sessions'
-
-        //    // Initialize due date filter
-        //    cmbDueDateFilter.Items.AddRange(new string[] { "Any Time", "Today", "This Week", "This Month", "Overdue" });
-        //    cmbDueDateFilter.SelectedIndex = 0; // Default to 'Any Time'
-
-        //    // Initialize sorting ComboBox
-        //    cmbSortBy.Items.AddRange(new string[] { "Title", "Due Date", "Status" });
-        //    cmbSortBy.SelectedIndex = 0; // Default to 'Title'
-
-
-        //    //To Be Deleted //To Be Deleted //To Be Deleted //To Be Deleted //To Be Deleted 
-        //    //To Be Deleted //To Be Deleted //To Be Deleted //To Be Deleted //To Be Deleted 
-        //    // Attach event handlers AFTER initialization
-        //    //chkShowCompleted.CheckedChanged += chkShowCompleted_CheckedChanged;
-        //    //cmbSortBy.SelectedIndexChanged += cmbSortBy_SelectedIndexChanged;
-        //    //cmbSessionFilter.SelectedIndexChanged += cmbSessionFilter_SelectedIndexChanged;
-        //    //cmbDueDateFilter.SelectedIndexChanged += cmbDueDateFilter_SelectedIndexChanged;
-
-
-        //    //// Attach event handlers AFTER initialization
-        //    comboSessionFilter.SelectedIndexChanged += cmbSessionFilter_SelectedIndexChanged;
-        //    comboDueDateFilter.SelectedIndexChanged += cmbDueDateFilter_SelectedIndexChanged;
-        //    comboSortBy.SelectedIndexChanged += cmbSortBy_SelectedIndexChanged;
-        //    checkShowCompleted.CheckedChanged += chkShowCompleted_CheckedChanged;
-
-        //    LoadTasks();
-        //}
         public TaskManagerForm(List<TaskItem> tasksList, Action saveTasksAction, List<StudySession> sessionsList)
         {
             InitializeComponent();
@@ -159,27 +119,6 @@ namespace StudyZone
         }
 
 
-        //private void btnMarkCompleted_Click(object sender, EventArgs e)
-        //{
-        //    var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
-        //    if (view != null && view.FocusedRowHandle >= 0)
-        //    {
-        //        var selectedTask = view.GetRow(view.FocusedRowHandle) as TaskItem;
-
-        //        if (selectedTask != null)
-        //        {
-        //            selectedTask.IsCompleted = true;
-        //            saveTasksToFile();
-        //            LoadTasks();
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Please select a task to mark as completed.", "Mark as Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //    }
-        //}
-
-
 
 
         private void btnToggleCompleted_Click(object sender, EventArgs e)
@@ -212,40 +151,49 @@ namespace StudyZone
 
 
 
+
         //private void LoadTasks()
         //{
-        //    // Apply filters
         //    List<TaskItem> displayedTasks = new List<TaskItem>();
 
-        //    //string sessionFilter = cmbSessionFilter.SelectedItem as string ?? "All Sessions";
         //    string sessionFilter = comboSessionFilter.SelectedItem?.ToString() ?? "All Sessions";
-
-        //    string dueDateFilter = cmbDueDateFilter.SelectedItem as string ?? "Any Time";
-
+        //    string dueDateFilter = comboDueDateFilter.SelectedItem?.ToString() ?? "Any Time";
 
         //    foreach (var task in tasks)
         //    {
-        //        // Filter by completion status
-        //        //if (!chkShowCompleted.Checked && task.IsCompleted)
+        //        // فلترة حسب إظهار المهام المكتملة
         //        if (!checkShowCompleted.Checked && task.IsCompleted)
         //            continue;
 
-        //        // Filter by session assignment
+        //        //// فلترة حسب الجلسة
+        //        //if (sessionFilter != "All Sessions" && task.SessionAssignment != sessionFilter)
+        //        //    continue;
+
+
+        //        //if (sessionFilter != "All Sessions")
+        //        //{
+        //        //    // ✅ المهام المرتبطة بجلسة مختلفة أو التي ليست مخصصة لجلسة معينة يتم استثناؤها
+        //        //    if (!string.Equals(task.SessionAssignment, sessionFilter, StringComparison.OrdinalIgnoreCase))
+        //        //        continue;
+        //        //}
+
         //        if (sessionFilter != "All Sessions")
         //        {
-        //            if (task.SessionAssignment != sessionFilter)
+        //            // ✅ استبعاد المهام اللي لا تنتمي للجلسة المختارة أو مهام عامة
+        //            if (string.IsNullOrEmpty(task.SessionAssignment) || task.SessionAssignment != sessionFilter)
         //                continue;
         //        }
 
-        //        // Filter by due date
+
+        //        // فلترة حسب التاريخ
         //        if (!IsTaskWithinDueDateFilter(task, dueDateFilter))
         //            continue;
 
         //        displayedTasks.Add(task);
         //    }
 
-        //    // Apply sorting
-        //    switch (cmbSortBy.SelectedItem as string)
+        //    // ترتيب حسب الاختيار
+        //    switch (comboSortBy.SelectedItem?.ToString())
         //    {
         //        case "Title":
         //            displayedTasks.Sort((x, y) => x.Title.CompareTo(y.Title));
@@ -256,15 +204,13 @@ namespace StudyZone
         //        case "Status":
         //            displayedTasks.Sort((x, y) => x.IsCompleted.CompareTo(y.IsCompleted));
         //            break;
-        //        default:
-        //            // Default sorting if none selected
-        //            break;
         //    }
 
+        //    // ربط البيانات بـ GridControl
         //    gridControlTasks.DataSource = null;
         //    gridControlTasks.DataSource = displayedTasks;
 
-
+        //    // إعداد الأعمدة
         //    var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
         //    if (view != null)
         //    {
@@ -273,10 +219,9 @@ namespace StudyZone
 
         //        view.Columns["DueDate"].Caption = "Due Date";
         //        view.Columns["DueDate"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-        //        view.Columns["DueDate"].DisplayFormat.FormatString = "d"; // Short date
+        //        view.Columns["DueDate"].DisplayFormat.FormatString = "d";
 
         //        view.Columns["IsCompleted"].Caption = "Completed";
-
         //        view.Columns["SessionAssignment"].Caption = "Assigned Session";
         //        view.Columns["SessionAssignment"].Width = 190;
 
@@ -286,7 +231,20 @@ namespace StudyZone
         //        view.OptionsView.ShowGroupPanel = false;
         //        view.OptionsBehavior.Editable = false;
 
+        //        // إظهار فلترة تلقائية
+        //        view.OptionsView.ShowAutoFilterRow = true;
+
+        //        view.CustomColumnDisplayText += (s, e) =>
+        //        {
+        //            if (e.Column.FieldName == "SessionAssignment" && string.IsNullOrEmpty(Convert.ToString(e.Value)))
+        //            {
+        //                e.DisplayText = "All Sessions";
+        //            }
+        //        };
+
         //    }
+
+        //    // تخصيص الصف المكتمل بلون مختلف
         //    if (!rowStyleAttached)
         //    {
         //        gridViewTasks.RowStyle += (s, e) =>
@@ -302,11 +260,10 @@ namespace StudyZone
         //                e.HighPriority = true;
         //            }
         //        };
-
         //        rowStyleAttached = true;
         //    }
-
         //}
+
         private void LoadTasks()
         {
             List<TaskItem> displayedTasks = new List<TaskItem>();
@@ -316,22 +273,25 @@ namespace StudyZone
 
             foreach (var task in tasks)
             {
-                // فلترة حسب إظهار المهام المكتملة
+                // ✅ إخفاء المهام المكتملة إذا لم يُطلب عرضها
                 if (!checkShowCompleted.Checked && task.IsCompleted)
                     continue;
 
-                // فلترة حسب الجلسة
-                if (sessionFilter != "All Sessions" && task.SessionAssignment != sessionFilter)
-                    continue;
+                // ✅ فلترة حسب الجلسة (مع دعم المهام العامة)
+                if (sessionFilter != "All Sessions")
+                {
+                    if (string.IsNullOrEmpty(task.SessionAssignment) || task.SessionAssignment != sessionFilter)
+                        continue;
+                }
 
-                // فلترة حسب التاريخ
+                // ✅ فلترة حسب التاريخ
                 if (!IsTaskWithinDueDateFilter(task, dueDateFilter))
                     continue;
 
                 displayedTasks.Add(task);
             }
 
-            // ترتيب حسب الاختيار
+            // ✅ ترتيب المهام حسب الاختيار
             switch (comboSortBy.SelectedItem?.ToString())
             {
                 case "Title":
@@ -345,11 +305,10 @@ namespace StudyZone
                     break;
             }
 
-            // ربط البيانات بـ GridControl
+            // ✅ ربط البيانات
             gridControlTasks.DataSource = null;
             gridControlTasks.DataSource = displayedTasks;
 
-            // إعداد الأعمدة
             var view = gridControlTasks.MainView as DevExpress.XtraGrid.Views.Grid.GridView;
             if (view != null)
             {
@@ -369,34 +328,50 @@ namespace StudyZone
 
                 view.OptionsView.ShowGroupPanel = false;
                 view.OptionsBehavior.Editable = false;
-
-                // إظهار فلترة تلقائية
                 view.OptionsView.ShowAutoFilterRow = true;
-            }
 
-            // تخصيص الصف المكتمل بلون مختلف
-            if (!rowStyleAttached)
-            {
-                gridViewTasks.RowStyle += (s, e) =>
+                // ✅ إظهار "All Sessions" بدلًا من القيمة الفارغة
+                view.CustomColumnDisplayText += (s, e) =>
                 {
-                    var gridViewLocal = s as DevExpress.XtraGrid.Views.Grid.GridView;
-                    if (gridViewLocal == null) return;
-
-                    var task = gridViewLocal.GetRow(e.RowHandle) as TaskItem;
-                    if (task != null && task.IsCompleted)
+                    if (e.Column.FieldName == "SessionAssignment" && string.IsNullOrEmpty(Convert.ToString(e.Value)))
                     {
-                        e.Appearance.BackColor = System.Drawing.Color.LightGray;
-                        e.Appearance.ForeColor = System.Drawing.Color.DarkGray;
-                        e.HighPriority = true;
+                        e.DisplayText = "All Sessions";
                     }
                 };
-                rowStyleAttached = true;
+
+                // ✅ تلوين الصفوف حسب الحالة
+                if (!rowStyleAttached)
+                {
+                    view.RowStyle += (s, e) =>
+                    {
+                        var gridViewLocal = s as DevExpress.XtraGrid.Views.Grid.GridView;
+                        if (gridViewLocal == null || e.RowHandle < 0) return;
+
+                        var task = gridViewLocal.GetRow(e.RowHandle) as TaskItem;
+                        if (task == null) return;
+
+                        if (task.IsCompleted)
+                        {
+                            e.Appearance.BackColor = Color.LightGreen;
+                        }
+                        else if (string.IsNullOrEmpty(task.SessionAssignment))
+                        {
+                            e.Appearance.BackColor = Color.LightSkyBlue;
+                        }
+                        else if (task.DueDate.HasValue && task.DueDate.Value.Date < DateTime.Today)
+                        {
+                            e.Appearance.BackColor = Color.MistyRose;
+                        }
+                        else if (task.DueDate.HasValue && (task.DueDate.Value.Date - DateTime.Today).TotalDays <= 3)
+                        {
+                            e.Appearance.BackColor = Color.LightYellow;
+                        }
+                    };
+
+                    rowStyleAttached = true;
+                }
             }
         }
-
-
-
-
 
 
 
