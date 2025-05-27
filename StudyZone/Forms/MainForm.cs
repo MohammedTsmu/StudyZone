@@ -12,6 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using IWshRuntimeLibrary;
 using static System.Collections.Specialized.BitVector32;
 using System.Reflection;
+using System.Media;
 
 
 
@@ -41,7 +42,8 @@ namespace StudyZone
         //Fields to Track Pause Duration and Reminders
         private Timer pauseDurationTimer;
         private int pauseDurationInSeconds = 0;
-        private int pauseReminderThreshold = 300; // Time in seconds after which to start reminders (e.g., 300 seconds = 5 minutes)
+        //private int pauseReminderThreshold = 300; // Time in seconds after which to start reminders (e.g., 300 seconds = 5 minutes)
+        private int pauseReminderThreshold = 60; // Time in seconds after which to start reminders (e.g., 300 seconds = 5 minutes)
         private int pauseReminderInterval = 120; // Reminder interval in seconds (e.g., 120 seconds = 2 minutes)
         //pauseDurationTimer: A timer to track how long the session has been paused.
         //pauseDurationInSeconds: Counter to keep track of the paused duration.
@@ -51,6 +53,7 @@ namespace StudyZone
         //Note: To use FlashWindow, you need to import the function from user32.dll:
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         static extern bool FlashWindow(IntPtr hwnd, bool bInvert);
+        private SoundPlayer alertPlayer;
 
 
         public MainForm()
@@ -64,6 +67,9 @@ namespace StudyZone
             LoadRemindersFromFile();
             LoadSettings();
             InitializeTrayMenu();
+
+            // تهيئة مشغل الصوت من الموارد
+            alertPlayer = new SoundPlayer(Properties.Resources.AlertSound);
 
             //تايمر للتاسكات المتاخرة
             taskReminderPanelTimer = new Timer();
@@ -1010,6 +1016,9 @@ namespace StudyZone
 
         private void ShowNotification(string message)
         {
+            // تشغيل الصوت مرة واحدة
+            alertPlayer.Play();
+
             // Display a balloon tip notification
             notifyIcon.Visible = true; // Ensure the icon is visible
             notifyIcon.BalloonTipTitle = "StudyZone Reminder";
@@ -1363,7 +1372,9 @@ namespace StudyZone
             notifyIcon.BalloonTipTitle = "StudyZone - Session Paused";
             notifyIcon.BalloonTipText = "Your study session has been paused. Don't forget to resume!";
             notifyIcon.ShowBalloonTip(10000); // Display for 10 seconds
-
+            
+            // تشغيل الصوت قبل الفلاش
+            alertPlayer.Play();
             // Optionally, you can play a sound or bring the application to the front
             // For example, you can flash the taskbar icon:
             FlashWindow(this.Handle, true);

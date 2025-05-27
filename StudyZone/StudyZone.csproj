@@ -480,6 +480,7 @@
     <Content Include="Music\wherex27s-my-love-soft-piano-music-248975.wav">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\AlertSound.wav" />
     <None Include="Resources\Bell_Png_32.png" />
     <None Include="Resources\About.png" />
     <None Include="Resources\Empty Hourglass_PNG_100.png" />
