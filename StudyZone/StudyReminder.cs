@@ -14,6 +14,6 @@ namespace StudyZone
         {
             string status = IsEnabled ? "Enabled" : "Disabled";
             return $"{ReminderName} at {ReminderTime.ToShortTimeString()} {(IsRecurring ? "(Daily)" : "")} - {status}";
-        }   
+        }
     }
 }

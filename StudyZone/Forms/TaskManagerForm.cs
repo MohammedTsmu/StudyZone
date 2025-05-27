@@ -432,7 +432,7 @@ namespace StudyZone
             LoadTasks();
         }
 
-       
+
         private void cmbSessionFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboSessionFilter.SelectedItem != null)

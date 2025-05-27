@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Media;
 using System.Text;
 using System.Windows.Forms;
-using System.Xml.Schema;
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.ApplicationServices;
-using Newtonsoft.Json;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using IWshRuntimeLibrary;
-using static System.Collections.Specialized.BitVector32;
-using System.Reflection;
-using System.Media;
+using Microsoft.VisualBasic;
+using Newtonsoft.Json;
 
 
 
@@ -93,7 +88,7 @@ namespace StudyZone
             StartReminderTimer();
         }
 
-        
+
         private void timerPomodoro_Tick(object sender, EventArgs e)
         {
             if (totalSeconds > 0)
@@ -336,7 +331,7 @@ namespace StudyZone
             }
         }
 
-        
+
         private void UpdateTimerLabel()
         {
             int hours = totalSeconds / 3600;
@@ -866,7 +861,7 @@ namespace StudyZone
         }
 
 
-        
+
 
         private void gridViewTasks_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
@@ -911,7 +906,7 @@ namespace StudyZone
             }
         }
 
-       
+
         private void ShowTaskRemindersInPanel()
         {
             listBoxReminders.Items.Clear();
@@ -1190,7 +1185,7 @@ namespace StudyZone
             // Hide the notify icon
             notifyIcon.Visible = false;
         }
-        
+
         private void Exit_Click(object sender, EventArgs e)
         {
             // Trigger the form closing event
@@ -1371,7 +1366,7 @@ namespace StudyZone
             notifyIcon.BalloonTipTitle = "StudyZone - Session Paused";
             notifyIcon.BalloonTipText = "Your study session has been paused. Don't forget to resume!";
             notifyIcon.ShowBalloonTip(10000); // Display for 10 seconds
-            
+
             // تشغيل الصوت قبل الفلاش
             alertPlayer.Play();
             // Optionally, you can play a sound or bring the application to the front
