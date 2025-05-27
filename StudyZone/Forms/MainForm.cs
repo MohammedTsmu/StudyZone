@@ -42,8 +42,7 @@ namespace StudyZone
         //Fields to Track Pause Duration and Reminders
         private Timer pauseDurationTimer;
         private int pauseDurationInSeconds = 0;
-        //private int pauseReminderThreshold = 300; // Time in seconds after which to start reminders (e.g., 300 seconds = 5 minutes)
-        private int pauseReminderThreshold = 60; // Time in seconds after which to start reminders (e.g., 300 seconds = 5 minutes)
+        private int pauseReminderThreshold = 300; // Time in seconds after which to start reminders (e.g., 300 seconds = 5 minutes)
         private int pauseReminderInterval = 120; // Reminder interval in seconds (e.g., 120 seconds = 2 minutes)
         //pauseDurationTimer: A timer to track how long the session has been paused.
         //pauseDurationInSeconds: Counter to keep track of the paused duration.
