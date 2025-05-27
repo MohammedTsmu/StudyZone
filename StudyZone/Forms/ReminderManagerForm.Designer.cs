@@ -152,7 +152,8 @@
             this.listBoxReminders.AppearanceSelected.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.listBoxReminders.AppearanceSelected.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
             this.listBoxReminders.AppearanceSelected.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-            this.listBoxReminders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listBoxReminders.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+            this.listBoxReminders.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.listBoxReminders.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listBoxReminders.HotTrackItems = true;
             this.listBoxReminders.HotTrackSelectMode = DevExpress.XtraEditors.HotTrackSelectMode.SelectItemOnClick;

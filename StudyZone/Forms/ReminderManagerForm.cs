@@ -115,36 +115,51 @@ namespace StudyZone
         //دالة لرسم العناصر في ListBox باستخدام DevExpress
         private void listBoxReminders_DrawItem(object sender, DevExpress.XtraEditors.ListBoxDrawItemEventArgs e)
         {
-            var item = e.Item as StudyReminder;
+            // 1. احصل على العنصر
+            var list = sender as DevExpress.XtraEditors.ListBoxControl;
+            var item = list.GetItem(e.Index) as StudyReminder;
             if (item == null) return;
 
-            // تحديد ألوان حسب حالة التذكير
-            Color textColor = item.IsEnabled ? Color.Black : Color.DarkGray;
+            // 2. اكتشف ما إذا كان العنصر محدداً
+            bool isSelected = (e.State & DrawItemState.Selected) == DrawItemState.Selected;
 
-            // رسم الخلفية (DevExpress يرسمها تلقائيًا لكن نثبتها لو نحب)
-            e.Appearance.DrawBackground(e.Cache, e.Bounds);
+            // 3. اختر لون الخلفية
+            Color backColor = isSelected
+                ? SystemColors.Highlight
+                : e.Appearance.BackColor;
+            using (var backBrush = new SolidBrush(backColor))
+                e.Cache.FillRectangle(backBrush, e.Bounds);
 
-            // رسم الأيقونة
-            Image icon = Properties.Resources.Bell_Png_32; // تأكد أن الصورة موجودة داخل Resources
+            // 4. رسم الأيقونة
+            Image icon = Properties.Resources.Bell_Png_32;
             int iconSize = 16;
-            int iconPadding = 4;
-            int iconX = e.Bounds.Left + iconPadding;
+            int padding = 4;
+            int iconX = e.Bounds.Left + padding;
             int iconY = e.Bounds.Top + (e.Bounds.Height - iconSize) / 2;
-
             e.Cache.Graphics.DrawImage(icon, iconX, iconY, iconSize, iconSize);
 
-            // رسم النص
-            Rectangle textRect = new Rectangle(iconX + iconSize + iconPadding, e.Bounds.Top, e.Bounds.Width, e.Bounds.Height);
-            e.Cache.Graphics.DrawString(
-                item.ToString(),
-                e.Appearance.Font,
-                new SolidBrush(textColor),
-                textRect
-            );
+            // 5. رسم النص
+            Color textColor = !item.IsEnabled
+                ? Color.DarkGray
+                : isSelected
+                    ? SystemColors.HighlightText
+                    : Color.Black;
+            int textX = iconX + iconSize + padding;
+            int textWidth = e.Bounds.Width - (textX - e.Bounds.Left) - padding;
+            var textRect = new Rectangle(textX, e.Bounds.Top, textWidth, e.Bounds.Height);
+            using (var textBrush = new SolidBrush(textColor))
+                e.Cache.Graphics.DrawString(
+                    item.ToString(),
+                    e.Appearance.Font,
+                    textBrush,
+                    textRect);
 
-            e.Handled = true; // بلغ DevExpress أننا رسمنا العنصر بأنفسنا
+            // 6. رسم مستطيل التركيز للعناصر المحددة
+            if (isSelected)
+                System.Windows.Forms.ControlPaint.DrawFocusRectangle(e.Cache.Graphics, e.Bounds);
+
+            // أخبر DevExpress أنّنا تولّينا الرسم
+            e.Handled = true;
         }
-
-
     }
 }
